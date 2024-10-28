@@ -1,0 +1,350 @@
+.reviews-map {
+
+  /* .section-map__container */
+  &__container {
+    @include adaptiveValue("padding-top", 101, 45);
+    position: relative;
+    z-index: 100;
+  }
+
+  &__image {
+    position: relative;
+    display: inline-flex;
+
+    svg {
+      @include adaptiveValue("width", 112, 74);
+    }
+
+    img {
+      position: absolute;
+      @include adaptiveValue("top", 6, 25);
+      @include adaptiveValue("left", 6, 4);
+      @include adaptiveValue("width", 100, 66);
+    }
+  }
+
+  /* .reviews-map__body */
+  &__body {
+    display: grid;
+    grid-template-columns: auto 32.357%;
+
+    @media (max-width:$tablet) {
+      grid-template-columns: auto;
+      grid-template-rows: 1fr auto;
+    }
+  }
+
+  /* .reviews-map__media */
+  &__media {
+    position: relative;
+
+    @media (max-width:$tablet) {
+      min-height: toRem(103);
+    }
+  }
+
+  /* .reviews-map__person */
+  &__person {
+    position: absolute;
+    cursor: pointer;
+    pointer-events: fill;
+
+    &:hover {
+      .reviews-map__image {
+        svg {
+          path {
+            transition: fill .4s ease;
+            fill: red;
+          }
+        }
+
+        svg {
+          circle {
+            transition: fill .4s ease;
+            fill: red;
+          }
+        }
+      }
+    }
+
+    /* .reviews-map__person_1 */
+    &_1 {
+      left: -11.8%;
+      bottom: 27.6%;
+
+      @media (max-width: em(1650)) {
+        left: -6%;
+      }
+
+      @media (max-width:$tablet) {
+        left: 0;
+        bottom: -199.4%;
+      }
+    }
+
+    &_2 {
+      left: 3.3%;
+      top: 19%;
+
+      @media (max-width:$tablet) {
+        left: 10.6%;
+        top: 14.8%;
+      }
+    }
+
+    &_3 {
+      right: 43.2%;
+      top: 7%;
+
+      @media (max-width:$tablet) {
+        right: 37.3%;
+        top: 148%;
+      }
+    }
+
+    &_4 {
+      left: 9.2%;
+      bottom: -8%;
+
+      @media (max-width:$tablet) {
+        left: 49.6%;
+        bottom: -126.6%;
+      }
+    }
+
+    &_5 {
+      left: 15.2%;
+      bottom: 11.7%;
+
+      @media (max-width:$tablet) {
+        left: 35.2%;
+        bottom: -15.3%;
+      }
+    }
+
+    &_6 {
+      left: 26.3%;
+      bottom: -3.5%;
+
+      @media (max-width:$tablet) {
+        left: 90.3%;
+        bottom: -156.5%;
+      }
+    }
+
+    &_7 {
+      right: 20.1%;
+      bottom: 11.7%;
+
+      @media (max-width:$tablet) {
+        right: -4.9%;
+      }
+    }
+  }
+
+  /* .reviews-map__image */
+  &__image {
+
+    svg {
+      path {
+        transition: fill .3s ease;
+      }
+    }
+
+    svg {
+      circle {
+        transition: fill .3s ease;
+      }
+    }
+  }
+
+  /* .reviews-map__info */
+  &__info {
+    min-height: 622px;
+    align-self: end;
+
+    @media (max-width:$tablet) {
+      display: grid;
+    }
+  }
+
+  /* .reviews-map__box */
+  &__box {
+    position: relative;
+    @include adaptiveValue("padding-top", 40, 25);
+    @include adaptiveValue("padding-right", 46, 30);
+    @include adaptiveValue("padding-left", 58, 24);
+    @include adaptiveValue("padding-bottom", 80, 52);
+    justify-self: end;
+
+    background-color: #fff;
+    display: none;
+
+    transition: all 0.3s;
+
+    @media (max-width:$tablet) {
+      align-self: end;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('@img/map/bg-light.svg') 0 0 no-repeat;
+      background-size: cover;
+      // transform: translate(-70px, -26px);
+      // transform: translate(-15.7%, -6.4%);
+      z-index: -1;
+
+      // @media (max-width:$tablet) {
+      //   background: $mainColor;
+      //   width: 111%;
+      // }
+
+      // @media (max-width:$mobile) {
+      //   width: 100%;
+      //   transform: translate(-11.7%, -3.4%);
+      // }
+    }
+
+    &_1.active {
+      display: block;
+    }
+
+    &_2.active {
+      display: block;
+    }
+
+    &_3.active {
+      display: block;
+    }
+
+    &_4.active {
+      display: block;
+    }
+
+    &_5.active {
+      display: block;
+    }
+
+    &_6.active {
+      display: block;
+    }
+
+    &_7.active {
+      display: block;
+    }
+  }
+
+  /* .reviews-map__head */
+  &__head {
+    display: flex;
+    align-items: center;
+    column-gap: toRem(22);
+    margin-bottom: toRem(28);
+
+    img {
+      border-radius: 50%;
+      width: toRem(76);
+      height: toRem(76);
+    }
+  }
+
+  /* .reviews-map__wrap-head */
+  &__wrap-head {
+    width: 100%;
+
+    @media (min-width:em(1280)) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  /* .reviews-map__name */
+  &__value {
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: $mainColor;
+  }
+
+  /* .reviews-map__data */
+  &__data {
+    display: flex;
+    padding-top: toRem(7);
+    font-size: toRem(12);
+    font-weight: 400;
+    color: $mainColor;
+    line-height: 217%;
+    letter-spacing: 0.03em;
+    gap: toRem(15);
+
+    @media (min-width:em(1280)) {
+      justify-content: space-between;
+      padding-top: toRem(0);
+    }
+  }
+
+  /* .reviews-map__rating */
+  &__rating {}
+
+  &__yandex {
+    font-weight: 600;
+    color: $subColor;
+    text-decoration: underline;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  /* .reviews-map__review */
+  &__review {
+    font-size: toRem(16);
+    color: $mainColor;
+    line-height: 162%;
+    letter-spacing: 0.03em;
+
+    p {
+      &:not(:last-child) {
+        display: block;
+        @include adaptiveValue("margin-bottom", 30, 25);
+      }
+    }
+  }
+}
+
+.map {
+  position: absolute;
+  @include adaptiveValue("height", 860, 900);
+  
+  width: 100%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 17, 26, 0.5);
+    z-index: 20;
+    pointer-events: none;
+  }
+}
+
+[class*="copyright__link"] {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+[class*="gototech"] {
+  display: none !important;
+}
+
+[class*="ground-pane"] {
+  // filter: invert(25%) grayscale(2) sepia(60%);
+  // filter: invert(80%);
+  // display: none;
+  // opacity: .5;
+}

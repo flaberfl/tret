@@ -1,0 +1,95 @@
+.faq {
+  padding-top: toRem(92);
+  @include adaptiveValue("padding-top", 92, 64);
+  @include adaptiveValue("padding-bottom", 100, 75);
+
+  background: url('@img/faq/bg.jpg') 0 0 no-repeat;
+  background-size: cover;
+
+  /* .faq__container */
+  &__container {}
+
+  /* .faq__title */
+  &__title {
+    @include adaptiveValue("margin-bottom", 32, 26);
+  }
+
+  /* .faq__spollers */
+  &__spollers {
+    gap: toRem(12);
+  }
+
+  /* .faq__name */
+  &__name {
+    padding-top: toRem(17);
+    padding-bottom: toRem(15);
+    @include adaptiveValue("padding-right", 66, 20);
+    padding-left: toRem(14);
+    @include adaptiveValue("gap", 35, 19);
+
+    background-color: #fff;
+
+    @include adaptiveValue("font-size", 18, 16);
+    color: $mainColor;
+    font-weight: 800;
+
+    @media (min-width:$mobile) {
+      width: fit-content;
+    }
+
+    &._spoller-active {
+      background-color: #363949;
+      color: #fff;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    align-self: start;
+    width: toRem(93);
+    height: toRem(60);
+    border: 1px solid $mainColor;
+    transform: rotate(-90deg);
+    flex: 0 0 55px;
+
+    transition: all 0.3s;
+
+    svg {
+      path {
+        fill: $mainColor;
+      }
+    }
+
+    ._spoller-active & {
+      width: 87px;
+      height: 88px;
+      border: 1px solid #fff;
+      transform: rotate(0deg);
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+
+  /* .faq__body */
+  &__body {
+    @include adaptiveValue("padding-left", 42, 0);
+    @include adaptiveValue("padding-top", 32, 24);
+    @include adaptiveValue("padding-bottom", 32, 24);
+
+    @include adaptiveValue("font-size", 18, 16);
+    letter-spacing: .03em;
+    font-weight: 400;
+  }
+}

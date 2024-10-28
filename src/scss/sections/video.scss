@@ -1,0 +1,165 @@
+.video {
+  @include adaptiveValue("padding-top", 125, 91);
+  @include adaptiveValue("padding-bottom", 176, 110);
+
+  /* .video__container */
+  &__container {}
+
+  /* .video__title */
+  &__title {
+    @include adaptiveValue("margin-bottom", 73, 32);
+  }
+
+  /* .video__slider */
+  &__slider {
+    position: relative;
+
+    @media (max-width:$mobile) {
+      height: toRem(432);
+    }
+  }
+
+  /* .video__image-ibg */
+  &__image-ibg {
+    padding-bottom: 56.285%;
+
+    @media (max-width:$mobile) {
+      padding-bottom: 135%;
+    }
+  }
+
+  /* .video__overlay */
+  &__overlay {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 17, 26, 0.5);
+  }
+
+  /* .video__text */
+  &__text {
+    display: grid;
+    @include adaptiveValue("gap", 9, 6);
+    position: absolute;
+    @include adaptiveValue("top", 34, 16);
+    @include adaptiveValue("left", 45, 22);
+
+
+    @include adaptiveValue("font-size", 22, 14);
+    letter-spacing: .03em;
+  }
+
+  /* .video__name */
+  &__name {
+    font-weight: 900;
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include adaptiveValue("width", 172, 140);
+    @include adaptiveValue("height", 172, 140);
+
+    border-radius: 50%;
+    transform-origin: center;
+    background: rgba(255, 255, 255, 0.3);
+    // animation: annoying .4s ease-in infinite alternate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 78%;
+      height: 78%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 59%;
+      height: 59%;
+      border-radius: 50%;
+      background: $gradientBlock;
+    }
+
+    @media (max-width:$mobile) {
+      top: toRem(210);
+    }
+  }
+
+  /* .video__circle */
+  &__circle {
+    svg {
+      position: relative;
+      z-index: 50;
+    }
+  }
+
+  @keyframes backgroundZoom {
+    from {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    to {
+      -webkit-transform: scale(1.3);
+      transform: scale(1.3);
+    }
+  }
+
+  &__swiper-button-prev,
+  &__swiper-button-next {
+    display: inline-flex;
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
+
+    @media (max-width:$mobile) {
+      display: none;
+    }
+  }
+
+  /* .video__swiper-button-prev */
+  &__swiper-button-prev {
+    right: auto;
+    @include adaptiveValue("left", 65, 0);
+  }
+
+  /* .video__swiper-button-next */
+  &__swiper-button-next {
+    @include adaptiveValue("right", 65, 0);
+  }
+}
+
+.video__swiper-pagination.swiper-pagination {
+  display: none;
+
+  @media (max-width:$mobile) {
+    display: flex;
+  }
+}
+
+.swiper-pagination-bullet {
+
+  .video__swiper-pagination & {
+    background-color: $mainColor;
+    opacity: .4;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  .video__swiper-pagination & {
+    background-color: $mainColor;
+    opacity: 1;
+  }
+}

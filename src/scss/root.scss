@@ -1,0 +1,17 @@
+// Подключение общих CSS-переменных
+:root {
+  //* Переменные
+  --header-height: 9.6rem;
+
+
+
+  //== 992px ==//
+  @media (max-width:$tablet) {
+    --header-height: 6.6rem;
+  }
+
+  //== 576px ==//
+  // @media (max-width: $mb-m) {
+  //   --header-height: 3.5625rem;
+  // }
+}

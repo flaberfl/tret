@@ -1,30 +1,30 @@
-//Модуль параллакса мышью
-//(c)Фрилансер по жизни, "Хмурый Кот"
-//Документация:
+//Модуль паралаксу мишею
+// (c)Фрілансер по життю, "Хмурый Кот"
+// Документація: 
 
-//Подключение функционала "Чертоги Фрилансера"
+// Підключення функціоналу "Чортоги Фрілансера"
 import { isMobile, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
 /*
-Предмету, двигающемуся за мышью, указать атрибут data-prlx-mouse.
-
-//=========
-Если требуется дополнительная настройка -указать
-
-Атрибут											Значение по умолчанию
--------------------------------------------------------------------------------------------------------------------
-data-prlx-cx="Коэффициент_х"					100							значение больше – меньше процент сдвига
-data-prlx-cy="Коэффициент_y"					100							значение больше – меньше процент сдвига
-data-prlx-dxr																		против оси X
-data-prlx-dyr																		против оси Y
-data-prlx-a="Скорость_Анимации"				50								большее значение – больше скорость
+Предмету, який рухатиметься за мишею, вказати атрибут data-prlx-mouse.
 
 // =========
-Если нужно считывать движение мыши в блоке-отце – поэтому отцу указать атрибут data-prlx-mouse-wrapper
+Якщо потрібно додаткові налаштування - вказати
 
-Если в параллаксе картинка -растянуть ее на >100%.
-К примеру:
+Атрибут											Значення за замовчуванням
+-------------------------------------------------------------------------------------------------------------------
+data-prlx-cx="коефіцієнт_х"					100							значення більше - менше відсоток зсуву
+data-prlx-cy="коефіцієнт_y"					100							значення більше - менше відсоток зсуву
+data-prlx-dxr																		проти осі X
+data-prlx-dyr																		проти осі Y
+data-prlx-a="швидкість_анімації"				50								більше значення – більше швидкість
+
+// =========
+Якщо потрібно зчитувати рух миші в блоці-батьку - тому батькові вказати атрибут data-prlx-mouse-wrapper
+
+Якщо в паралакс картинка - розтягнути її на >100%. 
+Наприклад:
 	width: 130%;
 	height: 130%;
 	top: -15%;
@@ -41,9 +41,9 @@ class MousePRLX {
 			const paralaxMouse = document.querySelectorAll('[data-prlx-mouse]');
 			if (paralaxMouse.length) {
 				this.paralaxMouseInit(paralaxMouse);
-				this.setLogging(`Проснулся, слежу за объектами: (${paralaxMouse.length})`);
+				this.setLogging(`Прокинувся, стежу за об'єктами: (${paralaxMouse.length})`);
 			} else {
-				this.setLogging('Нет объекта. Сплю...');
+				this.setLogging('Немає жодного обєкта. Сплю...');
 			}
 		}
 	}
@@ -59,17 +59,17 @@ class MousePRLX {
 			const directionX = el.hasAttribute('data-prlx-dxr') ? -1 : 1;
 			// Напр. У
 			const directionY = el.hasAttribute('data-prlx-dyr') ? -1 : 1;
-			// Скорость анимации
+			// Швидкість анімації
 			const paramAnimation = el.dataset.prlxA ? +el.dataset.prlxA : 50;
 
 
-			// Объявление переменных
+			// Оголошення змінних
 			let positionX = 0, positionY = 0;
 			let coordXprocent = 0, coordYprocent = 0;
 
 			setMouseParallaxStyle();
 
-			// Ппроверяю наличие отца, в котором будет считываться положение мыши
+			// Перевіряю на наявність батька, в якому зчитуватиметься становище миші
 			if (paralaxMouseWrapper) {
 				mouseMoveParalax(paralaxMouseWrapper);
 			} else {
@@ -88,13 +88,13 @@ class MousePRLX {
 				wrapper.addEventListener("mousemove", function (e) {
 					const offsetTop = el.getBoundingClientRect().top + window.scrollY;
 					if (offsetTop >= window.scrollY || (offsetTop + el.offsetHeight) >= window.scrollY) {
-						// Получение ширины и высоты блока
+						// Отримання ширини та висоти блоку
 						const parallaxWidth = window.innerWidth;
 						const parallaxHeight = window.innerHeight;
-						// Ноль посередине
+						// Нуль посередині
 						const coordX = e.clientX - parallaxWidth / 2;
 						const coordY = e.clientY - parallaxHeight / 2;
-						// Получаем проценты
+						// Отримуємо відсотки
 						coordXprocent = coordX / parallaxWidth * 100;
 						coordYprocent = coordY / parallaxHeight * 100;
 					}
@@ -102,12 +102,12 @@ class MousePRLX {
 			}
 		});
 	}
-	// Логинг в консоль
+	// Логінг у консоль
 	setLogging(message) {
 		this.config.logging ? FLS(`[PRLX Mouse]: ${message}`) : null;
 	}
 }
-// Запускаем и добавляем в объект модулей
+// Запускаємо та додаємо в об'єкт модулів
 flsModules.mousePrlx = new MousePRLX({});
 
 

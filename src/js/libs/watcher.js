@@ -1,14 +1,14 @@
-// Подключение функционала "Чертоги фрилансера"
+// Підключення функціоналу "Чортоги Фрілансера"
 import { isMobile, uniqArray, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
-// Наблюдатель объектов [всевидящее око]
-// Data-watch - можно писать значения для применения кастомного кода
-// Data-watch-root-родительский элемент внутри которого наблюдать за объектом
-// data-watch-margin-отступ
-// data-watch-threshold-процент показа объекта для срабатывания
-// data-watch-once - смотреть только один раз
-// _watcher-view - класс который добавляется при появлении объекта
+// Спостерігач об'єктів [всевидюче око]
+// data-watch - можна писати значення для застосування кастомного коду
+// data-watch-root - батьківський елемент всередині якого спостерігати за об'єктом
+// data-watch-margin -відступ
+// data-watch-threshold - відсоток показу об'єкта для спрацьовування
+// data-watch-once - спостерігати лише один раз
+// _watcher-view - клас який додається за появи об'єкта
 
 class ScrollWatcher {
 	constructor(props) {
@@ -19,42 +19,25 @@ class ScrollWatcher {
 		this.observer;
 		!document.documentElement.classList.contains('watcher') ? this.scrollWatcherRun() : null;
 	}
-	// Обновляем конструктор
+	// Оновлюємо конструктор
 	scrollWatcherUpdate() {
 		this.scrollWatcherRun();
 	}
-	// Запускаем конструктор
+	// Запускаємо конструктор
 	scrollWatcherRun() {
 		document.documentElement.classList.add('watcher');
 		this.scrollWatcherConstructor(document.querySelectorAll('[data-watch]'));
 	}
-	// Конструктор наблюдателей
+	// Конструктор спостерігачів
 	scrollWatcherConstructor(items) {
 		if (items.length) {
-			this.scrollWatcherLogging(`Проснулся, слежу за объектами (${items.length})...`);
-			// Уникализируем параметры
+			this.scrollWatcherLogging(`Прокинувся, стежу за об'єктами (${items.length})...`);
+			// Унікалізуємо параметри
 			let uniqParams = uniqArray(Array.from(items).map(function (item) {
-				// Вычисление автоматического Threshold
-				if (item.dataset.watch === 'navigator' && !item.dataset.watchThreshold) {
-					let valueOfThreshold;
-					if (item.clientHeight > 2) {
-						valueOfThreshold =
-							window.innerHeight / 2 / (item.clientHeight - 1);
-						if (valueOfThreshold > 1) {
-							valueOfThreshold = 1;
-						}
-					} else {
-						valueOfThreshold = 1;
-					}
-					item.setAttribute(
-						'data-watch-threshold',
-						valueOfThreshold.toFixed(2)
-					);
-				}
 				return `${item.dataset.watchRoot ? item.dataset.watchRoot : null}|${item.dataset.watchMargin ? item.dataset.watchMargin : '0px'}|${item.dataset.watchThreshold ? item.dataset.watchThreshold : 0}`;
 			}));
-			// Получаем группы объектов с одинаковыми параметрами,
-			// создаем настройки, инициализируем наблюдатель
+			// Отримуємо групи об'єктів з однаковими параметрами,
+			// створюємо налаштування, ініціалізуємо спостерігач
 			uniqParams.forEach(uniqParam => {
 				let uniqParamArray = uniqParam.split('|');
 				let paramsWatch = {
@@ -77,32 +60,32 @@ class ScrollWatcher {
 
 				let configWatcher = this.getScrollWatcherConfig(paramsWatch);
 
-				// Инициализация наблюдателя со своими настройками
+				// Ініціалізація спостерігача зі своїми налаштуваннями
 				this.scrollWatcherInit(groupItems, configWatcher);
 			});
 		} else {
-			this.scrollWatcherLogging("Сплю, нет объектов для слежки. ZzzZZzz");
+			this.scrollWatcherLogging("Сплю, немає об'єктів для стеження. ZzzZZzz");
 		}
 	}
-	// Функция создания настроек
+	// Функція створення налаштувань
 	getScrollWatcherConfig(paramsWatch) {
-		//Создаем настройки
+		//Створюємо налаштування
 		let configWatcher = {}
-		// Отец, в котором ведется наблюдение
+		// Батько, у якому ведеться спостереження
 		if (document.querySelector(paramsWatch.root)) {
 			configWatcher.root = document.querySelector(paramsWatch.root);
 		} else if (paramsWatch.root !== 'null') {
-			this.scrollWatcherLogging(`Эмм... родительского объекта ${paramsWatch.root} нет на странице`);
+			this.scrollWatcherLogging(`Эмм... батьківського об'єкта ${paramsWatch.root} немає на сторінці`);
 		}
-		// Отступ срабатывания
+		// Відступ спрацьовування
 		configWatcher.rootMargin = paramsWatch.margin;
 		if (paramsWatch.margin.indexOf('px') < 0 && paramsWatch.margin.indexOf('%') < 0) {
-			this.scrollWatcherLogging(`йой, настройки data-watch-margin нужно сдавать в PX или %`);
+			this.scrollWatcherLogging(`йой, налаштування data-watch-margin потрібно задавати в PX або %`);
 			return
 		}
-		// Точки срабатывания
+		// Точки спрацьовування
 		if (paramsWatch.threshold === 'prx') {
-			// Режим паралакса
+			// Режим паралаксу
 			paramsWatch.threshold = [];
 			for (let i = 0; i <= 1.0; i += 0.005) {
 				paramsWatch.threshold.push(i);
@@ -114,7 +97,7 @@ class ScrollWatcher {
 
 		return configWatcher;
 	}
-	// Функция создания нового наблюдателя с вашими настройками
+	// Функція створення нового спостерігача зі своїми налаштуваннями
 	scrollWatcherCreate(configWatcher) {
 		this.observer = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
@@ -122,44 +105,44 @@ class ScrollWatcher {
 			});
 		}, configWatcher);
 	}
-	// Функция инициализации наблюдателя с его настройками
+	// Функція ініціалізації спостерігача зі своїми налаштуваннями
 	scrollWatcherInit(items, configWatcher) {
-		// Создание нового наблюдателя с вашими настройками
+		// Створення нового спостерігача зі своїми налаштуваннями
 		this.scrollWatcherCreate(configWatcher);
-		// Передача элементов наблюдателю
+		// Передача спостерігачеві елементів
 		items.forEach(item => this.observer.observe(item));
 	}
-	// Функция обработки базовых действий точек срабатывания
+	// Функція обробки базових дій точок спрацьовування
 	scrollWatcherIntersecting(entry, targetElement) {
 		if (entry.isIntersecting) {
-			// Видим объект
-			// Добавляем класс
+			// Бачимо об'єкт
+			// Додаємо клас
 			!targetElement.classList.contains('_watcher-view') ? targetElement.classList.add('_watcher-view') : null;
-			this.scrollWatcherLogging(`Я вижу ${targetElement.classList}, добавил класс _watcher-view`);
+			this.scrollWatcherLogging(`Я бачу ${targetElement.classList}, додав клас _watcher-view`);
 		} else {
-			// Не видим объект
-			// Удаляем  класс
+			// Не бачимо об'єкт
+			// Забираємо клас
 			targetElement.classList.contains('_watcher-view') ? targetElement.classList.remove('_watcher-view') : null;
-			this.scrollWatcherLogging(`Я не вижу ${targetElement.classList}, убрал класс _watcher-view`);
+			this.scrollWatcherLogging(`Я не бачу ${targetElement.classList}, прибрав клас _watcher-view`);
 		}
 	}
-	// Функция отключения слежения за объектом
+	// Функція відключення стеження за об'єктом
 	scrollWatcherOff(targetElement, observer) {
 		observer.unobserve(targetElement);
-		this.scrollWatcherLogging(`Я перестал следить за ${targetElement.classList}`);
+		this.scrollWatcherLogging(`Я перестав стежити за ${targetElement.classList}`);
 	}
-	// Функция вывода в консоль
+	// Функція виведення в консоль
 	scrollWatcherLogging(message) {
-		this.config.logging ? FLS(`[Наблюдатель]: ${message}`) : null;
+		this.config.logging ? FLS(`[Спостерігач]: ${message}`) : null;
 	}
-	// Функция обработки наблюдения
+	// Функція обробки спостереження
 	scrollWatcherCallback(entry, observer) {
 		const targetElement = entry.target;
-		// Обработка базовых действий точек срабатывания
+		// Обробка базових дій точок спрацьовування
 		this.scrollWatcherIntersecting(entry, targetElement);
-		// Если есть атрибут data-watch-once убираем слежение
+		// Якщо є атрибут data-watch-once прибираємо стеження
 		targetElement.hasAttribute('data-watch-once') && entry.isIntersecting ? this.scrollWatcherOff(targetElement, observer) : null;
-		// Создаем свое событие обратной связи
+		// Створюємо свою подію зворотного зв'язку
 		document.dispatchEvent(new CustomEvent("watcherCallback", {
 			detail: {
 				entry: entry
@@ -167,17 +150,17 @@ class ScrollWatcher {
 		}));
 
 		/*
-		// Выбираем нужные объекты
+		// Вибираємо потрібні об'єкти
 		if (targetElement.dataset.watch === 'some value') {
-			// пишем уникальную спецификацию
+			// пишемо унікальну специфіку
 		}
 		if (entry.isIntersecting) {
-			//Видим обьект
+			//Бачимо об'єкт
 		} else {
-			//Не видим обьєкт
+			//Не бачимо об'єкт
 		}
 		*/
 	}
 }
-// Запускаем и добавляем в объект модулей
+// Запускаємо та додаємо в об'єкт модулів
 flsModules.watcher = new ScrollWatcher({});

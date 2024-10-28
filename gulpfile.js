@@ -1,13 +1,11 @@
-// Импорт основного модуля
+// Імпорт основного модуля
 import gulp from "gulp";
-// Импорт общих плагинов
+// Імпорт загальних плагінів
 import { plugins } from "./config/gulp-plugins.js";
-// Импорт путей
-import { pathtofiles } from "./config/gulp-settings.js";
-// Импорт функционала NodeJS
-import fs from 'fs';
+// Імпорт шляхів
+import { path } from "./config/gulp-settings.js";
 
-// Передаем значение в глобальную переменную
+// Передаємо значення у глобальну змінну
 global.app = {
 	isBuild: process.argv.includes('--build'),
 	isDev: !process.argv.includes('--build'),
@@ -15,66 +13,54 @@ global.app = {
 	isImgOpt: !process.argv.includes('--noimgopt'),
 	isFontsReW: process.argv.includes('--rewrite'),
 	gulp: gulp,
-	path: pathtofiles,
+	path: path,
 	plugins: plugins
 }
 
-// Импорт задач
+// Імпорт завдань
 import { reset } from "./config/gulp-tasks/reset.js";
 import { html } from "./config/gulp-tasks/html.js";
 import { css } from "./config/gulp-tasks/css.js";
 import { js } from "./config/gulp-tasks/js.js";
 import { jsDev } from "./config/gulp-tasks/js-dev.js";
-import { WebP, imagesOptimize, copySvg } from "./config/gulp-tasks/images.js";
+import { images } from "./config/gulp-tasks/images.js";
 import { ftp } from "./config/gulp-tasks/ftp.js";
 import { zip } from "./config/gulp-tasks/zip.js";
 import { sprite } from "./config/gulp-tasks/sprite.js";
 import { gitignore } from "./config/gulp-tasks/gitignore.js";
-import { otfToTtf, ttfToWoff2, woff2Copy, fontsStyle } from "./config/gulp-tasks/fonts.js";
+import { otfToTtf, ttfToWoff, fonstStyle } from "./config/gulp-tasks/fonts.js";
 
-// Последовательная обработка шрифтов
-const fonts = gulp.series(reset, function (done) {
-	// Если есть папка fonts
-	if (fs.existsSync(`${app.path.srcFolder}/fonts`)) {
-		gulp.series(otfToTtf, ttfToWoff2, woff2Copy, fontsStyle)(done);
-	} else {
-		done();
-	}
-});
+// Послідовна обробка шрифтів
+const fonts = gulp.series(reset, otfToTtf, ttfToWoff, fonstStyle);
+// Основні завдання виконуватимемо паралельно після обробки шрифтів
+const devTasks = gulp.parallel(fonts, gitignore);
+// Основні завдання виконуватимемо паралельно після обробки шрифтів
+const buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, images, gitignore));
 
-// Порядок выполнения задач для режима разработчик
-const devTasks = gulp.series(fonts, gitignore);
-// Порядок выполнения задач для режима продакшн
-let buildTasks;
-if (process.argv.includes('--nowebp')) {
-	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, imagesOptimize, copySvg), gitignore));
-} else {
-	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, copySvg), gitignore));
-}
-
-// Экспорт задач
+// Експорт завдань
 export { html }
 export { css }
 export { js }
 export { jsDev }
+export { images }
 export { fonts }
 export { sprite }
 export { ftp }
 export { zip }
 
-// Построение сценариев выполнения задач
-const development = devTasks;
-const build = buildTasks;
+// Побудова сценаріїв виконання завдань
+const development = gulp.series(devTasks);
+const build = gulp.series(buildTasks);
 const deployFTP = gulp.series(buildTasks, ftp);
 const deployZIP = gulp.series(buildTasks, zip);
 
-// Экспорт сценариев
+// Експорт сценаріїв
 export { development }
 export { build }
 export { deployFTP }
 export { deployZIP }
 
-// Выполнение сценария по умолчанию
+// Виконання сценарію за замовчуванням
 gulp.task('default', development);
 
 

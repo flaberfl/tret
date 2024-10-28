@@ -1,17 +1,17 @@
-// Подключение функционала "Чертоги Фрилансера"
-// Подключение списка активных модуле
+// Підключення функціоналу "Чертоги Фрілансера"
+// Підключення списку активних модулів
 import { flsModules } from "../modules.js";
-// Вспомогательные функции
+// Допоміжні функції
 import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
-// Модуль прокрутки к блоку
+// Модуль прокручування до блоку
 import { gotoBlock } from "../scroll/gotoblock.js";
 //================================================================================================================================================================================================================================================================================================================================
 
 /*
-Документация: https://start-template.ru/rabota-s-formami-i-elementami-form-chertogi-frilansera-v3-0-0/
+Документація: https://template.fls.guru/template-docs/rabota-s-formami.html
 */
 
-// Работа с полями формы.
+// Робота із полями форми.
 export function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
 	document.body.addEventListener("focusin", function (e) {
 		const targetElement = e.target;
@@ -31,11 +31,11 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 				targetElement.classList.remove('_form-focus');
 				targetElement.parentElement.classList.remove('_form-focus');
 			}
-			// Мгновенная валидация
+			// Миттєва валідація
 			targetElement.hasAttribute('data-validate') ? formValidate.validateInput(targetElement) : null;
 		}
 	});
-	// Если включено, добавляем функционал "Показать пароль"
+	// Якщо увімкнено, додаємо функціонал "Показати пароль"
 	if (options.viewPass) {
 		document.addEventListener("click", function (e) {
 			let targetElement = e.target;
@@ -46,7 +46,7 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 			}
 		});
 	}
-	// Если включено, добавляем функционал "Автовысота"
+	// Якщо увімкнено, додаємо функціонал "Автовисота"
 	if (options.autoHeight) {
 		const textareas = document.querySelectorAll('textarea[data-autoheight]');
 		if (textareas.length) {
@@ -69,7 +69,7 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 		}
 	}
 }
-// Валидация форм
+// Валідація форм
 export let formValidate = {
 	getErrors(form) {
 		let error = 0;
@@ -140,7 +140,7 @@ export let formValidate = {
 				}
 			}
 			if (flsModules.select) {
-				let selects = form.querySelectorAll('div.select');
+				let selects = form.querySelectorAll('.select');
 				if (selects.length) {
 					for (let index = 0; index < selects.length; index++) {
 						const select = selects[index].querySelector('select');
@@ -154,7 +154,7 @@ export let formValidate = {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
 	}
 }
-/* Отправка форм*/
+/* Відправлення форм */
 export function formSubmit() {
 	const forms = document.forms;
 	if (forms.length) {
@@ -173,7 +173,7 @@ export function formSubmit() {
 		const error = !form.hasAttribute('data-no-validate') ? formValidate.getErrors(form) : 0;
 		if (error === 0) {
 			const ajax = form.hasAttribute('data-ajax');
-			if (ajax) { // Если режим ajax
+			if (ajax) { // Якщо режим ajax
 				e.preventDefault();
 				const formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';
 				const formMethod = form.getAttribute('method') ? form.getAttribute('method').trim() : 'GET';
@@ -189,10 +189,10 @@ export function formSubmit() {
 					form.classList.remove('_sending');
 					formSent(form, responseResult);
 				} else {
-					alert("Ошибка");
+					alert("Помилка");
 					form.classList.remove('_sending');
 				}
-			} else if (form.hasAttribute('data-dev')) {	// Если режим разработки
+			} else if (form.hasAttribute('data-dev')) {	// Якщо режим розробки
 				e.preventDefault();
 				formSent(form);
 			}
@@ -204,32 +204,32 @@ export function formSubmit() {
 			}
 		}
 	}
-	// Действия после отправки формы
+	// Дії після надсилання форми
 	function formSent(form, responseResult = ``) {
-		// Создаем событие отправки формы
+		// Створюємо подію відправлення форми
 		document.dispatchEvent(new CustomEvent("formSent", {
 			detail: {
 				form: form
 			}
 		}));
-		// Попап показывает, если подключен модуль попапов
-// и для формы указана настройка
+		// Показуємо попап, якщо підключено модуль попапів 
+		// та для форми вказано налаштування
 		setTimeout(() => {
 			if (flsModules.popup) {
 				const popup = form.dataset.popupMessage;
 				popup ? flsModules.popup.open(popup) : null;
 			}
 		}, 0);
-		// Очищаем форму
+		// Очищуємо форму
 		formValidate.formClean(form);
-		// Сообщаем консоли
+		// Повідомляємо до консолі
 		formLogging(`Форму відправлено!`);
 	}
 	function formLogging(message) {
 		FLS(`[Форми]: ${message}`);
 	}
 }
-/* Модуль формы "количество"*/
+/* Модуль форми "кількість" */
 export function formQuantity() {
 	document.addEventListener("click", function (e) {
 		let targetElement = e.target;
@@ -252,26 +252,50 @@ export function formQuantity() {
 				}
 			}
 			targetElement.closest('[data-quantity]').querySelector('[data-quantity-value]').value = value;
+			// console.log(valueElement.value);
+
+			let popupPrices = document.querySelectorAll('.catalog-popup__price');
+
+			popupPrices.forEach(price => {
+
+				// price.innerHTML = price.innerHTML * valueElement.value
+
+				// console.log(valueElement);
+
+				// console.log(targetElement.hasAttribute('data-quantity-minus'));
+
+				// price.innerHTML = price.innerHTML * valueElement.value
+				price.innerHTML = price.innerHTML * valueElement.value
+
+				if (targetElement.hasAttribute('data-quantity-plus')) {
+				}
+
+
+				if (targetElement.hasAttribute('data-quantity-minus')) {
+					price.innerHTML = price.innerHTML / valueElement.value
+					// price.innerHTML = price.innerHTML / valueElement.value
+					// price.innerHTML = price.innerHTML / ;
+				}
+			})
 		}
+
 	});
 }
-
-
-/*
+/* Модуль зіркового рейтингу */
 export function formRating() {
 	const ratings = document.querySelectorAll('.rating');
 	if (ratings.length > 0) {
 		initRatings();
 	}
-	// Основная функция
+	// Основна функція
 	function initRatings() {
 		let ratingActive, ratingValue;
-		// "Бегаем" по всем рейтингам на странице
+		// "Бігаємо" по всіх рейтингах на сторінці
 		for (let index = 0; index < ratings.length; index++) {
 			const rating = ratings[index];
 			initRating(rating);
 		}
-		// Инициализируем конкретный рейтинг
+		// Ініціалізуємо конкретний рейтинг
 		function initRating(rating) {
 			initRatingVars(rating);
 
@@ -281,40 +305,40 @@ export function formRating() {
 				setRating(rating);
 			}
 		}
-		// Инициализация переменных
+		// Ініціалізація змінних
 		function initRatingVars(rating) {
 			ratingActive = rating.querySelector('.rating__active');
 			ratingValue = rating.querySelector('.rating__value');
 		}
-		// Изменяем ширину активных звезд
+		// Змінюємо ширину активних зірок
 		function setRatingActiveWidth(index = ratingValue.innerHTML) {
 			const ratingActiveWidth = index / 0.05;
 			ratingActive.style.width = `${ratingActiveWidth}%`;
 		}
-		// Возможность указать оценку
+		// Можливість вказати оцінку
 		function setRating(rating) {
 			const ratingItems = rating.querySelectorAll('.rating__item');
 			for (let index = 0; index < ratingItems.length; index++) {
 				const ratingItem = ratingItems[index];
 				ratingItem.addEventListener("mouseenter", function (e) {
-					// Обновление переменных
+					// Оновлення змінних
 					initRatingVars(rating);
-					// Обновление активных звезд
+					// Оновлення активних зірок
 					setRatingActiveWidth(ratingItem.value);
 				});
 				ratingItem.addEventListener("mouseleave", function (e) {
-					// Обновление активных звезд
+					// Оновлення активних зірок
 					setRatingActiveWidth();
 				});
 				ratingItem.addEventListener("click", function (e) {
-					// Обновление переменных
+					// Оновлення змінних
 					initRatingVars(rating);
 
 					if (rating.dataset.ajax) {
-						// "Отправить" на сервер
+						// "Надіслати" на сервер
 						setRatingValue(ratingItem.value, rating);
 					} else {
-						// Отобразить указанную оценку
+						// Відобразити вказану оцінку
 						ratingValue.innerHTML = index + 1;
 						setRatingActiveWidth();
 					}
@@ -325,7 +349,7 @@ export function formRating() {
 			if (!rating.classList.contains('rating_sending')) {
 				rating.classList.add('rating_sending');
 
-				// Отправка данных (value) на сервер
+				// Надсилання даних (value) на сервер
 				let response = await fetch('rating.json', {
 					method: 'GET',
 
@@ -340,89 +364,22 @@ export function formRating() {
 				if (response.ok) {
 					const result = await response.json();
 
-					// Получаем новый рейтинг
+					// Отримуємо новий рейтинг
 					const newRating = result.newRating;
 
-					// Вывод нового среднего результата
+					// Виведення нового середнього результату
 					ratingValue.innerHTML = newRating;
 
-					// Обновление активных звезд
+					// Оновлення активних зірок
 					setRatingActiveWidth();
 
 					rating.classList.remove('rating_sending');
 				} else {
-					alert("Ошибка");
+					alert("Помилка");
 
 					rating.classList.remove('rating_sending');
 				}
 			}
 		}
 	}
-}*/
-
-/* Модуль звездного рейтинга */
-export function formRating() {
-	// Rating
-	const ratings = document.querySelectorAll('[data-rating]');
-	if (ratings) {
-		ratings.forEach(rating => {
-			const ratingValue = +rating.dataset.ratingValue
-			const ratingSize = +rating.dataset.ratingSize ? +rating.dataset.ratingSize : 5
-			formRatingInit(rating, ratingSize)
-			ratingValue ? formRatingSet(rating, ratingValue) : null
-			document.addEventListener('click', formRatingAction)
-		});
-	}
-	function formRatingAction(e) {
-		const targetElement = e.target;
-		if (targetElement.closest('.rating__input')) {
-			const currentElement = targetElement.closest('.rating__input');
-			const ratingValue = +currentElement.value
-			const rating = currentElement.closest('.rating')
-			const ratingSet = rating.dataset.rating === 'set'
-			ratingSet ? formRatingGet(rating, ratingValue) : null;
-		}
-	}
-	function formRatingInit(rating, ratingSize) {
-		let ratingItems = ``;
-		for (let index = 0; index < ratingSize; index++) {
-			index === 0 ? ratingItems += `<div class="rating__items">` : null
-			ratingItems += `
-				<label class="rating__item">
-					<input class="rating__input" type="radio" name="rating" value="${index + 1}">
-				</label>`
-			index === ratingSize ? ratingItems += `</div">` : null
-		}
-		rating.insertAdjacentHTML("beforeend", ratingItems)
-	}
-	function formRatingGet(rating, ratingValue) {
-		// Здесь отправка оценки (ratingValue) на бекенд...
-		// Получаем новую  оценку formRatingSend()
-		// Либо выводим ту которую указал пользователь
-		const resultRating = ratingValue;
-		formRatingSet(rating, resultRating);
-	}
-	function formRatingSet(rating, value) {
-		const ratingItems = rating.querySelectorAll('.rating__item');
-		const resultFullItems = parseInt(value);
-		const resultPartItem = value - resultFullItems;
-
-		rating.hasAttribute('data-rating-title') ? rating.title = value : null
-
-		ratingItems.forEach((ratingItem, index) => {
-			ratingItem.classList.remove('rating__item--active');
-			ratingItem.querySelector('span') ? ratingItems[index].querySelector('span').remove() : null;
-
-			if (index <= (resultFullItems - 1)) {
-				ratingItem.classList.add('rating__item--active');
-			}
-			if (index === resultFullItems && resultPartItem) {
-				ratingItem.insertAdjacentHTML("beforeend", `<span style="width:${resultPartItem * 100}%"></span>`)
-			}
-		});
-	}
-	function formRatingSend() {
-
-	}
-
 }

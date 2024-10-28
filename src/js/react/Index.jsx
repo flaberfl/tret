@@ -1,19 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import someImg from "@img/cover.jpg";
-
 const App = () => (
 	<>
-		<h1 className="title">В комнату заходит React</h1>
-		<img
-			src={someImg}
-			alt="Image"
-		/>
+		<h1 className="title">В кімнату заходить React</h1>
 	</>
 );
 
-// Объект для вывода
+// Об'єкт для виводу
 const root = document.querySelector("#root")
 	? document.querySelector("#root")
 	: document.querySelector(".wrapper");

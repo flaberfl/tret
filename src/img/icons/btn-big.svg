@@ -1,0 +1,10 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="95%" height="69" rx="34.5" stroke="url(#paint0_diamond_1_319)" />
+  <defs>
+    <radialGradient id="paint0_diamond_1_319" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(197.565 22) rotate(123.117) scale(87.755 334.377)">
+      <stop offset="0.196" stop-color="white" />
+      <stop offset="1" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg>

@@ -9,14 +9,12 @@ export const html = () => {
 				message: "Error: <%= error.message %>"
 			}))
 		)
-		/*
 		.pipe(
 			app.plugins.if(
 				app.isWebP,
 				webpHtmlNosvg()
 			)
 		)
-		*/
 		.pipe(versionNumber({
 			'value': '%DT%',
 			'append': {

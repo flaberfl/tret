@@ -1,7 +1,7 @@
-// Подключение списка активных модулей
+// Підключення списку активних модулів
 import { flsModules } from "./modules.js";
 
-/* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
+/* Перевірка підтримки webp, додавання класу webp або no-webp для HTML */
 export function isWebp() {
 	// Проверка поддержки webp 
 	function testWebP(callback) {
@@ -11,20 +11,20 @@ export function isWebp() {
 		};
 		webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
 	}
-	// Добавление класса _webp или _no-webp для HTML
+	// Додавання класу _webp або _no-webp для HTML
 	testWebP(function (support) {
 		let className = support === true ? 'webp' : 'no-webp';
 		document.documentElement.classList.add(className);
 	});
 }
-/* Проверка мобильного браузера */
+/* Перевірка мобільного браузера */
 export let isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
-/* Добавление класса touch для HTML, если мобильный браузер */
+/* Додавання класу touch для HTML, якщо браузер мобільний */
 export function addTouchClass() {
-	// Добавление класса _touch для HTML, если мобильный браузер
+	// Додавання класу _touch для HTML, якщо браузер мобільний
 	if (isMobile.any()) document.documentElement.classList.add('touch');
 }
-// Добавление loaded для HTML после полной загрузки страницы
+// Додавання loaded для HTML після повного завантаження сторінки
 export function addLoadedClass() {
 	if (!document.documentElement.classList.contains('loading')) {
 		window.addEventListener("load", function () {
@@ -34,16 +34,28 @@ export function addLoadedClass() {
 		});
 	}
 }
-// Получение хеша по адресу сайта
+// Отримання хешу на адресі сайту
 export function getHash() {
 	if (location.hash) { return location.hash.replace('#', ''); }
 }
-// Указание хеша по адресу сайта
+// Вказівка хеша на адресу сайту
 export function setHash(hash) {
 	hash = hash ? `#${hash}` : window.location.href.split('#')[0];
 	history.pushState('', '', hash);
 }
-// Вспомогательные модули плавного раскрытия и закрытия объекта ======================================================================================================================================================================
+// Облік плаваючої панелі на мобільних пристроях при 100vh
+export function fullVHfix() {
+	const fullScreens = document.querySelectorAll('[data-fullscreen]');
+	if (fullScreens.length && isMobile.any()) {
+		window.addEventListener('resize', fixHeight);
+		function fixHeight() {
+			let vh = window.innerHeight * 0.01;
+			document.documentElement.style.setProperty('--vh', `${vh}px`);
+		}
+		fixHeight();
+	}
+}
+// Допоміжні модулі плавного розкриття та закриття об'єкта ======================================================================================================================================================================
 export let _slideUp = (target, duration = 500, showmore = 0) => {
 	if (!target.classList.contains('_slide')) {
 		target.classList.add('_slide');
@@ -68,7 +80,7 @@ export let _slideUp = (target, duration = 500, showmore = 0) => {
 			target.style.removeProperty('transition-duration');
 			target.style.removeProperty('transition-property');
 			target.classList.remove('_slide');
-			// Создаем событие
+			// Створюємо подію 
 			document.dispatchEvent(new CustomEvent("slideUpDone", {
 				detail: {
 					target: target
@@ -103,7 +115,7 @@ export let _slideDown = (target, duration = 500, showmore = 0) => {
 			target.style.removeProperty('transition-duration');
 			target.style.removeProperty('transition-property');
 			target.classList.remove('_slide');
-			// Создаем событие
+			// Створюємо подію
 			document.dispatchEvent(new CustomEvent("slideDownDone", {
 				detail: {
 					target: target
@@ -119,74 +131,76 @@ export let _slideToggle = (target, duration = 500) => {
 		return _slideUp(target, duration);
 	}
 }
-// Вспомогательные модули блокировки прокрутки и прыжка ====================================================================================================================================================================================================================================================================================
-export let bodyLockStatus = true
+// Допоміжні модулі блокування прокручування та стрибка ====================================================================================================================================================================================================================================================================================
+export let bodyLockStatus = true;
 export let bodyLockToggle = (delay = 500) => {
 	if (document.documentElement.classList.contains('lock')) {
-		bodyUnlock(delay)
+		bodyUnlock(delay);
 	} else {
-		bodyLock(delay)
+		bodyLock(delay);
 	}
 }
 export let bodyUnlock = (delay = 500) => {
+	let body = document.querySelector("body");
 	if (bodyLockStatus) {
-		const lockPaddingElements = document.querySelectorAll("[data-lp]");
+		let lock_padding = document.querySelectorAll("[data-lp]");
 		setTimeout(() => {
-			lockPaddingElements.forEach(lockPaddingElement => {
-				lockPaddingElement.style.paddingRight = ''
-			});
-			document.body.style.paddingRight = ''
-			document.documentElement.classList.remove("lock")
-		}, delay)
-		bodyLockStatus = false
+			for (let index = 0; index < lock_padding.length; index++) {
+				const el = lock_padding[index];
+				el.style.paddingRight = '0px';
+			}
+			body.style.paddingRight = '0px';
+			document.documentElement.classList.remove("lock");
+		}, delay);
+		bodyLockStatus = false;
 		setTimeout(function () {
-			bodyLockStatus = true
-		}, delay)
+			bodyLockStatus = true;
+		}, delay);
 	}
 }
 export let bodyLock = (delay = 500) => {
+	let body = document.querySelector("body");
 	if (bodyLockStatus) {
-		const lockPaddingElements = document.querySelectorAll("[data-lp]")
-		const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px'
-		lockPaddingElements.forEach(lockPaddingElement => {
-			lockPaddingElement.style.paddingRight = lockPaddingValue
-		});
+		let lock_padding = document.querySelectorAll("[data-lp]");
+		for (let index = 0; index < lock_padding.length; index++) {
+			const el = lock_padding[index];
+			el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+		}
+		body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+		document.documentElement.classList.add("lock");
 
-		document.body.style.paddingRight = lockPaddingValue
-		document.documentElement.classList.add("lock")
-
-		bodyLockStatus = false
+		bodyLockStatus = false;
 		setTimeout(function () {
-			bodyLockStatus = true
-		}, delay)
+			bodyLockStatus = true;
+		}, delay);
 	}
 }
-// Модуль работы со спойлерами =======================================================================================================================================================================================================================
+// Модуль роботи зі спойлерами =======================================================================================================================================================================================================================
 export function spollers() {
 	const spollersArray = document.querySelectorAll('[data-spollers]');
 	if (spollersArray.length > 0) {
-		// Событие клика
+		// Подія кліку
 		document.addEventListener("click", setSpollerAction);
-		// Получение обычных слойлеров
+		// Отримання звичайних слойлерів
 		const spollersRegular = Array.from(spollersArray).filter(function (item, index, self) {
 			return !item.dataset.spollers.split(",")[0];
 		});
-		// Инициализация обычных слойлеров
+		// Ініціалізація звичайних слойлерів
 		if (spollersRegular.length) {
 			initSpollers(spollersRegular);
 		}
-		// Получение слойлеров с медиа-запросами
+		// Отримання слойлерів з медіа-запитами
 		let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
 		if (mdQueriesArray && mdQueriesArray.length) {
 			mdQueriesArray.forEach(mdQueriesItem => {
-				// Событие
+				// Подія
 				mdQueriesItem.matchMedia.addEventListener("change", function () {
 					initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 				});
 				initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 			});
 		}
-		// Инициализация
+		// Ініціалізація
 		function initSpollers(spollersArray, matchMedia = false) {
 			spollersArray.forEach(spollersBlock => {
 				spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
@@ -199,7 +213,7 @@ export function spollers() {
 				}
 			});
 		}
-		// Работа с контентом
+		// Робота з контентом
 		function initSpollerBody(spollersBlock, hideSpollerBody = true) {
 			let spollerItems = spollersBlock.querySelectorAll('details');
 			if (spollerItems.length) {
@@ -262,7 +276,7 @@ export function spollers() {
 					}
 				}
 			}
-			// Закрытие при клике вне спойлера
+			// Закриття при кліку поза спойлером
 			if (!el.closest('[data-spollers]')) {
 				const spollersClose = document.querySelectorAll('[data-spoller-close]');
 				if (spollersClose.length) {
@@ -291,7 +305,7 @@ export function spollers() {
 		}
 	}
 }
-// Модуль работы с табами =======================================================================================================================================================================================================================
+// Модуль роботи з табами =======================================================================================================================================================================================================================
 export function tabs() {
 	const tabs = document.querySelectorAll('[data-tabs]');
 	let tabsActiveHash = [];
@@ -308,11 +322,11 @@ export function tabs() {
 			initTabs(tabsBlock);
 		});
 
-		// Получение слойлеров с медиа-запросами
+		// Отримання слойлерів з медіа-запитами
 		let mdQueriesArray = dataMediaQueries(tabs, "tabs");
 		if (mdQueriesArray && mdQueriesArray.length) {
 			mdQueriesArray.forEach(mdQueriesItem => {
-				// Событие
+				// Подія
 				mdQueriesItem.matchMedia.addEventListener("change", function () {
 					setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 				});
@@ -320,7 +334,7 @@ export function tabs() {
 			});
 		}
 	}
-	// Установка позиций заголовков
+	// Встановлення позицій заголовків
 	function setTitlePosition(tabsMediaArray, matchMedia) {
 		tabsMediaArray.forEach(tabsMediaItem => {
 			tabsMediaItem = tabsMediaItem.item;
@@ -342,7 +356,7 @@ export function tabs() {
 			});
 		});
 	}
-	// Работа с контентом
+	// Робота з контентом
 	function initTabs(tabsBlock) {
 		let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
 		let tabsContent = tabsBlock.querySelectorAll('[data-tabs-body]>*');
@@ -354,6 +368,8 @@ export function tabs() {
 			tabsActiveTitle ? tabsActiveTitle.classList.remove('_tab-active') : null;
 		}
 		if (tabsContent.length) {
+			//tabsContent = Array.from(tabsContent).filter(item => item.closest('[data-tabs]') === tabsBlock);
+			//tabsTitles = Array.from(tabsTitles).filter(item => item.closest('[data-tabs]') === tabsBlock);
 			tabsContent.forEach((tabsContentItem, index) => {
 				tabsTitles[index].setAttribute('data-tabs-title', '');
 				tabsContentItem.setAttribute('data-tabs-item', '');
@@ -415,11 +431,11 @@ export function tabs() {
 		}
 	}
 }
-// Модуль работы с меню (бургер) =========================================== ================================================== ================================================== ================================================== ======================
+// Модуль роботи з меню (бургер) =======================================================================================================================================================================================================================
 export function menuInit() {
-	if (document.querySelector(".icon-menu")) {
+	if (document.querySelector(".wrap-icon-btn")) {
 		document.addEventListener("click", function (e) {
-			if (bodyLockStatus && e.target.closest('.icon-menu')) {
+			if (bodyLockStatus && e.target.closest('.wrap-icon-btn')) {
 				bodyLockToggle();
 				document.documentElement.classList.toggle("menu-open");
 			}
@@ -434,28 +450,47 @@ export function menuClose() {
 	bodyUnlock();
 	document.documentElement.classList.remove("menu-open");
 }
-// Модуль "показать еще" ============================================= ================================================== ================================================== ================================================== ====================
+
+// Модуль роботи с меню в десктоп ==========================================
+export function menuInitDesk() {
+	if (document.querySelector(".wrap-icon-btn-d")) {
+		document.addEventListener("click", function (e) {
+			if (e.target.closest('.wrap-icon-btn-d')) {
+				document.documentElement.classList.toggle("menu-open");
+			}
+		});
+	};
+}
+export function menuOpenDesk() {
+	document.documentElement.classList.add("menu-open");
+}
+export function menuCloseDesk() {
+	document.documentElement.classList.remove("menu-open");
+}
+
+
+// Модуль "показати ще" =======================================================================================================================================================================================================================
 export function showMore() {
 	window.addEventListener("load", function (e) {
 		const showMoreBlocks = document.querySelectorAll('[data-showmore]');
 		let showMoreBlocksRegular;
 		let mdQueriesArray;
 		if (showMoreBlocks.length) {
-			// Получение обычных объектов
+			// Отримання звичайних об'єктів
 			showMoreBlocksRegular = Array.from(showMoreBlocks).filter(function (item, index, self) {
 				return !item.dataset.showmoreMedia;
 			});
-			// Инициализация обычных объектов
+			// Ініціалізація звичайних об'єктів
 			showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
 
 			document.addEventListener("click", showMoreActions);
 			window.addEventListener("resize", showMoreActions);
 
-			// Получение объектов с медиа-запросами
+			// Отримання об'єктів з медіа-запитами
 			mdQueriesArray = dataMediaQueries(showMoreBlocks, "showmoreMedia");
 			if (mdQueriesArray && mdQueriesArray.length) {
 				mdQueriesArray.forEach(mdQueriesItem => {
-					// Событие
+					// Подія
 					mdQueriesItem.matchMedia.addEventListener("change", function () {
 						initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 					});
@@ -553,38 +588,38 @@ export function showMore() {
 }
 // Модуль "Ripple effect" =======================================================================================================================================================================================================================
 export function rippleEffect() {
-	// Событие клика на кнопке
+	// Подія кліку на кнопці
 	document.addEventListener("click", function (e) {
 		const targetItem = e.target;
 		if (targetItem.closest('[data-ripple]')) {
-			// Константы
+			// Константи
 			const button = targetItem.closest('[data-ripple]');
 			const ripple = document.createElement('span');
 			const diameter = Math.max(button.clientWidth, button.clientHeight);
 			const radius = diameter / 2;
 
-			// Формирование элемента
+			// Формування елементу
 			ripple.style.width = ripple.style.height = `${diameter}px`;
 			ripple.style.left = `${e.pageX - (button.getBoundingClientRect().left + scrollX) - radius}px`;
 			ripple.style.top = `${e.pageY - (button.getBoundingClientRect().top + scrollY) - radius}px`;
 			ripple.classList.add('ripple');
 
-			// Удаление существующего элемента (опционально)
+			// Видалення існуючого елементу (опціонально)
 			button.dataset.ripple === 'once' && button.querySelector('.ripple') ?
 				button.querySelector('.ripple').remove() : null;
 
-			// Добавление элемента
+			// Додавання елементу
 			button.appendChild(ripple);
 
-			// Получение времени действия анимации
+			// Отримання часу дії анімації
 			const timeOut = getAnimationDuration(ripple);
 
-			// Удаление элемента
+			// Видалення елементу
 			setTimeout(() => {
 				ripple ? ripple.remove() : null;
 			}, timeOut);
 
-			// Функция получения времени действия анимации
+			// Функтія отримання часу дії анімації
 			function getAnimationDuration() {
 				const aDuration = window.getComputedStyle(ripple).animationDuration;
 				return aDuration.includes('ms') ?
@@ -597,7 +632,7 @@ export function rippleEffect() {
 export function customCursor(isShadowTrue) {
 	const wrapper = document.querySelector('[data-custom-cursor]') ? document.querySelector('[data-custom-cursor]') : document.documentElement;
 	if (wrapper && !isMobile.any()) {
-		// Создаем и добавляем объект курсора
+		// Створюємо та додаємо об'єкт курсору
 		const cursor = document.createElement('div');
 		cursor.classList.add('fls-cursor');
 		cursor.style.opacity = 0;
@@ -645,7 +680,7 @@ export function customCursor(isShadowTrue) {
 	}
 }
 //================================================================================================================================================================================================================================================================================================================
-// Другие полезные функции ================================================================================================================================================================================================================================================================================================================
+// Інші корисні функції ================================================================================================================================================================================================================================================================================================================
 //================================================================================================================================================================================================================================================================================================================
 // FLS (Full Logging System)
 export function FLS(message) {
@@ -655,44 +690,44 @@ export function FLS(message) {
 		}
 	}, 0);
 }
-// Получить цифры из строки
+// Отримати цифри з рядка
 export function getDigFromString(item) {
 	return parseInt(item.replace(/[^\d]/g, ''))
 }
-// Форматирование цифр типа 100 000 000
+// Форматування цифр типу 100 000 000
 export function getDigFormat(item, sepp = ' ') {
 	return item.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, `$1${sepp}`);
 }
-// Убрать класс из всех элементов массива
+// Прибрати клас з усіх елементів масиву
 export function removeClasses(array, className) {
 	for (var i = 0; i < array.length; i++) {
 		array[i].classList.remove(className);
 	}
 }
-// Уникализация массива
+// Унікалізація масиву
 export function uniqArray(array) {
 	return array.filter(function (item, index, self) {
 		return self.indexOf(item) === index;
 	});
 }
-// Функция получения индекса внутри родительского элемента
+// Функція отримання індексу всередині батьківського елемента
 export function indexInParent(parent, element) {
 	const array = Array.prototype.slice.call(parent.children);
 	return Array.prototype.indexOf.call(array, element);
 };
-// Функция проверяет, видим ли объект видимый
+// Функція перевіряє чи об'єкт видимий
 export function isHidden(el) {
 	return (el.offsetParent === null)
 }
-// Обработка медиа запросов по атрибутам
+// Обробка медіа запитів з атрибутів
 export function dataMediaQueries(array, dataSetValue) {
-	// Получение объектов с медиа-запросами
+	// Отримання об'єктів з медіа-запитами
 	const media = Array.from(array).filter(function (item, index, self) {
 		if (item.dataset[dataSetValue]) {
 			return item.dataset[dataSetValue].split(",")[0];
 		}
 	});
-	// Инициализация объектов с медиа-запросами
+	// Ініціалізація об'єктів з медіа-запитами
 	if (media.length) {
 		const breakpointsArray = [];
 		media.forEach(item => {
@@ -704,7 +739,7 @@ export function dataMediaQueries(array, dataSetValue) {
 			breakpoint.item = item;
 			breakpointsArray.push(breakpoint);
 		});
-		// Получаем уникальные брейкпоинты
+		// Отримуємо унікальні брейкпоінти
 		let mdQueries = breakpointsArray.map(function (item) {
 			return '(' + item.type + "-width: " + item.value + "px)," + item.value + ',' + item.type;
 		});
@@ -712,13 +747,13 @@ export function dataMediaQueries(array, dataSetValue) {
 		const mdQueriesArray = [];
 
 		if (mdQueries.length) {
-			// Работаем с каждым брейкпоинтом
+			// Працюємо з кожним брейкпоінтом
 			mdQueries.forEach(breakpoint => {
 				const paramsArray = breakpoint.split(",");
 				const mediaBreakpoint = paramsArray[1];
 				const mediaType = paramsArray[2];
 				const matchMedia = window.matchMedia(paramsArray[0]);
-				// Объекты с необходимыми условиями
+				// Об'єкти з потрібними умовами
 				const itemsArray = breakpointsArray.filter(function (item) {
 					if (item.value === mediaBreakpoint && item.type === mediaType) {
 						return true;

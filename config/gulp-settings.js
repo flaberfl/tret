@@ -1,13 +1,13 @@
-// Получаем имя папки проекта
+// Отримуємо ім'я папки проекту
 import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
 
-// Пути к папке с исходниками и папке с результатом
+// Шляхи до папки з вихідними даними та папки з результатом
 const buildFolder = `./dist`;
 const srcFolder = `./src`;
 
-// Пути к папкам и файлам проекта
-export const pathtofiles = {
+// Шляхи до папок та файлів проекту
+export const path = {
 	build: {
 		html: `${buildFolder}/`,
 		js: `${buildFolder}/js/`,
@@ -31,16 +31,16 @@ export const pathtofiles = {
 	buildFolder: buildFolder,
 	rootFolder: rootFolder,
 	srcFolder: srcFolder,
-	// Путь к нужной папке на удаленном сервере.
+	// Шлях до потрібної папки на віддаленому сервері.
 	ftp: ``
-	//Пример: загрузить в папку 2022 далее в папку с названием проекта
+	// Приклад: завантажити в папку 2022 далі в папку з назвою проєкту
 	// ftp: `2022/${rootFolder}`
 };
 
-// Настройка FTP соединения
+// Налаштування FTP з'єднання
 export const configFTP = {
-	host: "", // Адрес FTP сервера
-	user: "", // Имя пользователя
+	host: "", // Адреса FTP сервера
+	user: "", // Ім'я користувача
 	password: "", // Пароль
-	parallel: 5 // Кол-во одновременных потоков
+	parallel: 5 // Кількість одночасних потоків
 }

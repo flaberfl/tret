@@ -7,24 +7,9 @@ import TerserPlugin from "terser-webpack-plugin";
 
 import * as path from 'path';
 
-
 const srcFolder = "src";
 const builFolder = "dist";
 const rootFolder = path.basename(path.resolve());
-
-let cssImagesWebpLoader, htmlImagesWebpLoader;
-
-cssImagesWebpLoader = {
-	loader: 'string-replace-loader',
-	options: {
-		search: '.png|.jpeg|.jpg|.gif',
-		replace: '.webp',
-		flags: 'ig'
-	}
-}
-htmlImagesWebpLoader = {
-	regex: '.png|.jpeg|.jpg|.gif', to: '.webp'
-}
 
 let pugPages = fs.readdirSync(srcFolder).filter(fileName => fileName.endsWith('.pug'))
 let htmlPages = [];
@@ -39,8 +24,7 @@ if (!pugPages.length) {
 		},
 		replace: [
 			{ regex: '../img', to: 'img' },
-			{ regex: '@img', to: 'img' },
-			htmlImagesWebpLoader,
+			{ regex: '@img', to: 'img', },
 			{ regex: 'NEW_PROJECT_NAME', to: rootFolder }
 		],
 	})]
@@ -76,10 +60,9 @@ const config = {
 						options: {
 							search: '@img',
 							replace: '../img',
-							flags: 'ig'
+							flags: 'g'
 						}
-					}, cssImagesWebpLoader,
-					{
+					}, {
 						loader: 'css-loader',
 						options: {
 							importLoaders: 0,
@@ -95,7 +78,6 @@ const config = {
 							},
 						},
 					},
-					'postcss-loader',
 					{
 						loader: 'sass-loader',
 						options: {
@@ -120,23 +102,24 @@ const config = {
 					}
 				]
 			}, {
-				test: /\.(png|jpe?g|gif|svg)$/i,
-				loader: 'file-loader',
-				options: {
-					name: '[path][name].[ext]',
-				}
-			}, {
 				test: /\.(jsx)$/,
 				exclude: /node_modules/,
 				use: [
 					{
+						loader: 'string-replace-loader',
+						options: {
+							search: '@img',
+							replace: 'img',
+							flags: 'g'
+						}
+					}, {
 						loader: "babel-loader",
 						options: {
-							presets: ["@babel/preset-react"],
+							presets: ["@babel/preset-react"]
 						}
 					}
 				],
-			},
+			}
 		],
 	},
 	plugins: [

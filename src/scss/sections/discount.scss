@@ -1,0 +1,231 @@
+.discount {
+  @include adaptiveValue("padding-top", 44, 0);
+  background: url('@img/discount/bg.jpg') 0 0 no-repeat;
+  background-size: cover;
+
+  /* .discount__container */
+  &__container {
+    display: grid;
+    grid-template-columns: auto 57.142%;
+
+    @media (max-width: em(1286)) {
+      grid-template-columns: auto 1fr;
+      align-items: baseline;
+    }
+
+    @media (max-width: em(1010)) {
+      grid-template-columns: auto;
+      gap: toRem(80);
+    }
+  }
+
+  /* .discount__media */
+  &__media {
+    position: relative;
+  }
+
+  /* .discount__image */
+  &__image {
+    max-width: 100%;
+    position: relative;
+    left: -22.3%;
+    z-index: 3;
+
+    @media (max-width: em(1010)) {
+      @include adaptiveValue("width", 592, 355);
+
+      left: 50%;
+      transform: translate(-50%, 0px);
+
+    }
+  }
+
+  /* .discount__img */
+  &__img {
+    position: absolute;
+    z-index: 20;
+
+    /* .discount__img_1 */
+    &_1 {
+      left: -26.5%;
+      top: 13.4%;
+      @include adaptiveValue("width", 217, 130);
+
+      @media (max-width: em(1010)) {
+        @include adaptiveValue("left", 300, -30);
+      }
+    }
+
+    /* .discount__img_2 */
+    &_2 {
+      right: 4.6%;
+      top: 19.3%;
+      @include adaptiveValue("width", 212, 130);
+
+      @media (max-width: em(1010)) {
+        @include adaptiveValue("right", 200, -80);
+      }
+    }
+
+    /* .discount__img_3 */
+    &_3 {
+      left: -3.7%;
+      bottom: 8%;
+      @include adaptiveValue("width", 207, 130);
+
+      @media (max-width: em(1010)) {
+        @include adaptiveValue("left", 330, 80);
+      }
+    }
+  }
+
+  /* .discount__content */
+  &__content {
+    @include adaptiveValue("padding-top", 117, 91);
+
+    @media (max-width: em(1010)) {
+      grid-row-start: 1;
+    }
+  }
+
+  /* .discount__title */
+  &__title {
+    margin-bottom: toRem(92);
+    @include adaptiveValue("margin-bottom", 92, 29);
+  }
+
+  /* .discount__form */
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, auto);
+    column-gap: toRem(20);
+    row-gap: toRem(31);
+
+    @media (max-width:em(1010)) {
+      row-gap: toRem(20);
+
+      @include adaptiveValue("margin-left", 100, 0);
+      @include adaptiveValue("margin-right", 100, 0);
+    }
+  }
+
+  /* .discount__button */
+  &__button {}
+
+  &__textarea {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.form-discount {
+
+  /* .form__line */
+  &__line {
+    grid-column: span 1;
+
+    @media (max-width: em(1286)) {
+      grid-column: span 2;
+    }
+
+    .input {
+      height: toRem(60);
+    }
+
+    /* .form__line_name */
+    &_name {}
+
+    /* .form__line_tel */
+    &_tel {
+      position: relative;
+
+      label {
+        position: absolute;
+        @include adaptiveValue("padding-left", 26, 0);
+        top: toRem(68);
+
+        font-size: toRem(10);
+        font-weight: 500;
+        letter-spacing: .03em;
+
+        @media (max-width:em(1010)) {
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    /* .form__line_promo */
+    &_promo {
+      @media (max-width:em(1010)) {
+        margin-top: toRem(10);
+      }
+    }
+
+    /* .form__line_comment */
+    &_comment {
+      grid-row: span 2;
+
+      @media (min-width:em(1286)) {
+        padding-bottom: toRem(22);
+      }
+
+      @media (max-width:em(1010)) {
+        min-height: toRem(153);
+      }
+    }
+
+    /* .form__line_file */
+    &_file {
+      margin-top: -2px;
+
+      label {
+        display: block;
+        border: none;
+        padding-left: 37px;
+
+        height: 21px;
+
+        background: url('@img/icons/add-file.svg') 0 0 no-repeat;
+        cursor: pointer;
+
+        font-size: toRem(14);
+        font-weight: 600;
+        letter-spacing: .03em;
+        color: $subColor;
+        text-decoration: underline;
+
+        @media (max-width:em(1010)) {
+          letter-spacing: .01em;
+        }
+
+        input[type=file] {
+          width: 0.1px;
+          height: 0.1px;
+          opacity: 0;
+          position: absolute;
+          z-index: -10;
+        }
+      }
+
+      span {
+        display: block;
+        padding-left: 35px;
+        padding-top: 9px;
+
+        font-size: toRem(12);
+        font-weight: 500;
+        letter-spacing: .03em;
+      }
+    }
+
+    /* .form__line_button */
+    &_button {
+      padding-top: toRem(32);
+      @include adaptiveValue("padding-top", 32, 20);
+    }
+  }
+}
+
+
+
