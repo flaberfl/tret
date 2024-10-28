@@ -1,5 +1,5 @@
 // <SELECT>
-// Сніппет (HTML): sel
+// Сниппет (HTML): sel
 .select {
 	min-width: 0;
 	position: relative;
@@ -84,9 +84,9 @@
 	&__scroll {
 		overflow-y: auto;
 		overflow-x: hidden;
-		// Максимальна висота
+		// Максимальная высота
 		max-height: toRem(200);
-		// Стилі скроллбару
+		// Стили скроллбара
 		.simplebar-scrollbar {
 			&::before {
 				//opacity: 1;
@@ -110,7 +110,7 @@
 		}
 	}
 
-	// Конструкція додаткових даних
+	// Конструкция дополнительных данных
 	&__row {
 		display: inline-flex;
 		align-items: center;
@@ -131,7 +131,7 @@
 		}
 	}
 
-	// Стан селекту
+	// Состояние селекта
 	&._select-open {
 	}
 	&._select-disabled {

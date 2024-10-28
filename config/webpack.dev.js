@@ -12,6 +12,7 @@ const rootFolder = path.basename(path.resolve());
 let pugPages = fs.readdirSync(srcFolder).filter(fileName => fileName.endsWith('.pug'))
 let htmlPages = []
 
+
 if (!pugPages.length) {
 	htmlPages = [new FileIncludeWebpackPlugin({
 		source: srcFolder,
@@ -21,13 +22,12 @@ if (!pugPages.length) {
 		},
 		replace: [
 			{ regex: '<link rel="stylesheet" href="css/style.min.css">', to: '' },
-			{ regex: '../img', to: 'img' },
+			{ regex: '(?<=<img src=")\\.\\./img', to: 'img' },
 			{ regex: '@img', to: 'img' },
 			{ regex: 'NEW_PROJECT_NAME', to: rootFolder }
 		],
 	})];
 }
-
 const paths = {
 	src: path.resolve(srcFolder),
 	build: path.resolve(builFolder)
@@ -54,18 +54,15 @@ const config = {
 		port: 'auto',
 		hot: true,
 		host: 'local-ip', // localhost
-
-		// Розкоментувати на слабкому ПК
-		// (в режимі розробника папка результатом (dist) буде створюватися на диску)
-		/*
-		devMiddleware: {
-			writeToDisk: true,
-		},
-		*/
-
+		//В режиме разработчика папка
+		// результатом (dist) будет создаваться на диске)
+		//devMiddleware: {
+		//	writeToDisk: true,
+		//},
 		watchFiles: [
 			`${paths.src}/**/*.html`,
 			`${paths.src}/**/*.pug`,
+			`${paths.src}/**/*.json`,
 			`${paths.src}/**/*.htm`,
 			`${paths.src}/img/**/*.*`
 		],
@@ -99,12 +96,14 @@ const config = {
 								},
 							},
 						},
-					}, {
+					},
+					'postcss-loader',
+					{
 						loader: 'sass-loader',
 						options: {
 							sourceMap: true,
 						}
-					}
+					},
 				],
 			}, {
 				test: /\.pug$/,
@@ -128,7 +127,7 @@ const config = {
 						loader: 'string-replace-loader',
 						options: {
 							search: '@img',
-							replace: 'img',
+							replace: '../../img',
 							flags: 'g'
 						}
 					}, {
@@ -137,6 +136,13 @@ const config = {
 							presets: ["@babel/preset-react"]
 						}
 					}
+				],
+			}, {
+				test: /\.(png|jpe?g|gif|svg)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+					},
 				],
 			}
 		],
@@ -163,7 +169,7 @@ const config = {
 					noErrorOnMissing: true
 				}
 			],
-		}),
+		})
 	],
 	resolve: {
 		alias: {

@@ -1,8 +1,8 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала "Чертоги фрилансера"
 import { isMobile, FLS } from "../files/functions.js";
-// Підключення списку активних модулів
+// Подключение списка активных модулей
 import { flsModules } from "../files/modules.js";
-// Підключення стілів необхідних для роботи модуля
+// Подключение стилей необходимых для работы модуля
 import "../../scss/base/beforeafter.scss";
 
 class BeforeAfter {
@@ -15,10 +15,10 @@ class BeforeAfter {
 		if (this.config.init) {
 			const beforeAfterItems = document.querySelectorAll('[data-ba]');
 			if (beforeAfterItems.length > 0) {
-				this.setLogging(`Прокинувся, бачу елементів: ${beforeAfterItems.length}`);
+				this.setLogging(`Проснулся, вижу элементы: ${beforeAfterItems.length}`);
 				this.beforeAfterInit(beforeAfterItems);
 			} else {
-				this.setLogging(`Прокинувся, не бачу елементів`);
+				this.setLogging(`Проснулся, не вижу элементов`);
 			}
 		}
 	}
@@ -96,7 +96,7 @@ class BeforeAfter {
 			}
 		}
 	}
-	// Логінг у консоль
+	// Логи в консоль
 	setLogging(message) {
 		this.config.logging ? FLS(`[BeforeAfter]: ${message} `) : null;
 	}
@@ -106,6 +106,6 @@ class BeforeAfter {
 
 
 
-// Запускаємо та додаємо в об'єкт модулів
+// Запускаем и добавляем в объект модулей
 flsModules.ba = new BeforeAfter({});
 

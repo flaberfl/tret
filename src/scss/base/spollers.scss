@@ -1,88 +1,94 @@
+// Базовые стили спойлеров
+// Сниппет (HTML): spoller
+
+// Блок со спойлерами
 .spollers {
 	display: grid;
-	@include adaptiveValue("gap", 20, 15);
+	gap: 15px;
 }
-
 // Спойлер
-.spollers__item {}
-
+.spollers__item {
+	font-size: toRem(20);
+}
 // Заголовок спойлера
 .spollers__title {
-	position: relative;
 	width: 100%;
 	cursor: default;
-	display: flex;
-	align-items: center;
-	@include adaptiveValue("padding-left", 32, 26);
-	padding-top: toRem(20);
-	padding-bottom: toRem(20);
-	padding-right: toRem(30);
-	background-color: #363949;
-
-	font-size: toRem(14);
-	letter-spacing: .03em;
-	font-weight: 900;
-
+	text-align: left;
+	border: 1px solid #eee;
+	padding: toRem(10) toRem(15);
+	border-radius: toRem(5);
+	position: relative;
 	list-style: none;
-
-	transition: all 0.6s;
-
-	&::marker {}
-
+	&::marker,
+	&::-webkit-details-marker {
+		display: none;
+	}
 	._spoller-init & {
 		cursor: pointer;
-
 		&::before,
 		&::after {
 			content: "";
 			position: absolute;
+			right: 10px;
 			top: 50%;
-			@include adaptiveValue("right", 27, 20);
-			height: toRem(3);
-			width: toRem(15);
-
-			background-color: #fff;
-
-			border-radius: 5px;
-			transition: all 0.5s ease 0s;
-			z-index: 10;
+			background-color: #000;
+			height: 2px;
+			width: 15px;
+			transition: transform 0.5s ease 0s;
 		}
-
+		&::before {
+			transform: translate(-75%, -50%) rotate(40deg);
+		}
 		&::after {
-			transform: rotate(-90deg);
+			transform: translate(0, -50%) rotate(-40deg);
 		}
-
 		&._spoller-active {
 			&::before {
-				transform: rotate(-45deg);
-				opacity: .6;
+				transform: translateX(-75%) rotate(-40deg);
 			}
-
 			&::after {
-				transform: rotate(45deg);
-				opacity: .6;
+				transform: rotate(40deg);
 			}
 		}
+		/*
+		._spoller-init & {
+			position: relative;
+			width: 100%;
+			text-align: left;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: toRem(12);
+				height: toRem(1);
+				transition: all 0.3s ease 0s;
+				width: toRem(10);
+				background-color: #000;
+			}
+			&::before {
+				transform: rotate(40deg);
+				right: toRem(7);
+			}
+			&::after {
+				transform: rotate(-40deg);
+			}
+		}
+		&._spoller-active {
+			&::before {
+				transform: rotate(-40deg);
+			}
+			&::after {
+				transform: rotate(40deg);
+			}
+		}
+		*/
 	}
 }
-
 // Контент спойлера
 .spollers__body {
-	@include adaptiveValue("padding-top", 30, 15);
+	padding: toRem(20);
+	border-radius: toRem(5);
+	border: 1px solid #eee;
 }
-
-// .spollers__circle {
-// 	position: absolute;
-// 	@include adaptiveValue("width", 64, 29);
-// 	@include adaptiveValue("height", 64, 29);
-
-// 	right: toRem(9);
-// 	border-radius: 50%;
-// 	background-color: $bodyColor;
-
-// 	transition: all 0.3s;
-
-// 	._spoller-active & {
-// 		background-color: red;
-// 	}
-// }

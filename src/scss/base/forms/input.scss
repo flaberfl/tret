@@ -1,5 +1,5 @@
 //<INPUT>
-// Сніппет (HTML): inp
+// Сниппет (HTML): inp
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -8,76 +8,28 @@ textarea {
 	-moz-appearance: none;
 	appearance: none;
 }
-
 .input {
 	border-radius: 0 !important;
 	width: 100%;
 	display: block;
-	padding: 0px 26px;
-	// border: 1px solid #eee;
-	height: toRem(60);
-
-	color: $mainColor;
-
-	&._form-focus {}
-
-	&._form-error {}
+	padding: 0px 20px;
+	border: 1px solid #eee;
+	caret-color: inherit;
+	&._form-focus {
+	}
+	&._form-error {
+	}
 }
-
-textarea[placeholder],
-.input[placeholder] {
-	font-size: toRem(14);
-	font-weight: 400;
-	color: $mainColor;
-	letter-spacing: .03em;
-}
-
 .input[placeholder]:not([data-placeholder-nohiden]) {
 	&::placeholder {
 		transition: opacity 0.3s;
 	}
-
 	&:focus::placeholder {
 		opacity: 0;
 	}
 }
 
-textarea {
+textarea.input {
 	resize: none;
-	padding: 23px 26px;
-	color: $mainColor;
-	// width: 100%;
-}
-
-
-textarea[placeholder]:not([data-placeholder-nohiden]) {
-	&::placeholder {
-		transition: opacity 0.3s;
-	}
-
-	&:focus::placeholder {
-		opacity: 0;
-	}
-}
-
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-input[type="number"] {
-	-moz-appearance: textfield;
-}
-
-input[type="number"]:hover,
-input[type="number"]:focus {
-	-moz-appearance: number-input;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+	padding: 0px 0px;
 }

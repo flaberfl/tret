@@ -1,43 +1,42 @@
-// Модуль попапів
-// (c) Фрілансер по життю, "Хмурый Кот"
-// Документація по роботі у шаблоні: https://template.fls.guru/template-docs/funkcional-popup.html
-// Сніппет (HTML): pl
+//Модуль попапов
+// Документация по работе в шаблоне: https://start-template.ru/modul-popup-vytekayushhie-modalnye-okna-chertogi-frilansera-v3-0-0/
+// Сниппет (HTML): pl
 
-// Підключення функціоналу "Чортоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { isMobile, bodyLockStatus, bodyLock, bodyUnlock, bodyLockToggle, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
-// Клас Popup
+// Клаcс Popup
 class Popup {
 	constructor(options) {
 		let config = {
 			logging: true,
 			init: true,
 			//Для кнопок
-			attributeOpenButton: 'data-popup', // Атрибут для кнопки, яка викликає попап
-			attributeCloseButton: 'data-close', // Атрибут для кнопки, що закриває попап
-			// Для сторонніх об'єктів
-			fixElementSelector: '[data-lp]', // Атрибут для елементів із лівим паддингом (які fixed)
-			// Для об'єкту попапа
+			attributeOpenButton: 'data-popup', // Атрибут для кнопки, вызывающей попап
+			attributeCloseButton: 'data-close', // Атрибут для кнопки, закрывающей попап
+			// Для посторонних объектов
+			fixElementSelector: '[data-lp]', // Атрибут для элементов с левым паддингом (fixed)
+			// Для объекта попапа
 			youtubeAttribute: 'data-popup-youtube', // Атрибут для коду youtube
 			youtubePlaceAttribute: 'data-popup-youtube-place', // Атрибут для вставки ролика youtube
 			setAutoplayYoutube: true,
-			// Зміна класів
+			// Смена классов
 			classes: {
 				popup: 'popup',
 				// popupWrapper: 'popup__wrapper',
 				popupContent: 'popup__content',
-				popupActive: 'popup_show', // Додається для попапа, коли він відкривається
-				bodyActive: 'popup-show', // Додається для боді, коли попап відкритий
+				popupActive: 'popup_show', // Добавляется для попапа, когда он открывается
+				bodyActive: 'popup-show', // Добавляется для боди, когда попап открыт
 			},
-			focusCatch: true, // Фокус усередині попапа зациклений
-			closeEsc: true, // Закриття ESC
-			bodyLock: true, // Блокування скролла
+			focusCatch: true, // Фокус внутри попапа зациклен
+			closeEsc: true, // Закрытие ESC
+			bodyLock: true, // Блокировка скролла
 			hashSettings: {
-				location: true, // Хеш в адресному рядку
-				goHash: true, // Перехід по наявності в адресному рядку
+				location: true, // Хэш в адресной строке
+				goHash: true, // Переход по наличию в адресной строке
 			},
-			on: { // Події
+			on: { // События
 				beforeOpen: function () { },
 				afterOpen: function () { },
 				beforeClose: function () { },
@@ -46,17 +45,17 @@ class Popup {
 		}
 		this.youTubeCode;
 		this.isOpen = false;
-		// Поточне вікно
+		// Текущее окно
 		this.targetOpen = {
 			selector: false,
 			element: false,
 		}
-		// Попереднє відкрите
+		// Предыдущее открытое
 		this.previousOpen = {
 			selector: false,
 			element: false,
 		}
-		// Останнє закрите
+		// Последнее закрыто
 		this.lastClosed = {
 			selector: false,
 			element: false,
@@ -102,13 +101,13 @@ class Popup {
 		this.options.init ? this.initPopups() : null
 	}
 	initPopups() {
-		this.popupLogging(`Прокинувся`);
+		this.popupLogging(`Проснулся`);
 		this.eventsPopup();
 	}
 	eventsPopup() {
-		// Клік по всьому документі
+		// Клик по всему документу
 		document.addEventListener("click", function (e) {
-			// Клік по кнопці "відкрити"
+			// Клик по кнопке "открыть"
 			const buttonOpen = e.target.closest(`[${this.options.attributeOpenButton}]`);
 			if (buttonOpen) {
 				e.preventDefault();
@@ -125,11 +124,11 @@ class Popup {
 					this.open();
 					return;
 
-				} else this.popupLogging(`Йой, не заповнено атрибут у ${buttonOpen.classList}`);
+				} else this.popupLogging(`Йой, не заполнен атрибут в ${buttonOpen.classList}`);
 
 				return;
 			}
-			// Закриття на порожньому місці (popup__wrapper) та кнопки закриття (popup__close) для закриття
+			// Закрытие на пустом месте (popup__wrapper) и кнопки закрытия (popup__close) для закрытия
 			const buttonClose = e.target.closest(`[${this.options.attributeCloseButton}]`);
 			if (buttonClose || !e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen) {
 				e.preventDefault();
@@ -137,7 +136,7 @@ class Popup {
 				return;
 			}
 		}.bind(this));
-		// Закриття ESC
+		// Закрытие ESC
 		document.addEventListener("keydown", function (e) {
 			if (this.options.closeEsc && e.which == 27 && e.code === 'Escape' && this.isOpen) {
 				e.preventDefault();
@@ -150,9 +149,9 @@ class Popup {
 			}
 		}.bind(this))
 
-		// Відкриття по хешу
+		// Открытие по хэшу
 		if (this.options.hashSettings.goHash) {
-			// Перевірка зміни адресного рядка
+			// Проверка смены адресной строки
 			window.addEventListener('hashchange', function () {
 				if (window.location.hash) {
 					this._openToHash();
@@ -170,10 +169,10 @@ class Popup {
 	}
 	open(selectorValue) {
 		if (bodyLockStatus) {
-			// Якщо перед відкриттям попапа був режим lock
+			// Если перед открытием попапа был режим lock
 			this.bodyLock = document.documentElement.classList.contains('lock') && !this.isOpen ? true : false;
 
-			// Якщо ввести значення селектора (селектор настроюється в options)
+			// Если ввести значение селектора (селектор настраивается в options)
 			if (selectorValue && typeof (selectorValue) === "string" && selectorValue.trim() !== "") {
 				this.targetOpen.selector = selectorValue;
 				this._selectorOpen = true;
@@ -206,14 +205,14 @@ class Popup {
 					this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe);
 				}
 				if (this.options.hashSettings.location) {
-					// Отримання хешу та його виставлення
+					// Получение хеша и его выставление
 					this._getHash();
 					this._setHash();
 				}
 
-				// До відкриття
+				// К открытию
 				this.options.on.beforeOpen(this);
-				// Створюємо свою подію після відкриття попапа
+				// Создаем свое событие после открытия попапа
 				document.dispatchEvent(new CustomEvent("beforePopupOpen", {
 					detail: {
 						popup: this
@@ -230,7 +229,7 @@ class Popup {
 
 				this.targetOpen.element.setAttribute('aria-hidden', 'false');
 
-				// Запам'ятаю це відчинене вікно. Воно буде останнім відкритим
+				// Запомню это открытое окно. Оно будет последним открытым
 				this.previousOpen.selector = this.targetOpen.selector;
 				this.previousOpen.element = this.targetOpen.element;
 
@@ -242,17 +241,17 @@ class Popup {
 					this._focusTrap();
 				}, 50);
 
-				// Після відкриття
+				// После открытия
 				this.options.on.afterOpen(this);
-				// Створюємо свою подію після відкриття попапа
+				// Создаем свое событие после открытия попапа
 				document.dispatchEvent(new CustomEvent("afterPopupOpen", {
 					detail: {
 						popup: this
 					}
 				}));
-				this.popupLogging(`Відкрив попап`);
+				this.popupLogging(`Открыл попап`);
 
-			} else this.popupLogging(`Йой, такого попапу немає. Перевірте коректність введення. `);
+			} else this.popupLogging(`Ей, такого попа нет. Проверьте корректность ввода. `);
 		}
 	}
 	close(selectorValue) {
@@ -262,9 +261,9 @@ class Popup {
 		if (!this.isOpen || !bodyLockStatus) {
 			return;
 		}
-		// До закриття
+		// К закрытию
 		this.options.on.beforeClose(this);
-		// Створюємо свою подію перед закриттям попапа
+		// Создаем свое событие перед закрытием попапа
 		document.dispatchEvent(new CustomEvent("beforePopupClose", {
 			detail: {
 				popup: this
@@ -284,16 +283,16 @@ class Popup {
 			!this.bodyLock ? bodyUnlock() : null;
 			this.isOpen = false;
 		}
-		// Очищення адресного рядка
+		// Очистка адресной строки
 		this._removeHash();
 		if (this._selectorOpen) {
 			this.lastClosed.selector = this.previousOpen.selector;
 			this.lastClosed.element = this.previousOpen.element;
 
 		}
-		// Після закриття
+		// После закрытия
 		this.options.on.afterClose(this);
-		// Створюємо свою подію після закриття попапа
+		// Создаем свое событие после закрытия попапа
 		document.dispatchEvent(new CustomEvent("afterPopupClose", {
 			detail: {
 				popup: this
@@ -304,9 +303,9 @@ class Popup {
 			this._focusTrap();
 		}, 50);
 
-		this.popupLogging(`Закрив попап`);
+		this.popupLogging(`Закрыл попап`);
 	}
-	// Отримання хешу 
+	// Получение хеша
 	_getHash() {
 		if (this.options.hashSettings.location) {
 			this.hash = this.targetOpen.selector.includes('#') ?
@@ -326,7 +325,7 @@ class Popup {
 
 		if (buttons && classInHash) this.open(classInHash);
 	}
-	// Встановлення хеша
+	// Установка хеша
 	_setHash() {
 		history.pushState('', '', this.hash);
 	}
@@ -355,10 +354,10 @@ class Popup {
 			focusable[0].focus();
 		}
 	}
-	// Функція виведення в консоль
+	// Функция вывода в консоль
 	popupLogging(message) {
 		this.options.logging ? FLS(`[Попапос]: ${message}`) : null;
 	}
 }
-// Запускаємо та додаємо в об'єкт модулів
+// Запускаем и добавляем в объект модулей
 flsModules.popup = new Popup({});

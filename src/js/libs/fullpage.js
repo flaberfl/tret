@@ -2,126 +2,126 @@ import { isMobile } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
 /*
-	data-fp - оболонка
-	data-fp-section - секції
+	data-fp - Оболочка
+	data-fp-section - Секции
 
-	Перехід на певний слайд
+	Переход на определенный слайд
 	fpage.switchingSection(id);
 
-	Встановлення z-index
+	Установка z-index
 	fPage.init();
 	fPage.destroy();
 	fPage.setZIndex();
 
-	id активного слайду
+	id активного слайда
 	fPage.activeSectionId
-	Активний слайд
+	Активный слайд
 	fPage.activeSection
 
-	Події
+	События
 	fpinit
 	fpdestroy
 	fpswitching
 */
 
-// Клас FullPage
+// Класс FullPage
 export class FullPage {
 	constructor(element, options) {
 		let config = {
 			//===============================
-			// Селектор, на якому не працює подія свайпа/колеса
+			// Селектор, на котором не работает событие свайпа/колеса
 			noEventSelector: '[data-no-event]',
 			//===============================
-			// Налаштування оболонки
-			// Клас при ініціалізації плагіна
+			// Настройка оболочки
+			// Класс при инициализации плагина
 			classInit: 'fp-init',
-			// Клас для врапера під час гортання
+			// Класс для врапера во время пролистывания
 			wrapperAnimatedClass: 'fp-switching',
 			//===============================
-			// Налаштування секцій
-			// СЕЛЕКТОР для секцій
+			// Настройка секций
+			// СЕЛЕКТОР для секций
 			selectorSection: '[data-fp-section]',
-			// Клас для активної секції
+			// Класс для активной секции
 			activeClass: 'active-section',
-			// Клас для Попередньої секції
+			// Класс для Предыдущей секции
 			previousClass: 'previous-section',
-			// Клас для наступної секції
+			// Класс для следующей секции
 			nextClass: 'next-section',
-			// id початково активного класу
+			// id начально активного класса
 			idActiveSection: 0,
 			//===============================
-			// Інші налаштування
-			// Свайп мишею
+			// Другие настройки
+			// Свайп мышью
 			// touchSimulator: false,
 			//===============================
-			// Ефекти
-			// Ефекти: fade, cards, slider
+			// Эффекты
+			// Эффекты: fade, cards, slider
 			mode: element.dataset.fpEffect ? element.dataset.fpEffect : 'slider',
 			//===============================
-			// Булети
-			// Активація буллетів
+			// Буллеты
+			// Активация буллетов
 			bullets: element.hasAttribute('data-fp-bullets') ? true : false,
-			// Клас оболонки буллетів
+			// Класс оболочки буллетов
 			bulletsClass: 'fp-bullets',
-			// Клас буллета
+			// Класс буллета
 			bulletClass: 'fp-bullet',
-			// Клас активного буллета
+			// Класс активного буллета
 			bulletActiveClass: 'fp-bullet-active',
 			//===============================
-			// Події
-			// Подія створення
+			// События
+			// Событие создания
 			onInit: function () { },
-			// Подія перегортання секції
+			// Событие перелистывания секции
 			onSwitching: function () { },
-			// Подія руйнування плагіна
+			// Событие разрушения плагина
 			onDestroy: function () { },
 		}
 		this.options = Object.assign(config, options);
-		// Батьківський єлемент
+		// Родительский элемент
 		this.wrapper = element;
 		this.sections = this.wrapper.querySelectorAll(this.options.selectorSection);
-		// Активний слайд
+		// Активный слайд
 		this.activeSection = false;
 		this.activeSectionId = false;
-		// Попередній слайд
+		// Предыдущий слайд
 		this.previousSection = false;
 		this.previousSectionId = false;
-		// Наступний слайд
+		// Следующий слайд
 		this.nextSection = false;
 		this.nextSectionId = false;
-		// Оболонка буллетів
+		// Оболочка буллетов
 		this.bulletsWrapper = false;
-		// Допоміжна змінна
+		// Вспомогательная переменная
 		this.stopEvent = false;
 		if (this.sections.length) {
-			// Ініціалізація елементів
+			// Инициализация элементов
 			this.init();
 		}
 	}
 	//===============================
-	// Початкова ініціалізація
+	//Начальная инициализация
 	init() {
 		if (this.options.idActiveSection > (this.sections.length - 1)) return
-		// Розставляємо id
+		// Расставляем id
 		this.setId();
 		this.activeSectionId = this.options.idActiveSection;
-		// Присвоєння класів із різними ефектами
+		// Присвоение классов с разными эффектами
 		this.setEffectsClasses();
-		// Встановлення класів
+		// Установка классов
 		this.setClasses();
-		// Встановлення стилів
+		// Установка стилей
 		this.setStyle();
-		// Встановлення булетів
+		// Установка булетов
 		if (this.options.bullets) {
 			this.setBullets();
 			this.setActiveBullet(this.activeSectionId);
 		}
-		// Встановлення подій
+		// Установка событий
 		this.events();
-		// Встановлюємо init клас
+		// Устанавливаем init класс
 		setTimeout(() => {
 			document.documentElement.classList.add(this.options.classInit);
-			// Створення кастомної події
+			// Создание кастомного события
 			this.options.onInit(this);
 			document.dispatchEvent(new CustomEvent("fpinit", {
 				detail: {
@@ -131,25 +131,25 @@ export class FullPage {
 		}, 0);
 	}
 	//===============================
-	// Видалити
+	// Удалить
 	destroy() {
-		// Видалення подій
+		// Удаление событий
 		this.removeEvents();
-		// Видалення класів у секцій
+		// Удаление классов в секциях
 		this.removeClasses();
-		// Видалення класу ініціалізації
+		// Удаление класса инициализации
 		document.documentElement.classList.remove(this.options.classInit);
-		// Видалення класу анімації
+		// Удаление класса анимации
 		this.wrapper.classList.remove(this.options.wrapperAnimatedClass);
-		// Видалення класів ефектів
+		//Удаление классов эффектов
 		this.removeEffectsClasses();
-		// Видалення z-index у секцій
+		// Удаление z-index у секций
 		this.removeZIndex();
-		// Видалення стилів
+		// Удаление стилей
 		this.removeStyle();
-		// Видалення ID
+		// Удаление ID
 		this.removeId();
-		// Створення кастомної події
+		// Создание кастомного события
 		this.options.onDestroy(this);
 		document.dispatchEvent(new CustomEvent("fpdestroy", {
 			detail: {
@@ -158,7 +158,7 @@ export class FullPage {
 		}));
 	}
 	//===============================
-	// Встановлення ID для секцій
+	// Установка ID для секций
 	setId() {
 		for (let index = 0; index < this.sections.length; index++) {
 			const section = this.sections[index];
@@ -166,7 +166,7 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Видалення ID для секцій
+	// Удаление ID для секций
 	removeId() {
 		for (let index = 0; index < this.sections.length; index++) {
 			const section = this.sections[index];
@@ -174,17 +174,17 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Функція встановлення класів для першої, активної та наступної секцій
+	// Функция установки классов для первой, активной и следующей секций
 	setClasses() {
-		// Збереження id для ПОПЕРЕДНЬОГО слайду (якщо такий є)
+		// Сохранение id для ПРЕДЫДУЩЕГО слайда (если таковой есть)
 		this.previousSectionId = (this.activeSectionId - 1) >= 0 ?
 			this.activeSectionId - 1 : false;
 
-		// Збереження id для НАСТУПНОГО слайду (якщо такий є)
+		// Сохранение id для СЛЕДУЮЩЕГО слайда (если таковой есть)
 		this.nextSectionId = (this.activeSectionId + 1) < this.sections.length ?
 			this.activeSectionId + 1 : false;
 
-		// Встановлення класу та присвоєння елемента для АКТИВНОГО слайду
+		// Установка класса и присвоение элемента для активного слайда
 		this.activeSection = this.sections[this.activeSectionId];
 		this.activeSection.classList.add(this.options.activeClass);
 
@@ -193,7 +193,7 @@ export class FullPage {
 		}
 		document.documentElement.classList.add(`fp-section-${this.activeSectionId}`);
 
-		// Встановлення класу та присвоєння елементу для ПОПЕРЕДНЬОГО слайду
+		// Установка класса и присвоение элемента для ПРЕДЫДУЩЕГО слайда
 		if (this.previousSectionId !== false) {
 			this.previousSection = this.sections[this.previousSectionId];
 			this.previousSection.classList.add(this.options.previousClass);
@@ -201,7 +201,7 @@ export class FullPage {
 			this.previousSection = false;
 		}
 
-		// Встановлення класу та присвоєння елемента для НАСТУПНОГО слайду
+		// Встановление класса и присвоение элемента для СЛЕДУЮЩЕГО слайда
 		if (this.nextSectionId !== false) {
 			this.nextSection = this.sections[this.nextSectionId];
 			this.nextSection.classList.add(this.options.nextClass);
@@ -210,7 +210,7 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Присвоєння класів із різними ефектами
+	// Присвоение классов с разными эффектами
 	removeEffectsClasses() {
 		switch (this.options.mode) {
 			case 'slider':
@@ -232,7 +232,7 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Присвоєння класів із різними ефектами
+	// Присвоение классов с разными эффектами
 	setEffectsClasses() {
 		switch (this.options.mode) {
 			case 'slider':
@@ -254,9 +254,9 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Блокування напрямків скролла
+	// Блокировка направлений скролла
 	//===============================
-	// Функція встановлення стилів
+	// Функция установки стилей
 	setStyle() {
 		switch (this.options.mode) {
 			case 'slider':
@@ -314,7 +314,7 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Видалення стилів
+	// Удаление стилей
 	removeStyle() {
 		for (let index = 0; index < this.sections.length; index++) {
 			const section = this.sections[index];
@@ -324,18 +324,18 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Функція перевірки чи повністю було прокручено елемент
+	// Функция проверки полностью ли прокручен элемент
 	checkScroll(yCoord, element) {
 		this.goScroll = false;
 
-		// Чи є елемент і чи готовий до роботи 
+		// Есть ли элемент и готов ли к работе
 		if (!this.stopEvent && element) {
 			this.goScroll = true;
-			// Якщо висота секції не дорівнює висоті вікна
+			// Если высота секции не равна высоте окна
 			if (this.haveScroll(element)) {
 				this.goScroll = false;
 				const position = Math.round(element.scrollHeight - element.scrollTop);
-				// Перевірка на те, чи повністю прокручена секція
+				// Проверка на то, полностью ли прокручена секция
 				if (
 					((Math.abs(position - element.scrollHeight) < 2) && yCoord <= 0) ||
 					((Math.abs(position - element.clientHeight) < 2) && yCoord >= 0)
@@ -346,12 +346,12 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Перевірка висоти 
+	// Проверка высоты
 	haveScroll(element) {
 		return element.scrollHeight !== window.innerHeight
 	}
 	//===============================
-	// Видалення класів 
+	// Удаление классов
 	removeClasses() {
 		for (let index = 0; index < this.sections.length; index++) {
 			const section = this.sections[index];
@@ -361,10 +361,10 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Збірник подій...
+	// Сборник событий...
 	events() {
 		this.events = {
-			// Колесо миші
+			// Колесо мыши
 			wheel: this.wheel.bind(this),
 
 			// Свайп
@@ -373,10 +373,10 @@ export class FullPage {
 			touchmove: this.touchMove.bind(this),
 			touchcancel: this.touchUp.bind(this),
 
-			// Кінець анімації
+			// Конец анимации
 			transitionEnd: this.transitionend.bind(this),
 
-			// Клік для буллетів
+			// Клик для буллетов
 			click: this.clickBullets.bind(this),
 		}
 		if (isMobile.iOS()) {
@@ -387,11 +387,11 @@ export class FullPage {
 		this.setEvents();
 	}
 	setEvents() {
-		// Подія колеса миші
+		// Событие колеса мыши
 		this.wrapper.addEventListener('wheel', this.events.wheel);
-		// Подія натискання на екран
+		// Событие нажатия на экран
 		this.wrapper.addEventListener('touchstart', this.events.touchdown);
-		// Подія кліка по булетах
+		// Событие клика по булетам
 		if (this.options.bullets && this.bulletsWrapper) {
 			this.bulletsWrapper.addEventListener('click', this.events.click);
 		}
@@ -407,26 +407,26 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Функція кліка по булетах
+	// Функция клика по булетам
 	clickBullets(e) {
-		// Натиснутий буллет
+		// Нажатый буллет
 		const bullet = e.target.closest(`.${this.options.bulletClass}`);
 		if (bullet) {
-			// Масив усіх буллетів
+			// Массив всех буллетов
 			const arrayChildren = Array.from(this.bulletsWrapper.children);
 
-			// id Натиснутого буллета
+			// id Нажатого буллета
 			const idClickBullet = arrayChildren.indexOf(bullet)
 
-			// Перемикання секції
+			// Переключение секции
 			this.switchingSection(idClickBullet)
 		}
 	}
 	//===============================
-	// Установка стилів для буллетів
+	// Установка стилей для буллетов
 	setActiveBullet(idButton) {
 		if (!this.bulletsWrapper) return
-		// Усі буллети
+		// Все буллеты
 		const bullets = this.bulletsWrapper.children;
 
 		for (let index = 0; index < bullets.length; index++) {
@@ -436,17 +436,17 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Функція натискання тач/пера/курсора
+	// Функция нажатия тач/пера/курсора
 	touchDown(e) {
-		// Змінна для свайпа
+		// Сменно для свайпа
 		this._yP = e.changedTouches[0].pageY;
 		this._eventElement = e.target.closest(`.${this.options.activeClass}`);
 		if (this._eventElement) {
-			// Вішаємо подію touchmove та touchup
+			// Вешаем событие touchmove и touchup
 			this._eventElement.addEventListener('touchend', this.events.touchup);
 			this._eventElement.addEventListener('touchcancel', this.events.touchup);
 			this._eventElement.addEventListener('touchmove', this.events.touchmove);
-			// Тач стався
+			// Тач случился
 			this.clickOrTouch = true;
 
 			//==============================
@@ -470,9 +470,9 @@ export class FullPage {
 
 	}
 	//===============================
-	// Подія руху тач/пера/курсора
+	// Событие движения тач/пера/курсора
 	touchMove(e) {
-		// Отримання секції, на якій спрацьовує подію
+		// Получение секции, на которой срабатывает событие
 		const targetElement = e.target.closest(`.${this.options.activeClass}`);
 		//===============================
 		if (isMobile.iOS()) {
@@ -488,28 +488,28 @@ export class FullPage {
 			}
 		}
 		//===============================
-		// Перевірка на завершення анімації та наявність НЕ ПОДІЙНОГО блоку
+		// Проверка завершения анимации и наличие НЕ СОБЫТИЕГО блока
 		if (!this.clickOrTouch || e.target.closest(this.options.noEventSelector)) return
-		// Отримання напряму руху
+		// Получение направления движения
 		let yCoord = this._yP - e.changedTouches[0].pageY;
-		// Чи дозволено перехід? 
+		// Разрешен ли переход?
 		this.checkScroll(yCoord, targetElement);
-		// Перехід
+		// Переход
 		if (this.goScroll && Math.abs(yCoord) > 20) {
 			this.choiceOfDirection(yCoord);
 		}
 	}
 	//===============================
-	// Подія відпускання від екрану тач/пера/курсора
+	// Событие отпуска от экрана тач/пера/курсора
 	touchUp(e) {
-		// Видалення подій
+		// Удаление событий
 		this._eventElement.removeEventListener('touchend', this.events.touchup);
 		this._eventElement.removeEventListener('touchcancel', this.events.touchup);
 		this._eventElement.removeEventListener('touchmove', this.events.touchmove);
 		return this.clickOrTouch = false;
 	}
 	//===============================
-	// Кінець спрацьовування переходу
+	// Конец срабатывания перехода
 	transitionend(e) {
 		//if (e.target.closest(this.options.selectorSection)) {
 		this.stopEvent = false;
@@ -518,23 +518,23 @@ export class FullPage {
 		//}
 	}
 	//===============================
-	// Подія прокручування колесом миші
+	// Событие прокрутки колесом мыши
 	wheel(e) {
-		// Перевірка на наявність НЕ ПОДІЙНОГО блоку
+		// Проверка на наличие НЕ СОБЫТАННОГО блока
 		if (e.target.closest(this.options.noEventSelector)) return
-		// Отримання напряму руху
+		// Получение направления движения
 		const yCoord = e.deltaY;
-		// Отримання секції, на якій спрацьовує подію
+		// Получение секции, на которой срабатывает событие
 		const targetElement = e.target.closest(`.${this.options.activeClass}`);
-		// Чи дозволено перехід? 
+		// Разрешен ли переход?
 		this.checkScroll(yCoord, targetElement);
-		// Перехід
+		// Переход
 		if (this.goScroll) this.choiceOfDirection(yCoord);
 	}
 	//===============================
-	// Функція вибору напряму
+	// Функция выбора направления
 	choiceOfDirection(direction) {
-		// Встановлення потрібних id
+		// Установка нужных id
 		if (direction > 0 && this.nextSection !== false) {
 			this.activeSectionId = (this.activeSectionId + 1) < this.sections.length ?
 				++this.activeSectionId : this.activeSectionId;
@@ -542,11 +542,11 @@ export class FullPage {
 			this.activeSectionId = (this.activeSectionId - 1) >= 0 ?
 				--this.activeSectionId : this.activeSectionId;
 		}
-		// Зміна слайдів
+		// Смена слайдов
 		this.switchingSection(this.activeSectionId, direction);
 	}
 	//===============================
-	// Функція перемикання слайдів
+	// Функция переключения слайдов
 	switchingSection(idSection = this.activeSectionId, direction) {
 		if (!direction) {
 			if (idSection < this.activeSectionId) {
@@ -558,29 +558,29 @@ export class FullPage {
 
 		this.activeSectionId = idSection;
 
-		// Зупиняємо роботу подій
+		// Останавливаем работу событий
 		this.stopEvent = true;
-		// Якщо слайд крайні, то дозволяємо події
+		// Если слайд крайние, то разрешаем события
 		if (((this.previousSectionId === false) && direction < 0) || ((this.nextSectionId === false) && direction > 0)) {
 			this.stopEvent = false;
 		}
 
 		if (this.stopEvent) {
-			// Встановлення події закінчення програвання анімації
+			// Установка события окончания воспроизведения анимации
 			document.documentElement.classList.add(this.options.wrapperAnimatedClass);
 			this.wrapper.classList.add(this.options.wrapperAnimatedClass);
 			//this.wrapper.addEventListener('transitionend', this.events.transitionEnd);
-			// Видалення класів
+			// Удаление классов
 			this.removeClasses();
-			// Зміна класів 
+			// Смена классов 
 			this.setClasses();
-			// Зміна стилів
+			// Смена стилей
 			this.setStyle();
-			// Встановлення стилів для буллетів
+			// Установка стилей для буллетов
 			if (this.options.bullets) this.setActiveBullet(this.activeSectionId);
 
-			// Встановлюємо затримку перемикання
-			// Додаємо класи напрямку руху
+			// Устанавливаем задержку переключения
+			// Добавляем классы направления движения
 			let delaySection;
 			if (direction < 0) {
 				delaySection = this.activeSection.dataset.fpDirectionUp ? parseInt(this.activeSection.dataset.fpDirectionUp) : 500;
@@ -597,7 +597,7 @@ export class FullPage {
 			}, delaySection);
 
 
-			// Створення події
+			// Создание события
 			this.options.onSwitching(this);
 			document.dispatchEvent(new CustomEvent("fpswitching", {
 				detail: {
@@ -607,12 +607,12 @@ export class FullPage {
 		}
 	}
 	//===============================
-	// Встановлення булетів
+	// Установка булетов
 	setBullets() {
-		// Пошук оболонки буллетів
+		// Поиск оболочки буллетов
 		this.bulletsWrapper = document.querySelector(`.${this.options.bulletsClass}`);
 
-		// Якщо немає створюємо
+		// Если нет создаем
 		if (!this.bulletsWrapper) {
 			const bullets = document.createElement('div');
 			bullets.classList.add(this.options.bulletsClass);
@@ -620,7 +620,7 @@ export class FullPage {
 			this.bulletsWrapper = bullets;
 		}
 
-		// Створення буллетів
+		// Создание буллетов
 		if (this.bulletsWrapper) {
 			for (let index = 0; index < this.sections.length; index++) {
 				const span = document.createElement('span');
@@ -646,7 +646,7 @@ export class FullPage {
 		}
 	}
 }
-// Запускаємо та додаємо в об'єкт модулів
+// Запускаем и добавляем в объект модулей
 if (document.querySelector('[data-fp]')) {
 	flsModules.fullpage = new FullPage(document.querySelector('[data-fp]'), '');
 }

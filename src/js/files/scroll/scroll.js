@@ -1,23 +1,23 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { isMobile, getHash, menuClose, getDigFormat } from "../functions.js";
 import { flsModules } from "../../files/modules.js";
-// Модуль прокручування до блоку
+// Модуль прокрутки к блоку
 import { gotoBlock } from "./gotoblock.js";
-// Змінна контролю додавання події window scroll.
+// Смена контроля добавления события window scroll.
 let addWindowScrollEvent = false;
 
-//====================================================================================================================================================================================================================================================================================================
-// Плавна навігація по сторінці
+//================================================== ================================================== ================================================== ================================================== ================================================== ==========================================
+// Плавная навигация по странице
 export function pageNavigation() {
-	// data-goto - вказати ID блоку
-	// data-goto-header - враховувати header
-	// data-goto-top - недокрутити на вказаний розмір
-	// data-goto-speed - швидкість (тільки якщо використовується додатковий плагін)
-	// Працюємо при натисканні на пункт
+	// data-goto – указать ID блока
+// data-goto-header -учитывать header
+// data-goto-top – недокрутить на указанный размер
+// data-goto-speed – скорость (только если используется дополнительный плагин)
+// Работаем при нажатии на пункт
 	document.addEventListener("click", pageNavigationAction);
-	// Якщо підключено scrollWatcher, підсвічуємо поточний пункт меню
+	// Если подключен scrollWatcher, то подсвечиваем текущий пункт меню
 	document.addEventListener("watcherCallback", pageNavigationAction);
-	// Основна функція
+	// Основная функция
 	function pageNavigationAction(e) {
 		if (e.type === "click") {
 			const targetElement = e.target;
@@ -42,7 +42,7 @@ export function pageNavigation() {
 		} else if (e.type === "watcherCallback" && e.detail) {
 			const entry = e.detail.entry;
 			const targetElement = entry.target;
-			// Обробка пунктів навігації, якщо вказано значення navigator, підсвічуємо поточний пункт меню
+			// Обработка пунктов навигации, если указано значение navigator, подсвечиваем текущий пункт меню
 			if (targetElement.dataset.watch === 'navigator') {
 				const navigatorActiveItem = document.querySelector(`[data-goto]._navigator-active`);
 				let navigatorCurrentItem;
@@ -58,17 +58,22 @@ export function pageNavigation() {
 					}
 				}
 				if (entry.isIntersecting) {
-					// Бачимо об'єкт
-					// navigatorActiveItem ? navigatorActiveItem.classList.remove('_navigator-active') : null;
+					// Видим объект
+// navigatorActiveItem ? navigatorActiveItem.classList.remove('_navigator-active') : null;
 					navigatorCurrentItem ? navigatorCurrentItem.classList.add('_navigator-active') : null;
+					//const activeItems = document.querySelectorAll('._navigator-active');
+					//activeItems.length > 1 ? chooseOne(activeItems) : null
 				} else {
-					// Не бачимо об'єкт
+					// Не видим объект
 					navigatorCurrentItem ? navigatorCurrentItem.classList.remove('_navigator-active') : null;
 				}
 			}
 		}
 	}
-	// Прокручування по хешу
+	function chooseOne(activeItems) {
+
+	}
+	// Прокрутка по хэшу
 	if (getHash()) {
 		let goToHash;
 		if (document.querySelector(`#${getHash()}`)) {
@@ -79,59 +84,60 @@ export function pageNavigation() {
 		goToHash ? gotoBlock(goToHash, true, 500, 20) : null;
 	}
 }
-// Робота з шапкою при скролі
+// Работа с шапкой при скроле
 export function headerScroll() {
-  addWindowScrollEvent = true;
-  const header = document.querySelector('.header');
-  const headerShow = header.hasAttribute('data-scroll-show');
-  // const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
-  const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
-  let scrollDirection = 0;
-  // let timer;
-  document.addEventListener('windowScroll', function (e) {
-    const scrollTop = window.scrollY;
-    if (scrollTop >= startPoint) {
-      !header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
-      if (headerShow) {
-        if (scrollTop > scrollDirection) {
-          header.classList.contains('_header-show')
-            ? header.classList.remove('_header-show')
-            : null;
-        } else {
-          !header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
-        }
-      }
-    } else {
-      header.classList.contains('_header-scroll')
-        ? header.classList.remove('_header-scroll')
-        : null;
-      if (headerShow) {
-        header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
-      }
-    }
-    scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
-  });
+	addWindowScrollEvent = true;
+	const header = document.querySelector('header.header');
+	const headerShow = header.hasAttribute('data-scroll-show');
+	const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+	const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+	let scrollDirection = 0;
+	let timer;
+	document.addEventListener("windowScroll", function (e) {
+		const scrollTop = window.scrollY;
+		clearTimeout(timer);
+		if (scrollTop >= startPoint) {
+			!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
+			if (headerShow) {
+				if (scrollTop > scrollDirection) {
+					// downscroll code
+					header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+				} else {
+					// upscroll code
+					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+				}
+				timer = setTimeout(() => {
+					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+				}, headerShowTimer);
+			}
+		} else {
+			header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
+			if (headerShow) {
+				header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+			}
+		}
+		scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+	});
 }
-// Модуль анімація цифрового лічильника
+// Анимация цифрового счетчика.
 export function digitsCounter() {
-	// Обнулення
-	if (document.querySelectorAll("[data-digits-counter]").length) {
-		document.querySelectorAll("[data-digits-counter]").forEach(element => {
-			element.dataset.digitsCounter = element.innerHTML;
-			element.innerHTML = `0`;
-		});
-	}
 
-	// Функція ініціалізації
+	// Функция инициализации
 	function digitsCountersInit(digitsCountersItems) {
 		let digitsCounters = digitsCountersItems ? digitsCountersItems : document.querySelectorAll("[data-digits-counter]");
 		if (digitsCounters.length) {
 			digitsCounters.forEach(digitsCounter => {
+				// Обнуления
+				if (digitsCounter.hasAttribute('data-go')) return;
+				digitsCounter.setAttribute('data-go', '');
+				digitsCounter.dataset.digitsCounter = digitsCounter.innerHTML;
+				digitsCounter.innerHTML = `0`;
+				// Анимация
 				digitsCountersAnimate(digitsCounter);
 			});
 		}
 	}
-	// Функція анімації
+	// Функция анимации
 	function digitsCountersAnimate(digitsCounter) {
 		let startTimestamp = null;
 		const duration = parseFloat(digitsCounter.dataset.digitsCounterSpeed) ? parseFloat(digitsCounter.dataset.digitsCounterSpeed) : 1000;
@@ -145,6 +151,8 @@ export function digitsCounter() {
 			digitsCounter.innerHTML = typeof digitsCounter.dataset.digitsCounterFormat !== 'undefined' ? getDigFormat(value, format) : value;
 			if (progress < 1) {
 				window.requestAnimationFrame(step);
+			} else {
+				digitsCounter.removeAttribute('data-go');
 			}
 		};
 		window.requestAnimationFrame(step);
@@ -159,7 +167,7 @@ export function digitsCounter() {
 
 	document.addEventListener("watcherCallback", digitsCounterAction);
 }
-// При підключенні модуля обробник події запуститься автоматично
+// При подключении модуля обработчик события запустится автоматически
 setTimeout(() => {
 	if (addWindowScrollEvent) {
 		let windowScroll = new Event("windowScroll");
