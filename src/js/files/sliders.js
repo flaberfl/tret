@@ -8,7 +8,7 @@
 //При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 //Пример: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 /*
 Основные модули слайдера:
 Navigation, Pagination, Autoplay,
@@ -26,18 +26,19 @@ import "../../scss/base/swiper.scss";
 
 //Инициализация слайдеров
 function initSliders() {
-//Список слайдеров
-//Проверяем, есть ли слайдер на странице
-	if (document.querySelector('.swiper')) { //Указываем класс нужного слайдера
-//Создаем слайдер
-		new Swiper('.swiper', { //Указываем класс нужного слайдера
-            //Подключаем модули слайдера
-            //для конкретного случая
-			modules: [Navigation],
+	//Список слайдеров
+	//Проверяем, есть ли слайдер на странице
+	if (document.querySelector('.intro__slider')) { //Указываем класс нужного слайдера
+		//Создаем слайдер
+		new Swiper('.intro__slider', { //Указываем класс нужного слайдера
+			//Подключаем модули слайдера
+			//для конкретного случая
+			modules: [Pagination, EffectFade],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 0,
+			effect: "fade",
 			//autoHeight: true,
 			speed: 800,
 
@@ -57,12 +58,12 @@ function initSliders() {
 			*/
 
 			// Пагинация
-			/*
+
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.intro__slider-pagination',
 				clickable: true,
 			},
-			*/
+
 
 			// Скроллбар
 			/*
@@ -73,10 +74,10 @@ function initSliders() {
 			*/
 
 			// Кнопки "влево/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
+			// navigation: {
+			// 	prevEl: '.swiper-button-prev',
+			// 	nextEl: '.swiper-button-next',
+			// },
 			/*
 			// Брейкпоинты
 			breakpoints: {
@@ -105,6 +106,13 @@ function initSliders() {
 			}
 		});
 	}
+
+
+
+
+
+
+
 }
 //Скролл на базе слайдера (по классу swiper scroll для оболочки слайдера)
 function initSlidersScroll() {
