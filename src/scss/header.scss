@@ -93,9 +93,7 @@
     padding-left: toRem(22);
     width: toRem(383);
 
-    border: 1px solid rgba(255, 255, 255, 0.23);
     border-radius: toRem(50);
-    box-shadow: 0 4px 13px 0 rgba(0, 0, 0, 0);
     line-height: 88%;
 
     &:focus {
@@ -116,6 +114,12 @@
     gap: toRem(23);
     margin-left: auto;
   }
+}
+
+.form-search {
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  border-radius: toRem(50);
+  box-shadow: 0 4px 13px 0 rgba(0, 0, 0, 0);
 }
 
 .form-icon {
