@@ -55,6 +55,7 @@
     display: flex;
     align-items: center;
     gap: toRem(12);
+    margin-right: toRem(60);
 
     span {
       font-size: toRem(18);
@@ -92,7 +93,6 @@
     padding-right: toRem(22);
     padding-left: toRem(22);
     width: toRem(383);
-
     border-radius: toRem(50);
     line-height: 88%;
 
@@ -107,7 +107,6 @@
     }
   }
 
-
   &__account {
     display: flex;
     align-items: center;
@@ -120,14 +119,17 @@
   border: 1px solid rgba(255, 255, 255, 0.23);
   border-radius: toRem(50);
   box-shadow: 0 4px 13px 0 rgba(0, 0, 0, 0);
+
+
+  &__button {
+    position: absolute;
+    right: toRem(20);
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 }
 
-.form-icon {
-  position: absolute;
-  right: toRem(20);
-  top: 50%;
-  transform: translate(0, -50%);
-}
+.form-icon {}
 
 
 .menu {
@@ -430,26 +432,6 @@
     transition: all 0.3s;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: 5%;
-    left: 34%;
-
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    border-bottom: 11px solid #fff;
-    opacity: 0;
-    transition: all .7s;
-    bottom: -28%;
-
-    .menu-open & {
-      opacity: 1;
-    }
-  }
-
   .menu-open & {
     background: $subColor;
   }
@@ -469,4 +451,34 @@
       background-color: $whiteColor;
     }
   }
+}
+
+.account-header__link {
+  position: relative;
+}
+
+.favorite-num,
+.basket-num {
+  position: absolute;
+  width: toRem(21);
+  height: toRem(21);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  font-size: toRem(13);
+  font-weight: 700;
+  color: #fff;
+  background-color: #28B3B6;
+}
+
+.favorite-num {
+  top: -6px;
+  right: -8px;
+}
+
+.basket-num {
+  top: -2px;
+  right: -3px;
 }
