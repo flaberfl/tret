@@ -55,7 +55,7 @@
     display: flex;
     align-items: center;
     gap: toRem(12);
-    margin-right: toRem(60);
+    margin-right: toRem(42);
 
     span {
       font-size: toRem(18);
@@ -78,10 +78,10 @@
   &__left {
     display: flex;
     align-items: center;
+    @include adaptiveValue("margin-right", 194, 20);
   }
 
   &__search {
-    @include adaptiveValue("margin-right", 197, 20);
   }
 
   &__form {
