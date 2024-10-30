@@ -1,5 +1,5 @@
 .intro {
-
+  position: relative;
 
   /* .intro__slider */
   &__slider {
@@ -23,11 +23,10 @@
 
   /* .intro__content */
   &__content {
-    // padding-top: toRem(313);
-    padding-bottom: toRem(290);
     max-width: toRem(765);
 
     @include adaptiveValue("padding-top", 313, 129);
+    @include adaptiveValue("padding-bottom", 290, 208);
   }
 
   /* .intro__title */
@@ -91,6 +90,39 @@
     }
   }
 
+  &__arrow-down {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    bottom: -51px;
+
+    transform: translate(-50%, 0px);
+    border-radius: 50%;
+    background-color: #fff;
+
+    @include adaptiveValue("width", 105, 61);
+    @include adaptiveValue("height", 105, 61);
+    @include adaptiveValue("bottom", -51, -30);
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
+
+      border-radius: 50%;
+      z-index: -1;
+
+      @include adaptiveValue("width", 77, 51);
+      @include adaptiveValue("height", 77, 51);
+    }
+
+    svg {
+      @include adaptiveValue("width", 27, 17);
+    }
+  }
+
   /* .intro__background */
   &__background {
     position: absolute;
@@ -100,6 +132,8 @@
 
     img {
       object-fit: cover;
+      max-width: 100%;
+      height: 100%;
     }
 
     &::after {
@@ -124,8 +158,7 @@
     align-items: center;
     gap: toRem(16);
 
-    @media (min-width:$mobile) {
-    }
+    @media (min-width:$mobile) {}
 
     @media (max-width:$mobile) {
       gap: toRem(10);
