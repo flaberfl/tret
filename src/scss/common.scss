@@ -1,1 +1,24 @@
 // Заголовки, общие БЄМ блоки и прочее...
+.title-h2 {
+  font-weight: 700;
+  color: #000;
+  line-height: 106%;
+  @include adaptiveValue("font-size", 62, 30);
+
+  @include adaptiveValue("margin-bottom", 52, 25);
+
+  @media (max-width:$mobile) {
+    line-height: 100%;
+  }
+}
+
+.product-item__type {
+  img {
+
+    transition: all 0.7s;
+
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(55%) sepia(70%) saturate(457%) hue-rotate(133deg) brightness(95%) contrast(87%);
+    }
+  }
+}
