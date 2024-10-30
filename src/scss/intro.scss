@@ -23,42 +23,52 @@
 
   /* .intro__content */
   &__content {
-    padding-top: toRem(313);
+    // padding-top: toRem(313);
     padding-bottom: toRem(290);
     max-width: toRem(765);
+
+    @include adaptiveValue("padding-top", 313, 129);
   }
 
   /* .intro__title */
   &__title {
-    margin-bottom: toRem(21);
-
     font-weight: 700;
-    font-size: 70px;
     line-height: 100%;
     color: #fff;
+    @include adaptiveValue("font-size", 70, 35);
+
+    @include adaptiveValue("margin-bottom", 21, 10);
+
+    @media (max-width:$mobile) {
+      line-height: 109%;
+    }
   }
 
   /* .intro__text */
   &__text {
     max-width: toRem(720);
-    margin-bottom: toRem(32);
 
-    font-size: toRem(20);
     line-height: 155%;
     color: #fff;
+    @include adaptiveValue("font-size", 20, 16);
+
+    @include adaptiveValue("margin-bottom", 32, 19);
+
+    @media (max-width:$mobile) {
+      line-height: 150%;
+    }
   }
 
   /* .intro__button */
   &__button {
     display: flex;
     align-items: center;
-    gap: toRem(66);
-    height: toRem(70);
-    width: toRem(270);
+    // gap: toRem(66);
+    // height: toRem(70);
+    // width: toRem(270);
     padding: 0 toRem(30);
     border-radius: toRem(50);
 
-    font-size: toRem(21);
     font-weight: 700;
     color: #fff;
     line-height: 300%;
@@ -66,9 +76,15 @@
 
     background-color: $secondaryColor;
 
+    @include adaptiveValue("font-size", 21, 17);
+
+    @include adaptiveValue("height", 70, 50);
+    @include adaptiveValue("gap", 66, 34);
+    @include adaptiveValue("width", 270, 216);
+
     @media (max-width:$mobile) {
-      height: toRem(50);
-      width: toRem(216);
+      // height: toRem(50);
+      // width: toRem(216);
 
       line-height: 371%;
       color: #fff;
@@ -100,12 +116,23 @@
   /* .intro__slider-pagination */
   &__slider-pagination {
     position: absolute;
-    right: toRem(135);
-    top: 50%;
-    display: flex;
+    top: toRem(440);
+    right: toRem(21);
+    // transform: translate(50%, 0%);
     flex-direction: column;
+    display: flex;
     align-items: center;
     gap: toRem(16);
+
+    @media (min-width:$mobile) {
+    }
+
+    @media (max-width:$mobile) {
+      gap: toRem(10);
+      flex-direction: row;
+      left: toRem(22);
+      top: toRem(566)
+    }
 
     .swiper-pagination-bullet {
       position: relative;
@@ -118,6 +145,11 @@
       cursor: pointer;
 
       transition: all 0.3s;
+
+      @media (max-width:$mobile) {
+        width: 10px;
+        height: 10px;
+      }
 
       // &::before {
       //   content: '';
@@ -136,7 +168,11 @@
         background-color: $secondaryColor;
         border-radius: 50%;
         opacity: 0;
-        // z-index: 10;
+
+        @media (max-width:$mobile) {
+          width: toRem(7);
+          height: toRem(7);
+        }
       }
     }
 
@@ -148,6 +184,11 @@
       justify-content: center;
       align-items: center;
       background-color: #fff;
+
+      @media (max-width:$mobile) {
+        width: 17px;
+        height: 17px;
+      }
 
       &::before {
         opacity: 1;
@@ -162,14 +203,4 @@
   position: relative;
   height: 100%;
   width: 100%;
-}
-
-.swiper-slide {}
-
-.button {}
-
-.system__container {
-  position: absolute;
-  right: 0;
-  z-index: 200;
 }

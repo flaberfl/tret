@@ -7,7 +7,7 @@
   background: $bodyColor;
 
   &__wrapper {
-    height: toRem(120);
+    // height: toRem(120);
     position: fixed;
     display: flex;
     align-items: center;
@@ -16,6 +16,8 @@
     width: 100%;
     transition: all 0.4s;
     z-index: 30;
+
+    @include adaptiveValue("height", 120, 72);
 
     ._header-scroll & {
       height: toRem(100);
@@ -43,19 +45,44 @@
   &__container {
     display: flex;
     align-items: center;
-    height: toRem(120);
+    // height: toRem(120);
     width: 100%;
     // justify-content: space-between;
     border-bottom: 1px solid rgba($color: #fff, $alpha: .09);
+
+    @include adaptiveValue("height", 120, 72);
+
+    @media (max-width:$mobile) {
+      justify-content: space-between;
+    }
   }
 
-  &__logo {}
+  &__logo {
+
+    svg {
+      @include adaptiveValue("width", 162, 113);
+      @include adaptiveValue("height", 68, 47);
+    }
+
+    @media (min-width:$mobile) and (max-width:$tablet) {
+      margin-left: auto;
+    }
+
+    @media (max-width:$mobile) {
+      margin-left: -19px;
+      margin-top: 10px;
+    }
+  }
 
   &__menu-burger {
     display: flex;
     align-items: center;
     gap: toRem(12);
     margin-right: toRem(42);
+
+    @media (max-width:$tablet) {
+      margin-right: toRem(0);
+    }
 
     span {
       font-size: toRem(18);
@@ -78,11 +105,14 @@
   &__left {
     display: flex;
     align-items: center;
-    @include adaptiveValue("margin-right", 194, 20);
+    @include adaptiveValue("margin-right", 194, 100, 0, 1920, 1080);
+
+    @media (max-width:$tablet) {
+      margin-right: toRem(0);
+    }
   }
 
-  &__search {
-  }
+  &__search {}
 
   &__form {
     position: relative;
@@ -92,9 +122,11 @@
     height: toRem(56);
     padding-right: toRem(22);
     padding-left: toRem(22);
-    width: toRem(383);
+    // width: toRem(383);
     border-radius: toRem(50);
     line-height: 88%;
+
+    @include adaptiveValue("width", 383, 200);
 
     &:focus {
       background-color: $whiteColor;
@@ -110,8 +142,9 @@
   &__account {
     display: flex;
     align-items: center;
-    gap: toRem(23);
     margin-left: auto;
+
+    @include adaptiveValue("gap", 23, 15);
   }
 }
 
@@ -144,7 +177,7 @@
     width: 100%;
     height: 0;
     left: 50%;
-    top: toRem(109);
+    top: toRem(120);
     transform: translate(-50%, 0);
     opacity: 0;
     visibility: hidden;
@@ -164,7 +197,7 @@
 
       @media (min-width:$mobile) {
         height: toRem(116);
-        top: toRem(109);
+        top: toRem(107);
       }
     }
 
@@ -268,7 +301,7 @@
     display: block;
     position: relative;
     width: toRem(17);
-    height: toRem(15);
+    height: toRem(12);
     z-index: 990;
 
     @media (any-hover: none) {
@@ -293,6 +326,8 @@
 
     &::after {
       bottom: 0;
+      width: 11px;
+      left: 0;
     }
 
     span {
@@ -317,6 +352,13 @@
       &::after {
         bottom: calc(50% - toRem(1));
         transform: rotate(45deg);
+        width: auto;
+      }
+
+      span,
+      &::before,
+      &::after {
+        background: $whiteColor;
       }
     }
   }
@@ -326,7 +368,7 @@
   display: block;
   position: absolute;
   width: toRem(20);
-  height: toRem(16);
+  height: toRem(14);
   z-index: 990;
 
   @media (any-hover: none) {
@@ -402,8 +444,12 @@
     background-color: #fff;
     cursor: pointer;
 
+    @include adaptiveValue("margin-left", 160, 15);
+
     .menu-open & {
+      background-color: $subColor;
       border: none;
+      z-index: 901;
     }
   }
 }
@@ -455,6 +501,10 @@
 
 .account-header__link {
   position: relative;
+
+  svg {
+    @include adaptiveValue("width", 38, 26);
+  }
 }
 
 .favorite-num,
