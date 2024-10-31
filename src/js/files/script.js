@@ -8,7 +8,6 @@ window.addEventListener("load", function () {
 
 
 
-document.querySelectorAll
 
 
 // Добавление и удаления класса по клику
@@ -24,6 +23,14 @@ for (let i = 0; i < block.length; i++) {
 let sizeValue = document.getElementsByClassName('product-item__size-value');
 for (let i = 0; i < sizeValue.length; i++) {
   sizeValue[i].onclick = function () {
+    console.log('fff');
+    this.classList.toggle('active');
+  }
+}
+
+let addToBasket = document.getElementsByClassName('button__basket');
+for (let i = 0; i < addToBasket.length; i++) {
+  addToBasket[i].onclick = function () {
     console.log('fff');
     this.classList.toggle('active');
   }

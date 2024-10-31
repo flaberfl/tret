@@ -120,6 +120,16 @@
       @include adaptiveValue("height", 25, 10);
     }
 
+    &:hover {
+      background-color: #000;
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
     &.active {
       background-color: #000;
 
@@ -168,10 +178,6 @@
     }
 
     &:hover {
-      &::after {
-        width: toRem(164);
-      }
-
       img {
         filter: brightness(0) saturate(100%) invert(55%) sepia(70%) saturate(457%) hue-rotate(133deg) brightness(95%) contrast(87%);
       }
@@ -272,6 +278,11 @@
     @include adaptiveValue("padding-right", 16, 11);
 
     @include adaptiveValue("font-size", 16, 12);
+
+    &:hover {
+      color: #fff;
+      background-color: #000;
+    }
 
     &.active {
       color: #fff;
