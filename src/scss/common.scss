@@ -12,6 +12,52 @@
   }
 }
 
+.price {
+  display: flex;
+  align-items: center;
+  gap: toRem(17);
+
+  &__new {
+    color: $secondaryColor;
+    font-size: toRem(36);
+    font-weight: 600;
+    line-height: 120%;
+    @include adaptiveValue("font-size", 36, 15);
+  }
+
+  &__old {
+    display: flex;
+    align-items: center;
+    gap: toRem(5);
+    padding-top: toRem(7);
+
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: line-through;
+    color: #d7d7d7;
+    @include adaptiveValue("font-size", 20, 12);
+
+    span {
+      @include adaptiveValue("font-size", 15, 12);
+    }
+  }
+
+  &_before {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 20, 13);
+
+    @media (max-width:$mobile) {
+      line-height: 185%;
+    }
+  }
+
+  &_rub {
+    @include adaptiveValue("font-size", 22, 15);
+  }
+}
+
+
+
 // .product-item__type {
 //   img {
 

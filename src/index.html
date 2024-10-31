@@ -126,12 +126,14 @@
 											</button>
 										</div>
 										<div class="product-item__bottom-line">
-											<span class="product-item__type">
+											<div class="product-item__type">
 												<div class="product-item__badge">
-													Гусиный пух
+													<span>
+														Гусиный пух
+													</span>
 												</div>
 												<img src="@img/icons/goose.svg" alt="Тип изделия">
-											</span>
+											</div>
 										</div>
 									</div>
 
@@ -144,14 +146,17 @@
 											<div class="product-item__size-label">
 												Размер (см)
 											</div>
-											<div class="product-item__size-value">70х90</div>
-											<div class="product-item__size-value">60х80</div>
-											<div class="product-item__size-value">50х70</div>
+											<div class="product-item__values">
+												<a href="#!" class="product-item__size-value">70х90</a>
+												<a href="#!" class="product-item__size-value">60х80</a>
+												<a href="#!" class="product-item__size-value">50х70</a>
+											</div>
 										</div>
 
-										<div class="product-item__cost">
-											<div class="product-item__price price"><span>от</span> 2 900 ₽</div>
-											<div class="product-item__old-price">3 700 ₽</div>
+										<div class="product-item__cost price">
+											<div class="product-item__price price__new"><span class="price_before">от </span>2 900<span
+													class="price_rub"> ₽</span></div>
+											<div class="product-item__old-price price__old">3 700 <span> ₽</span></div>
 										</div>
 
 										<button type="submit" class="product-item__button button button__basket">
