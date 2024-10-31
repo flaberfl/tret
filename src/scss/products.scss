@@ -28,6 +28,7 @@
 
 .product-item {
   padding: toRem(16) toRem(20) toRem(40);
+  width: toRem(392);
 
   border: 1px solid #fafafa;
   box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.02);
@@ -38,6 +39,9 @@
   &__media {
     position: relative;
     padding: toRem(13);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     // overflow: hidden;
 
     @include adaptiveValue("height", 264, 124);
@@ -49,6 +53,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
+    // max-width: toRem(392);
 
     border-radius: toRem(20);
   }
@@ -88,6 +93,7 @@
     padding: toRem(13) toRem(11);
 
     background-color: $secondaryColor;
+    box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.15);
     border-radius: toRem(50);
 
     font-weight: 700;
@@ -113,13 +119,73 @@
       @include adaptiveValue("width", 25, 10);
       @include adaptiveValue("height", 25, 10);
     }
+
+    &.active {
+      background-color: #000;
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
   }
 
   /* .product-item__bottom-line */
-  &__bottom-line {}
+  &__bottom-line {
+    position: relative;
+    margin-top: auto;
+  }
 
   /* .product-item__type */
-  &__type {}
+  &__type {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: toRem(50);
+    height: toRem(50);
+    border-radius: 50%;
+    background-color: #fff;
+
+    &::after{
+      content:'';
+      position: absolute;
+      background-color: #fff;
+      border-radius: toRem(50);
+      height: 100%;
+      left: 0;
+      width: toRem(100);
+      // z-index: 0;
+    }
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $secondaryColor;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.7s;
+    }
+
+    img {
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+
+      img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(52deg) brightness(101%) contrast(102%);
+      }
+    }
+  }
 
   /* .product-item__info */
   &__info {
@@ -127,7 +193,11 @@
   }
 
   /* .product-item__title */
-  &__title {}
+  &__title {
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 130%;
+  }
 
   /* .product-item__size */
   &__size {}
