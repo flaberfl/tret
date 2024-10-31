@@ -3,12 +3,34 @@
 
 .button {
 	display: inline-flex;
+	align-items: center;
 	padding: 0px 0px;
+	border-radius: toRem(50);
+	background-color: #fff;
+
 	@media (any-hover: hover) {
-		&:hover {
-		}
+		&:hover {}
 	}
+
 	&--fw {
 		width: 100%;
+	}
+
+	&__basket {
+		gap: toRem(6);
+
+		padding: toRem(14) toRem(44);
+
+		border: 1px solid $secondaryColor;
+
+		color: $secondaryColor;
+		font-size: toRem(18);
+
+		&:hover {
+			background: #f0ffff;
+			border: 1px solid rgba(40, 179, 182, 0.13);
+		}
+
+		&.active {}
 	}
 }

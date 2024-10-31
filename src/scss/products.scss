@@ -273,7 +273,7 @@
 
     @include adaptiveValue("font-size", 16, 12);
 
-    &:hover {
+    &.active {
       color: #fff;
       background-color: #000;
     }
@@ -282,6 +282,7 @@
   /* .product-item__cost */
   &__cost {
     padding-top: toRem(13);
+    margin-bottom: toRem(8);
     display: flex;
     // align-items: flex-end;
     // align-items: center;

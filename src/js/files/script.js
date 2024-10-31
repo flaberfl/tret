@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
 
 
 
-
+document.querySelectorAll
 
 
 // Добавление и удаления класса по клику
@@ -17,6 +17,14 @@ window.addEventListener("load", function () {
 let block = document.getElementsByClassName('product-item__favorite');
 for (let i = 0; i < block.length; i++) {
   block[i].onclick = function () {
+    this.classList.toggle('active');
+  }
+}
+
+let sizeValue = document.getElementsByClassName('product-item__size-value');
+for (let i = 0; i < sizeValue.length; i++) {
+  sizeValue[i].onclick = function () {
+    console.log('fff');
     this.classList.toggle('active');
   }
 }
