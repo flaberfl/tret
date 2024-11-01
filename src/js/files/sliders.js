@@ -107,9 +107,9 @@ function initSliders() {
 		});
 	}
 
-	if (document.querySelector('.products__slider')) { //Указываем класс нужного слайдера
+	if (document.querySelector('.popular__slider')) { //Указываем класс нужного слайдера
 		//Создаем слайдер
-		new Swiper('.products__slider', { //Указываем класс нужного слайдера
+		new Swiper('.popular__slider', { //Указываем класс нужного слайдера
 			//Подключаем модули слайдера
 			//для конкретного случая
 			modules: [Navigation],
@@ -154,8 +154,8 @@ function initSliders() {
 
 			// Кнопки "влево/вправо"
 			navigation: {
-				prevEl: '.products__slider-btn.swiper-button-prev',
-				nextEl: '.products__slider-btn.swiper-button-next',
+				prevEl: '.popular__slider-btn.swiper-button-prev',
+				nextEl: '.popular__slider-btn.swiper-button-next',
 			},
 
 			// Брейкпоинты

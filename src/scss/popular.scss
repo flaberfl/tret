@@ -1,15 +1,24 @@
-.products {
-  padding-top: toRem(99);
+.popular {
   padding-bottom: toRem(118);
 
-  @include adaptiveValue("padding-top", 99, 60);
+  @include adaptiveValue("padding-top", 122, 60);
   @include adaptiveValue("padding-bottom", 118, 50);
 
   /* .products__container */
   &__container {}
 
+  /* .products__top */
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: toRem(44);
+  }
+
   /* .products__title */
-  &__title {}
+  &__title {
+    margin-bottom: toRem(0);
+  }
 
   /* .products__slider */
   &__slider {}
@@ -311,16 +320,24 @@
   &__basket {}
 }
 
+.swiper-buttons {
 
-.swiper-button {
   margin-left: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  @include adaptiveValue("gap", 12, 7);
+}
+
+.swiper-button {
+  justify-content: flex-end;
   width: toRem(60);
   height: toRem(60);
 
   border: 1px solid #e9e9e9;
   border-radius: 6px;
+}
+
+.swiper-button-disabled {
+  opacity: .5;
+  pointer-events: none;
 }
