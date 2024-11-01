@@ -136,7 +136,7 @@ function initSliders() {
 			},
 			*/
 
-	
+
 			// Кнопки "влево/вправо"
 			navigation: {
 				prevEl: '.popular__slider-btn.swiper-button-prev',
@@ -145,9 +145,19 @@ function initSliders() {
 
 			// Брейкпоинты
 			breakpoints: {
+				0: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+					autoHeight: true,
+				},
+				360: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+					// autoHeight: true,
+				},
 				640: {
 					slidesPerView: 2,
-					spaceBetween: 0,
+					spaceBetween: 20,
 					autoHeight: true,
 				},
 				768: {
@@ -156,7 +166,7 @@ function initSliders() {
 				},
 				992: {
 					slidesPerView: 3,
-					spaceBetween: 20,
+					spaceBetween: 28,
 				},
 				1268: {
 					slidesPerView: 4,
