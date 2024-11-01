@@ -42,12 +42,16 @@
 	justify-content: center;
 	align-items: center;
 	gap: toRem(6);
-	height: toRem(56);
 
 	color: $secondaryColor;
 	border: 1px solid $secondaryColor;
-	padding: toRem(14) toRem(44);
 	border-radius: toRem(50);
+
+	@include adaptiveValue("font-size", 18, 12);
+	@include adaptiveValue("padding-top", 14, 6);
+	@include adaptiveValue("padding-bottom", 14, 6);
+	@include adaptiveValue("padding-left", 44, 15);
+	@include adaptiveValue("padding-right", 44, 15);
 
 	&__add {
 		display: none;
@@ -60,5 +64,11 @@
 
 	&.active {
 		display: inline-flex;
+	}
+
+	@media (max-width: toEm(580)) {
+		svg {
+			display: none;
+		}
 	}
 }
