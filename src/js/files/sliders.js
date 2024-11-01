@@ -118,14 +118,14 @@ function initSliders() {
 			slidesPerView: 4,
 			spaceBetween: 28,
 			// effect: "fade",
-			//autoHeight: true,
+			// autoHeight: true,
 			speed: 800,
 
 			//touchRatio: 0,
 			//simulateTouch: false,
 			loop: true,
 			//preloadImages: false,
-			//lazy: true,
+			lazy: true,
 
 			/*
 			// Эффекты
@@ -136,22 +136,7 @@ function initSliders() {
 			},
 			*/
 
-			// Пагинация
-
-			// pagination: {
-			// 	el: '.intro__slider-pagination',
-			// 	clickable: true,
-			// },
-
-
-			// Скроллбар
-			/*
-			scrollbar: {
-				el: '.swiper-scrollbar',
-				draggable: true,
-			},
-			*/
-
+	
 			// Кнопки "влево/вправо"
 			navigation: {
 				prevEl: '.popular__slider-btn.swiper-button-prev',
@@ -161,7 +146,7 @@ function initSliders() {
 			// Брейкпоинты
 			breakpoints: {
 				640: {
-					slidesPerView: 1,
+					slidesPerView: 2,
 					spaceBetween: 0,
 					autoHeight: true,
 				},
