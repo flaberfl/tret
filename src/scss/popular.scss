@@ -40,9 +40,9 @@
     flex-direction: column;
 
     @include adaptiveValue("padding", 13, 7);
-
+    
     @media (min-width:toEm(361)) {
-      aspect-ratio: 380 / 264;
+      aspect-ratio: 350 / 264;
     }
 
     @media (max-width: toEm(360)) {

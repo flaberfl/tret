@@ -148,17 +148,17 @@ function initSliders() {
 				0: {
 					slidesPerView: 2,
 					spaceBetween: 20,
-					// autoHeight: true,
+					autoHeight: true,
 				},
 				360: {
 					slidesPerView: 2,
 					spaceBetween: 20,
-					// autoHeight: true,
+					autoHeight: true,
 				},
 				640: {
 					slidesPerView: 2,
 					spaceBetween: 20,
-					// autoHeight: true,
+					autoHeight: true,
 				},
 				768: {
 					slidesPerView: 2,
