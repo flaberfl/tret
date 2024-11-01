@@ -56,9 +56,12 @@
 	&__add {
 		display: none;
 
+		// line-height: 139%;
 		background-color: $secondaryColor;
 		font-weight: 600;
 		color: #fff;
+
+		@include adaptiveValue("height", 56, 27);
 	}
 
 

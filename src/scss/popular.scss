@@ -320,12 +320,10 @@
   &__cost {
     display: flex;
     align-items: flex-end;
-
     @include adaptiveValue("padding-top", 13, 8);
     @include adaptiveValue("margin-bottom", 19, 6);
   }
 }
-
 
 .swiper-buttons {
   margin-left: auto;
@@ -336,12 +334,9 @@
 
 .swiper-button {
   justify-content: flex-end;
-  width: toRem(60);
-  height: toRem(60);
 
   border: 1px solid #e9e9e9;
   border-radius: 6px;
-
   transition: all 0.3s;
 
   @include adaptiveValue("width", 60, 34);
