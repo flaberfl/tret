@@ -1,6 +1,9 @@
 .category {
   position: relative;
-  padding: toRem(118) 0;
+  // padding: toRem(118) 0;
+
+  @include adaptiveValue("padding-top", 118, 47);
+  @include adaptiveValue("padding-bottom", 118, 51);
 
   &::before {
     content: '';

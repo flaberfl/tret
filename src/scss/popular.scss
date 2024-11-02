@@ -1,8 +1,6 @@
 .popular {
-  padding-bottom: toRem(118);
-
   @include adaptiveValue("padding-top", 122, 60);
-  @include adaptiveValue("padding-bottom", 118, 50);
+  @include adaptiveValue("padding-bottom", 95, 50);
 
   /* .products__top */
   &__top {
