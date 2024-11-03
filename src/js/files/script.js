@@ -9,6 +9,50 @@ window.addEventListener("load", function () {
 
 
 
+// Фильтр товаров по Категориям
+
+
+const filterArea = document.querySelector('.filter-category__top');
+const filterBox = document.querySelectorAll('.filter-category__slide');
+const navBox = filterArea.querySelectorAll('nav ul li');
+
+console.log(navBox);
+console.log(filterArea);
+
+
+const filterGoods = (filterClass) => {
+  navBox.forEach((item) => item.classList.remove('active'));
+  const active = document.querySelector(`[data-f="${filterClass}"]`);
+  if (active) active.classList.add('active');
+
+  filterBox.forEach((item) => {
+    item.classList.remove('hide');
+    if (!item.classList.contains(filterClass) && filterClass !== 'all') {
+      item.classList.add('hide');
+    }
+  });
+};
+
+document.querySelector('.filter-category__nav').addEventListener('click', (event) => {
+  console.log('Я нажал!!');
+
+  if (event.target.tagName !== 'LI') return;
+  let filterClass = event.target.dataset['f'];
+  filterGoods(filterClass);
+  // window.location.hash = event.target.dataset['f'];
+});
+
+// if (window.location.hash) {
+//   console.log(window.location.hash);
+//   filterGoods(window.location.hash.slice(1));
+// }
+
+
+
+
+
+
+
 
 // Добавление и удаления класса по клику
 
@@ -31,10 +75,20 @@ for (let i = 0; i < sizeValue.length; i++) {
 let addToBasket = document.getElementsByClassName('button__basket');
 for (let i = 0; i < addToBasket.length; i++) {
   addToBasket[i].onclick = function () {
-    console.log('fff');
     this.classList.toggle('active');
   }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // Добавление и удаления класса по клику
 // Выбор блока по ID

@@ -59,19 +59,24 @@
       flex-direction: row;
     }
 
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   border-radius: 50%;
-    //   left: -20%;
-    //   background-color: #F4F2F2;
+    &::before {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      left: -20%;
+      bottom: 30%;
+      background-color: #F4F2F2;
 
-    //   z-index: 5;
-    //   transition: all 0.3s;
+      z-index: 5;
+      transition: all 0.3s;
 
-    //   @include adaptiveValue("width", 402, 157);
-    //   @include adaptiveValue("height", 402, 157);
-    // }
+      @include adaptiveValue("width", 402, 157);
+      @include adaptiveValue("height", 402, 157);
+
+      @media (max-width:$tablet){
+       bottom: 60%; 
+      }
+    }
 
 
     @media (any-hover: hover) {

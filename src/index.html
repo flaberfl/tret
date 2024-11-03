@@ -665,24 +665,14 @@
 						<h2 class="filter-category__title title-h2">Каталог</h2>
 						<nav class="filter-category__nav">
 							<ul class="filter-category__list-nav">
-								<li class="filter-category__item-nav">
-									Ко всем товарам
-								</li>
-								<li class="filter-category__item-nav">
-									Подушки
-								</li>
-								<li class="filter-category__item-nav">
-									Одеяла
-								</li>
-								<li class="filter-category__item-nav">
-									Постельное бельё
-								</li>
-								<li class="filter-category__item-nav">
-									Прочее
-								</li>
+								<li data-f="all" class="filter-category__item-nav active">Ко всем товарам</li>
+								<li data-f="pillow" class="filter-category__item-nav">Подушки</li>
+								<li data-f="blanket" class="filter-category__item-nav">Одеяла</li>
+								<li data-f="linen" class="filter-category__item-nav">Постельное бельё</li>
+								<li data-f="other" class="filter-category__item-nav">Прочее</li>
 							</ul>
 						</nav>
-						<div class="filter-category__swiper-buttons swiper-buttons">
+						<div class="swiper-buttons">
 							<button type="button" class="filter-category__slider-btn swiper-button swiper-button-prev"><svg width="12"
 									height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M10.5 19L1.5 10L10.5 1" stroke="black" stroke-width="2" stroke-linecap="round"
@@ -702,7 +692,7 @@
 
 						<div class="filter-category__wrapper swiper-wrapper">
 
-							<div class="filter-category__slide swiper-slide">
+							<div class="filter-category__slide swiper-slide pillow">
 								<div class="product-item">
 
 									<!-- Верхняя часть item -->
@@ -779,7 +769,7 @@
 
 								</div>
 							</div>
-							<div class="filter-category__slide swiper-slide">
+							<div class="filter-category__slide swiper-slide blanket">
 								<div class="product-item">
 
 									<!-- Верхняя часть item -->
@@ -856,7 +846,7 @@
 
 								</div>
 							</div>
-							<div class="filter-category__slide swiper-slide">
+							<div class="filter-category__slide swiper-slide pillow">
 								<div class="product-item">
 
 									<!-- Верхняя часть item -->
@@ -933,7 +923,7 @@
 
 								</div>
 							</div>
-							<div class="filter-category__slide swiper-slide">
+							<div class="filter-category__slide swiper-slide linen">
 								<div class="product-item">
 
 									<!-- Верхняя часть item -->
@@ -1010,7 +1000,7 @@
 
 								</div>
 							</div>
-							<div class="filter-category__slide swiper-slide">
+							<div class="filter-category__slide swiper-slide other">
 								<div class="product-item">
 
 									<!-- Верхняя часть item -->
@@ -1093,6 +1083,8 @@
 
 				</div>
 			</section>
+
+
 
 
 		</main>

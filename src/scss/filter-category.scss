@@ -2,9 +2,6 @@
 
   @include adaptiveValue("padding-top", 111, 43);
 
-  /* .filter-category__container */
-  &__container {}
-
   /* .filter-category__title */
   &__title {
     margin-bottom: toRem(0);
@@ -61,6 +58,11 @@
     @include adaptiveValue("padding-left", 26, 16);
     @include adaptiveValue("padding-right", 26, 16);
 
+    &.active {
+      color: #fff;
+      background-color: $secondaryColor;
+    }
+
 
     @media (any-hover: hover) {
       &:hover {
@@ -68,129 +70,5 @@
         background-color: $secondaryColor;
       }
     }
-
   }
-
-  /* .filter-category__slider-btn */
-  &__slider-btn {}
-
-  /* .filter-category__slider */
-  &__slider {}
-
-  /* .filter-category__wrapper */
-  &__wrapper {}
-
-  /* .filter-category__slide */
-  &__slide {}
-}
-
-.title-h2 {}
-
-.swiper-buttons {}
-
-.swiper-button {}
-
-.swiper-button-prev {}
-
-.swiper-button-next {}
-
-.swiper {}
-
-.swiper-wrapper {}
-
-.swiper-slide {}
-
-.product-item {
-
-  /* .product-item__media */
-  &__media {}
-
-  /* .product-item__link */
-  &__link {}
-
-  /* .product-item__img */
-  &__img {}
-
-  /* .product-item__top-line */
-  &__top-line {}
-
-  /* .product-item__label */
-  &__label {}
-
-  /* .product-item__discount */
-  &__discount {}
-
-  /* .product-item__favorite */
-  &__favorite {}
-
-  /* .product-item__bottom-line */
-  &__bottom-line {}
-
-  /* .product-item__type */
-  &__type {}
-
-  /* .product-item__badge */
-  &__badge {}
-
-  /* .product-item__info */
-  &__info {}
-
-  /* .product-item__title */
-  &__title {}
-
-  /* .product-item__size */
-  &__size {}
-
-  /* .product-item__size-label */
-  &__size-label {}
-
-  /* .product-item__values */
-  &__values {}
-
-  /* .product-item__size-value */
-  &__size-value {}
-
-  /* .product-item__cost */
-  &__cost {}
-
-  /* .product-item__price */
-  &__price {}
-
-  /* .product-item__old-price */
-  &__old-price {}
-
-  /* .product-item__button */
-  &__button {}
-}
-
-.title-h4 {}
-
-.price {
-
-  /* .price_before */
-  &_before {}
-
-  /* .price_rub */
-  &_rub {}
-
-  /* .price__new */
-  &__new {}
-
-  /* .price__old */
-  &__old {}
-}
-
-.button {
-
-  /* .button__basket */
-  &__basket {}
-}
-
-.button-wrapper {
-
-  /* .button-wrapper__null */
-  &__null {}
-
-  /* .button-wrapper__add */
-  &__add {}
 }
