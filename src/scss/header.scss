@@ -123,6 +123,7 @@
     align-items: center;
     gap: toRem(12);
     margin-right: toRem(42);
+    color: #000;
 
     @media (max-width:$tablet) {
       margin-right: toRem(0);
@@ -133,6 +134,16 @@
       line-height: 100%;
       font-weight: 600;
       color: #fff;
+
+
+      ._dark & {
+        color: #fff;
+      }
+
+      ._header-scroll & {
+        color: #000;
+      }
+
     }
 
     &>span {
@@ -487,6 +498,10 @@
     ._dark & {
       background-color: $mainColor;
     }
+
+    ._header-scroll & {
+      background-color: #fff;
+    }
   }
 
   &::before {
@@ -573,6 +588,10 @@
 
   ._dark & {
     background-color: #fff;
+  }
+
+  ._header-scroll & {
+    background-color: #000;
   }
 
   &::before {
