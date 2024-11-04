@@ -420,8 +420,11 @@
     position: absolute;
     width: 100%;
     height: toRem(2);
+    background-color: #fff;
 
-    background-color: $mainColor;
+    ._dark & {
+      background-color: $mainColor;
+    }
   }
 
   &::before {
@@ -477,10 +480,14 @@
     height: toRem(36);
     border-radius: 50%;
     // border: 1px solid $subColor;
-    background-color: #fff;
+    background-color: #000;
     cursor: pointer;
 
     @include adaptiveValue("margin-left", 160, 15);
+
+    ._dark & {
+      background-color: #fff;
+    }
 
     .menu-open & {
       background-color: $subColor;
@@ -499,8 +506,12 @@
   width: toRem(44);
   height: toRem(44);
   border-radius: 50%;
-  background: $whiteColor;
+  background: #000;
   cursor: pointer;
+
+  ._dark & {
+    background-color: #fff;
+  }
 
   &::before {
     content: '';
