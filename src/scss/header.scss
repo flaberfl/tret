@@ -31,7 +31,7 @@
       transform: translateY(-100%);
       // background-color: rgba($color: #0F111A, $alpha: .8);
       background: #fff;
-      @include adaptiveValue("padding-bottom", 15, 5);
+      // @include adaptiveValue("padding-bottom", 15, 5);
       @include adaptiveValue("height", 93, 73);
     }
 
@@ -80,20 +80,15 @@
       @include adaptiveValue("width", 142, 113);
       @include adaptiveValue("height", 60, 47);
 
-      // ._dark.header-scroll & {
-
-      //     display: block;
-
-      // }
-      // ._header-scroll & {
-      //   display: block;
-      // }
 
       ._dark & {
         display: none;
       }
-    }
 
+      ._header-scroll & {
+        display: block;
+      }
+    }
 
     &-dark {
       display: none;
@@ -105,11 +100,6 @@
         @include adaptiveValue("width", 162, 113);
         @include adaptiveValue("height", 68, 47);
       }
-
-
-      // &-light {
-      //   display: none;
-      // }
     }
 
     @media (min-width:$mobile) and (max-width:$tablet) {
@@ -119,6 +109,12 @@
     @media (max-width:$mobile) {
       margin-left: -19px;
       margin-top: 10px;
+    }
+
+    ._header-scroll & {
+      &-dark {
+        display: none;
+      }
     }
   }
 
@@ -184,9 +180,16 @@
       line-height: 88%;
       opacity: .5;
 
-      ._dark &,
       ._header-scroll & {
+        color: $mainColor;
+      }
+
+      ._dark & {
         color: $whiteColor;
+      }
+
+      ._header-scroll & {
+        color: $mainColor;
       }
     }
   }
@@ -210,6 +213,10 @@
     border: 1px solid rgba(255, 255, 255, 0.23);
   }
 
+  ._header-scroll & {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+  }
+
 
   &__button {
     position: absolute;
@@ -227,8 +234,7 @@
       }
     }
 
-    ._dark &,
-    ._header-scroll & {
+    ._dark & {
       svg {
         g {
           opacity: .5;
@@ -239,7 +245,21 @@
         }
       }
     }
+
+
+    ._header-scroll & {
+      svg {
+        g {
+          opacity: 1;
+        }
+
+        path {
+          stroke: $secondaryColor;
+        }
+      }
+    }
   }
+
 }
 
 
@@ -596,11 +616,18 @@
     @include adaptiveValue("width", 38, 26);
   }
 
-  ._dark &,
-  ._header-scroll & {
+  ._dark & {
     svg {
       path {
         stroke: #fff;
+      }
+    }
+  }
+
+  ._header-scroll & {
+    svg {
+      path {
+        stroke: #000;
       }
     }
   }
