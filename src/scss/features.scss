@@ -51,7 +51,6 @@
   /* .features__name */
   &__name {
     font-weight: 400;
-    // white-space: wrap;
     @include adaptiveValue("font-size", 21, 16);
 
     span {

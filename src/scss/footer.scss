@@ -1,3 +1,85 @@
-//====================================================================================================
+.footer {
+  position: relative;
 
-//====================================================================================================
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: url('@img/footer/back.jpg') center bottom no-repeat;
+    opacity: .11;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2c2c2c;
+    z-index: -2;
+  }
+
+
+
+/* .footer__container */
+&__container {
+  text-align: center;
+}
+
+/* .footer__top */
+&__top {}
+
+/* .footer__menu */
+&__menu {}
+
+/* .footer__list */
+&__list {}
+
+/* .footer__item */
+&__item {}
+
+/* .footer__link */
+&__link {}
+
+/* .footer__button */
+&__button {}
+
+/* .footer__top-social */
+&__top-social {}
+
+/* .footer__social */
+&__social {
+
+  /* .footer__social_tg */
+  &_tg {}
+
+  /* .footer__social_wz */
+  &_wz {}
+}
+
+/* .footer__mail */
+&__mail {}
+
+/* .footer__bottom */
+&__bottom {}
+
+/* .footer__copyright */
+&__copyright {}
+
+/* .footer__perconal */
+&__perconal {}
+
+/* .footer__policy */
+&__policy {}
+}
+
+.header {
+
+  /* .header__logo */
+  &__logo {}
+}
+
+.logo {}
