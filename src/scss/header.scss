@@ -17,7 +17,10 @@
     transition: all 0.4s;
     z-index: 30;
 
-    @include adaptiveValue("height", 120, 72);
+    ._dark & {
+      @include adaptiveValue("height", 120, 72);
+    }
+
 
     ._header-scroll & {
       // height: toRem(100);
@@ -58,11 +61,44 @@
   }
 
   &__logo {
+    @include adaptiveValue("width", 142, 113);
+    @include adaptiveValue("height", 60, 47);
 
-    svg {
-      @include adaptiveValue("width", 162, 113);
-      @include adaptiveValue("height", 68, 47);
+    &-dark {
+      display: none;
     }
+
+    ._dark & {
+
+      &-dark {
+        display: block;
+        @include adaptiveValue("width", 162, 113);
+        @include adaptiveValue("height", 68, 47);
+      }
+
+      &-light {
+        display: none;
+      }
+    }
+
+    // ._light & {
+
+    //   &-light {
+    //     @include adaptiveValue("width", 142, 113);
+    //     @include adaptiveValue("height", 60, 47);
+    //   }
+
+
+    // }
+
+
+    // &.header__logo-light {
+    //   svg {
+    //     @include adaptiveValue("width", 1162, 113);
+    //     @include adaptiveValue("height", 68, 47);
+    //   }
+    // }
+
 
     @media (min-width:$mobile) and (max-width:$tablet) {
       margin-left: auto;
