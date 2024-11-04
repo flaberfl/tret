@@ -29,7 +29,8 @@
 
     ._header-scroll & {
       transform: translateY(-100%);
-      background-color: rgba($color: #0F111A, $alpha: .8);
+      // background-color: rgba($color: #0F111A, $alpha: .8);
+      background: #fff;
       @include adaptiveValue("padding-bottom", 15, 5);
       @include adaptiveValue("height", 93, 73);
     }
@@ -73,23 +74,42 @@
   }
 
   &__logo {
-    @include adaptiveValue("width", 142, 113);
-    @include adaptiveValue("height", 60, 47);
+
+    &-light {
+      // display: block;
+      @include adaptiveValue("width", 142, 113);
+      @include adaptiveValue("height", 60, 47);
+
+      // ._dark.header-scroll & {
+
+      //     display: block;
+
+      // }
+      // ._header-scroll & {
+      //   display: block;
+      // }
+
+      ._dark & {
+        display: none;
+      }
+    }
+
 
     &-dark {
       display: none;
     }
 
-    ._dark & {
-      &-dark {
+    &-dark {
+      ._dark & {
         display: block;
         @include adaptiveValue("width", 162, 113);
         @include adaptiveValue("height", 68, 47);
       }
 
-      &-light {
-        display: none;
-      }
+
+      // &-light {
+      //   display: none;
+      // }
     }
 
     @media (min-width:$mobile) and (max-width:$tablet) {
@@ -160,9 +180,14 @@
     }
 
     &::placeholder {
-      color: $whiteColor;
+      color: $mainColor;
       line-height: 88%;
       opacity: .5;
+
+      ._dark &,
+      ._header-scroll & {
+        color: $whiteColor;
+      }
     }
   }
 
@@ -566,8 +591,22 @@
 .account-header__link {
   position: relative;
 
+
   svg {
     @include adaptiveValue("width", 38, 26);
+  }
+
+  ._dark &,
+  ._header-scroll & {
+    svg {
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+
+  &_favorite {
+    margin-top: toRem(7);
   }
 }
 
@@ -588,11 +627,11 @@
 }
 
 .favorite-num {
-  top: -6px;
-  right: -8px;
+  top: toRem(-9);
+  right: toRem(-8);
 }
 
 .basket-num {
-  top: -2px;
-  right: -3px;
+  top: toRem(-2);
+  right: toRem(-3);
 }
