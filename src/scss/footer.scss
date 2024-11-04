@@ -1,5 +1,6 @@
 .footer {
   position: relative;
+  padding-top: toRem(89);
 
   &::before {
     content: '';
@@ -8,6 +9,7 @@
     width: 100%;
     height: 100%;
     background: url('@img/footer/back.jpg') center bottom no-repeat;
+    background-size: cover;
     opacity: .11;
     z-index: -1;
   }
@@ -23,63 +25,166 @@
   }
 
 
+  /* .footer__container */
+  &__container {
+    text-align: center;
+  }
 
-/* .footer__container */
-&__container {
-  text-align: center;
+  /* .footer__top */
+  &__top {
+    margin-bottom: toRem(80);
+  }
+
+  /* .footer__logo */
+  &__logo {
+    margin-bottom: toRem(36);
+  }
+
+  /* .footer__menu */
+  &__menu {
+    margin-bottom: toRem(39);
+  }
+
+  /* .footer__list */
+  &__list {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: toRem(12);
+    padding-right: toRem(12);
+    padding: toRem(18) toRem(12) toRem(23) toRem(12);
+
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: toRem(16);
+
+    backdrop-filter: blur(40px);
+    background: rgba(70, 70, 70, 0.31);
+
+    font-size: toRem(19);
+    color: rgba(255, 255, 255, 0.8);
+
+    @media (max-width:$mobile) {
+      font-size: toRem(18);
+    }
+  }
+
+  /* .footer__item */
+  &__item {
+    padding-left: toRem(29);
+    padding-right: toRem(29);
+
+    &:not(:last-child) {
+      // border-right: 1px solid rgba(70, 70, 70, 0.31);
+      border-right: 1px solid rgba(255, 255, 255, .14);
+
+    }
+  }
+
+  /* .footer__link */
+  &__link {
+    transition: all 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+        color: #fff;
+      }
+    }
+  }
+
+  /* .footer__button */
+  &__button {
+    gap: toRem(9);
+    height: toRem(44);
+
+    font-size: toRem(19);
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+
+    margin-bottom: toRem(18);
+    @include adaptiveValue("padding-right", 100, 42);
+    @include adaptiveValue("padding-left", 100, 42);
+
+    @media (max-width:$mobile) {
+      font-size: toRem(18);
+      gap: toRem(7);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $secondaryColor;
+        border-color: transparent;
+      }
+    }
+  }
+
+
+  /* .footer__social-items */
+  &__social-items {
+    margin-bottom: toRem(17);
+    display: flex;
+    justify-content: center;
+    gap: toRem(10);
+  }
+
+
+  /* .footer__social-link */
+  &__social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: toRem(44);
+    height: toRem(44);
+
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  /* .footer__mail */
+  &__mail {
+    color: #fff;
+    text-decoration: underline;
+    opacity: .8;
+  }
+
+  /* .footer__bottom */
+  &__bottom {
+    padding: toRem(17) 0 toRem(36);
+
+    border-radius: toRem(16);
+    backdrop-filter: blur(40px);
+    background: rgba(40, 40, 40, 0.31);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+
+    text-align: center;
+  }
+
+  /* .footer__copyright */
+  &__copyright {
+    color: #fff;
+
+    margin-bottom: toRem(17);
+  }
+
+  /* .footer__personal */
+  &__personal {
+    display: block;
+    line-height: 130%;
+  }
+
+  /* .footer__policy */
+  &__policy {}
+
+  &__personal,
+  &__policy {
+
+
+
+    font-size: toRem(14);
+    color: #fff;
+    opacity: .8;
+    text-decoration: underline;
+  }
 }
-
-/* .footer__top */
-&__top {}
-
-/* .footer__menu */
-&__menu {}
-
-/* .footer__list */
-&__list {}
-
-/* .footer__item */
-&__item {}
-
-/* .footer__link */
-&__link {}
-
-/* .footer__button */
-&__button {}
-
-/* .footer__top-social */
-&__top-social {}
-
-/* .footer__social */
-&__social {
-
-  /* .footer__social_tg */
-  &_tg {}
-
-  /* .footer__social_wz */
-  &_wz {}
-}
-
-/* .footer__mail */
-&__mail {}
-
-/* .footer__bottom */
-&__bottom {}
-
-/* .footer__copyright */
-&__copyright {}
-
-/* .footer__perconal */
-&__perconal {}
-
-/* .footer__policy */
-&__policy {}
-}
-
-.header {
-
-  /* .header__logo */
-  &__logo {}
-}
-
-.logo {}
