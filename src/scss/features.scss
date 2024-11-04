@@ -1,7 +1,7 @@
 .features {
   position: relative;
-  padding: toRem(118) 0;
-  @include adaptiveValue("padding-top", 118, 45);
+  @include adaptiveValue("padding-top", 92, 45);
+  @include adaptiveValue("padding-bottom", 113, 48);
 
   &::before {
     content: '';
@@ -9,7 +9,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    background: url('@img/features/back.jpg') center bottom no-repeat;
+    background: url('@img/features/back.jpg') center center no-repeat;
     opacity: .11;
     z-index: -1;
   }
@@ -17,8 +17,8 @@
   /* .features__list */
   &__list {
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(4, 1fr);
-    gap: toRem(30);
     @include adaptiveValue("gap", 30, 20);
 
     @media (max-width:$tablet) {
@@ -28,8 +28,10 @@
 
   /* .features__item */
   &__item {
+
     max-width: toRem(390);
     padding: 0 toRem(20);
+    width: 100%;
 
     box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.02);
     background: #fff;
@@ -37,6 +39,7 @@
     border-radius: toRem(20);
 
     text-align: center;
+    
     @include adaptiveValue("padding-top", 50, 19);
     @include adaptiveValue("padding-bottom", 56, 30);
   }

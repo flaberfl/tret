@@ -1,6 +1,8 @@
 .filter-category {
+  background-color: #ffa;
   @include adaptiveValue("padding-top", 111, 43);
-  @include adaptiveValue("padding-bottom", 111, 50);
+  @include adaptiveValue("padding-bottom", 118, 50);
+
 
   /* .filter-category__title */
   &__title {
