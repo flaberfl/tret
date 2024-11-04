@@ -50,9 +50,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding-left: toRem(12);
-    padding-right: toRem(12);
     padding: toRem(18) toRem(12) toRem(23) toRem(12);
+    flex-wrap: wrap;
 
     border: 1px solid rgba(255, 255, 255, 0.02);
     border-radius: toRem(16);
@@ -63,9 +62,15 @@
     font-size: toRem(19);
     color: rgba(255, 255, 255, 0.8);
 
+    @media (max-width:$tablet) {
+      // max-width: toRem(500);
+      row-gap: toRem(20);
+    }
+
     @media (max-width:$mobile) {
       font-size: toRem(18);
     }
+
   }
 
   /* .footer__item */
@@ -74,10 +79,9 @@
     padding-right: toRem(29);
 
     &:not(:last-child) {
-      // border-right: 1px solid rgba(70, 70, 70, 0.31);
       border-right: 1px solid rgba(255, 255, 255, .14);
-
     }
+
   }
 
   /* .footer__link */
