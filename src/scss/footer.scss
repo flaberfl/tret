@@ -1,6 +1,7 @@
 .footer {
   position: relative;
   padding-top: toRem(89);
+  @include adaptiveValue("padding-top", 89, 70);
 
   &::before {
     content: '';
@@ -24,7 +25,6 @@
     z-index: -2;
   }
 
-
   /* .footer__container */
   &__container {
     text-align: center;
@@ -32,12 +32,17 @@
 
   /* .footer__top */
   &__top {
-    margin-bottom: toRem(80);
+    @include adaptiveValue("margin-bottom", 80, 40);
   }
 
   /* .footer__logo */
   &__logo {
-    margin-bottom: toRem(36);
+    @include adaptiveValue("margin-bottom", 36, 12);
+
+    svg {
+      @include adaptiveValue("width", 176, 113);
+      @include adaptiveValue("height", 74, 48);
+    }
   }
 
   /* .footer__menu */
@@ -62,26 +67,134 @@
     font-size: toRem(19);
     color: rgba(255, 255, 255, 0.8);
 
+    @include adaptiveValue("padding-top", 12, 5);
+
     @media (max-width:$tablet) {
-      // max-width: toRem(500);
       row-gap: toRem(20);
+      padding-left: 0;
+      padding-right: 0;
     }
 
     @media (max-width:$mobile) {
       font-size: toRem(18);
     }
 
+    @media (max-width: toEm(857)) {
+      max-width: 76%;
+    }
+
+    @media (max-width: toEm(531)) {
+      max-width: toRem(270);
+      row-gap: 0;
+      padding-bottom: toRem(11);
+    }
   }
 
   /* .footer__item */
   &__item {
+    position: relative;
     padding-left: toRem(29);
     padding-right: toRem(29);
 
-    &:not(:last-child) {
-      border-right: 1px solid rgba(255, 255, 255, .14);
+    &::before {
+      content: '';
+      position: absolute;
+      height: toRem(1);
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, .14);
+      display: none;
     }
 
+    &:not(:last-child) {
+      &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: toRem(1);
+        right: 0;
+        top: 0;
+        background-color: rgba(255, 255, 255, .14);
+      }
+    }
+
+
+    @media (max-width: toEm(857)) {
+      &:nth-child(5) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    @media (max-width: toEm(854)) {
+      &:nth-child(5) {
+        &::after {
+          display: block;
+        }
+      }
+
+      &:nth-child(4) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    @media (max-width: toEm(694)) {
+      &:nth-child(4) {
+        &::after {
+          display: block;
+        }
+      }
+
+      &:nth-child(3) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    @media (max-width: toEm(593)) {
+      &:nth-child(5) {
+        &::after {
+          display: none;
+        }
+      }
+
+      &:nth-child(3) {
+        &::after {
+          // display: none;
+        }
+      }
+    }
+
+    @media (max-width: toEm(531)) {
+      flex-basis: 100%;
+      padding-top: toRem(12);
+      padding-bottom: toRem(15);
+
+      &:nth-child(4),
+      &:nth-child(5) {
+        &::after {
+          display: none;
+        }
+      }
+
+      &::after {
+        display: none;
+      }
+
+      &:not(:last-child) {
+        &::before {
+          display: block;
+          width: toRem(183);
+          left: 50%;
+          transform: translate(-50%, 0px);
+        }
+      }
+    }
   }
 
   /* .footer__link */
@@ -101,6 +214,7 @@
   &__button {
     gap: toRem(9);
     height: toRem(44);
+    margin-bottom: toRem(18);
 
     font-size: toRem(19);
     color: #fff;
@@ -108,7 +222,6 @@
     background-color: transparent;
     transition: all 0.2s ease-in-out;
 
-    margin-bottom: toRem(18);
     @include adaptiveValue("padding-right", 100, 42);
     @include adaptiveValue("padding-left", 100, 42);
 
@@ -125,7 +238,6 @@
     }
   }
 
-
   /* .footer__social-items */
   &__social-items {
     margin-bottom: toRem(17);
@@ -133,7 +245,6 @@
     justify-content: center;
     gap: toRem(10);
   }
-
 
   /* .footer__social-link */
   &__social-link {
@@ -158,7 +269,9 @@
   &__bottom {
     padding: toRem(17) 0 toRem(36);
 
-    border-radius: toRem(16);
+    border-top-left-radius: toRem(16);
+    border-top-right-radius: toRem(16);
+    // border-radius: toRem(16);
     backdrop-filter: blur(40px);
     background: rgba(40, 40, 40, 0.31);
     border: 1px solid rgba(255, 255, 255, 0.02);
@@ -168,9 +281,9 @@
 
   /* .footer__copyright */
   &__copyright {
-    color: #fff;
-
     margin-bottom: toRem(17);
+
+    color: #fff;
   }
 
   /* .footer__personal */
@@ -179,14 +292,8 @@
     line-height: 130%;
   }
 
-  /* .footer__policy */
-  &__policy {}
-
   &__personal,
   &__policy {
-
-
-
     font-size: toRem(14);
     color: #fff;
     opacity: .8;
