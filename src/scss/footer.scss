@@ -83,6 +83,7 @@
   /* .footer__link */
   &__link {
     transition: all 0.3s;
+    white-space: nowrap;
 
     @media (any-hover: hover) {
       &:hover {
