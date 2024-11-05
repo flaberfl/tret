@@ -29,6 +29,7 @@
 
     ._header-scroll & {
       transform: translateY(-100%);
+      box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.09);
       // background-color: rgba($color: #0F111A, $alpha: .8);
       background: #fff;
       // @include adaptiveValue("padding-bottom", 15, 5);
