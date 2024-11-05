@@ -64,6 +64,11 @@
   overflow: hidden;
 }
 
+.section {
+  @include adaptiveValue("padding-top", 118, 50);
+  @include adaptiveValue("padding-bottom", 118, 50);
+}
+
 
 .breadcrumbs {
   position: relative;

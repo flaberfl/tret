@@ -1,9 +1,5 @@
 .category {
   position: relative;
-  // padding: toRem(118) 0;
-
-  @include adaptiveValue("padding-top", 118, 47);
-  @include adaptiveValue("padding-bottom", 118, 51);
 
   &::before {
     content: '';
@@ -73,8 +69,8 @@
       @include adaptiveValue("width", 402, 157);
       @include adaptiveValue("height", 402, 157);
 
-      @media (max-width:$tablet){
-       bottom: 60%; 
+      @media (max-width:$tablet) {
+        bottom: 60%;
       }
     }
 

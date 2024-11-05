@@ -1,8 +1,7 @@
 .about-brand {
   position: relative;
-
-  padding-bottom: toRem(118);
   @include adaptiveValue("padding-top", 68, 38);
+  @include adaptiveValue("padding-bottom", 118, 50);
 
   &::before {
     content: '';
@@ -36,7 +35,7 @@
 
   &__content {
     max-width: toRem(670);
-    padding: toRem(53) toRem(60) toRem(70) toRem(40);
+    // padding: toRem(53) toRem(60) toRem(70) toRem(40);
 
     margin: 0 auto;
 
@@ -45,6 +44,7 @@
     @include adaptiveValue("padding-top", 53, 32);
     @include adaptiveValue("padding-left", 60, 0);
     @include adaptiveValue("padding-right", 40, 0);
+    @include adaptiveValue("padding-bottom", 70, 0);
 
     @media (min-width:$tablet) {
       position: absolute;
