@@ -140,6 +140,7 @@
 
 .brand-logo {
   text-align: center;
+  @include adaptiveValue("padding-top", 118, 30);
 
   /* .brand-logo__container */
   &__container {}

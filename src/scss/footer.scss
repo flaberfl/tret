@@ -32,7 +32,7 @@
 
   /* .footer__top */
   &__top {
-    @include adaptiveValue("margin-bottom", 80, 40);
+    @include adaptiveValue("margin-bottom", 73, 40);
   }
 
   /* .footer__logo */
@@ -261,7 +261,7 @@
 
   /* .footer__bottom */
   &__bottom {
-    padding: toRem(17) 0 toRem(36);
+    padding: toRem(23) 0 toRem(36);
 
     border-top-left-radius: toRem(16);
     border-top-right-radius: toRem(16);
@@ -301,7 +301,7 @@
   justify-content: center;
   align-items: center;
   top: -5%;
-  right: 2%;
+  right: 3.7%;
 
   background-color: $secondaryColor;
   border-radius: 50%;
