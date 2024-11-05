@@ -1,9 +1,8 @@
 .about-brand {
   position: relative;
-  height: 100vh;
 
-
-
+  padding-bottom: toRem(118);
+  @include adaptiveValue("padding-top", 68, 38);
 
   &::before {
     content: '';
@@ -17,13 +16,84 @@
   }
 
   /* .about-brand__container */
-  &__container {}
+  &__container {
+    img {
+      max-width: 100%;
+      object-fit: cover;
+
+      @include adaptiveValue("border-radius", 50, 20);
+
+
+      @media (max-width:$mobileSmall) {
+        aspect-ratio: 320 / 251;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__content {
+    max-width: toRem(670);
+    padding: toRem(53) toRem(60) toRem(70) toRem(40);
+
+    margin: 0 auto;
+
+    background-color: #fff;
+
+    @include adaptiveValue("padding-top", 53, 32);
+    @include adaptiveValue("padding-left", 60, 0);
+    @include adaptiveValue("padding-right", 40, 0);
+
+    @media (min-width:$tablet) {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      @include adaptiveValue("border-radius", 50, 20);
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: toRem(50);
+        height: toRem(100);
+        left: 0;
+        top: toRem(-50);
+        background: radial-gradient(circle at right top, transparent 50px, #fff 50px);
+      }
+
+      &::after {
+        content: "";
+        width: toRem(100);
+        height: toRem(50);
+        position: absolute;
+        right: toRem(-49);
+        bottom: 0;
+        background: radial-gradient(circle at right top, transparent 50px, #fff 50px);
+      }
+    }
+  }
 
   /* .about-brand__title */
-  &__title {}
+  &__title {
+    margin-bottom: toRem(19);
+  }
 
   /* .about-brand__subtitle */
-  &__subtitle {}
-}
+  &__subtitle {
 
-.title-h2 {}
+    font-size: toRem(18);
+    color: #666;
+    line-height: 150%;
+
+    @media (min-width:$tablet) {
+      max-width: toRem(530);
+    }
+
+    @media (max-width:$mobile) {
+      font-size: toRem(16);
+      line-height: 156%;
+    }
+  }
+}

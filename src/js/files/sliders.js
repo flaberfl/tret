@@ -255,6 +255,82 @@ function initSliders() {
 		});
 	}
 
+	if (document.querySelector('.benefits__slider')) { //Указываем класс нужного слайдера
+		//Создаем слайдер
+		new Swiper('.benefits__slider', { //Указываем класс нужного слайдера
+			//Подключаем модули слайдера
+			//для конкретного случая
+			modules: [Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 4,
+			spaceBetween: 30,
+			// effect: "fade",
+			// autoHeight: true,
+			speed: 800,
+
+			//touchRatio: 0,
+			//simulateTouch: false,
+			// loop: true,
+			//preloadImages: false,
+			lazy: true,
+
+			/*
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+
+			enabled: false,
+
+			// Пагинация
+			pagination: {
+				el: '.benefits__slider-pagination',
+				clickable: true,
+			},
+
+			// Брейкпоинты
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					// autoHeight: true,
+				},
+				360: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					// autoHeight: true,
+				},
+				630: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+					// autoHeight: true,
+				},
+				940: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+					enabled: true,
+				},
+				1200: {
+					slidesPerView: 4,
+					spaceBetween: 20,
+				},
+			},
+
+			// События
+			on: {
+
+			}
+		});
+	}
+
 
 
 

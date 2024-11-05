@@ -7,6 +7,10 @@
 
   @include adaptiveValue("margin-bottom", 52, 25);
 
+  span {
+    color: $secondaryColor;
+  }
+
   @media (max-width:$mobile) {
     line-height: 100%;
   }
@@ -127,3 +131,7 @@
 //     }
 //   }
 // }
+
+.block {
+  height: toRem(400);
+}
