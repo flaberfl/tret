@@ -16,6 +16,26 @@
   }
 }
 
+.info-title {
+  font-weight: 700;
+  color: $secondaryColor;
+
+  @include adaptiveValue("font-size", 32, 25);
+  @include adaptiveValue("margin-bottom", 40, 35);
+}
+
+.info-wrapper {
+  padding-top: toRem(50);
+  padding-right: toRem(60);
+  padding-bottom: toRem(65);
+  padding-left: toRem(63);
+
+  border: 1px solid #f4f4f4;
+  border-radius: toRem(20);
+  box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
+  background: #fff;
+}
+
 .price {
   gap: toRem(17);
 

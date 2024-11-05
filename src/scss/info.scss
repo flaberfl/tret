@@ -1,0 +1,190 @@
+.info-payment {
+  position: relative;
+  padding-top: toRem(54);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/info/payment-bg.jpg") 0 0 no-repeat;
+    opacity: .11;
+    z-index: -1;
+  }
+
+  /* .info-payment__container */
+  &__container {}
+
+  /* .info-payment__title */
+  &__title {
+    margin-bottom: toRem(22);
+
+    font-weight: 700;
+    line-height: 118%;
+    @include adaptiveValue("font-size", 44, 25);
+
+    @media (max-width:$mobile) {
+      line-height: 136%;
+    }
+  }
+
+  /* .info-payment__subtitle */
+  &__subtitle {
+    margin-bottom: toRem(34);
+    max-width: toRem(1277);
+
+    font-size: toRem(18);
+    font-weight: 350;
+    line-height: 150%;
+    color: #666;
+
+    @media (max-width:$mobile) {
+      font-size: toRem(16);
+      line-height: 156%;
+    }
+  }
+
+  /* .info-payment__fast-navigation */
+  &__fast-navigation {
+    margin-bottom: toRem(14);
+
+    font-size: toRem(22);
+    font-weight: 600;
+    line-height: 127%;
+
+    @media (max-width:$mobile) {
+      font-size: toRem(20);
+      line-height: 140%;
+    }
+  }
+
+  /* .info-payment__tags */
+  &__tags {
+    display: flex;
+    gap: toRem(10);
+    margin-bottom: toRem(55);
+
+    font-size: toRem(19);
+
+    @media (max-width:$mobile) {
+      font-size: toRem(17);
+    }
+  }
+
+  /* .info-payment__tag */
+  &__tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: toRem(0) toRem(26);
+    height: toRem(47);
+
+    border: 1px solid #e9e9e9;
+    border-radius: 50px;
+
+  }
+}
+
+.payment-methods {
+
+  border: 1px solid #f4f4f4;
+  border-radius: toRem(20);
+  box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
+  background: #fff;
+
+  /* .payment-methods__title */
+  &__title {}
+
+  /* .payment-methods__items */
+  &__items {}
+
+  /* .payment-methods__item */
+  &__item {}
+
+  /* .payment-methods__number */
+  &__number {}
+
+  /* .payment-methods__box */
+  &__box {}
+
+  /* .payment-methods__name */
+  &__name {}
+
+  /* .payment-methods__text */
+  &__text {}
+
+  /* .payment-methods__name-systems */
+  &__name-systems {}
+
+  /* .payment-methods__systems */
+  &__systems {}
+
+  /* .payment-methods__system */
+  &__system {}
+
+  /* .payment-methods__non-cash */
+  &__non-cash {}
+
+  /* .payment-methods__desc */
+  &__desc {}
+}
+
+.delivery-methods {
+
+  /* .delivery-methods__title */
+  &__title {}
+
+  /* .delivery-methods__items */
+  &__items {}
+
+  /* .delivery-methods__item */
+  &__item {}
+
+  /* .delivery-methods__geo */
+  &__geo {}
+
+  /* .delivery-methods__moscow */
+  &__moscow {}
+
+  /* .delivery-methods__time */
+  &__time {}
+}
+
+.delivery-conditions {
+
+  /* .delivery-conditions__title */
+  &__title {}
+
+  /* .delivery-conditions__list */
+  &__list {}
+
+  /* .delivery-conditions__item */
+  &__item {}
+
+  /* .delivery-conditions__link */
+  &__link {}
+}
+
+.point-d {}
+
+.refund {
+
+  /* .refund__title */
+  &__title {}
+
+  /* .refund__subtitle */
+  &__subtitle {}
+
+  /* .refund__text */
+  &__text {}
+
+  /* .refund__cash */
+  &__cash {}
+
+  /* .refund__list */
+  &__list {}
+
+  /* .refund__item */
+  &__item {}
+}
