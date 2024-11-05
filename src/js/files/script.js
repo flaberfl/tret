@@ -8,16 +8,13 @@ window.addEventListener("load", function () {
 
 
 
-
+// element?.addEventListener
 // Фильтр товаров по Категориям
 
 
 const filterArea = document.querySelector('.filter-category__top');
 const filterBox = document.querySelectorAll('.filter-category__slide');
-const navBox = filterArea.querySelectorAll('nav ul li');
-
-console.log(navBox);
-console.log(filterArea);
+const navBox = filterArea?.querySelectorAll('nav ul li');
 
 
 const filterGoods = (filterClass) => {
@@ -33,7 +30,7 @@ const filterGoods = (filterClass) => {
   });
 };
 
-document.querySelector('.filter-category__nav').addEventListener('click', (event) => {
+document.querySelector('.filter-category__nav')?.addEventListener('click', (event) => {
   console.log('Я нажал!!');
 
   if (event.target.tagName !== 'LI') return;

@@ -175,13 +175,22 @@
   }
 
   &__input {
-    height: toRem(56);
+    height: toRem(48);
     padding-right: toRem(22);
     padding-left: toRem(22);
     border-radius: toRem(50);
     line-height: 88%;
 
     @include adaptiveValue("width", 383, 200);
+
+    ._dark & {
+      height: toRem(56);
+    }
+
+    ._header-scroll & {
+      height: toRem(48);
+    }
+
 
     &:focus {
       background-color: $whiteColor;
