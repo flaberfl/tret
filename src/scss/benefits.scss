@@ -25,19 +25,21 @@
 
     margin-left: auto;
     margin-right: auto;
+
+    i {
+      font-style: normal;
+
+      @media (max-width:$mobileSmall) {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 
-  /* .benefits__items */
-  &__items {
-    // display: flex;
-    // gap: toRem(30);
 
-    // @include adaptiveValue("gap", 30, 0);
-  }
 
   /* .benefits__item */
   &__item {
-    // padding: toRem(50) toRem(42);
     height: 100%;
 
     border: 1px solid #fafafa;
@@ -133,5 +135,45 @@
     @media (min-width:toEm(1201)) {
       display: none;
     }
+  }
+}
+
+.brand-logo {
+  text-align: center;
+
+  /* .brand-logo__container */
+  &__container {}
+
+  /* .brand-logo__back-title */
+  &__back-title {
+    font-weight: 700;
+    color: #f6f6f6;
+    line-height: 69%;
+
+    @include adaptiveValue("font-size", 95, 38);
+
+    @media (max-width:$mobile) {
+      line-height: 100%;
+    }
+  }
+
+  /* .brand-logo__img */
+  &__img {
+    margin-top: toRem(-20);
+
+    @include adaptiveValue("margin-bottom", 17, 12);
+    @include adaptiveValue("width", 286, 168);
+  }
+
+  /* .brand-logo__text */
+  &__text {
+    max-width: toRem(930);
+    margin: 0 auto;
+
+    font-weight: 300;
+    line-height: 142%;
+    color: #666;
+
+    @include adaptiveValue("font-size", 24, 20);
   }
 }
