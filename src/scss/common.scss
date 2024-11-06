@@ -46,6 +46,10 @@
   @include adaptiveValue("padding-top", 43, 35);
   @include adaptiveValue("padding-left", 63, 23);
   @include adaptiveValue("padding-bottom", 65, 37);
+
+  &:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 68, 20);
+  }
 }
 
 .price {

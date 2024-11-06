@@ -88,7 +88,6 @@
   box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
   background: #fff;
 
-  margin-bottom: toRem(68);
   /* .payment-methods__title */
   &__title {
     margin-bottom: toRem(35);
@@ -97,7 +96,6 @@
   /* .payment-methods__items */
   &__items {
     display: flex;
-    // justify-content: space-between;
     justify-content: center;
     margin-bottom: toRem(19);
 
@@ -230,16 +228,55 @@
 .delivery-methods {
 
   /* .delivery-methods__title */
-  &__title {}
+  &__title {
+    @include adaptiveValue("margin-bottom", 34, 26);
+  }
 
   /* .delivery-methods__items */
-  &__items {}
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(25);
+
+    @include adaptiveValue("gap", 25, 20);
+
+    @media (min-width:em(1600)) {
+      justify-content: space-between;
+      margin-right: toRem(205);
+      //  justify-content: start;
+    }
+  }
 
   /* .delivery-methods__item */
-  &__item {}
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: toRem(12);
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: toRem(41);
+      flex: 0 0 toRem(41);
+      background: $secondaryColor;
+      border-radius: 50%;
+      font-size: toRem(23);
+      font-weight: 700;
+      color: #fff;
+    }
+  }
 
   /* .delivery-methods__geo */
-  &__geo {}
+  &__geo {
+    line-height: 155%;
+
+    @include adaptiveValue("font-size", 20, 17);
+
+    @media (max-width:$mobile) {
+      line-height: 147%;
+    }
+  }
 
   /* .delivery-methods__moscow */
   &__moscow {}
