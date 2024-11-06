@@ -24,7 +24,7 @@
   @include adaptiveValue("margin-bottom", 44, 35);
 }
 
-.info-text {
+.info-text, .text {
   font-size: toRem(18);
   font-weight: 350;
   line-height: 150%;
