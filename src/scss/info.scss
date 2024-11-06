@@ -14,9 +14,6 @@
     z-index: -1;
   }
 
-  /* .info-payment__container */
-  &__container {}
-
   /* .info-payment__title */
   &__title {
     font-weight: 700;
@@ -56,7 +53,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: toRem(10);
-    margin-bottom: toRem(55);
 
     font-size: toRem(19);
 
@@ -76,13 +72,12 @@
     height: toRem(47);
 
     border: 1px solid #e9e9e9;
-    border-radius: 50px;
+    border-radius: toRem(50);
 
   }
 }
 
 .payment-methods {
-
   border: 1px solid #f4f4f4;
   border-radius: toRem(20);
   box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
@@ -116,12 +111,10 @@
     padding-bottom: toRem(20);
     flex: 0 1 33%;
 
-    // @include adaptiveValue("padding-right", 5, 0);
     @include adaptiveValue("padding-top", 9, 0);
 
 
     &::before {
-      // content: '';
       display: flex;
       justify-content: center;
       align-items: center;
@@ -201,12 +194,6 @@
     img {
       max-width: 100%;
     }
-
-    // @media (max-width:$mobile) {
-    //   img {
-    //     width: 110%;
-    //   }
-    // }
   }
 
   /* .payment-methods__non-cash */
@@ -220,13 +207,9 @@
       line-height: 136%;
     }
   }
-
-  /* .payment-methods__desc */
-  &__desc {}
 }
 
 .delivery-methods {
-
   @media (min-width:toEm(1600)) {
     padding-right: toRem(266);
   }
@@ -288,9 +271,8 @@
 
   /* .delivery-methods__moscow */
   &__moscow {
-    line-height: 162%;
     font-weight: 700;
-
+    line-height: 162%;
 
     @include adaptiveValue("margin-bottom", 25, 13);
     @include adaptiveValue("font-size", 32, 25);
@@ -300,7 +282,6 @@
     }
   }
 
-
   /* .delivery-methods__times */
   &__times {
     @include adaptiveValue("margin-bottom", 25, 16);
@@ -309,7 +290,6 @@
 
   /* .delivery-methods__time */
   &__time {
-
     &:not(:last-child) {
       margin-bottom: toRem(11);
     }
@@ -322,7 +302,6 @@
 }
 
 .delivery-conditions {
-
 
   /* .delivery-conditions__title */
   &__title {
@@ -343,9 +322,6 @@
     @include adaptiveValue("padding-left", 30, 0);
     @include adaptiveValue("margin-bottom", 25, 16);
   }
-
-  /* .delivery-conditions__item */
-  &__item {}
 
   /* .delivery-conditions__link */
   &__link {
@@ -408,7 +384,4 @@
     @include adaptiveValue("padding-left", 30, 0);
     @include adaptiveValue("margin-bottom", 26, 16);
   }
-
-  /* .refund__item */
-  &__item {}
 }
