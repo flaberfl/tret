@@ -1,6 +1,7 @@
 .info-payment {
   position: relative;
   padding-top: toRem(54);
+  @include adaptiveValue("padding-top", 54, 27);
 
   &::before {
     content: '';
@@ -8,7 +9,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/info/payment-bg.jpg") 0 0 no-repeat;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/info/payment-bg.jpg") center 0 no-repeat;
     opacity: .11;
     z-index: -1;
   }
@@ -18,11 +19,11 @@
 
   /* .info-payment__title */
   &__title {
-    margin-bottom: toRem(22);
-
     font-weight: 700;
     line-height: 118%;
     @include adaptiveValue("font-size", 44, 25);
+
+    @include adaptiveValue("margin-bottom", 22, 11);
 
     @media (max-width:$mobile) {
       line-height: 136%;
@@ -31,8 +32,9 @@
 
   /* .info-payment__subtitle */
   &__subtitle {
-    margin-bottom: toRem(34);
     max-width: toRem(1277);
+
+    @include adaptiveValue("margin-bottom", 34, 20);
   }
 
   /* .info-payment__fast-navigation */
@@ -52,6 +54,7 @@
   /* .info-payment__tags */
   &__tags {
     display: flex;
+    flex-wrap: wrap;
     gap: toRem(10);
     margin-bottom: toRem(55);
 
@@ -178,7 +181,7 @@
   /* .payment-methods__non-cash */
   &__non-cash {
     margin-bottom: toRem(22);
-    
+
     font-weight: 700;
     @include adaptiveValue("font-size", 32, 25);
 
