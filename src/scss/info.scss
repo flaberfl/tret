@@ -234,16 +234,15 @@
 
   /* .delivery-methods__items */
   &__items {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: toRem(25);
 
     @include adaptiveValue("gap", 25, 20);
 
-    @media (min-width:em(1600)) {
+    @media (min-width:toEm(1600)) {
       justify-content: space-between;
-      margin-right: toRem(205);
-      //  justify-content: start;
+      padding-right: toRem(205);
     }
   }
 
@@ -252,6 +251,8 @@
     display: flex;
     align-items: center;
     gap: toRem(12);
+
+    // flex-basis: 30%;
 
     span {
       display: flex;
@@ -279,10 +280,21 @@
   }
 
   /* .delivery-methods__moscow */
-  &__moscow {}
+  &__moscow {
+    line-height: 162%;
+    font-weight: 700;
+
+    line-height: 136%;
+    @include adaptiveValue("font-size", 32, 25);
+  }
 
   /* .delivery-methods__time */
-  &__time {}
+  &__time {
+    span {
+      font-weight: 400;
+      color: $mainColor;
+    }
+  }
 }
 
 .delivery-conditions {
