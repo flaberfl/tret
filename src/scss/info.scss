@@ -1,7 +1,7 @@
 .info-payment {
   position: relative;
-  padding-top: toRem(54);
   @include adaptiveValue("padding-top", 54, 27);
+  @include adaptiveValue("padding-bottom", 93, 50);
 
   &::before {
     content: '';
@@ -356,29 +356,58 @@
   }
 }
 
-.point-d {}
-
 .refund {
+  @include adaptiveValue("padding-bottom", 38, 19);
 
   /* .refund__title */
-  &__title {}
+  &__title {
+    @include adaptiveValue("margin-bottom", 36, 15);
+  }
 
   /* .refund__subtitle */
   &__subtitle {
     font-weight: 600;
-    font-size: 22px;
     line-height: 127%;
     color: #000;
+
+    @include adaptiveValue("font-size", 22, 18);
+
+    @include adaptiveValue("margin-bottom", 18, 7);
+
+    @media (max-width:$mobile) {
+      line-height: 144%;
+    }
   }
 
   /* .refund__text */
-  &__text {}
+  &__text {
+    @include adaptiveValue("margin-bottom", 23, 16);
+  }
 
   /* .refund__cash */
-  &__cash {}
+  &__cash {
+    font-size: toRem(18);
+    font-weight: 600;
+    line-height: 150%;
+
+    margin-bottom: toRem(16);
+
+    @media (max-width:$mobile) {
+      font-size: toRem(16);
+      line-height: 156%;
+    }
+
+    a {
+      color: $secondaryColor;
+      text-decoration: underline;
+    }
+  }
 
   /* .refund__list */
-  &__list {}
+  &__list {
+    @include adaptiveValue("padding-left", 30, 0);
+    @include adaptiveValue("margin-bottom", 26, 16);
+  }
 
   /* .refund__item */
   &__item {}
