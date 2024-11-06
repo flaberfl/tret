@@ -60,6 +60,8 @@
 
     font-size: toRem(19);
 
+    @include adaptiveValue("margin-bottom", 55, 68);
+
     @media (max-width:$mobile) {
       font-size: toRem(17);
     }
@@ -94,21 +96,29 @@
   /* .payment-methods__items */
   &__items {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: center;
     margin-bottom: toRem(19);
 
-    gap: toRem(10);
     counter-reset: numbers;
+
+    @include adaptiveValue("gap", 10, 23);
+
+    @media (max-width:$tablet) {
+      flex-wrap: wrap;
+    }
   }
 
   /* .payment-methods__item */
   &__item {
     position: relative;
     padding-left: toRem(53);
-    padding-top: toRem(9);
     padding-right: toRem(5);
     padding-bottom: toRem(20);
     flex: 0 1 33%;
+
+    // @include adaptiveValue("padding-right", 5, 0);
+    @include adaptiveValue("padding-top", 9, 0);
 
 
     &::before {
@@ -129,6 +139,14 @@
       counter-increment: numbers;
       content: counter(numbers);
     }
+
+    @media (max-width:$tablet) {
+      flex: 0 1 49%;
+    }
+
+    @media (max-width:$mobile) {
+      flex: 0 1 100%;
+    }
   }
 
 
@@ -148,11 +166,13 @@
   /* .payment-methods__name-systems */
   &__name-systems {
     font-size: toRem(20);
+    line-height: 155%;
 
-    margin-bottom: toRem(24);
+    @include adaptiveValue("margin-bottom", 24, 13);
 
     @media (max-width:$mobile) {
       font-size: toRem(18);
+      line-height: 133%;
     }
   }
 
@@ -160,8 +180,9 @@
   &__systems {
     display: flex;
     gap: toRem(10);
+    flex-wrap: wrap;
 
-    @include adaptiveValue("margin-bottom", 58, 37);
+    @include adaptiveValue("margin-bottom", 58, 26);
   }
 
   /* .payment-methods__system */
@@ -169,22 +190,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 141px;
-    height: 67px;
 
     border: 1px solid #fafafa;
     border-radius: toRem(16);
     box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.02);
     background: #fff;
+
+    @include adaptiveValue("width", 141, 123);
+    @include adaptiveValue("height", 67, 58);
+
+    img {
+      max-width: 100%;
+    }
+
+    // @media (max-width:$mobile) {
+    //   img {
+    //     width: 110%;
+    //   }
+    // }
   }
 
   /* .payment-methods__non-cash */
   &__non-cash {
-    margin-bottom: toRem(22);
-
     font-weight: 700;
     @include adaptiveValue("font-size", 32, 25);
 
+    @include adaptiveValue("margin-bottom", 22, 13);
+
+    @media (max-width:$mobile) {
+      line-height: 136%;
+    }
   }
 
   /* .payment-methods__desc */
