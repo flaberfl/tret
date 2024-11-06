@@ -21,11 +21,23 @@
   color: $secondaryColor;
 
   @include adaptiveValue("font-size", 32, 25);
-  @include adaptiveValue("margin-bottom", 40, 35);
+  @include adaptiveValue("margin-bottom", 44, 35);
+}
+
+.info-text {
+  font-size: toRem(18);
+  font-weight: 350;
+  line-height: 150%;
+  color: #666;
+
+  @media (max-width:$mobile) {
+    font-size: toRem(16);
+    line-height: 156%;
+  }
 }
 
 .info-wrapper {
-  padding-top: toRem(50);
+  padding-top: toRem(43);
   padding-right: toRem(60);
   padding-bottom: toRem(65);
   padding-left: toRem(63);

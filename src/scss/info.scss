@@ -33,16 +33,6 @@
   &__subtitle {
     margin-bottom: toRem(34);
     max-width: toRem(1277);
-
-    font-size: toRem(18);
-    font-weight: 350;
-    line-height: 150%;
-    color: #666;
-
-    @media (max-width:$mobile) {
-      font-size: toRem(16);
-      line-height: 156%;
-    }
   }
 
   /* .info-payment__fast-navigation */
@@ -94,37 +84,105 @@
   background: #fff;
 
   /* .payment-methods__title */
-  &__title {}
+  &__title {
+    margin-bottom: toRem(35);
+  }
 
   /* .payment-methods__items */
-  &__items {}
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: toRem(19);
+
+    gap: toRem(10);
+    counter-reset: numbers;
+  }
 
   /* .payment-methods__item */
-  &__item {}
+  &__item {
+    position: relative;
+    padding-left: toRem(53);
+    padding-top: toRem(9);
+    padding-right: toRem(5);
+    padding-bottom: toRem(20);
+    flex: 0 1 33%;
 
-  /* .payment-methods__number */
-  &__number {}
 
-  /* .payment-methods__box */
-  &__box {}
+    &::before {
+      // content: '';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: toRem(41);
+      height: toRem(41);
+      background: $secondaryColor;
+      border-radius: 50%;
+      font-size: toRem(23);
+      font-weight: 700;
+      color: #fff;
+      counter-increment: numbers;
+      content: counter(numbers);
+    }
+  }
+
 
   /* .payment-methods__name */
-  &__name {}
+  &__name {
+    margin-bottom: toRem(12);
 
-  /* .payment-methods__text */
-  &__text {}
+    font-size: toRem(20);
+    font-weight: 600;
+
+    @media (max-width:$mobile) {
+      font-size: toRem(18);
+    }
+  }
+
 
   /* .payment-methods__name-systems */
-  &__name-systems {}
+  &__name-systems {
+    font-size: toRem(20);
+
+    margin-bottom: toRem(24);
+
+    @media (max-width:$mobile) {
+      font-size: toRem(18);
+    }
+  }
 
   /* .payment-methods__systems */
-  &__systems {}
+  &__systems {
+    display: flex;
+    gap: toRem(10);
+
+    @include adaptiveValue("margin-bottom", 58, 37);
+  }
 
   /* .payment-methods__system */
-  &__system {}
+  &__system {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 141px;
+    height: 67px;
+
+    border: 1px solid #fafafa;
+    border-radius: toRem(16);
+    box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.02);
+    background: #fff;
+  }
 
   /* .payment-methods__non-cash */
-  &__non-cash {}
+  &__non-cash {
+    margin-bottom: toRem(22);
+    
+    font-weight: 700;
+    @include adaptiveValue("font-size", 32, 25);
+
+  }
 
   /* .payment-methods__desc */
   &__desc {}
