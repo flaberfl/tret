@@ -52,6 +52,37 @@
   }
 }
 
+.info-list-item {
+  position: relative;
+  padding-left: toRem(18);
+
+  &:not(:last-child) {
+    margin-bottom: toRem(12);
+  }
+
+  font-size: toRem(17);
+  line-height: 159%;
+  font-weight: 350;
+  color: #666;
+
+  @media (max-width:$mobile) {
+    font-size: toRem(16);
+    line-height: 156%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: toRem(6);
+    height: toRem(6);
+    background-color: $secondaryColor;
+    border-radius: 50%;
+    left: 0;
+    top: 50%;
+    transform: translate(0px, -50%);
+  }
+}
+
 .price {
   gap: toRem(17);
 

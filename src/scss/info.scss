@@ -227,6 +227,10 @@
 
 .delivery-methods {
 
+  @media (min-width:toEm(1600)) {
+    padding-right: toRem(266);
+  }
+
   /* .delivery-methods__title */
   &__title {
     @include adaptiveValue("margin-bottom", 34, 26);
@@ -235,30 +239,30 @@
   /* .delivery-methods__items */
   &__items {
     width: 100%;
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     flex-wrap: wrap;
+    justify-content: space-between;
+    // justify-items: center;
 
-    @include adaptiveValue("gap", 25, 20);
 
-    @media (min-width:toEm(1600)) {
-      justify-content: space-between;
-      padding-right: toRem(205);
-    }
+    margin-bottom: toRem(41);
+    @include adaptiveValue("gap", 25, 23);
   }
 
   /* .delivery-methods__item */
   &__item {
-    display: flex;
+    display: grid;
     align-items: center;
+    grid-template-columns: auto 1fr;
     gap: toRem(12);
-
-    // flex-basis: 30%;
 
     span {
       display: flex;
       justify-content: center;
       align-items: center;
       height: toRem(41);
+      width: toRem(41);
       flex: 0 0 toRem(41);
       background: $secondaryColor;
       border-radius: 50%;
@@ -266,7 +270,12 @@
       font-weight: 700;
       color: #fff;
     }
+
+    @media (max-width: toEm(1266)) {
+      width: 100%;
+    }
   }
+
 
   /* .delivery-methods__geo */
   &__geo {
@@ -285,11 +294,25 @@
     font-weight: 700;
 
     line-height: 136%;
+
+    margin-bottom: toRem(25);
     @include adaptiveValue("font-size", 32, 25);
   }
 
+
+  /* .delivery-methods__times */
+  &__times {
+    margin-bottom: toRem(25);
+  }
+
+
   /* .delivery-methods__time */
   &__time {
+
+    &:not(:last-child) {
+      margin-bottom: toRem(11);
+    }
+
     span {
       font-weight: 400;
       color: $mainColor;
@@ -299,11 +322,25 @@
 
 .delivery-conditions {
 
+
   /* .delivery-conditions__title */
-  &__title {}
+  &__title {
+    margin-bottom: toRem(17);
+
+    font-size: toRem(20);
+    line-height: 135%;
+    font-weight: 600;
+
+    @media (max-width:$mobile) {
+      font-size: toRem(18);
+      line-height: 150%;
+    }
+  }
 
   /* .delivery-conditions__list */
-  &__list {}
+  &__list {
+    @include adaptiveValue("padding-left", 30, 0);
+  }
 
   /* .delivery-conditions__item */
   &__item {}
