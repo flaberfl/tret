@@ -24,7 +24,8 @@
   @include adaptiveValue("margin-bottom", 44, 35);
 }
 
-.info-text, .text {
+.info-text,
+.text {
   font-size: toRem(18);
   font-weight: 350;
   line-height: 150%;
@@ -177,7 +178,7 @@
         content: '-';
         position: absolute;
         color: #666;
-        left: 0;
+        left: toRem(-1);
         top: 50%;
         transform: translate(0, -50%);
       }

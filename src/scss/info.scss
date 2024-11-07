@@ -25,6 +25,10 @@
     @media (max-width:$mobile) {
       line-height: 136%;
     }
+
+    &:hover{
+      color: red;
+    }
   }
 
   /* .info-payment__subtitle */

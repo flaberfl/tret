@@ -8,10 +8,6 @@
 	border-radius: toRem(50);
 	background-color: #fff;
 
-	@media (any-hover: hover) {
-		&:hover {}
-	}
-
 	&--fw {
 		width: 100%;
 	}
@@ -34,6 +30,38 @@
 			}
 		}
 	}
+
+	&__arrow {
+		display: inline-flex;
+		padding: 0 toRem(30);
+
+		font-weight: 700;
+		color: #fff;
+		line-height: 300%;
+		text-transform: uppercase;
+
+		background-color: $secondaryColor;
+		transition: background-color 0.3s;
+
+		@include adaptiveValue("font-size", 21, 17);
+
+		@include adaptiveValue("height", 70, 50);
+		@include adaptiveValue("gap", 66, 34);
+		// @include adaptiveValue("width", 270, 216);
+
+
+		@media (max-width:$mobile) {
+			line-height: 371%;
+			color: #fff;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #000;
+			}
+		}
+	}
+
 }
 
 .button-wrapper {

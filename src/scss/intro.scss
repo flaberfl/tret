@@ -60,6 +60,7 @@
 
   /* .intro__button */
   &__button {
+    display: block;
     display: flex;
     align-items: center;
     // gap: toRem(66);
@@ -88,6 +89,12 @@
       line-height: 371%;
       color: #fff;
     }
+
+    &:hover {
+      background-color: #000 !important;
+    }
+
+    @media (any-hover: hover) {}
   }
 
   &__arrow-down {
