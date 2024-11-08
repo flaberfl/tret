@@ -178,10 +178,12 @@
     position: relative;
     padding-left: toRem(10);
 
-    span {
-      font-size: 16px;
-      line-height: 112%;
+    color: #666666;
+    cursor: pointer;
 
+    span {
+      font-size: toRem(16);
+      line-height: 112%;
     }
 
     &:not(:first-child) {
@@ -193,7 +195,11 @@
         top: 50%;
         transform: translate(0, -50%);
       }
+    }
 
+    &.active{
+      color: $mainColor;
+      cursor: auto;
     }
 
   }
