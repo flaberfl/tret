@@ -8,18 +8,48 @@
 	&__line {
 		position: relative;
 
-		.callback-cooperation & {
+		&_fio {
 			display: flex;
 			justify-content: space-between;
 			gap: toRem(11);
 
 			margin-bottom: toRem(12);
 		}
+
+		&_bottom {
+			display: flex;
+			align-items: center;
+			gap: toRem(20);
+
+			max-width: toRem(490);
+			
+		}
 	}
 
 	&__input {}
 
-	&__button {}
+	&__button {
+		padding: 0 toRem(56) !important;
+
+		font-size: toRem(18);
+		font-weight: 700;
+		color: #fff;
+		text-transform: uppercase;
+		background-color: $secondaryColor !important;
+		transition: background-color 0.3s;
+
+		@include adaptiveValue("height", 57, 50);
+
+		@media (max-width:$mobile) {
+			font-size: toRem(17);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $mainColor !important;
+			}
+		}
+	}
 
 	&__error {}
 }

@@ -147,9 +147,6 @@
     @media (max-width:$mobile) {
       line-height: 147%;
     }
-
-    a {}
-
   }
 
   /* .callback-cooperation__tel */
@@ -177,7 +174,17 @@
   &__button {}
 
   /* .form__policy */
-  &__policy {}
+  &__policy {
+    font-size: toRem(15);
+    font-weight: 350;
+    line-height: 127%;
+    color: #999;
+
+    a {
+      color: $secondaryColor;
+      text-decoration: underline;
+    }
+  }
 }
 
 .input {}
