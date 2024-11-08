@@ -8,22 +8,56 @@ textarea {
 	-moz-appearance: none;
 	appearance: none;
 }
+
 .input {
-	border-radius: 0 !important;
+	border-radius: toRem(50);
 	width: 100%;
 	display: block;
-	padding: 0px 20px;
-	border: 1px solid #eee;
+	padding: 0 toRem(24);
 	caret-color: inherit;
+	height: toRem(60);
+
+	border: 1px solid #ececec;
+	backdrop-filter: blur(9px);
+	background: rgba(255, 255, 255, 0.6);
+
 	&._form-focus {
+		border: 1px solid #000;
 	}
+
 	&._form-error {
+		border: 1px solid #d42023;
+		color: #d42023;
+	
+
+		.input::placeholder {
+			display: none;
+		}
+
 	}
 }
+
+.form__error {
+	position: absolute;
+	z-index: 100;
+	bottom: 22px;
+	left: 22px;
+
+}
+
+.input {
+	&::placeholder {
+		font-weight: 350;
+		color: #666;
+	}
+}
+
+
 .input[placeholder]:not([data-placeholder-nohiden]) {
 	&::placeholder {
 		transition: opacity 0.3s;
 	}
+
 	&:focus::placeholder {
 		opacity: 0;
 	}
@@ -31,5 +65,10 @@ textarea {
 
 textarea.input {
 	resize: none;
-	padding: 0px 0px;
+	padding: toRem(24);
+	border-radius: toRem(23);
+
+	.callback-cooperation & {
+		min-height: toRem(195);
+	}
 }

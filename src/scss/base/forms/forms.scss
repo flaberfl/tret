@@ -1,19 +1,29 @@
 //<FORM>
 // Сниппет (HTML):
 .form {
-	&__row {
-	}
-	&__column {
-	}
+	&__row {}
+
+	&__column {}
+
 	&__line {
+		position: relative;
+
+		.callback-cooperation & {
+			display: flex;
+			justify-content: space-between;
+			gap: toRem(11);
+
+			margin-bottom: toRem(12);
+		}
 	}
-	&__input {
-	}
-	&__button {
-	}
-	&__error {
-	}
+
+	&__input {}
+
+	&__button {}
+
+	&__error {}
 }
+
 //</FORM>
 
 // <BUTTONS>
@@ -22,7 +32,7 @@
 
 // <INPUTS>
 // Сниппет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Сниппет (HTML): chk

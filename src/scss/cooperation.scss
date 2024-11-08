@@ -135,11 +135,31 @@
 
   /* .callback-cooperation__subtitle */
   &__subtitle {
+
+    font-weight: 350;
+    line-height: 135%;
+    color: #666;
+
+    @include adaptiveValue("font-size", 20, 17);
     @include adaptiveValue("margin-bottom", 36, 25);
+
+
+    @media (max-width:$mobile) {
+      line-height: 147%;
+    }
+
+    a {}
+
   }
 
   /* .callback-cooperation__tel */
-  &__tel {}
+  &__tel {
+    font-weight: 700;
+    line-height: 155%;
+    text-decoration: underline;
+    color: #28b3b6;
+    @include adaptiveValue("font-size", 20, 18);
+  }
 
   /* .callback-cooperation__form */
   &__form {}

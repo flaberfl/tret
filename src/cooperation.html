@@ -69,11 +69,11 @@
             </p>
             <form action="" class="callback-cooperation__form form">
               <div class="form__line">
-                <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Ваше имя"
+                <input autocomplete="off" type="text" name="form[]" data-required="text" data-validate2 data-error="Ошибка данных" placeholder="Ваше имя"
                   class="input form__input">
-                <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Телефон для связи"
+                <input autocomplete="off" type="number" name="form[]" data-validate data-error="Ошибка данных" placeholder="Телефон для связи"
                   class="input form__input">
-                <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="E-mail  "
+                <input data-required="email" type="mail" name="form[]" data-validate data-error="Ошибка данных" placeholder="E-mail"
                   class="input form__input">
               </div>
               <div class="form__line">
