@@ -380,7 +380,7 @@ function initSliders() {
 
 			// Пагинация
 			pagination: {
-				el: '.partners-cooperation-pagination',
+				el: '.partners-cooperation__slider-pagination',
 				clickable: true,
 			},
 

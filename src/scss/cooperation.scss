@@ -1,7 +1,7 @@
 .cooperation {
   position: relative;
   padding-top: toRem(68);
-  padding-bottom: toRem(100);
+  padding-bottom: toRem(101);
 
   &::before {
     content: '';
@@ -16,7 +16,9 @@
 
 
   /* .cooperation__container */
-  &__container {}
+  &__container {
+    position: relative;
+  }
 
   /* .cooperation__for-hostel */
   &__for-hostel {
@@ -213,9 +215,59 @@
   /* .partners-cooperation__slide */
   &__slide {
     padding: toRem(22);
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
     background: #fff;
+  }
+
+  &__slider-pagination {
+    height: toRem(25);
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    margin-top: toRem(3);
+    gap: toRem(16);
+
+    .swiper-pagination-bullet {
+      position: relative;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #E8E8E8;
+      z-index: 10;
+
+      cursor: pointer;
+
+      transition: all 0.3s;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: toRem(11);
+        height: toRem(11);
+        background-color: $secondaryColor;
+        border-radius: 50%;
+        opacity: 0;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 25px;
+      height: 25px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #E9FFFF;
+
+      &::before {
+        opacity: 1;
+      }
+    }
   }
 }
 
