@@ -21,8 +21,7 @@
 			align-items: center;
 			gap: toRem(20);
 
-			max-width: toRem(490);
-			
+			@include adaptiveValue("margin-top", 32, 22);
 		}
 	}
 

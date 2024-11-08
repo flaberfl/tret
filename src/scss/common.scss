@@ -16,6 +16,17 @@
   }
 }
 
+.title-h3 {
+  font-weight: 700;
+  line-height: 118%;
+
+  @include adaptiveValue("font-size", 44, 25);
+
+  @media (max-width:$mobile) {
+    line-height: 136%;
+  }
+}
+
 .info-title {
   font-weight: 700;
   color: $secondaryColor;
