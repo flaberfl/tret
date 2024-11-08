@@ -122,7 +122,7 @@ flsForms.formSubmit();
 
 /* Модуль формы"количество" */
 /* Документация: https://start-template.ru/modul-formy-kolichestvo-chertogi-frilansera-v3-0-0/ */
-// flsForms.formQuantity();
+flsForms.formQuantity();
 
 /* Модуль звездного рейтинга */
 // flsForms.formRating();

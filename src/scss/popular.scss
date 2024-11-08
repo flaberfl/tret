@@ -316,8 +316,6 @@
 
   /* .product-item__cost */
   &__cost {
-    display: flex;
-    align-items: flex-end;
     @include adaptiveValue("padding-top", 13, 8);
     @include adaptiveValue("margin-bottom", 19, 6);
   }
