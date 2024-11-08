@@ -14,6 +14,10 @@
 			gap: toRem(11);
 
 			margin-bottom: toRem(12);
+
+			@media (max-width:$tablet){
+				flex-wrap: wrap;
+			}
 		}
 
 		&_bottom {
@@ -22,6 +26,10 @@
 			gap: toRem(20);
 
 			@include adaptiveValue("margin-top", 32, 22);
+
+			@media (max-width:$mobile){
+				 flex-wrap: wrap;
+			}
 		}
 	}
 
