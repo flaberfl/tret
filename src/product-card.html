@@ -38,16 +38,58 @@
         <div class="product-card__container">
           <div class="product-card__body">
             <div class="product-card__media">
-              <div class="product-card__slider-thumbs">
-                <div class="product-card__slide-thumbs">
-                  <img src="@img/product-card/th1.jpg" alt="Миниатюра фото товара">
-                  <img src="@img/product-card/th2.jpg" alt="Миниатюра фото товара">
-                  <img src="@img/product-card/th3.jpg" alt="Миниатюра фото товара">
+
+              <div data-tabs class="tabs-thumbs">
+                <nav data-tabs-titles class="tabs-thumbs__navigation">
+
+                  <button type="button" class="tabs-thumbs__title _tab-active">1
+                    <!-- <img src="@img/product-card/th1.jpg" alt="Миниатюра фото товара"> -->
+                  </button>
+                  <button type="button" class="tabs-thumbs__title">2
+                    <!-- <img src="@img/product-card/th2.jpg" alt="Миниатюра фото товара"> -->
+                  </button>
+                  <button type="button" class="tabs-thumbs__title">3
+                    <!-- <img src="@img/product-card/th3.jpg" alt="Миниатюра фото товара"> -->
+                  </button>
+
+                </nav>
+
+                <div class="product-card__main-image">
+                  <div class="product-card__labels">
+                    <h4 class="product-item__label product-card__label">Бестселлер</h4>
+                    <span class="product-item__discount product-card__discount">-20%</span>
+                  </div>
+
+                  <div class="product-item__type product-card__type">
+                    <div class="product-item__badge">
+                      <span>
+                        Гусиный пух
+                      </span>
+                    </div>
+                    <img src="img/icons/goose.svg" alt="Тип изделия">
+                  </div>
+                  <div data-tabs-body class="tabs-thumbs__content">
+
+
+                    <div class="tabs-thumbs__body">1111
+                      <img src="@img/product-card/p1-1.jpg" alt="Фото продукта" class="product-card__photo">
+                    </div>
+                    <div class="tabs-thumbs__body">2222
+                      <img src="@img/product-card/p1-1.jpg" alt="Фото продукта" class="product-card__photo">
+                    </div>
+                    <div class="tabs-thumbs__body">3333
+                      <img src="@img/product-card/p1-1.jpg" alt="Фото продукта" class="product-card__photo">
+                    </div>
+                  </div>
+
                 </div>
+
               </div>
 
-              <div class="product-card__image">
-                <img src="@img/product-card/p1-1.jpg" alt="Фото продукта" class="product-card__photo">
+
+
+              <!-- <div class="product-card__image">
+
 
                 <div class="product-card__labels">
                   <h4 class="product-item__label product-card__label">Бестселлер</h4>
@@ -62,7 +104,7 @@
                   </div>
                   <img src="img/icons/goose.svg" alt="Тип изделия">
                 </div>
-              </div>
+              </div> -->
 
             </div>
 
@@ -251,6 +293,36 @@
             </div>
           </div>
         </div>
+      </div>
+
+
+      <div data-tabs class="tt-temp">
+        <nav data-tabs-titles class="tt-temp__navigation">
+          <button type="button" class="tt-temp__title _tab-active">Таб №1</button>
+          <button type="button" class="tt-temp__title">Таб №2</button>
+          <button type="button" class="tt-temp__title">Таб №3</button>
+        </nav>
+
+
+
+        <div class="project">
+          <div data-tabs-body class="tt-temp__content">
+            <pr-1>
+              <div class="tt-temp__body">
+                Содержимое первого таба
+              </div>
+
+            </pr-1>
+            <div class="tt-temp__body">
+              Содержимое другого таба
+            </div>
+            <div class="tt-temp__body">
+              Содержимое третьего таба
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
     </main>
