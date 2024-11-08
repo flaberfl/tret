@@ -1,7 +1,8 @@
 .cooperation {
   position: relative;
-  padding-top: toRem(68);
   padding-bottom: toRem(101);
+
+  @include adaptiveValue("padding-top", 68, 37);
 
   &::before {
     content: '';
@@ -27,9 +28,8 @@
     align-items: center;
     justify-content: center;
 
-
-    margin-bottom: toRem(100);
-    @include adaptiveValue("gap", 90, 20);
+    @include adaptiveValue("margin-bottom", 100, 45);
+    @include adaptiveValue("gap", 90, 30);
 
     @media (max-width:$tablet) {
       flex-wrap: wrap;
@@ -50,12 +50,12 @@
 
   /* .cooperation__title */
   &__title {
-    margin-bottom: toRem(32);
+    @include adaptiveValue("margin-bottom", 32, 15);
   }
 
   /* .cooperation__text-block */
   &__text-block {
-    margin-bottom: toRem(36);
+    @include adaptiveValue("margin-bottom", 36, 21);
 
     @media (min-width:$tablet) {
       max-width: toRem(670);
@@ -65,7 +65,7 @@
   /* .cooperation__text */
   &__text {
     &:not(:last-child) {
-      margin-bottom: toRem(26);
+      @include adaptiveValue("margin-bottom", 26, 11);
     }
   }
 
@@ -113,6 +113,10 @@
 
   border-radius: toRem(30);
 
+  @include adaptiveValue("padding-top", 70, 34);
+  @include adaptiveValue("padding-left", 75, 30);
+  @include adaptiveValue("padding-right", 75, 30);
+
   &::before {
     content: '';
     position: absolute;
@@ -126,7 +130,7 @@
 
   /* .callback-cooperation__title */
   &__title {
-    margin-bottom: toRem(22);
+    @include adaptiveValue("margin-bottom", 22, 9);
   }
 
   /* .callback-cooperation__subtitle */
@@ -222,6 +226,16 @@
 
     box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
     background: #fff;
+
+    transition: all 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          filter: brightness(0) saturate(100%) invert(61%) sepia(63%) saturate(1578%) hue-rotate(325deg) brightness(90%) contrast(90%);
+        }
+      }
+    }
   }
 
   &__slider-pagination {
