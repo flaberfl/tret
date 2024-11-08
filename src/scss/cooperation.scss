@@ -1,6 +1,7 @@
 .cooperation {
   position: relative;
   padding-top: toRem(68);
+  padding-bottom: toRem(100);
 
   &::before {
     content: '';
@@ -185,8 +186,13 @@
 
 .partners-cooperation {
 
+  padding-bottom: toRem(50);
+
   &__top-line {
     display: flex;
+    align-items: center;
+
+    margin-bottom: toRem(65);
   }
 
   /* .partners-cooperation__title */
