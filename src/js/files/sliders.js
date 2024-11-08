@@ -350,7 +350,7 @@ function initSliders() {
 			observer: true,
 			observeParents: true,
 			slidesPerView: 5.4,
-			spaceBetween: 23,
+			spaceBetween: 22,
 			// effect: "fade",
 			// autoHeight: true,
 			speed: 800,
@@ -358,18 +358,8 @@ function initSliders() {
 			//touchRatio: 0,
 			//simulateTouch: false,
 			loop: true,
-			//preloadImages: false,
+			// preloadImages: false,
 			lazy: true,
-
-			/*
-			// Эффекты
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
-
 
 			// Кнопки "влево/вправо"
 			navigation: {
@@ -387,13 +377,13 @@ function initSliders() {
 			// Брейкпоинты
 			breakpoints: {
 				0: {
-					slidesPerView: 2,
+					slidesPerView: 1.1,
 					spaceBetween: 20,
 					// autoHeight: true,
 				},
-				360: {
-					slidesPerView: 2,
-					spaceBetween: 18,
+				500: {
+					slidesPerView: 1.2,
+					spaceBetween: 20,
 					// autoHeight: true,
 				},
 				640: {
@@ -402,16 +392,16 @@ function initSliders() {
 					// autoHeight: true,
 				},
 				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
+					slidesPerView: 3,
+					spaceBetween: 22,
 				},
 				992: {
-					slidesPerView: 3,
-					spaceBetween: 28,
+					slidesPerView: 4,
+					spaceBetween: 22,
 				},
 				1268: {
 					slidesPerView: 5.4,
-					spaceBetween: 23,
+					spaceBetween: 22,
 				},
 			},
 

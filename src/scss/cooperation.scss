@@ -1,8 +1,7 @@
 .cooperation {
   position: relative;
-  padding-bottom: toRem(101);
-
   @include adaptiveValue("padding-top", 68, 37);
+  @include adaptiveValue("padding-bottom", 101, 56);
 
   &::before {
     content: '';
@@ -11,6 +10,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/cooperation/back.jpg") center 0 no-repeat;
+    background-size: cover;
     opacity: .11;
     z-index: -1;
   }
@@ -102,7 +102,7 @@
 
   /* .cooperation__callback */
   &__callback {
-    margin-bottom: toRem(83);
+    @include adaptiveValue("margin-bottom", 83, 50);
   }
 
   /* .cooperation__partners */
@@ -113,13 +113,20 @@
 .callback-cooperation {
   position: relative;
 
-  padding: toRem(70) toRem(75);
+  height: 100%;
+  // padding: toRem(70) toRem(75);
 
   border-radius: toRem(30);
+  overflow: hidden;
 
-  @include adaptiveValue("padding-top", 70, 34);
+  @include adaptiveValue("padding-bottom", 70, 48);
+  @include adaptiveValue("padding-top", 60, 34);
   @include adaptiveValue("padding-left", 75, 30);
   @include adaptiveValue("padding-right", 75, 30);
+
+  @media (max-width:$mobile) {
+    border-radius: toRem(20);
+  }
 
   &::before {
     content: '';
@@ -128,7 +135,8 @@
     width: 100%;
     height: 100%;
     background: url('@img/cooperation/form.jpg') center 0 no-repeat;
-    // opacity: .11;
+    background-size: cover;
+    opacity: .11;
     z-index: -1;
   }
 
@@ -205,33 +213,24 @@
 .partners-cooperation {
 
   padding-bottom: toRem(50);
+  @include adaptiveValue("padding-bottom", 50, 30);
 
   &__top-line {
     display: flex;
     align-items: center;
 
     margin-bottom: toRem(65);
+    @include adaptiveValue("margin-bottom", 65, 30);
   }
 
   /* .partners-cooperation__title */
   &__title {
     justify-self: start;
-    // @include adaptiveValue("margin-bottom", 42, 23);
   }
-
-  /* .partners-cooperation__slider-btn */
-  &__slider-btn {}
-
-  /* .partners-cooperation__slider */
-  &__slider {}
-
-  /* .partners-cooperation__wrapper */
-  &__wrapper {}
 
   /* .partners-cooperation__slide */
   &__slide {
     padding: toRem(22);
-    // text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,6 +239,10 @@
     background: #fff;
 
     transition: all 0.3s;
+
+    img {
+      max-width: toRem(170);
+    }
 
     @media (any-hover: hover) {
       &:hover {
@@ -254,7 +257,6 @@
     height: toRem(25);
     display: flex;
     align-items: center;
-    // justify-content: center;
     margin-top: toRem(3);
     gap: toRem(16);
 
