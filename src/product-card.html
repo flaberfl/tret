@@ -39,23 +39,33 @@
           <div class="product-card__body">
             <div class="product-card__media">
               <div class="product-card__slider-thumbs">
-
-              </div>
-
-              <div class="product-card__main-image">
-                <img src="@img/product-card/p1-1.jpg" alt="Фото продукта" class="product-card__photo">
-              </div>
-
-
-              <div class="product-item__type product-card__type">
-                <div class="product-item__badge">
-                  <span>
-                    Гусиный пух
-                  </span>
+                <div class="product-card__slide-thumbs">
+                  <img src="@img/product-card/th1.jpg" alt="Миниатюра фото товара">
+                  <img src="@img/product-card/th2.jpg" alt="Миниатюра фото товара">
+                  <img src="@img/product-card/th3.jpg" alt="Миниатюра фото товара">
                 </div>
-                <img src="img/icons/goose.svg" alt="Тип изделия">
               </div>
+
+              <div class="product-card__image">
+                <img src="@img/product-card/p1-1.jpg" alt="Фото продукта" class="product-card__photo">
+
+                <div class="product-card__labels">
+                  <h4 class="product-item__label product-card__label">Бестселлер</h4>
+                  <span class="product-item__discount product-card__discount">-20%</span>
+                </div>
+
+                <div class="product-item__type product-card__type">
+                  <div class="product-item__badge">
+                    <span>
+                      Гусиный пух
+                    </span>
+                  </div>
+                  <img src="img/icons/goose.svg" alt="Тип изделия">
+                </div>
+              </div>
+
             </div>
+
             <div class="product-card__content">
               <div class="product-card__top-line">
                 <div class="product-card__article">
@@ -197,6 +207,51 @@
         </div>
       </section>
 
+      <div class="product-card-tabs">
+        <div class="product-card-tabs__container">
+          <div data-tabs class="tabs">
+            <nav data-tabs-titles class="tabs__navigation product-card-tabs__navigation">
+              <button type="button" class="product-card-tabs__title tabs__title _tab-active">Описание</button>
+              <button type="button" class="product-card-tabs__title tabs__title">Оплата</button>
+              <button type="button" class="product-card-tabs__title tabs__title">Доставка</button>
+            </nav>
+            <div data-tabs-body class="product-card-tabs__content tabs__content">
+              <div class="tabs__body  product-card-tabs__body">
+
+                <p class="product-card-tabs__text">
+                  Эта подушка обеспечивает комфорт и поддержку во время сна. Она идеально подходит для тех, кто
+                  предпочитает среднюю степень поддержки головы и шеи. Подушка изготовлена из качественных материалов,
+                  которые обеспечивают долговечность и удобство использования.
+                </p>
+
+                <div class="product-card-tabs__title">Особенности:</div>
+                <ul class="product-card-tabs__features-items">
+                  <li class="product-card-tabs__item info-list-item">Средняя степень поддержки. Подушка обеспечивает
+                    умеренную поддержку головы и шеи, что помогает предотвратить боли в спине и шее после пробуждения.
+                  </li>
+                  <li class="product-card-tabs__item info-list-item">Качественные материалы. Наполнитель подушки
+                    изготовлен из гипоаллергенных материалов, а чехол — из мягкой и приятной на ощупь ткани. Это
+                    обеспечивает комфорт во время сна и долговечность изделия.</li>
+                  <li class="product-card-tabs__item info-list-item">Универсальность. Эта подушка подойдёт как для
+                    взрослых, так и для детей. Её можно использовать как дома, так и в поездках.</li>
+                </ul>
+
+                <p class="product-card-tabs__text">
+                  Если вы ищете подушку, которая обеспечит вам комфортный сон и поддержит вашу шею и голову в правильном
+                  положении, то эта универсальная модель средней степени поддержки может стать отличным выбором.
+                </p>
+
+              </div>
+              <div class="tabs__body  product-card-tabs__body">
+                Содержимое другого таба
+              </div>
+              <div class="tabs__body  product-card-tabs__body">
+                Содержимое третьего таба
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </main>
     @@include('html/_footer.htm',{})
