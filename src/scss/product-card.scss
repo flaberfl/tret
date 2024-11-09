@@ -535,3 +535,20 @@
   /* .tabs__body */
   &__body {}
 }
+
+.product-card-like-it {
+  padding-top: toRem(71);
+  position: relative;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/product-card/back-bottom.jpg") center 0 no-repeat;
+    opacity: .11;
+    z-index: -1;
+  }
+}
