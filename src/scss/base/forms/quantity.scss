@@ -1,15 +1,28 @@
 //<QUANTITY>
 // Сниппет (HTML): qa
 .quantity {
-	width: 88px;
-	height: 40px;
+	height: toRem(52);
 	display: flex;
-	border: 1px solid rgba(166, 166, 166, 0.45);
+	border: 1px solid $secondaryColor;
+	border-radius: toRem(70);
+	overflow: hidden;
+	transition: all 0.3s;
+	
+	@include adaptiveValue("width", 190, 140);
+
 	// .quantity__button
 	&__button {
-		flex: 0 0 30px;
+		flex: 0 0 toRem(37);
 		position: relative;
 		cursor: pointer;
+		background-color: $secondaryColor;
+
+		@media (any-hover: hover){
+			&:hover{
+				background-color: #000;
+			}
+		}
+
 		&::before,
 		&::after {
 			content: "";
@@ -18,35 +31,32 @@
 			left: 50%;
 			transition: all 0.3s ease 0s;
 			margin: 0px 0px 0px -4.5px;
-			background-color: #a6a6a6;
-			width: 9px;
-			height: 1px;
+			background-color: #fff;
+			width: 10px;
+			height: 2px;
+		
+			@include adaptiveValue("width", 10, 5);
 		}
-		@media (any-hover: hover) {
-			&:hover {
-				&::before,
-				&::after {
-					background-color: rgba(0, 0, 0, 0.5);
-				}
-			}
-		}
+
 		// .quantity__button_plus
 		&--plus {
 			&::before {
 				transform: rotate(-90deg);
 			}
 		}
+
 		// .quantity__button_minus
-		&--minus {
-		}
+		&--minus {}
 	}
+
 	// .quantity__input
 	&__input {
 		flex: 1 1 auto;
+
 		input {
 			height: 100%;
-			color: #a6a6a6;
-			font-size: 12px;
+			color: #000;
+			font-size: toRem(21);
 			width: 100%;
 			text-align: center;
 		}

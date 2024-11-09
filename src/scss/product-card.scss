@@ -116,6 +116,7 @@
   /* .product-card__size */
   &__size {
     padding-top: toRem(20);
+    margin-bottom: toRem(13);
 
 
     border-bottom: 1px solid #efefef;
@@ -135,8 +136,16 @@
     padding: toRem(12) toRem(26);
   }
 
+  &__cost {
+    margin-bottom: toRem(26);
+  }
+
   /* .product-card__add-to-cart */
-  &__add-to-cart {}
+  &__add-to-cart {
+    display: flex;
+    align-items: center;
+    gap: toRem(12);
+  }
 
   /* .product-card__quantity */
   &__quantity {}
@@ -260,7 +269,8 @@
   &__button--minus {}
 
   /* .quantity__input */
-  &__input {}
+  &__input {
+  }
 
   /* .quantity__button--plus */
   &__button--plus {}
