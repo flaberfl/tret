@@ -6,8 +6,7 @@
 	border: 1px solid $secondaryColor;
 	border-radius: toRem(70);
 	overflow: hidden;
-	transition: all 0.3s;
-	
+
 	@include adaptiveValue("width", 190, 140);
 
 	// .quantity__button
@@ -16,9 +15,11 @@
 		position: relative;
 		cursor: pointer;
 		background-color: $secondaryColor;
+		transition: all 0.3s;
 
-		@media (any-hover: hover){
-			&:hover{
+
+		@media (any-hover: hover) {
+			&:hover {
 				background-color: #000;
 			}
 		}
@@ -34,7 +35,7 @@
 			background-color: #fff;
 			width: 10px;
 			height: 2px;
-		
+
 			@include adaptiveValue("width", 10, 5);
 		}
 

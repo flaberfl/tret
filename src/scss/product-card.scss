@@ -147,6 +147,16 @@
     gap: toRem(12);
   }
 
+  &__button {
+    // width: toRem(267);
+    height: toRem(52);
+    @include adaptiveValue("width", 267, 170);
+    
+    .button-wrapper {
+
+    }
+  }
+
   /* .product-card__quantity */
   &__quantity {}
 
@@ -269,8 +279,7 @@
   &__button--minus {}
 
   /* .quantity__input */
-  &__input {
-  }
+  &__input {}
 
   /* .quantity__button--plus */
   &__button--plus {}
