@@ -90,8 +90,18 @@
 		color: #fff;
 
 		@include adaptiveValue("height", 56, 27);
+
+		.product-card__add-to-cart & {
+			height: toRem(52);
+		}
 	}
 
+
+	&__null {
+		.product-card__add-to-cart & {
+			height: toRem(52);
+		}
+	}
 
 	&.active {
 		display: inline-flex;

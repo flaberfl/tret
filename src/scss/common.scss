@@ -104,6 +104,10 @@
     font-size: toRem(36);
     font-weight: 600;
     @include adaptiveValue("font-size", 36, 15);
+
+    .product-card__cost & {
+      @include adaptiveValue("font-size", 36, 28);
+    }
   }
 
   &__old {
@@ -117,14 +121,27 @@
     color: #d7d7d7;
     @include adaptiveValue("font-size", 20, 12);
 
+    .product-card__cost & {
+      font-size: toRem(20);
+    }
+
     span {
       @include adaptiveValue("font-size", 15, 12);
+
+      .product-card__cost & {
+        font-size: toRem(15);
+      }
+
     }
   }
 
   &_before {
     font-weight: 400;
     @include adaptiveValue("font-size", 20, 13);
+
+    .product-card__cost & {
+      font-size: toRem(20);
+    }
 
     @media (max-width:$mobile) {
       // line-height: 185%;
@@ -133,6 +150,10 @@
 
   &_rub {
     @include adaptiveValue("font-size", 22, 15);
+
+    .product-card__cost & {
+      font-size: toRem(22);
+    }
   }
 }
 
@@ -150,6 +171,7 @@
 .breadcrumbs {
   position: relative;
   // height: toRem(52);
+  margin-left: -11px;
 
   border: 1px solid #f6f6f6;
   backdrop-filter: blur(3px);
@@ -170,6 +192,7 @@
     display: flex;
     align-items: center;
     gap: toRem(6);
+    overflow-x: auto;
   }
 
   /* .breadcrumbs__item */
@@ -183,6 +206,7 @@
     span {
       font-size: toRem(16);
       line-height: 112%;
+      white-space: nowrap;
     }
 
     &:not(:first-child) {
