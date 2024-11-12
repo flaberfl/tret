@@ -1,7 +1,7 @@
 .personal {
   position: relative;
-  padding-top: toRem(54);
-  padding-bottom: toRem(119);
+  @include adaptiveValue("padding-top", 54, 28);
+  @include adaptiveValue("padding-bottom", 119, 50);
 
   &::before {
     content: '';
@@ -9,7 +9,8 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/account/back.jpg") center 0 no-repeat;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/account/back.jpg") 0 0 no-repeat;
+    background-size: cover;
     opacity: .1;
     z-index: -1;
   }
@@ -19,12 +20,12 @@
 
   /* .personal__top-line */
   &__top-line {
-    margin-bottom: toRem(37);
+    @include adaptiveValue("margin-bottom", 37, 16);
   }
 
   /* .personal__title */
   &__title {
-    margin-bottom: toRem(24);
+    @include adaptiveValue("margin-bottom", 24, 16);
   }
 
   &__title-form {
@@ -32,6 +33,8 @@
 
     font-weight: 700;
     @include adaptiveValue("font-size", 32, 25);
+
+    @media (max-width:$mobile) {}
   }
 
   /* .personal__subtitle */
@@ -42,7 +45,7 @@
     color: #666;
     letter-spacing: 0;
 
-    @include adaptiveValue("margin-bottom", 34, 30);
+    @include adaptiveValue("margin-bottom", 34, 19);
   }
 
   /* .personal__welcome */
@@ -70,7 +73,15 @@
     // grid-template-columns: toRem(372) 1fr;
     // grid-template-columns: 22.545% 1fr;
     grid-template-columns: auto 1fr;
-    column-gap: toRem(48);
+    // column-gap: toRem(48);
+
+    @include adaptiveValue("column-gap", 48, 0);
+
+    @media (max-width:$tablet) {
+      grid-template-columns: auto;
+      row-gap: toRem(41);
+    }
+
   }
 
   /* .personal__profile */

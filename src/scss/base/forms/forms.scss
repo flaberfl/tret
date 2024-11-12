@@ -14,12 +14,22 @@
 		column-gap: toRem(30);
 		row-gap: toRem(32);
 
+		@media (max-width: toEm(1380)) {
+			grid-template-columns: 1fr 1fr;
+			column-gap: toRem(20);
+		}
+
+		@media (max-width:$mobile) {
+			grid-template-columns: 1fr;
+			row-gap: toRem(25);
+		}
+
 		&_profile {
-			margin-bottom: toRem(59);
+			@include adaptiveValue("margin-bottom", 59, 46);
 		}
 
 		&_password {
-			margin-bottom: toRem(49);
+			@include adaptiveValue("margin-bottom", 49, 37);
 		}
 	}
 

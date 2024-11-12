@@ -31,6 +31,14 @@
 		}
 	}
 
+	&__profile {
+		padding-right: toRem(10) !important;
+		padding-left: toRem(10) !important;
+		justify-content: center;
+		height: toRem(57);
+		@include adaptiveValue("width", 318, 283);
+	}
+
 	&__arrow {
 		display: inline-flex;
 		padding: 0 toRem(30);
