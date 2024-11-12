@@ -1,0 +1,157 @@
+.personal {
+  position: relative;
+  padding-top: toRem(54);
+  padding-bottom: toRem(119);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/account/back.jpg") center 0 no-repeat;
+    opacity: .1;
+    z-index: -1;
+  }
+
+  /* .personal__container */
+  &__container {}
+
+  /* .personal__top-line */
+  &__top-line {
+    margin-bottom: toRem(37);
+  }
+
+  /* .personal__title */
+  &__title {
+    margin-bottom: toRem(24);
+  }
+
+  &__title-form {
+    margin-bottom: toRem(17);
+
+    font-weight: 700;
+    @include adaptiveValue("font-size", 32, 25);
+  }
+
+  /* .personal__subtitle */
+  &__subtitle-form {
+    font-size: toRem(18);
+    font-weight: 350;
+    line-height: 150%;
+    color: #666;
+    letter-spacing: 0;
+
+    @include adaptiveValue("margin-bottom", 34, 30);
+  }
+
+  /* .personal__welcome */
+  &__welcome {
+    font-size: toRem(18);
+    font-weight: 350;
+    line-height: 150%;
+    color: #666;
+
+    i {
+      font-weight: 600;
+      color: #000;
+    }
+
+    span {
+      color: $secondaryColor;
+      font-weight: 600;
+    }
+  }
+
+
+  /* .personal__body */
+  &__body {
+    display: grid;
+    // grid-template-columns: toRem(372) 1fr;
+    // grid-template-columns: 22.545% 1fr;
+    grid-template-columns: auto 1fr;
+    column-gap: toRem(48);
+  }
+
+  /* .personal__profile */
+  &__profile {}
+
+  /* .personal__form */
+  &__form {}
+
+}
+
+.title-h2 {}
+
+.form {
+
+  /* .form__lines */
+  &__lines {
+
+    /* .form__lines_profile */
+    &_profile {}
+
+    /* .form__lines_password */
+    &_password {}
+  }
+
+  /* .form__line */
+  &__line {
+
+    /* .form__line_surname */
+    &_surname {}
+
+    /* .form__line_name */
+    &_name {}
+
+    /* .form__line_patronymic */
+    &_patronymic {}
+
+    /* .form__line_tel */
+    &_tel {}
+
+    /* .form__line_mail */
+    &_mail {}
+
+    /* .form__line_passw-old */
+    &_passw-old {}
+
+    /* .form__line_passw-new */
+    &_passw-new {}
+
+    /* .form__line_passw-accept */
+    &_passw-accept {}
+  }
+
+  /* .form__button */
+  &__button {}
+}
+
+.input {
+
+  /* .input__surname */
+  &__surname {}
+
+  /* .input__name */
+  &__name {}
+
+  /* .input__patronymic */
+  &__patronymic {}
+
+  /* .input__tel */
+  &__tel {}
+
+  /* .input__mail */
+  &__mail {}
+
+  /* .input__passw-old */
+  &__passw-old {}
+
+  /* .input__passw-new */
+  &__passw-new {}
+
+  /* .input__pass-accept */
+  &__pass-accept {}
+}
+
+.button {}
