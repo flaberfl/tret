@@ -22,6 +22,15 @@
 
   @include adaptiveValue("font-size", 44, 25);
 
+  &_big {
+    @include adaptiveValue("font-size", 44, 30);
+
+    @media (max-width:$mobileSmall) {
+      max-width: toRem(200);
+      line-height: 100% !important;
+    }
+  }
+
   @media (max-width:$mobile) {
     line-height: 136%;
   }
