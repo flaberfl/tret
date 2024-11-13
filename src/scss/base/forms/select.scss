@@ -7,6 +7,9 @@
 	// .select__body
 	&__body {
 		position: relative;
+		z-index: 10;
+
+
 
 		&::after {
 			content: '';
@@ -20,18 +23,33 @@
 			transform: translate(0px, -50%);
 		}
 
-		&::before {
-			content: '';
-			position: absolute;
-			right: 20px;
-			top: 50%;
-			transform: translate(0px, -50%);
-			width: toRem(13);
-			height: toRem(9);
-			background: url('@img/account/arr-down.svg') 0 0 no-repeat;
-			z-index: 20;
-		}
+		// &::before {
+		// 	content: '';
+		// 	position: absolute;
+		// 	right: 22px;
+		// 	top: 50%;
+		// 	transform: translate(0px, -50%);
+		// 	width: toRem(13);
+		// 	height: toRem(9);
+		// 	background: url('@img/account/arr-down.svg') 0 0 no-repeat;
+		// 	cursor: pointer;
+		// 	pointer-events: none;
+		// 	transform-origin: 100% 100%;
+		// 	// background: url('@img/account/geo.svg') 0 0 no-repeat;
+
+		// 	// z-index: 20;
+
+		// 	._select-open & {
+		// 		transform: scale(1, -1);
+		// 	}
+		// }
+
+
+
+
+
 	}
+
 
 	// .select__title
 	&__title {
@@ -50,6 +68,43 @@
 
 		.personal__form & {
 			border: 1px solid #ececec;
+		}
+
+		._select-open & {
+			&::before {
+				transform: translateX(-75%) rotate(-40deg);
+			}
+
+			&::after {
+				transform: rotate(40deg);
+			}
+
+			&::before,
+			&::after {
+				background-color: $secondaryColor;
+			}
+		}
+
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			right: 26px;
+			top: 50%;
+			background-color: #666;
+			height: 2px;
+			width: 9px;
+			transition: transform 0.5s ease 0s;
+
+		}
+
+		&::before {
+			transform: translate(-75%, -50%) rotate(40deg);
+		}
+
+		&::after {
+			transform: translate(0, -50%) rotate(-40deg);
 		}
 
 	}
