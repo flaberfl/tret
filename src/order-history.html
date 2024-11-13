@@ -41,65 +41,121 @@
           </div>
           <div class="personal__body">
             @@include('html/_sidebar.htm',{
-            "link": "2"
+            "link": "3"
             })
 
-            <div class="personal__profile">
+            <div class="personal__profile profile-order">
 
-              <form action="" class="personal__form form">
-                <h2 class="personal__title-form">Адрес доставки</h2>
-                <p class="personal__subtitle-form">Данные будут автоматически подставляться при оформлении заказа</p>
-                <div class="form__line form__line_town">
+              <h2 class="personal__title-form">История заказов</h2>
+              <div class="filter-sort">
+                <div class="filter-sort__title">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 11H16.5M2.75 5.5H19.25M8.25 16.5H13.75" stroke="black" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Сортировать по:
+                </div>
+                <div class="filter-sort__by">
+                  <a href="#" class="filter-sort__new active">
+                    Сначала новые
+                  </a>
+                  <a href="#" class="filter-sort__old">
+                    Сначала старые
+                  </a>
+                </div>
+              </div>
+
+              <div class="profile-order__body">
+
+                <div data-spollers class="spollers order">
+                  <details class="spollers__item order__spoller">
+                    <summary class=" spollers__title">
+                      <ul class="order__header">
+                        <li class="order__header-item">
+                          <div class="order__header-name">Заказ №</div>
+                          <div class="order__header-value">#24422</div>
+                        </li>
+                        <li class="order__header-item">
+                          <div class="order__header-name">Дата</div>
+                          <div class="order__header-value">01.10.2024</div>
+                        </li>
+                        <li class="order__header-item">
+                          <div class="order__header-name">Статус</div>
+                          <div class="order__header-value">Выполнен</div>
+                        </li>
+                        <li class="order__header-item">
+                          <div class="order__header-name"> Кол-во ед.</div>
+                          <div class="order__header-value">7</div>
+                        </li>
+                        <li class="order__header-item">
+                          <div class="order__header-name">Сумма</div>
+                          <div class="order__header-value">18 600 <span>₽</span></div>
+                        </li>
+                      </ul>
+
+                    </summary>
+                    <div class="spollers__body">
+                      <div class="order__count">Детали заказа <span class="order-count">(7)</span></div>
+                      <div class="order__body">
+                        <ul class="order__list">
+                          <li class="order__item">
+                            <div class="order__image">
+                              <img src="" alt="Фото товара">
+                            </div>
+                            <div class="order__content">
+                              <div class="order__name"></div>
+                              <div class="order__amount">Количество: <span>4</span></div>
+                              <div class="order__price">12 600 <span>₽</span></div>
+                            </div>
+                          </li>
+                          <li class="order__item">
+                            <div class="order__image">
+                              <img src="" alt="Фото товара">
+                            </div>
+                            <div class="order__content">
+                              <div class="order__name"></div>
+                              <div class="order__amount">Количество: <span>3</span></div>
+                              <div class="order__price">3000 <span>₽</span></div>
+                            </div>
+                          </li>
+                        </ul>
+                        <div class="order__total total">
+                          <div class="total__title">Весь заказ</div>
+                          <ul class="total__list">
+                            <li class="total__item">
+                              <div class="total__name">Подытог:</div>
+                              <div class="total__value">18 600 ₽</div>
+                            </li>
+                            <li class="total__item">
+                              <div class="total__name">Доставка:</div>
+                              <div class="total__value">Бесплатная доставка Boxberry</div>
+                            </li>
+                            <li class="total__item">
+                              <div class="total__name">Оплата:</div>
+                              <div class="total__value">Картой онлайн</div>
+                            </li>
+                          </ul>
+                          <div class="total__sum">
+                            <div class="total__sum-name">Итого:</div>
+                            <div class="total__sum-value">18 600 <span>₽</span></div>
+                          </div>
+                        </div>
+                      </div>
 
 
-                  <label for="town">Город</label>
 
-                  <select data-search name="town" data-class-modif="form">
-                    <option value="1" selected>г. Москва</option>
-                    <option value="2">г. Санкт-Петербург</option>
-                    <option value="3">г. Воронеж</option>
-                    <option value="4">г. Тула</option>
-                  </select>
+
+
+
+
+
+                    </div>
+                  </details>
                 </div>
 
-                <div class="form__lines form__lines_profile">
-                  <div class="form__line form__line_street">
-                    <label for="street">Улица</label>
-                    <input autocomplete="off" type="text" name="street" value="Ленина" data-error="Ошибка"
-                      placeholder="Не указана" class="input input__street">
-                  </div>
-
-                  <div class="form__line form__line_house">
-                    <label for="house">Дом</label>
-                    <input autocomplete="off" type="text" name="house" value="15" data-error="Ошибка"
-                      placeholder="Ваше имя" class="input input__house">
-                  </div>
-
-
-                  <div class="form__line form__line_corpus">
-                    <label for="corpus">Корпус</label>
-                    <input autocomplete="off" type="text" name="corpus" data-error="Ошибка" placeholder="Не указан"
-                      class="input input__corpus">
-                  </div>
-
-                  <div class="form__line form__line_flat">
-                    <label for="flat">Квартира</label>
-                    <input autocomplete="off" type="text" name="flat" value="125" data-error="Ошибка"
-                      placeholder="Ваше отчество" class="input input__flat">
-                  </div>
-                </div>
-                <button type="submit" class="button__profile button form__button">Сохранить изменения</button>
-
-              </form>
-
+              </div>
 
             </div>
-          </div>
-        </div>
-      </section>
-
-
-
     </main>
     @@include('html/_footer.htm',{})
   </div>

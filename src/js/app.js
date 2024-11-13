@@ -46,7 +46,7 @@ flsFunctions.menuInitDesk();
 Документация: https://start-template.ru/modul-spojlery-chertogi-frilansera-v3-0-0/
 Сниппет (HTML): spollers
 */
-// flsFunctions.spollers();
+flsFunctions.spollers();
 
 /*
 Модуль "Табы"

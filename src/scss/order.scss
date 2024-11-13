@@ -1,0 +1,154 @@
+.personal {
+
+  /* .personal__profile */
+  &__profile {}
+
+  /* .personal__title-form */
+  &__title-form {}
+}
+
+.profile-order {
+
+  /* .profile-order__body */
+  &__body {}
+}
+
+.filter-sort {
+
+  margin-bottom: toRem(33);
+
+  display: flex;
+  align-items: center;
+  gap: toRem(18);
+
+  /* .filter-sort__title */
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: toRem(8);
+  }
+
+  /* .filter-sort__by */
+  &__by {
+    display: flex;
+    align-items: center;
+    gap: toRem(12);
+
+    a {
+      font-size: toRem(16);
+      text-decoration: underline;
+      color: $secondaryColor;
+
+      &.active {
+        color: #666;
+        text-decoration: none;
+        cursor: auto;
+        pointer-events: none;
+      }
+
+      &:not(:last-child) {
+        padding-right: toRem(10);
+        border-right: 1px solid #ededed;
+      }
+
+    }
+
+  }
+
+  /* .filter-sort__new */
+  &__new {}
+
+  /* .filter-sort__old */
+  &__old {}
+}
+
+.active {}
+
+.spollers {
+
+  /* .spollers__item */
+  &__item {}
+
+  /* .spollers__title */
+  &__title {}
+
+  /* .spollers__body */
+  &__body {}
+}
+
+.order {
+
+  /* .order__spoller */
+  &__spoller {}
+
+  /* .order__header */
+  &__header {}
+
+  /* .order__header-item */
+  &__header-item {}
+
+  /* .order__header-name */
+  &__header-name {}
+
+  /* .order__header-value */
+  &__header-value {}
+
+  /* .order__count */
+  &__count {}
+
+  /* .order__body */
+  &__body {}
+
+  /* .order__list */
+  &__list {}
+
+  /* .order__item */
+  &__item {}
+
+  /* .order__image */
+  &__image {}
+
+  /* .order__content */
+  &__content {}
+
+  /* .order__name */
+  &__name {}
+
+  /* .order__amount */
+  &__amount {}
+
+  /* .order__price */
+  &__price {}
+
+  /* .order__total */
+  &__total {}
+}
+
+.order-count {}
+
+.total {
+
+  /* .total__title */
+  &__title {}
+
+  /* .total__list */
+  &__list {}
+
+  /* .total__item */
+  &__item {}
+
+  /* .total__name */
+  &__name {}
+
+  /* .total__value */
+  &__value {}
+
+  /* .total__sum */
+  &__sum {}
+
+  /* .total__sum-name */
+  &__sum-name {}
+
+  /* .total__sum-value */
+  &__sum-value {}
+}
