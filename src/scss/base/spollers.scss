@@ -6,51 +6,68 @@
 	display: grid;
 	gap: 15px;
 }
+
 // Спойлер
 .spollers__item {
-	font-size: toRem(20);
+	// font-size: toRem(20);
 }
+
 // Заголовок спойлера
 .spollers__title {
 	width: 100%;
 	cursor: default;
 	text-align: left;
-	border: 1px solid #eee;
-	padding: toRem(10) toRem(15);
-	border-radius: toRem(5);
+	padding: toRem(20) toRem(30) toRem(20) toRem(6);
+	border: 1px solid #f3f3f3;
+	border-radius: 10px;
 	position: relative;
 	list-style: none;
+	background: #fcfcfc;
+
 	&::marker,
 	&::-webkit-details-marker {
 		display: none;
 	}
+
 	._spoller-init & {
 		cursor: pointer;
+
 		&::before,
 		&::after {
 			content: "";
 			position: absolute;
-			right: 10px;
+			right: toRem(26);
 			top: 50%;
 			background-color: #000;
 			height: 2px;
-			width: 15px;
+			width: 9px;
 			transition: transform 0.5s ease 0s;
 		}
+
 		&::before {
 			transform: translate(-75%, -50%) rotate(40deg);
 		}
+
 		&::after {
 			transform: translate(0, -50%) rotate(-40deg);
 		}
+
 		&._spoller-active {
+
+			&::before,
+			&::after {
+				background-color: $secondaryColor;
+			}
+
 			&::before {
 				transform: translateX(-75%) rotate(-40deg);
 			}
+
 			&::after {
 				transform: rotate(40deg);
 			}
 		}
+
 		/*
 		._spoller-init & {
 			position: relative;
@@ -86,9 +103,10 @@
 		*/
 	}
 }
+
 // Контент спойлера
 .spollers__body {
-	padding: toRem(20);
-	border-radius: toRem(5);
-	border: 1px solid #eee;
+	// padding: toRem(20);
+	padding-top: 36px;
+	padding-left: 2px;
 }
