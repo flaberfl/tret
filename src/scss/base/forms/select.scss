@@ -7,8 +7,6 @@
 	// .select__body
 	&__body {
 		position: relative;
-		z-index: 10;
-
 
 
 		&::after {
@@ -22,31 +20,6 @@
 			top: 50%;
 			transform: translate(0px, -50%);
 		}
-
-		// &::before {
-		// 	content: '';
-		// 	position: absolute;
-		// 	right: 22px;
-		// 	top: 50%;
-		// 	transform: translate(0px, -50%);
-		// 	width: toRem(13);
-		// 	height: toRem(9);
-		// 	background: url('@img/account/arr-down.svg') 0 0 no-repeat;
-		// 	cursor: pointer;
-		// 	pointer-events: none;
-		// 	transform-origin: 100% 100%;
-		// 	// background: url('@img/account/geo.svg') 0 0 no-repeat;
-
-		// 	// z-index: 20;
-
-		// 	._select-open & {
-		// 		transform: scale(1, -1);
-		// 	}
-		// }
-
-
-
-
 
 	}
 
@@ -196,6 +169,7 @@
 
 		border-top: 0;
 		padding: 10px 0px 5px 0px;
+		padding-bottom: toRem(25);
 
 		.personal__form & {
 			padding-left: toRem(32);
