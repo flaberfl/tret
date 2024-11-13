@@ -15,9 +15,6 @@
     z-index: -1;
   }
 
-  /* .personal__container */
-  &__container {}
-
   /* .personal__top-line */
   &__top-line {
     @include adaptiveValue("margin-bottom", 37, 16);
@@ -70,11 +67,7 @@
   /* .personal__body */
   &__body {
     display: grid;
-    // grid-template-columns: toRem(372) 1fr;
-    // grid-template-columns: 22.545% 1fr;
     grid-template-columns: auto 1fr;
-    // column-gap: toRem(48);
-
     @include adaptiveValue("column-gap", 48, 0);
 
     @media (max-width:$tablet) {
@@ -84,85 +77,4 @@
 
   }
 
-  /* .personal__profile */
-  &__profile {}
-
-  /* .personal__form */
-  &__form {}
-
 }
-
-.title-h2 {}
-
-.form {
-
-  /* .form__lines */
-  &__lines {
-
-    /* .form__lines_profile */
-    &_profile {}
-
-    /* .form__lines_password */
-    &_password {}
-  }
-
-  /* .form__line */
-  &__line {
-
-    /* .form__line_surname */
-    &_surname {}
-
-    /* .form__line_name */
-    &_name {}
-
-    /* .form__line_patronymic */
-    &_patronymic {}
-
-    /* .form__line_tel */
-    &_tel {}
-
-    /* .form__line_mail */
-    &_mail {}
-
-    /* .form__line_passw-old */
-    &_passw-old {}
-
-    /* .form__line_passw-new */
-    &_passw-new {}
-
-    /* .form__line_passw-accept */
-    &_passw-accept {}
-  }
-
-  /* .form__button */
-  &__button {}
-}
-
-.input {
-
-  /* .input__surname */
-  &__surname {}
-
-  /* .input__name */
-  &__name {}
-
-  /* .input__patronymic */
-  &__patronymic {}
-
-  /* .input__tel */
-  &__tel {}
-
-  /* .input__mail */
-  &__mail {}
-
-  /* .input__passw-old */
-  &__passw-old {}
-
-  /* .input__passw-new */
-  &__passw-new {}
-
-  /* .input__pass-accept */
-  &__pass-accept {}
-}
-
-.button {}

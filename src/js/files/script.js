@@ -88,6 +88,40 @@ for (let i = 0; i < addToBasket.length; i++) {
 
 
 
+// let dataList = {};
+// fetch('https://api.hh.ru/areas/7').then(response => {
+//   return response.json()
+// }).then(
+//   json => {
+//     dataList = json;
+//     json.areas.forEach(area => {
+//       var opt = document.createElement('option');
+//       opt.value = area.id;
+//       opt.innerHTML = area.name;
+//       billing_area.appendChild(opt);
+//     }
+//     );
+//   }
+// );
+
+
+// billing_area.addEventListener('change', () => {
+  
+//   billing_city.innerHTML = '';
+//   dataList.areas.filter(item => item.id == billing_area.options[billing_area.selectedIndex].value)[0].areas.forEach(
+//     area => {
+//       var opt = document.createElement('option');
+//       opt.value = area.id;
+//       opt.innerHTML = area.name;
+//       billing_city.appendChild(opt);
+//     }
+//   )
+
+// });
+
+
+
+
 
 
 

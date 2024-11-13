@@ -41,14 +41,28 @@
           </div>
           <div class="personal__body">
             @@include('html/_sidebar.htm',{
-              "link": "1"
+            "link": "2"
             })
 
             <div class="personal__profile">
 
               <form action="" class="personal__form form">
-                <h2 class="personal__title-form">Профиль</h2>
+                <h2 class="personal__title-form">Адрес доставки</h2>
                 <p class="personal__subtitle-form">Данные будут автоматически подставляться при оформлении заказа</p>
+                <div class="form__line form__line_town">
+
+
+                  <label for="town">Город</label>
+
+                  <select data-search name="town" data-class-modif="form">
+                    <option value="1" selected>г. Москва</option>
+                    <option value="2">г. Санкт-Петербург</option>
+                    <option value="3">г. Воронеж</option>
+                    <option value="4">г. Тула</option>
+                  </select>
+                </div>
+
+
                 <div class="form__lines form__lines_profile">
                   <div class="form__line form__line_surname">
                     <label for="surname">Фамилия</label>
@@ -78,32 +92,6 @@
                     <input autocomplete="off" type="email" name="mail" value="moder2014pro@gmail.com"
                       data-error="Ошибка" placeholder="Почтовый ящик" class="input input__mail">
                   </div>
-                </div>
-
-                <h2 class="personal__title-form">Сменить пароль</h2>
-                <p class="personal__subtitle-form">Вы можете изменить пароль для входа в личный кабинет</p>
-
-                <div class="form__lines form__lines_password">
-
-                  <div class="form__line form__line_passw-old">
-                    <label for="pass-old">Действующий пароль</label>
-                    <input autocomplete="off" type="text" name="pass-old" data-error="Ошибка" placeholder="********"
-                      class="input input__passw-old">
-                  </div>
-
-                  <div class="form__line form__line_passw-new">
-                    <label for="pass-new">Новый пароль</label>
-                    <input autocomplete="off" type="text" name="pass-new" data-error="Ошибка" placeholder=""
-                      class="input input__passw-new">
-                  </div>
-
-                  <div class="form__line form__line_passw-accept">
-                    <label for="pass-accept">Подтвердить новый пароль</label>
-                    <input autocomplete="off" type="text" name="pass-accept" data-error="Ошибка" placeholder=""
-                      class="input input__pass-accept">
-                  </div>
-
-
                 </div>
                 <button type="submit" class="button__profile button form__button">Сохранить изменения</button>
 

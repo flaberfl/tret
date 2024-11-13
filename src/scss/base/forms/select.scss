@@ -3,31 +3,59 @@
 .select {
 	min-width: 0;
 	position: relative;
+
 	// .select__body
 	&__body {
 		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			background: url('@img/account/geo.svg') 0 0 no-repeat;
+			z-index: 20;
+			width: toRem(18);
+			height: toRem(22);
+			left: toRem(24);
+			top: 50%;
+			transform: translate(0px, -50%);
+		}
 	}
+
 	// .select__title
 	&__title {
 		color: inherit;
 		text-align: left;
-		border: 1px solid #d9d9d9;
+		border: 1px solid #666;
 		background-color: #fff;
 		cursor: pointer;
 		width: 100%;
-		border-radius: 4px;
+
+		border-radius: toRem(50);
+
+		.personal__form & {
+			border: 1px solid #ececec;
+		}
+
 	}
+
 	// .select__value
 	&__value {
 		display: flex;
 		min-width: 0;
 		align-items: center;
-		height: toRem(30);
+		height: toRem(50);
 		padding: 0 toRem(15);
+		padding-left: toRem(48);
 		gap: toRem(10);
-		> * {
+
+		.personal__form & {
+			height: toRem(58);
+		}
+
+		>* {
 			flex: 1 1 auto;
 		}
+
 		&:after {
 			content: "";
 			align-self: stretch;
@@ -36,10 +64,12 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
 			._select-open & {
 				transform: rotate(-180deg);
 			}
 		}
+
 		&._select-pseudo-label {
 			&::before {
 				content: attr(data-pseudo-label);
@@ -47,25 +77,36 @@
 			}
 		}
 	}
+
 	// .select__content
 	&__content {
 		flex: 1 1 auto;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		font-size: toRem(18);
+		line-height: 350%;
 	}
+
 	// .select__text
 	&__text {
 		flex: 1 1 auto;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+
 	}
+
 	&__input {
 		width: 100%;
 		background-color: transparent;
 		height: 100%;
+
+		&::placeholder {
+			color: #000;
+		}
 	}
+
 	// .select__options
 	&__options {
 		color: #000;
@@ -80,12 +121,14 @@
 		border-top: 0;
 		padding: 10px 0px 5px 0px;
 	}
+
 	// .select__scroll
 	&__scroll {
 		overflow-y: auto;
 		overflow-x: hidden;
 		// Максимальная высота
 		max-height: toRem(200);
+
 		// Стили скроллбара
 		.simplebar-scrollbar {
 			&::before {
@@ -93,6 +136,7 @@
 			}
 		}
 	}
+
 	// .select__option
 	&__option {
 		width: 100%;
@@ -100,9 +144,11 @@
 		cursor: pointer;
 		padding: 5px 15px;
 		color: inherit;
+
 		&._select-selected {
 			background-color: #eee;
 		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				background: #d9d9d9;
@@ -115,10 +161,10 @@
 		display: inline-flex;
 		align-items: center;
 	}
-	&__asset {
-	}
-	&__text {
-	}
+
+	&__asset {}
+
+	&__text {}
 
 	&--show-top {
 		.select__options {
@@ -132,18 +178,17 @@
 	}
 
 	// Состояние селекта
-	&._select-open {
-	}
-	&._select-disabled {
-	}
-	&._select-active {
-	}
-	&._select-focus {
-	}
-	&._select-multiple {
-	}
-	&._select-checkbox {
-	}
+	&._select-open {}
+
+	&._select-disabled {}
+
+	&._select-active {}
+
+	&._select-focus {}
+
+	&._select-multiple {}
+
+	&._select-checkbox {}
 }
 
 // Тег

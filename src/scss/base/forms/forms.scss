@@ -25,7 +25,9 @@
 		}
 
 		&_profile {
-			@include adaptiveValue("margin-bottom", 59, 46);
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 59, 46);
+			}
 		}
 
 		&_password {
