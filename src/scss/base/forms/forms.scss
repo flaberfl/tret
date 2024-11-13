@@ -6,9 +6,6 @@
 	&__column {}
 
 	&__lines {
-		// display: flex;
-		// flex-wrap: wrap;
-		// justify-content: space-between;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		column-gap: toRem(30);
@@ -70,6 +67,14 @@
 			margin-bottom: toRem(17);
 
 			font-weight: 600;
+		}
+
+		&_town {
+			margin-bottom: toRem(32);
+
+			@media (max-width:$mobile) {
+				margin-bottom: toRem(25);
+			}
 		}
 
 	}
