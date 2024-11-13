@@ -42,6 +42,10 @@
 			height: 2px;
 			width: 9px;
 			transition: transform 0.5s ease 0s;
+
+			@media (max-width: toEm(660)) {
+				top: 20%;
+			}
 		}
 
 		&::before {
@@ -107,6 +111,10 @@
 // Контент спойлера
 .spollers__body {
 	// padding: toRem(20);
-	padding-top: 36px;
 	padding-left: 2px;
+	@include adaptiveValue("padding-top", 36, 27);
+
+	@media (max-width:$mobile) {
+		padding-left: 0;
+	}
 }

@@ -1,7 +1,7 @@
 .profile-order {
 
   &__title {
-    margin-bottom: toRem(35);
+    @include adaptiveValue("margin-bottom", 35, 27);
   }
 
   /* .profile-order__body */
@@ -10,7 +10,7 @@
     box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
     background: #fff;
 
-    @include adaptiveValue("padding-top", 30, 20);
+    @include adaptiveValue("padding-top", 30, 17);
     @include adaptiveValue("padding-bottom", 30, 20);
     @include adaptiveValue("padding-left", 40, 20);
     @include adaptiveValue("padding-right", 40, 20);
@@ -23,16 +23,28 @@
 
 .filter-sort {
   margin-bottom: toRem(28);
-
   display: flex;
-  align-items: center;
   gap: toRem(18);
+  align-items: center;
+
+  @media (max-width:$mobileSmall) {
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: toRem(11);
+    margin-bottom: toRem(31);
+  }
 
   /* .filter-sort__title */
   &__title {
     display: flex;
     align-items: center;
     gap: toRem(8);
+
+    @media (max-width:$mobileSmall) {
+      svg {
+        display: none;
+      }
+    }
   }
 
   /* .filter-sort__by */
@@ -62,22 +74,40 @@
 }
 
 .order {
+
   &__body {
     display: grid;
     grid-template-columns: 1fr 50.6%;
+    // gap: toRem(50);
+
+    @include adaptiveValue("column-gap", 50, 0);
+
+    @media (max-width:$mobile) {
+      grid-template-columns: 1fr;
+      row-gap: toRem(31);
+    }
   }
 
   /* .order__header */
   &__header {
     display: flex;
+
+    @media (max-width: toEm(1080)) {
+      flex-wrap: wrap;
+      row-gap: toRem(17);
+    }
   }
 
   /* .order__header-item */
   &__header-item {
     padding-left: toRem(24);
     padding-right: toRem(24);
+    @include adaptiveValue("padding-left", 24, 20);
+    @include adaptiveValue("padding-right", 24, 20);
 
-    border-right: 1px solid #f3f3f3;
+    &:not(:last-child) {
+      border-right: 1px solid #f3f3f3;
+    }
   }
 
   /* .order__header-name */
@@ -98,11 +128,8 @@
   &__count {
     font-size: toRem(20);
 
-    margin-bottom: toRem(28);
+    @include adaptiveValue("margin-bottom", 28, 22);
   }
-
-  /* .order__body */
-  &__body {}
 
   /* .order__list */
   &__list {}
@@ -114,7 +141,10 @@
     gap: toRem(21);
 
     &:not(:last-child) {
-      margin-bottom: toRem(54);
+      margin-bottom: toRem(24);
+      border-bottom: 1px solid #f8f8f8;
+
+      @include adaptiveValue("padding-bottom", 27, 24);
     }
   }
 
@@ -124,6 +154,8 @@
     justify-content: center;
     align-items: center;
 
+    flex: 0 0 toRem(108);
+
     width: toRem(108);
     height: toRem(108);
     border: 1px solid #f5f5f5;
@@ -132,14 +164,25 @@
   }
 
   /* .order__content */
-  &__content {}
+  &__content {
+    width: 100%;
+
+    @media (max-width:$tablet) {
+      padding-right: toRem(22);
+    }
+  }
 
   /* .order__name */
   &__name {
     margin-bottom: toRem(10);
 
     font-weight: 600;
+    line-height: 120%;
     @include adaptiveValue("font-size", 20, 17);
+
+    @media (max-width:$mobile) {
+      line-height: 124%;
+    }
   }
 
   /* .order__amount */
@@ -162,15 +205,14 @@
 }
 
 .total {
-  padding: toRem(40);
-  padding-top: 37px;
-  padding-left: 42px;
-  padding-right: 35px;
-
-  // width: 100%;
   border: 1px solid #edf8f9;
   border-radius: 20px;
   background: #f6f9f9;
+
+  @include adaptiveValue("padding-bottom", 40, 26);
+  @include adaptiveValue("padding-right", 35, 18);
+  @include adaptiveValue("padding-top", 37, 23);
+  @include adaptiveValue("padding-left", 42, 19);
 
   /* .total__title */
   &__title {
@@ -178,6 +220,10 @@
 
     font-weight: 600;
     @include adaptiveValue("font-size", 26, 22);
+
+    @media (max-width:$mobile) {
+      margin-bottom: toRem(24);
+    }
   }
 
   /* .total__list */
@@ -189,6 +235,7 @@
   &__item {
     display: flex;
     justify-content: space-between;
+    gap: toRem(30);
     margin-bottom: toRem(17);
   }
 
@@ -199,6 +246,7 @@
 
   /* .total__value */
   &__value {
+    text-align: right;
     @include adaptiveValue("font-size", 20, 15);
   }
 
@@ -223,15 +271,15 @@
   }
 }
 
-
-
-
-.pagination {}
-
 .order-pagination {
   display: flex;
   gap: toRem(11);
-  margin-top: toRem(59);
+
+  @include adaptiveValue("margin-top", 59, 34);
+
+  @media (max-width:$tablet) {
+    justify-content: center;
+  }
 
   /* .order-pagination__list */
   &__list {
@@ -273,6 +321,12 @@
 
     &.none {
       pointer-events: none;
+    }
+
+    &.del {
+      @media (max-width:$mobile) {
+        display: none;
+      }
     }
   }
 }
