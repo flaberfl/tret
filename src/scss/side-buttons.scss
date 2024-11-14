@@ -1,23 +1,27 @@
 .side-buttons {
   display: grid;
   gap: toRem(8);
-  position: absolute;
+  // position: absolute;
+  position: fixed;
   // position: sticky;
   right: -242px;
   z-index: 500;
   // right: 0;
+  // top: 18%;
+
 
   transform: translateX(calc(100% + 20px));
-  transition: transform .7s;
+  transition: all .7s;
+  // opacity: 0;
 
   &.active {
     transform: none;
+    // opacity: 1;
   }
 }
 
 .side-button {
   height: toRem(80);
-  // width: toRem(267);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -26,7 +30,6 @@
 
   box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.09);
   background: #fcfcfc;
-  // border-radius: 50%;
 
   /* .side-button__subject */
   &__subject {

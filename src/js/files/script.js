@@ -159,6 +159,17 @@ for (let i = 0; i < addToBasket.length; i++) {
 
 
 
+window.onscroll = function () {
+  var scrolled = window.pageYOffset || document.documentElement.scrollTop,
+    topBtn = document.getElementById('sidebtn');
+  if (scrolled > 350) {
+    topBtn.classList.add('active');
+  }
+  else { topBtn.classList.remove('active'); }
+}
+
+
+
 // // Получаем элемент с классом body
 // const btnsSide = document.querySelector('.side-buttons');
 
