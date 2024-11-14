@@ -1,6 +1,7 @@
 .catalog {
   position: relative;
   padding-top: 54px;
+  padding-bottom: toRem(99);
 
 
   &::before {
@@ -15,13 +16,15 @@
     z-index: -1;
   }
 
-  /* .catalog__container */
-  &__container {}
-
   &__header {
     position: relative;
     padding-bottom: toRem(41);
     margin-bottom: toRem(43);
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: center;
   }
 
   /* .catalog__title */
@@ -39,17 +42,14 @@
   }
 
   &__list {
-    margin-bottom: toRem(500);
     display: grid;
-    // display: flex;
-    grid-template-columns: repeat(12, 1fr);
-    // // grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: toRem(28);
   }
 
   &__item {
-    grid-column: span 3;
+    // grid-column: span 3;
     // flex-shrink: 0;
     // width: 25%;
     // height: 100%;
