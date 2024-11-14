@@ -1,0 +1,89 @@
+.side-buttons {
+  display: grid;
+  gap: toRem(8);
+  position: absolute;
+  // position: sticky;
+  right: -242px;
+  z-index: 500;
+  // right: 0;
+
+  transform: translateX(calc(100% + 20px));
+  transition: transform .7s;
+
+  &.active {
+    transform: none;
+  }
+}
+
+.side-button {
+  height: toRem(80);
+  // width: toRem(267);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 14px 0 0 14px;
+  padding-right: toRem(29);
+
+  box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.09);
+  background: #fcfcfc;
+  // border-radius: 50%;
+
+  /* .side-button__subject */
+  &__subject {
+    max-width: toRem(267);
+
+    transition: transform .7s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        transform: translateX(-161px);
+      }
+    }
+  }
+
+  /* .side-button__icon */
+  &__icon {
+    flex: 0 0 toRem(80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    width: toRem(80);
+    height: 100%;
+
+    img {
+      // width: toRem(46);
+      // width: 100%;
+    }
+
+    // side-button__subject
+
+    .side-button__promocode & {
+      background-color: $secondaryColor;
+    }
+  }
+
+  /* .side-button__info */
+  &__info {
+    padding-left: toRem(21);
+
+    .side-button__promocode & {
+      margin-right: toRem(33);
+    }
+  }
+
+  /* .side-button__promocode */
+  &__promocode {
+    max-width: toRem(327);
+
+    transition: transform .7s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        transform: translateX(-210px);
+      }
+    }
+  }
+}
+
+.red {}

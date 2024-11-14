@@ -106,7 +106,7 @@ for (let i = 0; i < addToBasket.length; i++) {
 
 
 // billing_area.addEventListener('change', () => {
-  
+
 //   billing_city.innerHTML = '';
 //   dataList.areas.filter(item => item.id == billing_area.options[billing_area.selectedIndex].value)[0].areas.forEach(
 //     area => {
@@ -138,3 +138,42 @@ for (let i = 0; i < addToBasket.length; i++) {
 //     console.log('Fci');
 //     this.classList.toggle('active');
 //   }
+
+
+// Повяление кнопок при скролле страниццы
+
+// let btnsSide = document.querySelector('.side-buttons')
+// //
+// function magic() {
+//   if (window.pageYOffset > 100) {
+//     btnsSide.style.display = 'grid'
+//   } else { btnsSide.style.display = 'none' }
+// }
+// //
+// // btnsSide.onclick = function () {
+// //   window.scrollTo(0, 0)
+// // }
+
+// // When scrolling, we run the function
+// window.onscroll = magic
+
+
+
+// // Получаем элемент с классом body
+// const btnsSide = document.querySelector('.side-buttons');
+
+// // Определяем функцию, которая будет вызываться при прокрутке страницы
+// function addActiveClass() {
+//   // Проверяем, проскролили ли мы страницу на 400px сверху
+//   if (window.scrollY >= 200) {
+//     // Если да, то добавляем класс active
+//     console.log(scrollY);
+//     btnsSide.classList.add('active');
+//   } else {
+//     // Иначе удаляем класс active, если он уже есть
+//     btnsSide.classList.remove('active');
+//   }
+// }
+
+// // Добавляем обработчик события прокрутки
+// window.addEventListener('scroll', addActiveClass);
