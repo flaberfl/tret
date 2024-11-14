@@ -8,19 +8,19 @@
 	&__body {
 		position: relative;
 
-
-		&::after {
-			content: '';
-			position: absolute;
-			background: url('@img/account/geo.svg') 0 0 no-repeat;
-			z-index: 20;
-			width: toRem(18);
-			height: toRem(22);
-			left: toRem(24);
-			top: 50%;
-			transform: translate(0px, -50%);
+		.personal__form & {
+			&::after {
+				content: '';
+				position: absolute;
+				background: url('@img/account/geo.svg') 0 0 no-repeat;
+				z-index: 20;
+				width: toRem(18);
+				height: toRem(22);
+				left: toRem(24);
+				top: 50%;
+				transform: translate(0px, -50%);
+			}
 		}
-
 	}
 
 
@@ -32,11 +32,20 @@
 		background-color: #fff;
 		cursor: pointer;
 		width: 100%;
+		color: #666;
 
 		border-radius: toRem(50);
 
 		._select-open & {
-			border-radius: toRem(50) toRem(50) 0 0;
+			color: inherit;
+			border-radius: toRem(26) toRem(26) 0 0;
+		}
+
+		._select-open & {
+			.filter & {
+				color: inherit;
+				border: none;
+			}
 		}
 
 		.personal__form & {
@@ -89,10 +98,22 @@
 		align-items: center;
 		height: toRem(50);
 		padding: 0 toRem(15);
-		padding-left: toRem(48);
+		// padding-left: toRem(48);
 		gap: toRem(10);
 
+		.filter & {
+			padding-left: toRem(20);
+			font-size: toRem(18);
+		}
+
+		._select-open & {
+			.filter & {
+				border-bottom: 2px solid #ededed;
+			}
+		}
+
 		.personal__form & {
+			padding-left: toRem(48);
 			height: toRem(58);
 		}
 
@@ -117,7 +138,7 @@
 		&._select-pseudo-label {
 			&::before {
 				content: attr(data-pseudo-label);
-				opacity: 0.5;
+				// opacity: 0.5;
 			}
 		}
 	}
@@ -130,6 +151,10 @@
 		white-space: nowrap;
 		font-size: toRem(18);
 		line-height: 350%;
+
+		span {
+			display: none;
+		}
 	}
 
 	// .select__text
@@ -160,7 +185,7 @@
 		color: #000;
 		position: absolute;
 		top: calc(100% - toRem(1));
-		border-radius: 0 0 toRem(50) toRem(50);
+		border-radius: 0 0 toRem(26) toRem(26);
 		box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
 		min-width: 100%;
 		left: 0;
@@ -169,10 +194,11 @@
 
 		border-top: 0;
 		padding: 10px 0px 5px 0px;
-		padding-bottom: toRem(25);
+		padding-bottom: toRem(12);
 
 		.personal__form & {
 			padding-left: toRem(32);
+			padding-bottom: toRem(25);
 		}
 	}
 
@@ -193,24 +219,53 @@
 
 	// .select__option
 	&__option {
+		position: relative;
 		width: 100%;
 		text-align: left;
 		cursor: pointer;
-		padding: 5px 15px;
+		padding: 15px 15px;
 		color: inherit;
-		// font-size: toRem(15);
-		// font-weight: 350;
-		// color: #666;
 
-		&._select-selected {
-			background-color: #eee;
-		}
+		.filter & {
+			padding-left: 45px;
+			padding-top: 9px;
 
-		@media (any-hover: hover) {
-			&:hover {
-				background: #d9d9d9;
+			font-size: toRem(15);
+			font-weight: 350;
+			color: #666;
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: toRem(18);
+				height: toRem(18);
+				border: 1px solid #f1f1f1;
+				border-radius: 4px;
+				background-color: #fff;
+				left: toRem(18);
 			}
 		}
+
+
+
+		&._select-selected {
+			// background-color: #eee;
+
+			&::before {
+				border: 1px solid #28b3b6;
+				background: #fff url('@img/catalog/check.svg') center center no-repeat;
+			}
+		}
+
+		.personal__form & {
+
+			@media (any-hover: hover) {
+				&:hover {
+					background: #d9d9d9;
+				}
+			}
+		}
+
 	}
 
 	// Конструкция дополнительных данных
