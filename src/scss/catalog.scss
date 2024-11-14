@@ -35,10 +35,20 @@
   /* .catalog__top-line */
   &__top-line {
     display: flex;
-    align-items: center;
+    gap: toRem(20);
     justify-content: space-between;
 
     margin-bottom: toRem(30);
+
+    @media (min-width:toEm(1568)) {
+      align-items: center;
+    }
+  }
+
+  &__filter-sort {
+    @media (max-width: toEm(1567)) {
+      align-self: flex-start;
+    }
   }
 
   &__list {
@@ -69,9 +79,16 @@
 }
 
 .filter {
-  display: grid;
-  grid-template-columns: repeat(4, 250px);
-  column-gap: toRem(16);
+  // display: grid;
+  // grid-template-columns: repeat(4, 250px);
+  display: flex;
+  gap: toRem(16);
+  flex-wrap: wrap;
+
+  >* {
+    // flex-basis: 250px;
+    width: toRem(250);
+  }
 }
 
 .filter-sort {
