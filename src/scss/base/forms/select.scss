@@ -305,5 +305,38 @@
 
 // Тег
 ._select-tag {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: toRem(42);
+	padding: toRem(0) toRem(15);
+	padding-right: toRem(57);
+	border: 1px solid #f5f5f5;
+	border-radius: 50px;
+
 	cursor: pointer;
+	font-size: toRem(15);
+
+	transition: all 0.3s;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		background: url('@img/catalog/x-b.svg') right center no-repeat;
+		right: toRem(15);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: #000;
+			color: #fff;
+
+			&::before {
+				background: url('@img/catalog/x-w.svg') right center no-repeat;
+			}
+		}
+	}
 }

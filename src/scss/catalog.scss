@@ -1,0 +1,70 @@
+.catalog {
+
+  /* .catalog__container */
+  &__container {}
+
+  /* .catalog__title */
+  &__title {}
+
+  /* .catalog__top-line */
+  &__top-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: toRem(30);
+  }
+
+  /* .catalog__filter */
+  &__filter {}
+
+  /* .catalog__tags */
+  &__tags {}
+}
+
+.filter {
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  column-gap: toRem(16);
+}
+
+.filter-sort {
+
+  .catalog & {
+    margin-bottom: toRem(0);
+  }
+
+  /* .filter-sort__title */
+  &__title {}
+
+  /* .filter-sort__by */
+  &__by {}
+
+  /* .filter-sort__new */
+  &__new {}
+
+  /* .filter-sort__old */
+  &__old {}
+}
+
+.active {}
+
+// .tags {
+//   display: flex;
+//   align-items: center;
+//   gap: toRem(10);
+// }
+
+.tags,
+.tags-1,
+.tags-2,
+.tags-3,
+.tags-4 {
+  display: flex;
+  align-items: center;
+  gap: toRem(10);
+  flex-wrap: wrap;
+
+  /* .tags__item */
+  &__item {}
+}
