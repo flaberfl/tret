@@ -1,7 +1,7 @@
 .catalog {
   position: relative;
-  padding-top: 54px;
-  padding-bottom: toRem(99);
+  @include adaptiveValue("padding-top", 54, 30);
+  @include adaptiveValue("padding-bottom", 99, 41);
 
   &::before {
     content: '';
@@ -34,6 +34,8 @@
   &__title {
     margin-bottom: toRem(32);
 
+    @include adaptiveValue("margin-bottom", 32, 22);
+
     @media (min-width:toEm(551)) {
       margin-bottom: toRem(-6);
     }
@@ -44,7 +46,7 @@
     display: flex;
     gap: toRem(20);
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 
     margin-bottom: toRem(30);
 
