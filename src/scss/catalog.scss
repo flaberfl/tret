@@ -3,7 +3,6 @@
   padding-top: 54px;
   padding-bottom: toRem(99);
 
-
   &::before {
     content: '';
     position: absolute;
@@ -20,6 +19,10 @@
     position: relative;
     padding-bottom: toRem(41);
     margin-bottom: toRem(43);
+
+    @media (max-width: toEm(1400)) {
+      padding-bottom: 0;
+    }
   }
 
   &__bottom {
@@ -40,22 +43,53 @@
 
     margin-bottom: toRem(30);
 
-    @media (min-width:toEm(1568)) {
-      align-items: center;
+    @media (max-width:toEm(1400)) {
+      margin-bottom: toRem(20);
+      // align-items: center;
+    }
+
+    @media (max-width: toEm(1400)) {
+      flex-direction: column;
     }
   }
 
   &__filter-sort {
+
     @media (max-width: toEm(1567)) {
-      align-self: flex-start;
+      flex-direction: column;
+      align-items: flex-end;
+
+
+      .filter-sort__by {
+        // padding-left: toRem(33);
+      }
+    }
+
+    @media (max-width: toEm(1400)) {
+      flex-direction: row;
+      margin-top: toRem(20);
+    }
+
+    @media (max-width:$mobileSmall) {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
   &__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    // grid-template-rows: repeat(2, 1fr);
     gap: toRem(28);
+
+    @media (max-width: toEm(1080)) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: toRem(20);
+    }
+
+    @media (max-width: toEm(860)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__item {
@@ -71,10 +105,18 @@
   /* .catalog__filter */
   &__filter {}
 
+  &__filter-spoller-title {
+    display: flex;
+    align-items: center;
+    gap: toRem(7);
+  }
+
   /* .catalog__tags */
   &__tags {
-    position: absolute;
-    bottom: 0;
+    @media (min-width:toEm(1401)) {
+      position: absolute;
+      bottom: 0;
+    }
   }
 }
 
@@ -85,13 +127,20 @@
   gap: toRem(16);
   flex-wrap: wrap;
 
+  @include adaptiveValue("gap", 16, 10);
+
   >* {
     // flex-basis: 250px;
     width: toRem(250);
+
+    @media (max-width: toEm(550)) {
+      width: toRem(320);
+    }
   }
 }
 
 .filter-sort {
+  white-space: nowrap;
 
   .catalog & {
     margin-bottom: toRem(0);

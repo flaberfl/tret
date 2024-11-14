@@ -34,35 +34,54 @@
 					<div class="catalog__header">
 						<h3 class="catalog__title title-h3">Подушки</h3>
 						<div class="catalog__top-line">
-							<div class="catalog__filter filter">
 
-								<select multiple data-tags=".tags-1" data-pseudo-label="Степень упругости" name="1">
-									<option value="Мягкая">Мягкая</option>
-									<option value="Со съемным чехлом">Со съемным чехлом</option>
-									<option value="Средняя">Средняя</option>
-									<option value="Структурная">Структурная</option>
-								</select>
-								<select multiple data-tags=".tags-2" data-pseudo-label="Размер" name="2">
-									<option value="50x30">50x30</option>
-									<option value="50x70">50x70</option>
-									<option value="70x90">70x90</option>
-								</select>
-								<select multiple data-tags=".tags-3" data-pseudo-label="Ткань" name="3">
-									<option value="Мягкая">Мягкая</option>
-									<option value="Со съемным чехлом">Со съемным чехлом</option>
-									<option value="Средняя">Средняя</option>
-									<option value="Структурная">Структурная</option>
-								</select>
-								<select multiple data-tags=".tags-4" data-pseudo-label="Наполнитель" name="4">
-									<option value="Мягкая">Мягкая</option>
-									<option value="Со съемным чехлом">Со съемным чехлом</option>
-									<option value="Средняя">Средняя</option>
-									<option value="Структурная">Структурная</option>
-								</select>
+							<div data-spollers class="catalog__filter-spoller spollers">
+								<details data-open class="spollers__item">
+									<summary class="spollers__title catalog__filter-spoller-title">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M13.0505 7H3.5C2.11929 7 1 5.88071 1 4.5C1 3.11929 2.11929 2 3.5 2H13.0505M6.94949 18H16.5C17.8807 18 19 16.8807 19 15.5C19 14.1193 17.8807 13 16.5 13H6.94949M1 15.5C1 17.433 2.567 19 4.5 19C6.433 19 8 17.433 8 15.5C8 13.567 6.433 12 4.5 12C2.567 12 1 13.567 1 15.5ZM19 4.5C19 6.433 17.433 8 15.5 8C13.567 8 12 6.433 12 4.5C12 2.567 13.567 1 15.5 1C17.433 1 19 2.567 19 4.5Z"
+												stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+										<span>Развернуть фильтр</span>
+										Свернуть фильтр
+									</summary>
+									<div class="spollers__body">
 
+										<div class="catalog__filter filter">
+
+											<select multiple data-tags=".tags-1" data-pseudo-label="Степень упругости" name="1">
+												<option value="Мягкая">Мягкая</option>
+												<option value="Со съемным чехлом">Со съемным чехлом</option>
+												<option value="Средняя">Средняя</option>
+												<option value="Структурная">Структурная</option>
+											</select>
+											<select multiple data-tags=".tags-2" data-pseudo-label="Размер" name="2">
+												<option value="50x30">50x30</option>
+												<option value="50x70">50x70</option>
+												<option value="70x90">70x90</option>
+											</select>
+											<select multiple data-tags=".tags-3" data-pseudo-label="Ткань" name="3">
+												<option value="Мягкая">Мягкая</option>
+												<option value="Со съемным чехлом">Со съемным чехлом</option>
+												<option value="Средняя">Средняя</option>
+												<option value="Структурная">Структурная</option>
+											</select>
+											<select multiple data-tags=".tags-4" data-pseudo-label="Наполнитель" name="4">
+												<option value="Мягкая">Мягкая</option>
+												<option value="Со съемным чехлом">Со съемным чехлом</option>
+												<option value="Средняя">Средняя</option>
+												<option value="Структурная">Структурная</option>
+											</select>
+
+										</div>
+
+									</div>
+								</details>
 							</div>
 
-							<div class="catalog__filter-sort filter-sort">
+
+							<div class="catalog__filter-sort filter-sort" data-da=".catalog__header, 1400">
 								<div class="filter-sort__title">
 									<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M5.5 11H16.5M2.75 5.5H19.25M8.25 16.5H13.75" stroke="black" stroke-width="2"
@@ -693,7 +712,7 @@
 					<div class="catalog__bottom">
 						@@include('html/_pagination.htm',{})
 					</div>
-					
+
 				</div>
 			</section>
 

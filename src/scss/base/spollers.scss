@@ -29,6 +29,17 @@
 		display: none;
 	}
 
+	.catalog__filter-spoller & {
+		padding: 0;
+		border: none;
+		padding-bottom: toRem(20);
+
+		&::before,
+		&::after {
+			display: none;
+		}
+	}
+
 	._spoller-init & {
 		cursor: pointer;
 
