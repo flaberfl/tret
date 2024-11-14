@@ -1,22 +1,26 @@
 .side-buttons {
   display: grid;
-  gap: toRem(8);
-  // position: absolute;
   position: fixed;
-  // position: sticky;
-  right: -242px;
   z-index: 500;
-  // right: 0;
-  // top: 18%;
 
-
-  transform: translateX(calc(100% + 20px));
   transition: all .7s;
-  // opacity: 0;
+  opacity: 0;
+
+  @media (min-width:toEm(601)) {
+    right: -242px;
+    @include adaptiveValue("right", -242, -212);
+    gap: toRem(8);
+    transform: translateX(calc(100% + 20px));
+  }
+
+  @media (max-width: toEm(600)) {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
 
   &.active {
     transform: none;
-    // opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -24,22 +28,38 @@
   height: toRem(80);
   display: flex;
   align-items: center;
-  overflow: hidden;
-  border-radius: 14px 0 0 14px;
-  padding-right: toRem(29);
 
   box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.09);
   background: #fcfcfc;
 
+  @media (min-width:toEm(601)) {
+    padding-right: toRem(29);
+    border-radius: 14px 0 0 14px;
+    overflow: hidden;
+  }
+
+  @media (max-width: toEm(600)) {
+    height: toRem(50);
+    width: 100%;
+    justify-content: center;
+  }
+
   /* .side-button__subject */
   &__subject {
-    max-width: toRem(267);
-
     transition: transform .7s;
+
+    @media (min-width:toEm(601)) {
+      max-width: toRem(267);
+    }
+
+    @media (max-width: toEm(600)) {
+      background-color: #000;
+      color: #fff;
+    }
 
     @media (any-hover: hover) {
       &:hover {
-        transform: translateX(-161px);
+        transform: translateX(-181px);
       }
     }
   }
@@ -54,9 +74,9 @@
     width: toRem(80);
     height: 100%;
 
-    img {
-      // width: toRem(46);
-      // width: 100%;
+
+    @media (max-width: toEm(600)) {
+      display: none;
     }
 
     // side-button__subject
@@ -68,22 +88,35 @@
 
   /* .side-button__info */
   &__info {
-    padding-left: toRem(21);
+    font-weight: 600;
+    @include adaptiveValue("font-size", 20, 16);
 
-    .side-button__promocode & {
-      margin-right: toRem(33);
+    // .side-button__promocode & {
+    //   margin-right: toRem(33);
+    // }
+
+    @media (min-width:toEm(601)) {
+      padding-left: toRem(21);
     }
   }
 
   /* .side-button__promocode */
   &__promocode {
-    max-width: toRem(327);
 
     transition: transform .7s;
 
+    @media (min-width:toEm(601)) {
+      max-width: toRem(327);
+    }
+
+    @media (max-width: toEm(600)) {
+      background-color: $secondaryColor;
+      color: #fff;
+    }
+
     @media (any-hover: hover) {
       &:hover {
-        transform: translateX(-210px);
+        transform: translateX(-243px);
       }
     }
   }
