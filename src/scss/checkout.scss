@@ -1,0 +1,188 @@
+.checkout {
+
+  /* .checkout__container */
+  &__container {}
+
+  /* .checkout__title */
+  &__title {}
+
+  /* .checkout__form */
+  &__form {}
+
+  /* .checkout__content */
+  &__content {}
+
+  /* .checkout__total */
+  &__total {}
+}
+
+.form-checkout {
+
+  /* .form-checkout__title */
+  &__title {}
+
+  /* .form-checkout__subtitle */
+  &__subtitle {}
+
+  /* .form-checkout__shipping */
+  &__shipping {}
+}
+
+.shipping-checkout {
+
+  /* .shipping-checkout__navigation */
+  &__navigation {}
+
+  /* .shipping-checkout__item */
+  &__item {}
+
+  /* .shipping-checkout__line */
+  &__line {}
+
+  /* .shipping-checkout__price */
+  &__price {}
+
+  /* .shipping-checkout__content */
+  &__content {}
+
+  /* .shipping-checkout__body */
+  &__body {}
+
+  /* .shipping-checkout__wrapper */
+  &__wrapper {}
+
+  /* .shipping-checkout__compare-list */
+  &__compare-list {}
+
+  /* .shipping-checkout__item-list */
+  &__item-list {}
+}
+
+.shipping-point {
+
+  /* .shipping-point__title */
+  &__title {}
+
+  /* .shipping-point__text */
+  &__text {}
+
+  /* .shipping-point__adress */
+  &__adress {}
+
+  /* .shipping-point__data-around */
+  &__data-around {}
+
+  /* .shipping-point__price */
+  &__price {}
+
+  /* .shipping-point__data */
+  &__data {}
+
+  /* .shipping-point__button */
+  &__button {}
+}
+
+.total-checkout {
+
+  /* .total-checkout__title */
+  &__title {}
+
+  /* .total-checkout__progress-bar */
+  &__progress-bar {}
+
+  /* .total-checkout__progress */
+  &__progress {}
+
+  /* .total-checkout__progress-label */
+  &__progress-label {}
+
+  /* .total-checkout__list */
+  &__list {}
+
+  /* .total-checkout__item */
+  &__item {}
+
+  /* .total-checkout__promocode */
+  &__promocode {}
+
+  /* .total-checkout__input */
+  &__input {}
+
+  /* .total-checkout__button */
+  &__button {}
+
+  /* .total-checkout__all */
+  &__all {}
+}
+
+.item-total {
+
+  /* .item-total__img */
+  &__img {}
+
+  /* .item-total__content */
+  &__content {}
+
+  /* .item-total__delete */
+  &__delete {}
+
+  /* .item-total__name */
+  &__name {}
+
+  /* .item-total__variant */
+  &__variant {}
+
+  /* .item-total__size */
+  &__size {}
+
+  /* .item-total__quantity */
+  &__quantity {}
+
+  /* .item-total__price */
+  &__price {}
+}
+
+.quantity {
+
+  /* .quantity__button */
+  &__button {}
+
+  /* .quantity__button--minus */
+  &__button--minus {}
+
+  /* .quantity__input */
+  &__input {}
+
+  /* .quantity__button--plus */
+  &__button--plus {}
+}
+
+.all-total {
+
+  /* .all-total__list */
+  &__list {}
+
+  /* .all-total__item */
+  &__item {}
+
+  /* .all-total__name */
+  &__name {}
+
+  /* .all-total__price */
+  &__price {}
+
+  /* .all-total__total */
+  &__total {}
+
+  /* .all-total__name-total */
+  &__name-total {}
+
+  /* .all-total__price-total */
+  &__price-total {}
+
+  /* .all-total__button */
+  &__button {}
+
+  /* .all-total__dolyami */
+  &__dolyami {}
+}
