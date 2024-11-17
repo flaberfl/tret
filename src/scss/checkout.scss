@@ -312,7 +312,9 @@
   }
 
   /* .total-checkout__list */
-  &__list {}
+  &__list {
+    margin-bottom: toRem(23);
+  }
 
   /* .total-checkout__item */
   &__item {}
@@ -337,6 +339,10 @@
   padding-bottom: toRem(36);
 
   border-bottom: 1px solid #f3f3f3;
+
+  &:not(:first-child) {
+    padding-top: toRem(22);
+  }
 
   /* .item-total__img */
   &__img {
