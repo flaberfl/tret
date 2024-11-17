@@ -31,7 +31,6 @@ const filterGoods = (filterClass) => {
 };
 
 document.querySelector('.filter-category__nav')?.addEventListener('click', (event) => {
-  console.log('Я нажал!!');
 
   if (event.target.tagName !== 'LI') return;
   let filterClass = event.target.dataset['f'];
@@ -159,13 +158,22 @@ for (let i = 0; i < addToBasket.length; i++) {
 
 
 
+// window.onscroll = function () {
+//   var scrolled = window.pageYOffset || document.documentElement.scrollTop,
+//     topBtn = document.getElementById('sidebtn');
+//   if (scrolled > 350) {
+//     topBtn.classList.add('active');
+//   }
+//   else { topBtn.classList.remove('active'); }
+// }
+
 window.onscroll = function () {
-  var scrolled = window.pageYOffset || document.documentElement.scrollTop,
+  let scrolled = window.pageYOffset || document.documentElement.scrollTop,
     topBtn = document.getElementById('sidebtn');
   if (scrolled > 350) {
-    topBtn.classList.add('active');
+    topBtn?.classList.add('active');
   }
-  else { topBtn.classList.remove('active'); }
+  else { topBtn?.classList.remove('active'); }
 }
 
 
