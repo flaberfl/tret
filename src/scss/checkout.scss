@@ -136,10 +136,49 @@
   }
 
   /* .shipping-checkout__compare-list */
-  &__compare-list {}
+  &__compare-list {
+    display: flex;
+    @include adaptiveValue("gap", 30, 10);
+  }
 
   /* .shipping-checkout__item-list */
-  &__item-list {}
+  &__item-list {
+    padding: toRem(35) toRem(32);
+
+    border: 2px solid #efefef;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+
+    pointer-events: fill;
+    @include adaptiveValue("width", 219, 155);
+
+    &.active {
+      border: 2px solid #28b3b6;
+      background: #f5f9f9;
+    }
+
+
+    p {
+      &:first-child {
+        margin-bottom: toRem(14);
+
+        font-weight: 600;
+        @include adaptiveValue("font-size", 20, 15);
+      }
+
+      &:nth-child(2) {
+        margin-bottom: toRem(20);
+
+        @include adaptiveValue("font-size", 17, 14);
+      }
+
+      &:last-child {
+        color: $subColor;
+        @include adaptiveValue("font-size", 17, 13);
+      }
+    }
+  }
 }
 
 .shipping-point {
@@ -196,15 +235,15 @@
     font-weight: 600;
 
     transition: background-color 0.3s;
-    
+
     @include adaptiveValue("height", 48, 38);
     @include adaptiveValue("font-size", 17, 14);
     @include adaptiveValue ("padding-left", 26, 14);
     @include adaptiveValue ("padding-right", 26, 14);
 
 
-    @media (any-hover: hover){
-      &:hover{
+    @media (any-hover: hover) {
+      &:hover {
         background-color: #000;
       }
     }
