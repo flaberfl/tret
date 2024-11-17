@@ -2,6 +2,8 @@
 
   padding-top: toRem(68);
 
+  @include adaptiveValue("padding-bottom", 90, 53);
+
   /* .checkout__container */
   &__container {}
 
@@ -45,6 +47,7 @@
   &__shipping {}
 }
 
+
 .shipping-checkout {
 
   /* .shipping-checkout__navigation */
@@ -52,6 +55,7 @@
     display: flex;
 
     @include adaptiveValue("gap", 30, 10);
+    @include adaptiveValue("margin-bottom", 40, 20);
   }
 
   /* .shipping-checkout__item */
@@ -122,7 +126,14 @@
   &__body {}
 
   /* .shipping-checkout__wrapper */
-  &__wrapper {}
+  &__wrapper {
+    border: 1px solid #f4f4f4;
+    border-radius: 20px;
+    background-color: #fff;
+
+    @include adaptiveValue("margin-bottom", 60, 28);
+    @include adaptiveValue("padding-bottom", 40, 24);
+  }
 
   /* .shipping-checkout__compare-list */
   &__compare-list {}
@@ -132,15 +143,38 @@
 }
 
 .shipping-point {
+  @include adaptiveValue("padding-right", 38, 22);
+  @include adaptiveValue("padding-left", 38, 22);
 
   /* .shipping-point__title */
-  &__title {}
+  &__title {
+    @include adaptiveValue("margin-bottom", 15, 10);
+  }
 
   /* .shipping-point__text */
-  &__text {}
+  &__text {
+    font-weight: 350;
+    color: $subColor;
+
+    @include adaptiveValue("font-size", 16, 13);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 19, 12);
+    }
+
+    span {
+      font-weight: 600;
+      color: #000;
+    }
+  }
 
   /* .shipping-point__adress */
-  &__adress {}
+  &__adress {
+    border-bottom: 1px solid #f4f4f4;
+
+    @include adaptiveValue("padding-bottom", 17, 13);
+    @include adaptiveValue("margin-bottom", 19, 12);
+  }
 
   /* .shipping-point__data-around */
   &__data-around {}
@@ -152,7 +186,29 @@
   &__data {}
 
   /* .shipping-point__button */
-  &__button {}
+  &__button {
+
+    margin-top: toRem(10);
+    gap: toRem(6);
+
+    background-color: $secondaryColor;
+    color: #fff;
+    font-weight: 600;
+
+    transition: background-color 0.3s;
+    
+    @include adaptiveValue("height", 48, 38);
+    @include adaptiveValue("font-size", 17, 14);
+    @include adaptiveValue ("padding-left", 26, 14);
+    @include adaptiveValue ("padding-right", 26, 14);
+
+
+    @media (any-hover: hover){
+      &:hover{
+        background-color: #000;
+      }
+    }
+  }
 }
 
 .total-checkout {
@@ -258,4 +314,22 @@
 
   /* .all-total__dolyami */
   &__dolyami {}
+}
+
+.boxberry_map {
+  position: relative;
+  margin-left: toRem(-299);
+
+  @include adaptiveValue("margin-bottom", 32, 20);
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    left: toRem(119);
+    top: 0;
+  }
 }

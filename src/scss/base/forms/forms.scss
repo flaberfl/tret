@@ -30,6 +30,39 @@
 		&_password {
 			@include adaptiveValue("margin-bottom", 49, 37);
 		}
+
+		&-information {
+			display: grid;
+			grid-template-rows: repeat(3, auto);
+			grid-template-columns: repeat(6, 1fr);
+			// grid-template-columns: repeat(3, minmax(0, 1fr));
+
+
+			@include adaptiveValue("column-gap", 13, 10);
+			@include adaptiveValue("row-gap", 20, 10);
+
+			.form__line {
+				grid-column: span 2;
+			}
+
+
+			.form__line_mail,
+			.form__line_tel {
+				grid-column: span 3;
+			}
+
+			.form__line_textarea {
+				// grid-row: 3 / 4;
+				// grid-column: 1 / 4;
+				grid-column: span 6;
+
+				textarea {
+					@include adaptiveValue("height", 195, 83);
+				}
+
+
+			}
+		}
 	}
 
 	&__line {
