@@ -48,13 +48,15 @@
 .shipping-checkout {
 
   /* .shipping-checkout__navigation */
-  &__navigation {}
+  &__navigation {
+    display: flex;
+
+    @include adaptiveValue("gap", 30, 10);
+  }
 
   /* .shipping-checkout__item */
   &__item {
     display: flex;
-
-
 
     border: 2px solid #efefef;
     border-radius: 20px;
@@ -68,6 +70,23 @@
     @include adaptiveValue("padding-right", 30, 25);
 
     @include adaptiveValue("width", 390, 155);
+
+    &._tab-active {
+      border: 2px solid #28b3b6;
+      background: #f5f9f9;
+
+      .shipping-checkout__line {
+        span {
+          color: $secondaryColor;
+        }
+      }
+
+      svg {
+        path {
+          stroke: $secondaryColor;
+        }
+      }
+    }
   }
 
   /* .shipping-checkout__line */
@@ -75,8 +94,12 @@
     // display: flex;
 
     span {
+      display: block;
+
       color: #000;
       @include adaptiveValue("font-size", 20, 13);
+
+      @include adaptiveValue("margin-bottom", 14, 8);
 
       @media (max-width:$mobile) {
         font-weight: 600;
