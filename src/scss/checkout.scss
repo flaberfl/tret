@@ -299,6 +299,8 @@
     font-size: toRem(15);
     color: $subColor;
 
+    @include adaptiveValue("margin-bottom", 33, 26);
+
     span {
       color: #000;
       font-weight: 600;
@@ -330,9 +332,11 @@
 
 .item-total {
   display: flex;
+  align-items: center;
+  gap: toRem(20);
+  padding-bottom: toRem(36);
 
-  border: 1px solid #f5f5f5;
-  border-radius: 10px;
+  border-bottom: 1px solid #f3f3f3;
 
   /* .item-total__img */
   &__img {
@@ -340,10 +344,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
-    border: 1px solid #f4f4f4;
-    border-radius: 1.25rem;
+    // flex-shrink: 0;
+    border: 1px solid #f5f5f5;
+    border-radius: 10px;
     overflow: hidden;
+    width: toRem(108);
 
     img {
       max-width: 100%;
@@ -354,8 +359,8 @@
 
   /* .item-total__content */
   &__content {
-    // display: flex;
     display: grid;
+    width: 100%;
   }
 
   /* .item-total__delete */
@@ -365,13 +370,23 @@
   }
 
   /* .item-total__name */
-  &__name {}
+  &__name {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 20, 13);
+
+    @include adaptiveValue("margin-bottom", 17, 12);
+  }
 
   /* .item-total__variant */
   &__variant {
     display: flex;
     align-items: center;
 
+    gap: toRem(9);
+
+    @media (max-width:$mobile) {
+      gap: toRem(7);
+    }
   }
 
   /* .item-total__size */
@@ -383,10 +398,29 @@
   }
 
   /* .item-total__quantity */
-  &__quantity {}
+  &__quantity {
+    height: toRem(26);
+    @include adaptiveValue("width", 73, 63);
+
+    .quantity__button {
+      flex: 0 0 17px;
+    }
+
+    .quantity__input {
+      input {
+        font-size: toRem(13);
+      }
+    }
+  }
 
   /* .item-total__price */
-  &__price {}
+  &__price {
+    margin-left: auto;
+
+    font-weight: 600;
+    color: $secondaryColor;
+    @include adaptiveValue("font-size", 22, 16);
+  }
 }
 
 .quantity {
