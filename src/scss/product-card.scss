@@ -245,41 +245,41 @@
   &__quantity {}
 
   /* .product-card__dolyami */
-  &__dolyami {
-    display: flex;
-    align-items: center;
-    gap: toRem(10);
-    height: toRem(52);
-    border: 1px solid #f0f0f0;
-    border-radius: 50px;
-    padding: 12px 20px;
-    background: #f5f5f5;
-    cursor: pointer;
-
-    font-size: toRem(16);
-
-    @include adaptiveValue("width", 390, 320);
-    @include adaptiveValue("margin-bottom", 41, 30);
-
-    span {
-
-      &:last-child {
-        margin-left: auto;
-
-        svg {
-          height: toRem(10);
-        }
-      }
-
-
-    }
-  }
+  &__dolyami {}
 
   /* .product-card__specifications */
   &__specifications {}
 
   /* .product-card__features */
   &__features {}
+}
+
+.dolyami {
+  display: flex;
+  align-items: center;
+  gap: toRem(10);
+  height: toRem(52);
+  border: 1px solid #f0f0f0;
+  border-radius: 50px;
+  padding: 12px 20px;
+  background: #f5f5f5;
+  cursor: pointer;
+
+  font-size: toRem(16);
+
+  @include adaptiveValue("width", 390, 320);
+  @include adaptiveValue("margin-bottom", 41, 30);
+
+  span {
+
+    &:last-child {
+      margin-left: auto;
+
+      svg {
+        height: toRem(10);
+      }
+    }
+  }
 }
 
 .tabs-thumbs {
