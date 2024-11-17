@@ -251,18 +251,63 @@
 }
 
 .total-checkout {
+  border: 1px solid #edf8f9;
+  border-radius: 20px;
+  box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
+  background: #f6f9f9;
+
+  @include adaptiveValue("padding-top", 47, 28);
+  @include adaptiveValue("padding-bottom", 47, 53);
+  @include adaptiveValue("padding-left", 47, 20);
+  @include adaptiveValue("padding-right", 47, 20);
 
   /* .total-checkout__title */
-  &__title {}
+  &__title {
+    font-weight: 700;
+
+    @include adaptiveValue("font-size", 37, 17);
+    @include adaptiveValue("margin-bottom", 24, 14);
+  }
 
   /* .total-checkout__progress-bar */
-  &__progress-bar {}
+  &__progress-bar {
+    margin-bottom: toRem(12);
+    width: 100%;
+    height: 5px;
+    background-color: #F3F3F3;
+    border-radius: toRem(20);
+
+    @media (max-width:$mobile) {
+      height: 3px;
+    }
+  }
 
   /* .total-checkout__progress */
-  &__progress {}
+  &__progress {
+    width: 64%;
+    height: 5px;
+    background-color: $secondaryColor;
+    border-radius: toRem(20);
+
+    @media (max-width:$mobile) {
+      height: 3px;
+    }
+  }
 
   /* .total-checkout__progress-label */
-  &__progress-label {}
+  &__progress-label {
+    font-size: toRem(15);
+    color: $subColor;
+
+    span {
+      color: #000;
+      font-weight: 600;
+    }
+
+    @media (max-width:$mobile) {
+      font-size: toRem(13);
+    }
+  }
 
   /* .total-checkout__list */
   &__list {}
@@ -284,24 +329,58 @@
 }
 
 .item-total {
+  display: flex;
+
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
 
   /* .item-total__img */
-  &__img {}
+  &__img {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px solid #f4f4f4;
+    border-radius: 1.25rem;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      height: auto;
+    }
+  }
 
   /* .item-total__content */
-  &__content {}
+  &__content {
+    // display: flex;
+    display: grid;
+  }
 
   /* .item-total__delete */
-  &__delete {}
+  &__delete {
+    // justify-self: end;
+    margin-left: auto;
+  }
 
   /* .item-total__name */
   &__name {}
 
   /* .item-total__variant */
-  &__variant {}
+  &__variant {
+    display: flex;
+    align-items: center;
+
+  }
 
   /* .item-total__size */
-  &__size {}
+  &__size {
+
+    .select {
+      // @include adaptiveValue("width", 105, 93);
+    }
+  }
 
   /* .item-total__quantity */
   &__quantity {}

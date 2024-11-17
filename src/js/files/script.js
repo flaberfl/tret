@@ -93,7 +93,6 @@ for (let i = 0; i < deliveryMetod.length; i++) {
 
 
 
-
 // let dataList = {};
 // fetch('https://api.hh.ru/areas/7').then(response => {
 //   return response.json()

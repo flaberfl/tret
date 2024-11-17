@@ -32,14 +32,14 @@
       <section class="checkout">
         @@include('html/_side-buttons.htm',{})
         <div class="checkout__container">
-          <form action="" class="checkout__form form-checkout form geo-icon">
+          <form action="" class="checkout__form form-checkout form">
 
             <div class="checkout__content">
               <h3 class="checkout__title title-h3">Оформление заказа</h3>
 
               <h4 class="form-checkout__title title-h4">Способ доставки</h4>
 
-              <div class="form__line form__line_geo">
+              <div class="form__line form__line_geo geo-icon">
                 <select data-search _select-pseudo-label name="town" data-class-modif="form">
                   <option value="" class="checkout__label">Введите название Вашего города</option>
                   <option value="1">г. Москва</option>
@@ -264,7 +264,9 @@
 
               <ul class="total-checkout__list">
                 <div class="total-checkout__item item-total">
-                  <img src="" alt="" class="item-total__img">
+                  <div class="item-total__img">
+                    <img src="@img/checkout/01.png" alt="Фото товара" class="">
+                  </div>
                   <div class="item-total__content">
 
                     <button class="item-total__delete">
@@ -280,10 +282,10 @@
                     <div class="item-total__variant">
                       <div class="item-total__size">
 
-                        <select name="form[]" data-class-modif="form">
-                          <option value="1" selected>50 х 70 см</option>
-                          <option value="2">70 х 70 см</option>
-                          <option value="3">1000 х 70 см</option>
+                        <select class="item-total__select" name="form[]" data-class-modif="form">
+                          <option value="50" selected>50 х 70 см</option>
+                          <option value="70">70 х 70 см</option>
+                          <option value="100">100 х 70 см</option>
                         </select>
 
                       </div>
@@ -306,9 +308,10 @@
                 </div>
 
                 <div class="total-checkout__item item-total">
-                  <img src="" alt="" class="item-total__img">
+                  <div class="item-total__img">
+                    <img src="@img/checkout/02.png" alt="Фото товара" class="">
+                  </div>
                   <div class="item-total__content">
-
                     <button class="item-total__delete">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -316,16 +319,14 @@
                           stroke="#999999" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </button>
-
                     <div class="item-total__name">Подушка перьевая «Для примера»</div>
-
                     <div class="item-total__variant">
                       <div class="item-total__size">
 
                         <select name="form[]" data-class-modif="form">
-                          <option value="50">50 х 70 см</option>
+                          <option value="50" selected>50 х 70 см</option>
                           <option value="70">70 х 70 см</option>
-                          <option value="1000" selected>1000 х 70 см</option>
+                          <option value="100">100 х 70 см</option>
                         </select>
 
                       </div>
