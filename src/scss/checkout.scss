@@ -7,7 +7,7 @@
 
   /* .checkout__title */
   &__title {
-    margin-bottom: toRem(67);
+    @include adaptiveValue("margin-bottom", 67, 30);
   }
 
   /* .checkout__form */
@@ -29,11 +29,17 @@
 
   /* .form-checkout__title */
   &__title {
-    @include adaptiveValue("margin-bottom", 67, 30);
+    @include adaptiveValue("margin-bottom", 30, 15);
   }
 
   /* .form-checkout__subtitle */
-  &__subtitle {}
+  &__subtitle {
+
+    font-weight: 600;
+    @include adaptiveValue("font-size", 22, 15);
+
+    @include adaptiveValue("margin-bottom", 30, 15);
+  }
 
   /* .form-checkout__shipping */
   &__shipping {}
@@ -45,13 +51,46 @@
   &__navigation {}
 
   /* .shipping-checkout__item */
-  &__item {}
+  &__item {
+    display: flex;
+
+
+
+    border: 2px solid #efefef;
+    border-radius: 20px;
+    background: #fff;
+
+    @include adaptiveValue("gap", 8, 5);
+
+    @include adaptiveValue("padding-top", 30, 7);
+    @include adaptiveValue("padding-bottom", 30, 13);
+    @include adaptiveValue("padding-left", 30, 10);
+    @include adaptiveValue("padding-right", 30, 25);
+
+    @include adaptiveValue("width", 390, 155);
+  }
 
   /* .shipping-checkout__line */
-  &__line {}
+  &__line {
+    // display: flex;
+
+    span {
+      color: #000;
+      @include adaptiveValue("font-size", 20, 13);
+
+      @media (max-width:$mobile) {
+        font-weight: 600;
+      }
+    }
+  }
 
   /* .shipping-checkout__price */
-  &__price {}
+  &__price {
+    justify-self: flex-start;
+
+    color: $subColor;
+    @include adaptiveValue("font-size", 17, 14);
+  }
 
   /* .shipping-checkout__content */
   &__content {}

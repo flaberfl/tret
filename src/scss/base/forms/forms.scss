@@ -77,6 +77,10 @@
 			}
 		}
 
+		&_geo {
+			@include adaptiveValue("margin-bottom", 50, 20);
+		}
+
 	}
 
 	&__input {}
