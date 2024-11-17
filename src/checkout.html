@@ -29,24 +29,27 @@
         </div>
       </div>
 
-
       <section class="checkout">
         @@include('html/_side-buttons.htm',{})
         <div class="checkout__container">
-          <h3 class="checkout__title title-h3">Оформление заказа</h3>
-          <form action="" class="checkout__form form-checkout form">
+          <form action="" class="checkout__form form-checkout form geo-icon">
 
             <div class="checkout__content">
+              <h3 class="checkout__title title-h3">Оформление заказа</h3>
 
               <h4 class="form-checkout__title title-h4">Способ доставки</h4>
+
               <div class="form__line">
-                <select data-search name="town" data-class-modif="form">
-                  <option value="1" selected>г. Москва</option>
+                <select data-search _select-pseudo-label  name="town" data-class-modif="form">
+                  <option value="" class="checkout__label">Введите название Вашего города</option>
+                  <option value="1">г. Москва</option>
                   <option value="2">г. Санкт-Петербург</option>
                   <option value="3">г. Воронеж</option>
                   <option value="4">г. Тула</option>
                 </select>
               </div>
+
+
 
               <h5 class="form-checkout__subtitle">Самовывоз или доставка на дом?</h5>
 

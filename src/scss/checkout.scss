@@ -1,13 +1,22 @@
 .checkout {
 
+  padding-top: toRem(68);
+
   /* .checkout__container */
   &__container {}
 
   /* .checkout__title */
-  &__title {}
+  &__title {
+    margin-bottom: toRem(67);
+  }
 
   /* .checkout__form */
-  &__form {}
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 37.939%;
+
+    @include adaptiveValue("gap", 74, 20);
+  }
 
   /* .checkout__content */
   &__content {}
@@ -19,7 +28,9 @@
 .form-checkout {
 
   /* .form-checkout__title */
-  &__title {}
+  &__title {
+    @include adaptiveValue("margin-bottom", 67, 30);
+  }
 
   /* .form-checkout__subtitle */
   &__subtitle {}

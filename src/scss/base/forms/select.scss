@@ -8,7 +8,7 @@
 	&__body {
 		position: relative;
 
-		.personal__form & {
+		.geo-icon & {
 			&::after {
 				content: '';
 				position: absolute;
@@ -48,7 +48,7 @@
 			}
 		}
 
-		.personal__form & {
+		.geo-icon & {
 			border: 1px solid #ececec;
 		}
 
@@ -115,6 +115,11 @@
 		.personal__form & {
 			padding-left: toRem(48);
 			height: toRem(58);
+		}
+
+		.checkout__form & {
+			@include adaptiveValue("padding-left", 48, 33);
+			@include adaptiveValue("height", 56, 42);
 		}
 
 		>* {
@@ -341,4 +346,9 @@
 			}
 		}
 	}
+}
+
+
+.checkout__label {
+	color: red !important;
 }
