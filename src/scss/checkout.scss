@@ -16,10 +16,10 @@
   &__form {
     display: grid;
     grid-template-columns: auto 37.939%;
+    grid-template-columns: 1fr auto;
+    
     @include adaptiveValue("gap", 74, 20);
-
     @media (max-width: em(1300)) {
-      grid-template-columns: 1fr auto;
     }
   }
 
