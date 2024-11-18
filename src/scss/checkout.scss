@@ -331,6 +331,7 @@
     backdrop-filter: blur(9px);
     background: #fff;
     @include adaptiveValue("height", 52, 40);
+    @include adaptiveValue("margin-bottom", 60, 30);
   }
 
   /* .total-checkout__input */
@@ -481,10 +482,15 @@
     display: grid;
 
     @include adaptiveValue("gap", 22, 16);
+    @include adaptiveValue("margin-bottom", 45, 30);
   }
 
   /* .all-total__item */
-  &__item {}
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   /* .all-total__name */
   &__name {
@@ -497,16 +503,37 @@
   }
 
   /* .all-total__total */
-  &__total {}
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include adaptiveValue("margin-bottom", 28, 19);
+  }
 
   /* .all-total__name-total */
-  &__name-total {}
+  &__name-total {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 23, 16);
+  }
 
   /* .all-total__price-total */
-  &__price-total {}
+  &__price-total {
+    font-weight: 600;
+    color: $secondaryColor;
+    @include adaptiveValue("font-size", 29, 16);
+  }
 
   /* .all-total__button */
-  &__button {}
+  &__button {
+    width: 100%;
+    justify-content: space-between;
+
+    @include adaptiveValue("padding-left", 32, 22);
+    @include adaptiveValue("padding-right", 32, 22);
+    @include adaptiveValue("height", 52, 42);
+    @include adaptiveValue("margin-bottom", 18, 14);
+  }
 
   /* .all-total__dolyami */
   &__dolyami {}

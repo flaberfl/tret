@@ -183,8 +183,7 @@
 			font-size: toRem(12);
 			width: toRem(78);
 
-			span {
-			}
+			span {}
 		}
 
 		span {
@@ -237,6 +236,8 @@
 
 		.item-total & {
 			padding: 0px 0px 0px 0px;
+			border-radius: 0 0 toRem(16) toRem(16);
+
 		}
 	}
 
