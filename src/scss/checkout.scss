@@ -320,13 +320,45 @@
   &__item {}
 
   /* .total-checkout__promocode */
-  &__promocode {}
+  &__promocode {
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #ececec;
+    border-radius: 50px;
+
+    backdrop-filter: blur(9px);
+    background: #fff;
+    @include adaptiveValue("height", 52, 40);
+  }
 
   /* .total-checkout__input */
-  &__input {}
+  &__input {
+    @include adaptiveValue("padding-left", 23, 16);
+    transition:       opacity: 0;
+    0.3s;
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
+  }
 
   /* .total-checkout__button */
-  &__button {}
+  &__button {
+
+    text-align: center;
+
+    flex-shrink: 0;
+
+    height: 100%;
+    border: 1px solid #28b3b6;
+    border-radius: 50px;
+
+    color: $secondaryColor;
+
+    @include adaptiveValue("width", 183, 135);
+  }
 
   /* .total-checkout__all */
   &__all {}
