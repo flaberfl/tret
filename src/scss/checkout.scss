@@ -477,16 +477,24 @@
 .all-total {
 
   /* .all-total__list */
-  &__list {}
+  &__list {
+    display: grid;
+
+    @include adaptiveValue("gap", 22, 16);
+  }
 
   /* .all-total__item */
   &__item {}
 
   /* .all-total__name */
-  &__name {}
+  &__name {
+    @include adaptiveValue("font-size", 18, 15);
+  }
 
   /* .all-total__price */
-  &__price {}
+  &__price {
+    @include adaptiveValue("font-size", 22, 16);
+  }
 
   /* .all-total__total */
   &__total {}
