@@ -178,6 +178,10 @@
       max-width: toRem(700);
     }
   }
+
+  &__button {
+    padding: 0 toRem(56);
+  }
 }
 
 .form {

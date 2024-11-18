@@ -1,6 +1,6 @@
 .checkout {
 
-  padding-top: toRem(68);
+  padding-top: toRem(54);
 
   @include adaptiveValue("padding-bottom", 90, 53);
 
@@ -9,7 +9,7 @@
 
   /* .checkout__title */
   &__title {
-    @include adaptiveValue("margin-bottom", 67, 30);
+    @include adaptiveValue("margin-bottom", 52, 30);
   }
 
   /* .checkout__form */
@@ -31,7 +31,7 @@
 
   /* .form-checkout__title */
   &__title {
-    @include adaptiveValue("margin-bottom", 30, 15);
+    @include adaptiveValue("margin-bottom", 26, 15);
   }
 
   /* .form-checkout__subtitle */
@@ -187,7 +187,9 @@
 
   /* .shipping-point__title */
   &__title {
-    @include adaptiveValue("margin-bottom", 15, 10);
+    font-weight: 600;
+    @include adaptiveValue("font-size", 24, 15);
+    @include adaptiveValue("margin-bottom", 11, 10);
   }
 
   /* .shipping-point__text */
@@ -198,7 +200,7 @@
     @include adaptiveValue("font-size", 16, 13);
 
     &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 19, 12);
+      @include adaptiveValue("margin-bottom", 15, 12);
     }
 
     span {
@@ -266,12 +268,12 @@
     font-weight: 700;
 
     @include adaptiveValue("font-size", 37, 17);
-    @include adaptiveValue("margin-bottom", 24, 14);
+    @include adaptiveValue("margin-bottom", 21, 14);
   }
 
   /* .total-checkout__progress-bar */
   &__progress-bar {
-    margin-bottom: toRem(12);
+    margin-bottom: toRem(16);
     width: 100%;
     height: 5px;
     background-color: #F3F3F3;
@@ -367,7 +369,7 @@
   display: flex;
   align-items: center;
   gap: toRem(20);
-  padding-bottom: toRem(36);
+  padding-bottom: toRem(24);
 
   border-bottom: 1px solid #f3f3f3;
 
@@ -381,7 +383,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // flex-shrink: 0;
+    flex-shrink: 0;
     border: 1px solid #f5f5f5;
     border-radius: 10px;
     overflow: hidden;
@@ -481,8 +483,8 @@
   &__list {
     display: grid;
 
-    @include adaptiveValue("gap", 22, 16);
-    @include adaptiveValue("margin-bottom", 45, 30);
+    @include adaptiveValue("gap", 13, 10);
+    @include adaptiveValue("margin-bottom", 38, 30);
   }
 
   /* .all-total__item */
@@ -508,7 +510,7 @@
     align-items: center;
     justify-content: space-between;
 
-    @include adaptiveValue("margin-bottom", 28, 19);
+    @include adaptiveValue("margin-bottom", 23, 19);
   }
 
   /* .all-total__name-total */
@@ -543,7 +545,7 @@
   position: relative;
   margin-left: toRem(-299);
 
-  @include adaptiveValue("margin-bottom", 32, 20);
+  @include adaptiveValue("margin-bottom", 12, 20);
 
   &::before {
     content: '';
