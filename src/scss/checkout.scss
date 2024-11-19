@@ -24,12 +24,6 @@
       gap: toRem(28);
     }
   }
-
-  /* .checkout__content */
-  &__content {}
-
-  /* .checkout__total */
-  &__total {}
 }
 
 .form-checkout {
@@ -41,15 +35,11 @@
 
   /* .form-checkout__subtitle */
   &__subtitle {
-
     font-weight: 600;
     @include adaptiveValue("font-size", 22, 15);
 
     @include adaptiveValue("margin-bottom", 30, 12);
   }
-
-  /* .form-checkout__shipping */
-  &__shipping {}
 }
 
 
@@ -58,7 +48,6 @@
   /* .shipping-checkout__navigation */
   &__navigation {
     display: flex;
-
     @include adaptiveValue("gap", 30, 10);
     @include adaptiveValue("margin-bottom", 40, 20);
   }
@@ -100,8 +89,6 @@
 
   /* .shipping-checkout__line */
   &__line {
-    // display: flex;
-
     span {
       display: block;
       text-align: left;
@@ -123,12 +110,6 @@
     color: $subColor;
     @include adaptiveValue("font-size", 17, 14);
   }
-
-  /* .shipping-checkout__content */
-  &__content {}
-
-  /* .shipping-checkout__body */
-  &__body {}
 
   /* .shipping-checkout__wrapper */
   &__wrapper {
@@ -154,15 +135,14 @@
     border-radius: 20px;
     background-color: #fff;
     cursor: pointer;
-
     pointer-events: fill;
+
     @include adaptiveValue("width", 219, 155);
 
     &.active {
       border: 2px solid #28b3b6;
       background: #f5f9f9;
     }
-
 
     p {
       &:first-child {
@@ -226,15 +206,6 @@
     @include adaptiveValue("margin-bottom", 19, 12);
   }
 
-  /* .shipping-point__data-around */
-  &__data-around {}
-
-  /* .shipping-point__price */
-  &__price {}
-
-  /* .shipping-point__data */
-  &__data {}
-
   /* .shipping-point__button */
   &__button {
     gap: toRem(6);
@@ -250,7 +221,6 @@
     @include adaptiveValue ("padding-left", 26, 14);
     @include adaptiveValue ("padding-right", 26, 14);
     @include adaptiveValue("margin-top", 10, 3);
-
 
     @media (any-hover: hover) {
       &:hover {
@@ -272,10 +242,10 @@
   @include adaptiveValue("padding-right", 47, 20);
 
   @media (max-width:$mobileSmall) {
-    border-radius: 0;
-
     margin-left: toRem(-20);
     margin-right: toRem(-20);
+
+    border-radius: 0;
   }
 
   /* .total-checkout__title */
@@ -334,12 +304,8 @@
     margin-bottom: toRem(23);
   }
 
-  /* .total-checkout__item */
-  &__item {}
-
   /* .total-checkout__promocode */
   &__promocode {
-
     display: flex;
     align-items: center;
 
@@ -376,9 +342,6 @@
 
     @include adaptiveValue("width", 183, 135);
   }
-
-  /* .total-checkout__all */
-  &__all {}
 }
 
 .item-total {
@@ -406,7 +369,6 @@
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 108 / 108;
-    width: toRem(108);
     @include adaptiveValue("width", 108, 43);
 
     @media (max-width:$tablet) {
@@ -459,14 +421,6 @@
 
     @media (max-width:$mobile) {
       gap: toRem(7);
-    }
-  }
-
-  /* .item-total__size */
-  &__size {
-
-    .select {
-      // @include adaptiveValue("width", 105, 93);
     }
   }
 
