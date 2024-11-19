@@ -28,7 +28,13 @@
 				left: toRem(24);
 				top: 50%;
 				transform: translate(0px, -50%);
+
+				.form-checkout & {
+					@include adaptiveValue("left", 24, 13);
+
+				}
 			}
+
 		}
 	}
 

@@ -173,14 +173,14 @@ for (let i = 0; i < deliveryMetod.length; i++) {
 //   else { topBtn.classList.remove('active'); }
 // }
 
-window.onscroll = function () {
-  let scrolled = window.pageYOffset || document.documentElement.scrollTop,
-    topBtn = document.getElementById('sidebtn');
-  if (scrolled > 350) {
-    topBtn?.classList.add('active');
-  }
-  else { topBtn?.classList.remove('active'); }
-}
+// window.onscroll = function () {
+//   let scrolled = window.pageYOffset || document.documentElement.scrollTop,
+//     topBtn = document.getElementById('sidebtn');
+//   if (scrolled > 350) {
+//     topBtn?.classList.add('active');
+//   }
+//   else { topBtn?.classList.remove('active'); }
+// }
 
 
 

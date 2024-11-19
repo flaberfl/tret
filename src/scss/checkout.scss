@@ -1,15 +1,10 @@
 .checkout {
-
-  padding-top: toRem(54);
-
+  @include adaptiveValue("padding-top", 54, 28);
   @include adaptiveValue("padding-bottom", 90, 53);
-
-  /* .checkout__container */
-  &__container {}
 
   /* .checkout__title */
   &__title {
-    @include adaptiveValue("margin-bottom", 52, 30);
+    @include adaptiveValue("margin-bottom", 52, 16);
   }
 
   /* .checkout__form */
@@ -17,11 +12,15 @@
     display: grid;
     grid-template-columns: auto 37.939%;
 
-    @include adaptiveValue("gap", 74, 20);
+    @include adaptiveValue("gap", 74, 0);
 
-    @media (max-width: em(1300)) {
+    @media (max-width: toEm(1300)) {
       grid-template-columns: 1fr auto;
+      gap: toRem(20);
+    }
 
+    @media (max-width:$tablet) {
+      grid-template-columns: auto;
     }
   }
 
@@ -36,7 +35,7 @@
 
   /* .form-checkout__title */
   &__title {
-    @include adaptiveValue("margin-bottom", 26, 15);
+    @include adaptiveValue("margin-bottom", 26, 11);
   }
 
   /* .form-checkout__subtitle */
@@ -45,7 +44,7 @@
     font-weight: 600;
     @include adaptiveValue("font-size", 22, 15);
 
-    @include adaptiveValue("margin-bottom", 30, 15);
+    @include adaptiveValue("margin-bottom", 30, 12);
   }
 
   /* .form-checkout__shipping */
@@ -68,17 +67,17 @@
     display: flex;
 
     border: 2px solid #efefef;
-    border-radius: 20px;
     background: #fff;
 
-    @include adaptiveValue("gap", 8, 5);
+    gap: toRem(9);
 
-    @include adaptiveValue("padding-top", 30, 7);
-    @include adaptiveValue("padding-bottom", 30, 13);
+    @include adaptiveValue("padding-top", 30, 5);
+    @include adaptiveValue("padding-bottom", 30, 9);
     @include adaptiveValue("padding-left", 30, 10);
     @include adaptiveValue("padding-right", 30, 25);
 
     @include adaptiveValue("width", 390, 155);
+    @include adaptiveValue("border-radius", 20, 10);
 
     &._tab-active {
       border: 2px solid #28b3b6;
@@ -104,7 +103,7 @@
 
     span {
       display: block;
-
+      text-align: left;
       color: #000;
       @include adaptiveValue("font-size", 20, 13);
 
@@ -190,11 +189,15 @@
   @include adaptiveValue("padding-right", 38, 22);
   @include adaptiveValue("padding-left", 38, 22);
 
+  @media (max-width: toEm(683)){
+     margin-top: toRem(-68); 
+  }
+
   /* .shipping-point__title */
   &__title {
     font-weight: 600;
     @include adaptiveValue("font-size", 24, 15);
-    @include adaptiveValue("margin-bottom", 11, 10);
+    @include adaptiveValue("margin-bottom", 11, 5);
   }
 
   /* .shipping-point__text */
@@ -205,7 +208,7 @@
     @include adaptiveValue("font-size", 16, 13);
 
     &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 15, 12);
+      @include adaptiveValue("margin-bottom", 15, 9);
     }
 
     span {
@@ -233,8 +236,6 @@
 
   /* .shipping-point__button */
   &__button {
-
-    margin-top: toRem(10);
     gap: toRem(6);
 
     background-color: $secondaryColor;
@@ -247,6 +248,7 @@
     @include adaptiveValue("font-size", 17, 14);
     @include adaptiveValue ("padding-left", 26, 14);
     @include adaptiveValue ("padding-right", 26, 14);
+    @include adaptiveValue("margin-top", 10, 3);
 
 
     @media (any-hover: hover) {
@@ -378,6 +380,8 @@
 
   border-bottom: 1px solid #f3f3f3;
 
+  @include adaptiveValue("gap", 20, 5);
+
   &:not(:first-child) {
     padding-top: toRem(22);
   }
@@ -394,8 +398,14 @@
     overflow: hidden;
     aspect-ratio: 108 / 108;
     width: toRem(108);
+    @include adaptiveValue("width", 108, 43);
+
+    @media (max-width:$tablet) {
+      max-width: toRem(108);
+    }
 
     img {
+      padding: toRem(10);
       max-width: 100%;
       object-fit: cover;
       height: auto;
@@ -410,12 +420,17 @@
 
   /* .item-total__delete */
   &__delete {
-    // justify-self: end;
     margin-left: auto;
+    align-self: flex-start;
+
+    @media (min-width:toEm(1140)) {
+      margin-top: toRem(-38);
+    }
   }
 
   /* .item-total__name */
   &__name {
+    display: flex;
     font-weight: 600;
     @include adaptiveValue("font-size", 20, 13);
 

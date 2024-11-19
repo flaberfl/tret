@@ -59,7 +59,7 @@
 		&-express {
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			
+
 			@include adaptiveValue("margin-bottom", 40, 20);
 			@include adaptiveValue("column-gap", 20, 10);
 			@include adaptiveValue("row-gap", 12, 10);
@@ -123,6 +123,12 @@
 
 		&_geo {
 			@include adaptiveValue("margin-bottom", 43, 20);
+		}
+
+		&_geo {
+			.form-checkout & {
+				@include adaptiveValue("margin-bottom", 43, 16);
+			}
 		}
 
 	}
