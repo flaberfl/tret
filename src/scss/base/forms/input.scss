@@ -28,12 +28,18 @@ textarea {
 	&._form-error {
 		border: 1px solid #d42023;
 		color: #d42023;
-	
+
 
 		.input::placeholder {
 			display: none;
 		}
 
+	}
+
+	&_40 {
+		@include adaptiveValue("height", 60, 40);
+		@include adaptiveValue("font-size", 14, 14);
+		@include adaptiveValue("padding-left", 24, 15);
 	}
 }
 

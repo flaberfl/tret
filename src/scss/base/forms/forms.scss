@@ -40,12 +40,37 @@
 
 			.form__line {
 				grid-column: span 2;
+
+				@media (max-width:$mobile) {
+					grid-column: span 3;
+				}
+			}
+
+			.form__line_patronymic {
+				@media (max-width:$mobile) {
+					grid-column: span 6;
+				}
+
+				@media (max-width: toEm(560)) {
+					grid-column: span 3;
+				}
 			}
 
 			.form__line_mail,
 			.form__line_tel {
 				grid-column: span 3;
+
+				@media (max-width:$mobile) {
+					grid-column: span 3;
+				}
 			}
+
+			.form__line_mail {
+				@media (max-width: toEm(560)) {
+					grid-column: span 6;
+				}
+			}
+
 
 			.form__line_textarea {
 				grid-column: span 6;

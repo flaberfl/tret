@@ -189,8 +189,8 @@
   @include adaptiveValue("padding-right", 38, 22);
   @include adaptiveValue("padding-left", 38, 22);
 
-  @media (max-width: toEm(683)){
-     margin-top: toRem(-68); 
+  @media (max-width: toEm(683)) {
+    margin-top: toRem(-68);
   }
 
   /* .shipping-point__title */
@@ -402,6 +402,10 @@
 
     @media (max-width:$tablet) {
       max-width: toRem(108);
+    }
+
+    @media (max-width:$mobileSmall) {
+      display: none;
     }
 
     img {
