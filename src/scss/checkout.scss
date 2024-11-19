@@ -1,6 +1,6 @@
 .checkout {
   @include adaptiveValue("padding-top", 54, 28);
-  @include adaptiveValue("padding-bottom", 90, 53);
+  @include adaptiveValue("padding-bottom", 90, 32);
 
   /* .checkout__title */
   &__title {
@@ -21,6 +21,7 @@
 
     @media (max-width:$tablet) {
       grid-template-columns: auto;
+      gap: toRem(28);
     }
   }
 
@@ -35,7 +36,7 @@
 
   /* .form-checkout__title */
   &__title {
-    @include adaptiveValue("margin-bottom", 26, 11);
+    @include adaptiveValue("margin-bottom", 26, 15);
   }
 
   /* .form-checkout__subtitle */
@@ -265,26 +266,34 @@
   box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.04);
   background: #f6f9f9;
 
-  @include adaptiveValue("padding-top", 47, 28);
-  @include adaptiveValue("padding-bottom", 47, 53);
-  @include adaptiveValue("padding-left", 47, 20);
+  @include adaptiveValue("padding-top", 47, 24);
+  @include adaptiveValue("padding-bottom", 47, 15);
+  @include adaptiveValue("padding-left", 47, 18);
   @include adaptiveValue("padding-right", 47, 20);
+
+  @media (max-width:$mobileSmall) {
+    border-radius: 0;
+
+    margin-left: toRem(-20);
+    margin-right: toRem(-20);
+  }
 
   /* .total-checkout__title */
   &__title {
     font-weight: 700;
 
     @include adaptiveValue("font-size", 37, 17);
-    @include adaptiveValue("margin-bottom", 21, 14);
+    @include adaptiveValue("margin-bottom", 21, 12);
   }
 
   /* .total-checkout__progress-bar */
   &__progress-bar {
-    margin-bottom: toRem(16);
     width: 100%;
     height: 5px;
     background-color: #F3F3F3;
     border-radius: toRem(20);
+
+    @include adaptiveValue("margin-bottom", 16, 9);
 
     @media (max-width:$mobile) {
       height: 3px;
@@ -308,7 +317,7 @@
     font-size: toRem(15);
     color: $subColor;
 
-    @include adaptiveValue("margin-bottom", 33, 26);
+    @include adaptiveValue("margin-bottom", 33, 24);
 
     span {
       color: #000;
@@ -340,7 +349,7 @@
     backdrop-filter: blur(9px);
     background: #fff;
     @include adaptiveValue("height", 52, 40);
-    @include adaptiveValue("margin-bottom", 60, 30);
+    @include adaptiveValue("margin-bottom", 60, 27);
   }
 
   /* .total-checkout__input */
@@ -376,14 +385,14 @@
   display: flex;
   align-items: center;
   gap: toRem(20);
-  padding-bottom: toRem(24);
 
   border-bottom: 1px solid #f3f3f3;
 
   @include adaptiveValue("gap", 20, 5);
+  @include adaptiveValue("padding-bottom", 24, 11);
 
   &:not(:first-child) {
-    padding-top: toRem(22);
+    @include adaptiveValue("padding-top", 22, 9);
   }
 
   /* .item-total__img */
@@ -438,7 +447,7 @@
     font-weight: 600;
     @include adaptiveValue("font-size", 20, 13);
 
-    @include adaptiveValue("margin-bottom", 17, 12);
+    @include adaptiveValue("margin-bottom", 17, 7);
   }
 
   /* .item-total__variant */
@@ -487,29 +496,13 @@
   }
 }
 
-.quantity {
-
-  /* .quantity__button */
-  &__button {}
-
-  /* .quantity__button--minus */
-  &__button--minus {}
-
-  /* .quantity__input */
-  &__input {}
-
-  /* .quantity__button--plus */
-  &__button--plus {}
-}
-
 .all-total {
 
   /* .all-total__list */
   &__list {
     display: grid;
-
-    @include adaptiveValue("gap", 13, 10);
-    @include adaptiveValue("margin-bottom", 38, 30);
+    @include adaptiveValue("gap", 13, 12);
+    @include adaptiveValue("margin-bottom", 38, 28);
   }
 
   /* .all-total__item */
@@ -535,7 +528,7 @@
     align-items: center;
     justify-content: space-between;
 
-    @include adaptiveValue("margin-bottom", 23, 19);
+    @include adaptiveValue("margin-bottom", 23, 17);
   }
 
   /* .all-total__name-total */
@@ -559,11 +552,16 @@
     @include adaptiveValue("padding-left", 32, 22);
     @include adaptiveValue("padding-right", 32, 22);
     @include adaptiveValue("height", 52, 42);
-    @include adaptiveValue("margin-bottom", 18, 14);
+    @include adaptiveValue("margin-bottom", 18, 2);
+
+    @include adaptiveValue("font-size", 16, 13);
   }
 
   /* .all-total__dolyami */
-  &__dolyami {}
+  &__dolyami {
+    background-color: #fff;
+    margin-bottom: toRem(0);
+  }
 }
 
 .boxberry_map {

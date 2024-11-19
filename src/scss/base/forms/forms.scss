@@ -44,6 +44,24 @@
 				@media (max-width:$mobile) {
 					grid-column: span 3;
 				}
+
+				@media (max-width:$mobileSmall) {
+					grid-column: span 6;
+
+				}
+
+				textarea {
+					@include adaptiveValue("border-radius", 23, 10);
+
+					&::placeholder {
+						@include adaptiveValue("font-size", 17, 14);
+					}
+
+					@media (max-width:$mobile) {
+						padding-left: 15px;
+						padding-top: 12px;
+					}
+				}
 			}
 
 			.form__line_patronymic {
@@ -51,7 +69,7 @@
 					grid-column: span 6;
 				}
 
-				@media (max-width: toEm(560)) {
+				@media (min-width:$mobileSmall) and (max-width: toEm(560)) {
 					grid-column: span 3;
 				}
 			}
@@ -62,6 +80,10 @@
 
 				@media (max-width:$mobile) {
 					grid-column: span 3;
+				}
+
+				@media (max-width:$mobileSmall) {
+					grid-column: span 6;
 				}
 			}
 

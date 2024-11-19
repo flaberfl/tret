@@ -39,10 +39,6 @@
 .title-h4 {
   font-weight: 700;
   @include adaptiveValue("font-size", 29, 15);
-
-  @media (max-width:$mobile) {
-    font-weight: 600;
-  }
 }
 
 .info-title {

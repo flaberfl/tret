@@ -15,6 +15,10 @@
 
 		.item-total & {
 			height: toRem(26);
+
+			@media (max-width:$mobileSmall){
+				 width: toRem(95); 
+			}
 		}
 
 		.geo-icon & {
@@ -34,7 +38,6 @@
 
 				}
 			}
-
 		}
 	}
 
@@ -138,6 +141,11 @@
 		.item-total & {
 			height: toRem(26);
 			padding-right: toRem(3);
+
+			@media (max-width:$mobile) {
+				padding: 0 toRem(10);
+				padding-right: toRem(0);
+			}
 		}
 
 		.personal__form & {
