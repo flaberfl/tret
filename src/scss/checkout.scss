@@ -339,7 +339,16 @@
     border: 1px solid #28b3b6;
     border-radius: 50px;
 
+    transition: all 0.3s;
+
     @include adaptiveValue("width", 183, 135);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $secondaryColor;
+        color: #fff;
+      }
+    }
   }
 }
 
