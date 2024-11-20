@@ -1,19 +1,6 @@
 .catalog {
-  position: relative;
   @include adaptiveValue("padding-top", 54, 30);
   @include adaptiveValue("padding-bottom", 99, 41);
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/catalog/back.jpg") center 0 no-repeat;
-    // background-size: cover;
-    opacity: .1;
-    z-index: -1;
-  }
 
   &__header {
     position: relative;

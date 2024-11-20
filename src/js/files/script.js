@@ -184,7 +184,7 @@ for (let i = 0; i < deliveryMetod.length; i++) {
 
 
 
-// // Получаем элемент с классом body
+// // // Получаем элемент с классом body
 // const btnsSide = document.querySelector('.side-buttons');
 
 // // Определяем функцию, которая будет вызываться при прокрутке страницы
