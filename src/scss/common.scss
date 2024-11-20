@@ -262,10 +262,18 @@ i {
   }
 }
 
+.back-image-section {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
 
-
-
-
+    opacity: .11;
+    z-index: -1;
+  }
+}
 
 
 // .product-item__type {

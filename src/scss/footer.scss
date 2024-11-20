@@ -1,6 +1,5 @@
 .footer {
   position: relative;
-  padding-top: toRem(89);
   @include adaptiveValue("padding-top", 89, 70);
 
   &::before {

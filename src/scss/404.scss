@@ -1,0 +1,39 @@
+.page404 {
+  padding-top: toRem(80);
+  padding-bottom: toRem(60);
+  @include adaptiveValue("padding-top", 80, 40);
+
+  &::before {
+    background: url('@img/404.jpg') center 0 no-repeat;
+    background-size: cover;
+    opacity: .05;
+  }
+
+
+  /* .404__container */
+  &__container {
+    text-align: center;
+  }
+
+  /* .404__title */
+  &__title {
+    @include adaptiveValue("margin-bottom", 21, 15);
+    @include adaptiveValue("font-size", 62, 35);
+  }
+
+  /* .404__text */
+  &__text {
+    margin-bottom: toRem(23);
+  }
+
+  /* .404__buttons */
+  &__buttons {
+    display: grid;
+    justify-content: center;
+    gap: toRem(10);
+
+    &>* {
+      padding: 0 toRem(50);
+    }
+  }
+}
