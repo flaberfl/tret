@@ -290,3 +290,10 @@ i {
 .block {
   height: toRem(400);
 }
+
+.circle-df {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}

@@ -9,7 +9,8 @@ body::after {
 	opacity: 0;
 	transition: opacity 0.8s ease 0s;
 	pointer-events: none;
-	z-index: 149;
+	// z-index: 149;
+	z-index: 600;
 }
 
 .popup-show body::after {
@@ -29,7 +30,8 @@ body::after {
 }
 
 .popup_show {
-	z-index: 150;
+	// z-index: 150;
+	z-index: 601;
 	visibility: visible;
 	overflow: auto;
 	pointer-events: auto;
@@ -56,14 +58,19 @@ body::after {
 	visibility: hidden;
 	transform: scale(0);
 	transition: transform 0.3s ease 0s;
-	background-color: #eee;
-	padding: 20px;
+	background-color: #fff;
+	padding: toRem(17);
 	width: 100%;
 	max-width: toRem(700);
-	border-radius: 20px;
+	border-radius: toRem(30);
+
+	@include adaptiveValue("padding-top", 17, 12);
+	@include adaptiveValue("padding-bottom", 17, 12);
+	@include adaptiveValue("padding-left", 17, 12);
+	@include adaptiveValue("padding-right", 17, 12);
 
 	.cart-popup & {
-	border-radius: 0;
+		border-radius: 0;
 	}
 
 	.lock & {
@@ -74,4 +81,19 @@ body::after {
 .popup__close {
 	display: block;
 	margin-left: auto;
+}
+
+.popup__text {
+	padding-bottom: toRem(56);
+
+	&_all {
+		padding-left: toRem(83);
+		padding-right: toRem(83);
+	}
+
+	&_cart {
+		padding-top: toRem(48);
+		padding-left: toRem(53);
+		padding-right: toRem(53);
+	}
 }
