@@ -25,8 +25,16 @@
   &__content {
     max-width: toRem(765);
 
+    opacity: 0;
+    transition: opacity 1s;
+
     @include adaptiveValue("padding-top", 313, 129);
     @include adaptiveValue("padding-bottom", 290, 208);
+
+
+    .swiper-slide-active & {
+      opacity: 1;
+    }
   }
 
   /* .intro__title */

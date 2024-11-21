@@ -17,9 +17,11 @@
   @media (max-width: toEm(600)) {
     grid-template-columns: 1fr 1fr;
     width: 100%;
+    display: none;
   }
 
   &.active {
+    display: grid;
     transform: none;
     opacity: 1;
   }
