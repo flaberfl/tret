@@ -56,7 +56,6 @@
 
 		@include adaptiveValue("height", 70, 50);
 		@include adaptiveValue("gap", 66, 34);
-		// @include adaptiveValue("width", 270, 216);
 
 		@media (max-width:$mobile) {
 			line-height: 371%;
@@ -72,7 +71,6 @@
 
 	&__to-main {
 		height: toRem(52);
-		// padding: 0 toRem(50);
 
 		border: 1px solid #28b3b6;
 		background: #fff;
@@ -90,7 +88,6 @@
 			}
 		}
 	}
-
 }
 
 .button-wrapper {
@@ -110,10 +107,55 @@
 	@include adaptiveValue("padding-left", 44, 15);
 	@include adaptiveValue("padding-right", 44, 15);
 
+	.contact-social & {
+		gap: toRem(10);
+		padding: toRem(0);
+		padding-right: toRem(24);
+		height: toRem(46);
+
+		font-size: toRem(15);
+		font-weight: 600;
+		border: none;
+	}
+
+	.button__telegram & {
+		background: #ecf9ff;
+		color: #2da4d7;
+	}
+
+	.button__whatsapp & {
+		background: #deffea;
+		color: #25d366;
+	}
+
+	.button__email & {
+		background: #fff;
+		color: #28b3b6;
+	}
+
+	&__icon {
+		width: toRem(54);
+		height: toRem(46);
+		border-radius: toRem(50);
+		margin-right: auto;
+
+		.button__telegram & {
+			background: linear-gradient(203deg, #37aee2 0%, #1e96c8 100%);
+		}
+
+		.button__whatsapp & {
+			background: #25d366;
+		}
+
+		.button__email & {
+			background: #28b3b6;
+		}
+
+	}
+
 	&__add {
 		display: none;
 
-		// line-height: 139%;
 		background-color: $secondaryColor;
 		font-weight: 600;
 		color: #fff;
@@ -139,6 +181,21 @@
 	@media (max-width: toEm(580)) {
 		svg {
 			display: none;
+		}
+	}
+}
+
+.contact-social__button {
+	transition: all 0.5s;
+	// width: toRem(163);
+
+	&.active {
+		.button-wrapper__null {
+			display: none;
+		}
+
+		.button-wrapper__add {
+			display: flex;
 		}
 	}
 }

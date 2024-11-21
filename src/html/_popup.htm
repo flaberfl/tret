@@ -457,6 +457,141 @@
 </div>
 
 
+<!-- Консультация -->
+
+<div id="help-popup" aria-hidden="true" class="popup help-popup other-popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M17.75 10.25L10.25 17.75M10.25 10.25L17.75 17.75M26.5 14C26.5 20.9036 20.9036 26.5 14 26.5C7.09644 26.5 1.5 20.9036 1.5 14C1.5 7.09644 7.09644 1.5 14 1.5C20.9036 1.5 26.5 7.09644 26.5 14Z"
+						stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</button>
+			<div class="popup__text popup__text_promo">
+				<h3 class="popup__title popup__title_help">Нужна консультация?</h3>
+				<p class="help-popup__text">Заполните форму ниже и мы свяжемся с Вами в ближайшее время</p>
+
+				<form action="" class="form help-popup__form">
+					<div class="form__line form__line_fio">
+						<input autocomplete="off" type="text" name="form[]" data-validate data-error="Ошибка данных"
+							placeholder="Ваше имя" class="input form__input">
+						<input autocomplete="off" type="text" name="form[]" data-validate data-error="Ошибка данных"
+							placeholder="Телефон для связи" class="input form__input">
+						<input data-required="email" type="mail" name="form[]" data-validate data-error="Ошибка данных"
+							placeholder="E-mail" class="input form__input">
+					</div>
+					<div class="form__line">
+						<textarea autocomplete="off" name="form[]" placeholder="Вопрос или комментарий" data-error="Ошибка"
+							class="input"></textarea>
+					</div>
+
+					<div class="help-popup__contact contact-social">
+						<h4 class="contact-social__title">Как с Вами связаться?</h4>
+						<div class="contact-social__wrapper">
+
+							<button type="submit" class="contact-social__button button2 button__telegram">
+
+								<div class="button-wrapper button-wrapper__null">
+									<div class="button-wrapper__icon circle-df">
+										<svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_1_2196)">
+												<path
+													d="M8.25573 10.8958L17.6704 18.7992C17.7792 18.8911 17.9112 18.9544 18.0534 18.9829C18.1956 19.0114 18.3432 19.0042 18.4815 18.9618C18.6199 18.9195 18.7444 18.8436 18.8427 18.7415C18.941 18.6394 19.0098 18.5146 19.0423 18.3795L22.9799 1.97328C23.0129 1.83198 23.0051 1.68479 22.9573 1.54741C22.9095 1.41003 22.8235 1.28761 22.7084 1.19323C22.5934 1.09886 22.4536 1.03606 22.3041 1.01154C22.1545 0.987031 22.0008 1.00172 21.8594 1.05405L2.52733 8.29797C1.75237 8.58773 1.8571 9.66682 2.67394 9.82669L8.25573 10.8958Z"
+													stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M8 11L22 1" stroke="white" stroke-width="2" stroke-linecap="round"
+													stroke-linejoin="round" />
+												<path
+													d="M11 14.7832L8.91537 17.7714C8.841 17.8797 8.74585 17.9538 8.64203 17.9843C8.5382 18.0149 8.43038 18.0005 8.33227 17.943C8.23416 17.8855 8.15019 17.7875 8.09103 17.6615C8.03186 17.5354 8.00018 17.387 8 17.2351V11"
+													stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+											<defs>
+												<clipPath id="clip0_1_2196">
+													<rect width="24" height="20" fill="white" />
+												</clipPath>
+											</defs>
+										</svg>
+
+									</div>
+									в Telegram
+								</div>
+								<div class="button-wrapper button-wrapper__add">
+									<div class="button-wrapper__icon circle-df">
+										<svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M18 2L7 13L2 8" stroke="white" stroke-width="3" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+									</div>
+									Выбран
+								</div>
+							</button>
+
+							<button type="submit" class="contact-social__button button2 button__whatsapp">
+
+								<div class="button-wrapper button-wrapper__null">
+									<div class="button-wrapper__icon circle-df">
+										<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M11.0461 21.9159H11.0415C9.20823 21.9152 7.40683 21.4552 5.80688 20.5825L0 22.1058L1.55402 16.4296C0.595424 14.7683 0.0910168 12.8839 0.0918388 10.9533C0.0942418 4.9137 5.00821 0 11.046 0C13.9763 0.0012647 16.7266 1.14203 18.7947 3.21257C20.8628 5.283 22.0012 8.0351 22 10.962C21.9976 17.0002 17.0856 21.9134 11.0461 21.9159ZM6.07602 18.5995L6.40848 18.7968C7.80635 19.6263 9.40872 20.0652 11.0425 20.0659H11.0461C16.0643 20.0659 20.1486 15.9815 20.1506 10.9613C20.1515 8.52852 19.2054 6.24109 17.4865 4.52014C15.7675 2.79919 13.4816 1.85098 11.0497 1.85013C6.02771 1.85013 1.94339 5.93408 1.9414 10.9539C1.94069 12.6743 2.42204 14.3497 3.33342 15.7992L3.54989 16.1437L2.63013 19.5034L6.07602 18.5995ZM16.1899 13.3203C16.3808 13.4125 16.5097 13.4748 16.5647 13.5667C16.6331 13.6808 16.6331 14.2289 16.4051 14.8683C16.177 15.5076 15.0835 16.0911 14.5576 16.1697C14.0861 16.2402 13.4894 16.2696 12.8337 16.0612C12.4362 15.9351 11.9264 15.7667 11.2734 15.4847C8.70746 14.3767 6.97343 11.8898 6.6457 11.4198C6.62275 11.3868 6.60669 11.3638 6.59773 11.3519L6.59552 11.3489C6.45067 11.1556 5.48013 9.8607 5.48013 8.52049C5.48013 7.25974 6.09943 6.59892 6.38449 6.29474C6.40402 6.2739 6.42199 6.25474 6.43807 6.23717C6.68895 5.96315 6.98549 5.89464 7.16794 5.89464C7.35039 5.89464 7.53305 5.89633 7.69252 5.90434C7.7122 5.90533 7.73267 5.90521 7.75383 5.90508C7.91333 5.90415 8.11218 5.90298 8.30834 6.37418C8.38381 6.55552 8.49424 6.82437 8.61071 7.10793C8.84623 7.6813 9.10644 8.31478 9.15222 8.40646C9.22066 8.54347 9.26626 8.70324 9.17503 8.88599C9.16134 8.91339 9.14867 8.93925 9.13657 8.96396C9.06805 9.10385 9.01764 9.20676 8.90134 9.34255C8.85561 9.39594 8.80835 9.45351 8.76108 9.51106C8.66692 9.62574 8.57276 9.74041 8.49078 9.82209C8.35375 9.95857 8.21112 10.1066 8.37078 10.3807C8.53043 10.6547 9.07974 11.5509 9.89341 12.2767C10.7681 13.0569 11.5283 13.3866 11.9136 13.5538C11.9888 13.5864 12.0498 13.6128 12.0945 13.6352C12.3681 13.7723 12.5278 13.7493 12.6874 13.5667C12.8471 13.3841 13.3716 12.7675 13.5541 12.4935C13.7365 12.2196 13.919 12.2652 14.1699 12.3565C14.4208 12.448 15.7665 13.11 16.0402 13.247C16.0936 13.2738 16.1436 13.2979 16.1899 13.3203Z"
+												fill="#FDFDFD" />
+										</svg>
+
+									</div>
+									в WhatsApp
+								</div>
+								<div class="button-wrapper button-wrapper__add">
+									<div class="button-wrapper__icon circle-df">
+										<svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M18 2L7 13L2 8" stroke="white" stroke-width="3" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+									</div>
+									Выбран
+								</div>
+							</button>
+
+							<button type="submit" class="contact-social__button button2 button__email">
+
+								<div class="button-wrapper button-wrapper__null">
+									<div class="button-wrapper__icon circle-df">
+										<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M19.7085 16.5L13.6192 11M8.38111 11L2.29186 16.5M1.8335 6.41663L9.318 11.6558C9.92408 12.08 10.2271 12.2922 10.5567 12.3743C10.8479 12.4469 11.1524 12.4469 11.4436 12.3743C11.7732 12.2922 12.0762 12.08 12.6823 11.6558L20.1668 6.41663M6.2335 18.3333H15.7668C17.307 18.3333 18.077 18.3333 18.6653 18.0336C19.1827 17.7699 19.6034 17.3492 19.8671 16.8318C20.1668 16.2435 20.1668 15.4734 20.1668 13.9333V8.06663C20.1668 6.52648 20.1668 5.75641 19.8671 5.16815C19.6034 4.65071 19.1827 4.23001 18.6653 3.96636C18.077 3.66663 17.307 3.66663 15.7668 3.66663H6.2335C4.69335 3.66663 3.92328 3.66663 3.33502 3.96636C2.81758 4.23001 2.39688 4.65071 2.13323 5.16815C1.8335 5.75641 1.8335 6.52648 1.8335 8.06663V13.9333C1.8335 15.4734 1.8335 16.2435 2.13323 16.8318C2.39688 17.3492 2.81758 17.7699 3.33502 18.0336C3.92328 18.3333 4.69335 18.3333 6.2335 18.3333Z"
+												stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</div>
+									по E-mail
+								</div>
+								<div class="button-wrapper button-wrapper__add">
+									<div class="button-wrapper__icon circle-df">
+										<svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M18 2L7 13L2 8" stroke="white" stroke-width="3" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+									</div>
+									Выбран
+								</div>
+							</button>
+
+						</div>
+					</div>
+
+
+					<div class="form__line form__line_bottom">
+						<button type="submit" class="form__button callback-cooperation__button button">Отправить</button>
+						<p class="form__policy">Нажимая на кнопку, Вы даете согласие на обработку персональных данных в
+							соответсвии с <a href="">политикой конфиденциальности сайта</a></p>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 
 
@@ -466,3 +601,4 @@
 
 
 <!-- <a href="" data-popup="#thanks-signup"></a> -->
+<a href="" data-popup="#help-popup"></a>

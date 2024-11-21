@@ -83,6 +83,13 @@ for (let i = 0; i < addToBasket.length; i++) {
   }
 }
 
+let addSocial = document.getElementsByClassName('contact-social__button');
+for (let i = 0; i < addSocial.length; i++) {
+  addSocial[i].onclick = function () {
+    this.classList.toggle('active');
+  }
+}
+
 let deliveryMetod = document.getElementsByClassName('shipping-checkout__item-list');
 for (let i = 0; i < deliveryMetod.length; i++) {
   deliveryMetod[i].onclick = function () {

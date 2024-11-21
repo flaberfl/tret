@@ -74,6 +74,19 @@ body::after {
 		border-radius: 0;
 	}
 
+	.other-popup & {
+		min-height: toRem(630);
+
+		border-radius: toRem(50);
+
+		background: #ededed;
+
+
+		@include adaptiveValue("padding-top", 22, 12);
+		@include adaptiveValue("padding-bottom", 22, 12);
+
+	}
+
 	.lock & {
 		visibility: visible;
 	}
@@ -97,14 +110,11 @@ body::after {
 .popup__text {
 	text-align: center;
 
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	min-height: 582px;
 	justify-content: center;
-
-
 
 	padding-bottom: toRem(56);
 	padding-top: toRem(18);
@@ -113,7 +123,7 @@ body::after {
 	@include adaptiveValue("padding-right", 83, 0);
 
 
-	&_sign {
+	&_promo {
 		// height: toRem();
 	}
 
