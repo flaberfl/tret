@@ -102,7 +102,6 @@ body::after {
 	flex-direction: column;
 	align-items: center;
 	min-height: 582px;
-	max-height: 780px;
 	justify-content: center;
 
 
@@ -158,9 +157,14 @@ body::after {
 	&_thanks-signup {
 		margin-bottom: toRem(26);
 	}
+
+	&_signup {
+		@include adaptiveValue("margin-bottom", 40, 28);
+	}
 }
 
 .popup__form {
+	width: 100%;
 
 	&_tel {}
 }
@@ -179,6 +183,10 @@ body::after {
 	&_pass {
 		margin-bottom: toRem(20);
 	}
+
+	.popup__form__lines & {
+		height: toRem(60);
+	}
 }
 
 .popup__button,
@@ -190,6 +198,7 @@ body::after {
 .popup__button {
 	border: 1px solid $secondaryColor;
 	margin-bottom: toRem(17);
+	color: $secondaryColor;
 
 	transition: all 0.3s;
 
@@ -214,6 +223,10 @@ body::after {
 	border-radius: toRem(50);
 
 	font-size: toRem(14);
+
+	.signup-popup & {
+		margin-bottom: toRem(22);
+	}
 }
 
 .popup__link {
@@ -234,4 +247,30 @@ body::after {
 .popup__text-send {
 	font-size: toRem(17);
 	color: $subColor;
+}
+
+.popup__form__lines {
+	display: grid;
+	@include adaptiveValue("gap", 14, 10);
+	@include adaptiveValue("margin-bottom", 40, 29);
+}
+
+.popup__form__line {
+	&>* {
+		margin-bottom: 0;
+	}
+}
+
+.popup__policy {
+	margin-bottom: toRem(50);
+
+	font-size: toRem(13);
+	font-weight: 350;
+	line-height: 131%;
+	color: #999;
+
+	a {
+		color: $secondaryColor;
+		text-decoration: underline;
+	}
 }

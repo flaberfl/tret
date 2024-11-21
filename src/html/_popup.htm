@@ -336,6 +336,7 @@
 </div>
 
 
+<!-- Письмо отправлено -->
 
 <div id="thanks-signup" aria-hidden="true" class="popup thanks-signup">
 	<div class="popup__wrapper">
@@ -366,4 +367,102 @@
 </div>
 
 
-<a href="" data-popup="#thanks-signup"></a>
+<!-- Регистрация -->
+
+<div id="signup-popup" aria-hidden="true" class="popup signup-popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M17.75 10.25L10.25 17.75M10.25 10.25L17.75 17.75M26.5 14C26.5 20.9036 20.9036 26.5 14 26.5C7.09644 26.5 1.5 20.9036 1.5 14C1.5 7.09644 7.09644 1.5 14 1.5C20.9036 1.5 26.5 7.09644 26.5 14Z"
+						stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</button>
+			<div class="popup__text">
+				<h3 class="popup__title popup__title_signup">Регистрация
+				</h3>
+
+				<form class="form popup__form popup__form_signup" action="">
+
+					<div class="popup__form__lines">
+
+						<div class="popup__form__line">
+							<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="E-mail"
+								class="input popup__input popup__input_mail">
+						</div>
+
+						<div class="popup__form__line">
+							<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Пароль"
+								class="input popup__input popup__input_pass">
+						</div>
+
+						<div class="popup__form__line">
+							<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Подтвердите пароль"
+								class="input popup__input popup__input_pass-end">
+						</div>
+
+						<div class="popup__form__line">
+							<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Телефон"
+								class="input popup__input popup__input_tel">
+						</div>
+
+						<div class="popup__form__line">
+							<input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Имя"
+								class="input popup__input popup__input_name">
+						</div>
+
+					</div>
+
+					<button type="submit" class="button popup__button">Зарегистрироваться</button>
+
+					<a href="" class="popup__sign-google"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<g clip-path="url(#clip0_1_2298)">
+								<path
+									d="M21.7381 11.206C21.7381 10.3047 21.6649 9.64693 21.5067 8.96484H11.2144V13.033H17.2557C17.1339 14.044 16.4762 15.5665 15.0146 16.5896L14.9941 16.7258L18.2483 19.2468L18.4738 19.2693C20.5444 17.357 21.7381 14.5434 21.7381 11.206Z"
+									fill="#4285F4" />
+								<path
+									d="M11.2143 21.9245C14.1741 21.9245 16.6588 20.95 18.4737 19.2692L15.0145 16.5895C14.0889 17.2351 12.8464 17.6857 11.2143 17.6857C8.31545 17.6857 5.85506 15.7735 4.978 13.1304L4.84944 13.1413L1.46564 15.76L1.42139 15.8831C3.22404 19.464 6.92684 21.9245 11.2143 21.9245Z"
+									fill="#34A853" />
+								<path
+									d="M4.97784 13.1301C4.74642 12.448 4.61249 11.7171 4.61249 10.962C4.61249 10.2068 4.74642 9.47597 4.96566 8.79389L4.95953 8.64862L1.53333 5.98779L1.42123 6.04111C0.678266 7.52712 0.251953 9.19585 0.251953 10.962C0.251953 12.7281 0.678266 14.3967 1.42123 15.8828L4.97784 13.1301Z"
+									fill="#FBBC05" />
+								<path
+									d="M11.2143 4.23869C13.2728 4.23869 14.6613 5.12785 15.453 5.87089L18.5468 2.85018C16.6467 1.08405 14.1741 0 11.2143 0C6.92684 0 3.22404 2.46039 1.42139 6.04135L4.96582 8.79412C5.85506 6.15102 8.31545 4.23869 11.2143 4.23869Z"
+									fill="#EB4335" />
+							</g>
+							<defs>
+								<clipPath id="clip0_1_2298">
+									<rect width="22" height="22" fill="white" />
+								</clipPath>
+							</defs>
+						</svg>
+						Войти с помощью аккаунта Google
+					</a>
+
+					<p class="popup__policy">
+						Нажимая кнопку ”Зарегистрироваться”, Вы даете информированное <a href="#!">согласие на обработку своих
+							персональных
+							данных</a>
+					</p>
+
+					<a href="#!" data-popup="#tel-popup" class="popup__link">Войдите с помощью телефона <br> или электронной
+						почты
+					</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <a href="" data-popup="#thanks-signup"></a> -->
