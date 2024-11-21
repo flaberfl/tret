@@ -62,8 +62,9 @@ body::after {
 	padding: toRem(17);
 	width: 100%;
 	max-width: toRem(700);
-	border-radius: toRem(30);
+	min-height: toRem(629);
 
+	@include adaptiveValue("border-radius", 30, 0);
 	@include adaptiveValue("padding-top", 17, 12);
 	@include adaptiveValue("padding-bottom", 17, 12);
 	@include adaptiveValue("padding-left", 17, 12);
@@ -96,11 +97,21 @@ body::after {
 .popup__text {
 	text-align: center;
 
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 582px;
+	max-height: 780px;
+	justify-content: center;
+
+
+
 	padding-bottom: toRem(56);
 	padding-top: toRem(18);
-	padding-bottom: toRem(73);
-	@include adaptiveValue("padding-left", 83, 11);
-	@include adaptiveValue("padding-right", 83, 11);
+	// padding-bottom: toRem(73);
+	@include adaptiveValue("padding-left", 83, 0);
+	@include adaptiveValue("padding-right", 83, 0);
 
 
 	&_sign {
@@ -139,6 +150,14 @@ body::after {
 	&_tel {
 		@include adaptiveValue("margin-bottom", 74, 96);
 	}
+
+	&_mail {
+		@include adaptiveValue("margin-bottom", 36, 49);
+	}
+
+	&_thanks-signup {
+		margin-bottom: toRem(26);
+	}
 }
 
 .popup__form {
@@ -151,6 +170,14 @@ body::after {
 
 	&_tel {
 		margin-bottom: toRem(72);
+	}
+
+	&_mail {
+		@include adaptiveValue("margin-bottom", 14, 10);
+	}
+
+	&_pass {
+		margin-bottom: toRem(20);
 	}
 }
 
@@ -192,4 +219,19 @@ body::after {
 .popup__link {
 	font-weight: 600;
 	text-decoration: underline;
+}
+
+.popup__recovery-link {
+	display: block;
+
+	font-size: toRem(15);
+	font-weight: 350;
+	text-decoration: underline;
+
+	@include adaptiveValue("margin-bottom", 36, 49);
+}
+
+.popup__text-send {
+	font-size: toRem(17);
+	color: $subColor;
 }
