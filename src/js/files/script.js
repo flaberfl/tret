@@ -191,21 +191,21 @@ for (let i = 0; i < deliveryMetod.length; i++) {
 
 
 
-// // // Получаем элемент с классом body
-// const btnsSide = document.querySelector('.side-buttons');
+// // Получаем элемент с классом body
+const btnsSide = document.querySelector('.side-buttons');
 
-// // Определяем функцию, которая будет вызываться при прокрутке страницы
-// function addActiveClass() {
-//   // Проверяем, проскролили ли мы страницу на 400px сверху
-//   if (window.scrollY >= 200) {
-//     // Если да, то добавляем класс active
-//     console.log(scrollY);
-//     btnsSide.classList.add('active');
-//   } else {
-//     // Иначе удаляем класс active, если он уже есть
-//     btnsSide.classList.remove('active');
-//   }
-// }
+// Определяем функцию, которая будет вызываться при прокрутке страницы
+function addActiveClass() {
+  // Проверяем, проскролили ли мы страницу на 400px сверху
+  if (window.scrollY >= 200) {
+    // Если да, то добавляем класс active
+    // console.log(scrollY);
+    btnsSide.classList.add('active');
+  } else {
+    // Иначе удаляем класс active, если он уже есть
+    btnsSide.classList.remove('active');
+  }
+}
 
-// // Добавляем обработчик события прокрутки
-// window.addEventListener('scroll', addActiveClass);
+// Добавляем обработчик события прокрутки
+window.addEventListener('scroll', addActiveClass);

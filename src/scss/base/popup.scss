@@ -146,6 +146,7 @@ body::after {
 		padding-top: toRem(48);
 		padding-left: toRem(53);
 		padding-right: toRem(53);
+		display: block;
 
 		@include adaptiveValue("padding-top", 48, 0);
 		@include adaptiveValue("padding-left", 53, 17);
