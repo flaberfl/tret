@@ -62,7 +62,8 @@
 		._select-open & {
 			.filter & {
 				color: inherit;
-				border: none;
+				// border: none;
+				border: 1px solid #e2e2e2;
 			}
 
 			.item-total & {
@@ -251,7 +252,6 @@
 		.item-total & {
 			padding: 0px 0px 0px 0px;
 			border-radius: 0 0 toRem(16) toRem(16);
-
 		}
 	}
 
@@ -299,13 +299,11 @@
 			}
 		}
 
-
 		.item-total & {
 
 			padding-top: toRem(10);
 			padding-bottom: toRem(10);
 		}
-
 
 		&._select-selected {
 			// background-color: #eee;
