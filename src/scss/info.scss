@@ -26,7 +26,7 @@
       line-height: 136%;
     }
 
-    &:hover{
+    &:hover {
       color: red;
     }
   }
@@ -80,6 +80,17 @@
     border-radius: toRem(50);
 
   }
+}
+
+.info-block-back {
+  position: absolute;
+  top: toRem(20);
+  right: toRem(20);
+
+  @media (max-width:$mobile) {
+    display: none;
+  }
+
 }
 
 .payment-methods {
@@ -138,7 +149,7 @@
     }
 
     @media (max-width:$tablet) {
-      flex: 0 1 49%;
+      flex: 0 1 100%;
     }
 
     @media (max-width:$mobile) {
@@ -226,6 +237,7 @@
 
   /* .delivery-methods__items */
   &__items {
+    position: relative;
     width: 100%;
     display: inline-flex;
     align-items: center;
@@ -362,6 +374,7 @@
 
   /* .refund__text */
   &__text {
+    position: relative;
     @include adaptiveValue("margin-bottom", 23, 16);
   }
 
