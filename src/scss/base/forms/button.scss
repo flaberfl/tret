@@ -58,7 +58,6 @@
 		@include adaptiveValue("gap", 66, 34);
 		// @include adaptiveValue("width", 270, 216);
 
-
 		@media (max-width:$mobile) {
 			line-height: 371%;
 			color: #fff;

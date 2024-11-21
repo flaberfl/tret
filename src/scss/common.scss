@@ -298,3 +298,27 @@ i {
   align-items: center;
   border-radius: 50%;
 }
+
+
+.swiper-slide {
+  transition: opacity 2s;
+
+  .intro__wrapper & {
+    opacity: 0.9;
+    // visibility: hidden;
+  }
+}
+
+.swiper-slide-active {
+  .intro__wrapper & {
+    opacity: 1;
+    // visibility: visible;
+  }
+}
+
+.intro__slide {
+
+  .swiper-slide-active {
+    opacity: 1;
+  }
+}

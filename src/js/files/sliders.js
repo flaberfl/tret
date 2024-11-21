@@ -39,33 +39,39 @@ function initSliders() {
 			slidesPerView: 1,
 			spaceBetween: 0,
 			// effect: "fade",
-			//autoHeight: true,
-			speed: 800,
-			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
+			// autoHeight: true,
+			// speed: 800,
+			speed: 10,
+			allowTouchMove: false,
+			// effect: 'cube',
+			// fadeEffect: {
+			// 	crossFade: true
+			// },
+
+			// direction: {
+			// 	vertical: true
+			// },
 
 			// allowTouchMove:false,
+			preventInteractionOnTransition: true,
 
 			// slidesPerGroup: 1,
 			// watchSlidesProgress: true,
 
 
-			//touchRatio: 0,
-			//simulateTouch: false,
-			//loop: true,
+			// touchRatio: 0,
+			// simulateTouch: false,
+			// loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
-			/*
+
 			// Эффекты
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
+			// autoplay: {
+			// 	delay: 8000,
+			// 	disableOnInteraction: false,
+			// },
+
 
 			// Пагинация
 

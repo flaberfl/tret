@@ -60,18 +60,15 @@
 
   /* .intro__button */
   &__button {
-    display: block;
-    display: flex;
-    align-items: center;
-    // gap: toRem(66);
-    // height: toRem(70);
-    // width: toRem(270);
+    // display: flex;
+    // align-items: center;
     padding: 0 toRem(30);
-    border-radius: toRem(50);
+    // border-radius: toRem(50);
+    transition: all 0.3s;
 
     font-weight: 700;
     color: #fff;
-    line-height: 300%;
+    // line-height: 300%;
     text-transform: uppercase;
 
     background-color: $secondaryColor;
@@ -83,10 +80,7 @@
     @include adaptiveValue("width", 270, 216);
 
     @media (max-width:$mobile) {
-      // height: toRem(50);
-      // width: toRem(216);
-
-      line-height: 371%;
+      // line-height: 371%;
       color: #fff;
     }
 
@@ -126,7 +120,18 @@
     }
 
     svg {
+      transition: all 0.3s;
       @include adaptiveValue("width", 27, 17);
+
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        svg {
+          width: toRem(20);
+          transform: translate(0px, 10px);
+        }
+      }
     }
   }
 
