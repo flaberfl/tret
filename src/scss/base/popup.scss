@@ -27,6 +27,7 @@ body::after {
 	transition: visibility 0.8s ease 0s;
 	visibility: hidden;
 	pointer-events: none;
+	// overscroll-behavior: contain;
 }
 
 .popup_show {
@@ -39,6 +40,7 @@ body::after {
 
 .popup_show .popup__content {
 	visibility: visible;
+	opacity: 1; // Тоже новое свойство
 	transform: scale(1);
 }
 
@@ -56,8 +58,11 @@ body::after {
 
 .popup__content {
 	visibility: hidden;
-	transform: scale(0);
-	transition: transform 0.3s ease 0s;
+	// transform: scale(0);
+	transform: scale(0.6);
+	opacity: 0; // Тоже новое свойство
+	// transition: transform 0.3s ease 0s;
+	transition: all 0.6s ease 0s;
 	background-color: #fff;
 	width: 100%;
 	max-width: toRem(700);
