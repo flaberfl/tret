@@ -1,5 +1,4 @@
 .sidebar {
-  // max-width: toRem(372);
   @include adaptiveValue("width", 372, 320);
 
   &__body {
@@ -43,7 +42,6 @@
       color: $secondaryColor;
       font-weight: 600;
 
-
       a {
         cursor: auto;
         pointer-events: none;
@@ -51,7 +49,6 @@
 
       svg {
         filter: brightness(0) saturate(100%) invert(57%) sepia(52%) saturate(576%) hue-rotate(132deg) brightness(94%) contrast(90%);
-
       }
     }
   }
@@ -74,8 +71,8 @@
 
     transition: 0.3s;
 
-    @media (any-hover: hover){
-      &:hover{
+    @media (any-hover: hover) {
+      &:hover {
         color: $secondaryColor;
 
         svg {
