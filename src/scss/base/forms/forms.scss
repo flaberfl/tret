@@ -208,6 +208,26 @@
 	&__error {}
 }
 
+
+._dark ._form-focus .form-search__button {
+	svg {
+		path {
+			stroke: #000 !important;
+		}
+	}
+}
+
+._dark ._form-focus .form-search__button {
+	svg {
+		path {
+			stroke: #000 !important;
+			opacity: .5;
+		}
+	}
+}
+
+
+
 //</FORM>
 
 // <BUTTONS>

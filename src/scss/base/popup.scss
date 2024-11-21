@@ -89,6 +89,11 @@ body::after {
 		&::before {
 			background: url('@img/popup-promo.jpg') 0 0 no-repeat;
 		}
+
+	}
+
+	.send-popup & {
+		min-height: toRem(284);
 	}
 
 	.lock & {
@@ -126,6 +131,11 @@ body::after {
 	@include adaptiveValue("padding-left", 83, 0);
 	@include adaptiveValue("padding-right", 83, 0);
 
+
+
+	&_promocode {
+		min-height: 0;
+	}
 
 	&_promo {
 		@include adaptiveValue("padding-left", 47, 0);
@@ -189,6 +199,22 @@ body::after {
 
 		@media (max-width:$mobile) {
 			line-height: 106%;
+		}
+	}
+
+	&_promocode {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 54, 31);
+
+		@include adaptiveValue("margin-bottom", 35, 26);
+
+		span {
+			color: $secondaryColor;
+			@include adaptiveValue("font-size", 47, 31);
+		}
+
+		i {
+			@include adaptiveValue("font-size", 42, 31);
 		}
 	}
 }
@@ -335,11 +361,6 @@ body::after {
 	}
 }
 
-.help-popup {
-
-	/* .help-popup__contact */
-	&__contact {}
-}
 
 .contact-social {
 	display: grid;
@@ -383,5 +404,21 @@ body::after {
 	/* .contact-social__button */
 	&__button {
 		padding-right: toRem(0);
+	}
+}
+
+.promocode-popup__button {
+	white-space: nowrap;
+}
+
+.form__policy {
+	.other-popup & {
+		text-align: left;
+	}
+}
+
+.send-popup {
+	&__button {
+		margin-right: auto;
 	}
 }
