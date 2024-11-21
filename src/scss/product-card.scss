@@ -270,6 +270,10 @@
   @include adaptiveValue("width", 390, 320);
   @include adaptiveValue("margin-bottom", 41, 30);
 
+  .cart-popup & {
+    @include adaptiveValue("width", 390, 287);
+  }
+
   span {
 
     &:last-child {

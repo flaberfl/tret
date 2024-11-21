@@ -81,19 +81,115 @@ body::after {
 .popup__close {
 	display: block;
 	margin-left: auto;
+
+	@media (any-hover: hover) {
+		&:hover {
+			svg {
+				path {
+					stroke: $secondaryColor;
+				}
+			}
+		}
+	}
 }
 
 .popup__text {
-	padding-bottom: toRem(56);
+	text-align: center;
 
-	&_all {
-		padding-left: toRem(83);
-		padding-right: toRem(83);
+	padding-bottom: toRem(56);
+	padding-top: toRem(18);
+	padding-bottom: toRem(73);
+	@include adaptiveValue("padding-left", 83, 11);
+	@include adaptiveValue("padding-right", 83, 11);
+
+
+	&_sign {
+		// height: toRem();
 	}
 
 	&_cart {
 		padding-top: toRem(48);
 		padding-left: toRem(53);
 		padding-right: toRem(53);
+
+		@include adaptiveValue("padding-top", 48, 0);
+		@include adaptiveValue("padding-left", 53, 17);
+		@include adaptiveValue("padding-right", 53, 17);
+		@include adaptiveValue("padding-bottom", 57, 17);
 	}
+}
+
+.popup__title {
+	font-weight: 600;
+	color: #000;
+	line-height: 122%;
+	@include adaptiveValue("font-size", 32, 26);
+
+	span {
+		cursor: pointer;
+		color: $secondaryColor;
+		text-decoration: underline;
+	}
+
+	@media (max-width:$mobile) {
+		line-height: 115%;
+	}
+
+
+	&_tel {
+		@include adaptiveValue("margin-bottom", 74, 96);
+	}
+}
+
+.popup__form {
+
+	&_tel {}
+}
+
+.popup__input {
+	@include adaptiveValue("height", 52, 60);
+
+	&_tel {
+		margin-bottom: toRem(72);
+	}
+}
+
+.popup__button,
+.popup__sign-google {
+	height: toRem(52);
+	width: toRem(303);
+}
+
+.popup__button {
+	border: 1px solid $secondaryColor;
+	margin-bottom: toRem(17);
+
+	transition: all 0.3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $secondaryColor;
+			color: #fff;
+		}
+	}
+}
+
+.popup__sign-google {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: toRem(9);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: toRem(52);
+
+	border: 1px solid #000;
+	border-radius: toRem(50);
+
+	font-size: toRem(14);
+}
+
+.popup__link {
+	font-weight: 600;
+	text-decoration: underline;
 }

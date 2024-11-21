@@ -86,7 +86,7 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: #000;
+				background-color: $secondaryColor;
 				color: #fff;
 			}
 		}

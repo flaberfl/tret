@@ -540,11 +540,15 @@
     @include adaptiveValue("margin-bottom", 18, 2);
 
     @include adaptiveValue("font-size", 16, 13);
+
+    .cart-popup & {
+      height: toRem(52);
+    }
   }
 
   /* .all-total__dolyami */
   &__dolyami {
-    background-color: #fff;
+    // background-color: #fff;
     margin-bottom: toRem(0);
   }
 }
