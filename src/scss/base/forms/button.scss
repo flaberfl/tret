@@ -107,15 +107,27 @@
 	@include adaptiveValue("padding-left", 44, 15);
 	@include adaptiveValue("padding-right", 44, 15);
 
+	span {
+		display: block;
+		margin-right: auto;
+
+		@media (max-width: toEm(599)) {
+			display: none;
+		}
+	}
+
 	.contact-social & {
-		gap: toRem(10);
 		padding: toRem(0);
-		padding-right: toRem(24);
 		height: toRem(46);
 
 		font-size: toRem(15);
 		font-weight: 600;
 		border: none;
+
+		@media (min-width:toEm(600)) {
+			padding-right: toRem(24);
+		}
+
 	}
 
 	.button__telegram & {
@@ -134,7 +146,8 @@
 	}
 
 	&__icon {
-		width: toRem(54);
+		// width: toRem(54);
+		flex: 0 0 toRem(54);
 		height: toRem(46);
 		border-radius: toRem(50);
 		margin-right: auto;
@@ -150,7 +163,6 @@
 		.button__email & {
 			background: #28b3b6;
 		}
-
 	}
 
 	&__add {
@@ -181,13 +193,18 @@
 	@media (max-width: toEm(580)) {
 		svg {
 			display: none;
+
+			.contact-social__box & {
+				display: block;
+			}
 		}
 	}
 }
 
 .contact-social__button {
 	transition: all 0.5s;
-	// width: toRem(163);
+	// width: toRem(175);
+	width: 100%;
 
 	&.active {
 		.button-wrapper__null {

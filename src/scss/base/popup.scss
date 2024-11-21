@@ -59,7 +59,6 @@ body::after {
 	transform: scale(0);
 	transition: transform 0.3s ease 0s;
 	background-color: #fff;
-	padding: toRem(17);
 	width: 100%;
 	max-width: toRem(700);
 	min-height: toRem(629);
@@ -76,15 +75,20 @@ body::after {
 
 	.other-popup & {
 		min-height: toRem(630);
+		max-width: toRem(853);
+		position: relative;
 
-		border-radius: toRem(50);
 
 		background: #ededed;
-
+		box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.09);
+		@include adaptiveValue("border-radius", 50, 0);
 
 		@include adaptiveValue("padding-top", 22, 12);
 		@include adaptiveValue("padding-bottom", 22, 12);
 
+		&::before {
+			background: url('@img/popup-promo.jpg') 0 0 no-repeat;
+		}
 	}
 
 	.lock & {
@@ -124,7 +128,8 @@ body::after {
 
 
 	&_promo {
-		// height: toRem();
+		@include adaptiveValue("padding-left", 47, 0);
+		@include adaptiveValue("padding-right", 47, 0);
 	}
 
 	&_cart {
@@ -170,6 +175,21 @@ body::after {
 
 	&_signup {
 		@include adaptiveValue("margin-bottom", 40, 28);
+	}
+
+	&_promo {
+		align-self: flex-start;
+		text-align: left;
+
+		font-weight: 700;
+		line-height: 100%;
+		@include adaptiveValue("font-size", 42, 31);
+
+		@include adaptiveValue("margin-bottom", 36, 22);
+
+		@media (max-width:$mobile) {
+			line-height: 106%;
+		}
 	}
 }
 
@@ -282,5 +302,86 @@ body::after {
 	a {
 		color: $secondaryColor;
 		text-decoration: underline;
+	}
+}
+
+.help-popup {
+
+	&__form-line {
+		align-self: flex-start;
+		@include adaptiveValue("margin-bottom", 35, 30);
+	}
+
+	.input {
+		height: toRem(60);
+
+		border: 1px solid #ececec;
+		backdrop-filter: blur(9px);
+		background: rgba(255, 255, 255, 0.6);
+	}
+
+	textarea.input {
+		min-height: toRem(195);
+	}
+
+	&__text {
+		align-self: flex-start;
+		text-align: left;
+
+		color: $subColor;
+		@include adaptiveValue("font-size", 20, 17);
+
+		@include adaptiveValue("margin-bottom", 38, 23);
+	}
+}
+
+.help-popup {
+
+	/* .help-popup__contact */
+	&__contact {}
+}
+
+.contact-social {
+	display: grid;
+	justify-content: start;
+
+	border-bottom: 1px solid #efefef;
+
+	@include adaptiveValue("padding-bottom", 33, 15);
+
+	/* .contact-social__title */
+	&__title {
+		font-size: toRem(19);
+		text-align: left;
+		font-weight: 600;
+
+		@include adaptiveValue("margin-bottom", 22, 17);
+
+		@media (max-width:$mobile) {
+			font-size: toRem(18);
+		}
+	}
+
+	/* .contact-social__wrapper */
+	&__wrapper {
+		display: flex;
+		gap: toRem(12);
+
+		@media (max-width:$mobile) {
+			gap: toRem(10);
+		}
+	}
+
+	&__box {
+		width: toRem(54);
+
+		@media (min-width:toEm(600)) {
+			width: toRem(175);
+		}
+	}
+
+	/* .contact-social__button */
+	&__button {
+		padding-right: toRem(0);
 	}
 }
