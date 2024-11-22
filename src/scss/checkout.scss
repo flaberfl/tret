@@ -265,7 +265,7 @@
     @include adaptiveValue("margin-bottom", 21, 12);
 
     .cart-popup & {
-    @include adaptiveValue("font-size", 44, 31);
+      @include adaptiveValue("font-size", 44, 31);
     }
 
     span {
@@ -324,6 +324,9 @@
   /* .total-checkout__list */
   &__list {
     margin-bottom: toRem(23);
+    overflow-y: auto;
+
+    max-height: toRem(300);
   }
 
   /* .total-checkout__promocode */
