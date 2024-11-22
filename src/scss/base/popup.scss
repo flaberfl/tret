@@ -82,8 +82,8 @@ body::after {
 		min-height: toRem(630);
 		max-width: toRem(853);
 		position: relative;
-
-
+		overflow: hidden;
+	
 		background: #ededed;
 		box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.09);
 		@include adaptiveValue("border-radius", 50, 0);
