@@ -94,7 +94,6 @@ body::after {
 		&::before {
 			background: url('@img/popup-promo.jpg') 0 0 no-repeat;
 		}
-
 	}
 
 	.send-popup & {
@@ -127,16 +126,14 @@ body::after {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: 582px;
+	min-height: toRem(582);
 	justify-content: center;
 
 	padding-bottom: toRem(56);
 	padding-top: toRem(18);
-	// padding-bottom: toRem(73);
+
 	@include adaptiveValue("padding-left", 83, 0);
 	@include adaptiveValue("padding-right", 83, 0);
-
-
 
 	&_promocode {
 		min-height: 0;
@@ -148,9 +145,6 @@ body::after {
 	}
 
 	&_cart {
-		padding-top: toRem(48);
-		padding-left: toRem(53);
-		padding-right: toRem(53);
 		display: block;
 
 		@include adaptiveValue("padding-top", 48, 0);
@@ -175,7 +169,6 @@ body::after {
 	@media (max-width:$mobile) {
 		line-height: 115%;
 	}
-
 
 	&_tel {
 		@include adaptiveValue("margin-bottom", 74, 96);
@@ -227,8 +220,6 @@ body::after {
 
 .popup__form {
 	width: 100%;
-
-	&_tel {}
 }
 
 .popup__input {
@@ -338,7 +329,6 @@ body::after {
 }
 
 .help-popup {
-
 	&__form-line {
 		align-self: flex-start;
 		@include adaptiveValue("margin-bottom", 35, 30);
@@ -366,7 +356,6 @@ body::after {
 		@include adaptiveValue("margin-bottom", 38, 23);
 	}
 }
-
 
 .contact-social {
 	display: grid;
