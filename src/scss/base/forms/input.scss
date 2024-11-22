@@ -59,7 +59,8 @@ textarea {
 }
 
 
-.input[placeholder]:not([data-placeholder-nohiden]) {
+.input[placeholder]:not([data-placeholder-nohiden]),
+.header__input[placeholder]:not([data-placeholder-nohiden]) {
 	&::placeholder {
 		transition: opacity 0.3s;
 	}
