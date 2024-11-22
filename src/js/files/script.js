@@ -44,12 +44,6 @@ document.querySelector('.filter-category__nav')?.addEventListener('click', (even
 // }
 
 
-
-
-
-
-
-
 // Добавление и удаления класса по клику
 
 
@@ -60,21 +54,6 @@ for (let i = 0; i < block.length; i++) {
   }
 }
 
-
-// let sizeValue = document.querySelectorAll('.product-item__size-value');
-// for (let i = 0; i < sizeValue.length; i++) {
-//   sizeValue[i].onclick = function () {
-//     this.classList.toggle('active');
-//   }
-// }
-
-// sizeValue.forEach(item => {
-//   item.addEventListener('click', (e) => {
-//     console.log(sizeValue);
-//     sizeValue.forEach(el => { el.classList.remove('active'); });
-//     item.classList.add('active');
-//   })
-// })
 
 let addToBasket = document.getElementsByClassName('button__basket');
 for (let i = 0; i < addToBasket.length; i++) {
@@ -96,99 +75,6 @@ for (let i = 0; i < deliveryMetod.length; i++) {
     this.classList.toggle('active');
   }
 }
-
-
-
-
-// let dataList = {};
-// fetch('https://api.hh.ru/areas/7').then(response => {
-//   return response.json()
-// }).then(
-//   json => {
-//     dataList = json;
-//     json.areas.forEach(area => {
-//       var opt = document.createElement('option');
-//       opt.value = area.id;
-//       opt.innerHTML = area.name;
-//       billing_area.appendChild(opt);
-//     }
-//     );
-//   }
-// );
-
-
-// billing_area.addEventListener('change', () => {
-
-//   billing_city.innerHTML = '';
-//   dataList.areas.filter(item => item.id == billing_area.options[billing_area.selectedIndex].value)[0].areas.forEach(
-//     area => {
-//       var opt = document.createElement('option');
-//       opt.value = area.id;
-//       opt.innerHTML = area.name;
-//       billing_city.appendChild(opt);
-//     }
-//   )
-
-// });
-
-
-
-
-
-
-
-
-
-
-
-// Добавление и удаления класса по клику
-// Выбор блока по ID
-
-// let block = document.getElementById("favorite-id");
-
-//   block.onclick = function () {
-//     console.log('Fci');
-//     this.classList.toggle('active');
-//   }
-
-
-// Повяление кнопок при скролле страниццы
-
-// let btnsSide = document.querySelector('.side-buttons')
-// //
-// function magic() {
-//   if (window.pageYOffset > 100) {
-//     btnsSide.style.display = 'grid'
-//   } else { btnsSide.style.display = 'none' }
-// }
-// //
-// // btnsSide.onclick = function () {
-// //   window.scrollTo(0, 0)
-// // }
-
-// // When scrolling, we run the function
-// window.onscroll = magic
-
-
-
-// window.onscroll = function () {
-//   var scrolled = window.pageYOffset || document.documentElement.scrollTop,
-//     topBtn = document.getElementById('sidebtn');
-//   if (scrolled > 350) {
-//     topBtn.classList.add('active');
-//   }
-//   else { topBtn.classList.remove('active'); }
-// }
-
-// window.onscroll = function () {
-//   let scrolled = window.pageYOffset || document.documentElement.scrollTop,
-//     topBtn = document.getElementById('sidebtn');
-//   if (scrolled > 350) {
-//     topBtn?.classList.add('active');
-//   }
-//   else { topBtn?.classList.remove('active'); }
-// }
-
 
 
 // // Получаем элемент с классом body

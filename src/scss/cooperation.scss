@@ -1,20 +1,10 @@
 .cooperation {
-  position: relative;
   @include adaptiveValue("padding-top", 68, 37);
   @include adaptiveValue("padding-bottom", 101, 56);
 
   &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/cooperation/back.jpg") center 0 no-repeat;
-    background-size: cover;
-    opacity: .11;
-    z-index: -1;
   }
-
 
   /* .cooperation__container */
   &__container {
@@ -23,7 +13,6 @@
 
   /* .cooperation__for-hostel */
   &__for-hostel {
-    // display: grid;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,17 +93,11 @@
   &__callback {
     @include adaptiveValue("margin-bottom", 83, 50);
   }
-
-  /* .cooperation__partners */
-  &__partners {}
 }
 
 
 .callback-cooperation {
-  position: relative;
-
   height: 100%;
-  // padding: toRem(70) toRem(75);
 
   border-radius: toRem(30);
   overflow: hidden;
@@ -129,15 +112,8 @@
   }
 
   &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
     background: url('@img/cooperation/form.jpg') center 0 no-repeat;
     background-size: cover;
-    opacity: .11;
-    z-index: -1;
   }
 
   /* .callback-cooperation__title */
@@ -186,15 +162,6 @@
 
 .form {
 
-  /* .form__line */
-  &__line {}
-
-  /* .form__input */
-  &__input {}
-
-  /* .form__button */
-  &__button {}
-
   /* .form__policy */
   &__policy {
     font-size: toRem(15);
@@ -215,15 +182,11 @@
 
 
 .partners-cooperation {
-
-  padding-bottom: toRem(50);
   @include adaptiveValue("padding-bottom", 50, 30);
 
   &__top-line {
     display: flex;
     align-items: center;
-
-    margin-bottom: toRem(65);
     @include adaptiveValue("margin-bottom", 65, 30);
   }
 
@@ -302,21 +265,3 @@
     }
   }
 }
-
-.swiper-buttons {}
-
-.swiper-button {}
-
-.swiper-button-prev {}
-
-.swiper-button-next {}
-
-.swiper {}
-
-.swiper-wrapper {}
-
-.swiper-slide {}
-
-.partners-cooperation-pagination {}
-
-.slider-pagination {}

@@ -77,7 +77,6 @@
   &__body {
     display: grid;
     grid-template-columns: 1fr 50.6%;
-    // gap: toRem(50);
 
     @include adaptiveValue("column-gap", 50, 0);
 
@@ -198,9 +197,6 @@
     font-weight: 600;
     color: $secondaryColor;
   }
-
-  /* .order__total */
-  &__total {}
 }
 
 .total {
@@ -329,9 +325,3 @@
     }
   }
 }
-
-.order-pagination-left {}
-
-.current {}
-
-.order-pagination-right {}

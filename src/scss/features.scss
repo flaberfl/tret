@@ -1,17 +1,9 @@
 .features {
-  position: relative;
   @include adaptiveValue("padding-top", 92, 45);
   @include adaptiveValue("padding-bottom", 113, 48);
 
   &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
     background: url('@img/features/back.jpg') center center no-repeat;
-    opacity: .11;
-    z-index: -1;
   }
 
   /* .features__list */
@@ -39,7 +31,7 @@
     border-radius: toRem(20);
 
     text-align: center;
-    
+
     @include adaptiveValue("padding-top", 50, 19);
     @include adaptiveValue("padding-bottom", 56, 30);
   }

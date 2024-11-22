@@ -1,17 +1,9 @@
 .about-brand {
-  position: relative;
   @include adaptiveValue("padding-top", 68, 38);
   @include adaptiveValue("padding-bottom", 118, 50);
 
   &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%), url("@img/about-brand/back.jpg") 0 0 no-repeat;
-    opacity: .11;
-    z-index: -1;
   }
 
   /* .about-brand__container */
@@ -21,7 +13,6 @@
       object-fit: cover;
 
       @include adaptiveValue("border-radius", 50, 20);
-
 
       @media (max-width:$mobileSmall) {
         aspect-ratio: 320 / 251;
@@ -35,8 +26,6 @@
 
   &__content {
     max-width: toRem(670);
-    // padding: toRem(53) toRem(60) toRem(70) toRem(40);
-
     margin: 0 auto;
 
     background-color: #fff;
@@ -82,7 +71,6 @@
 
   /* .about-brand__subtitle */
   &__subtitle {
-
     font-size: toRem(18);
     color: #666;
     line-height: 150%;
