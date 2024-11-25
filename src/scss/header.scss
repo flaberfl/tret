@@ -377,6 +377,8 @@
   }
 
   &__item {
+    pointer-events: all;
+
     @media (max-width: em(550)) {
       &:last-child {
         margin-bottom: toRem(35);
@@ -700,4 +702,59 @@
 .basket-num {
   top: toRem(-2);
   right: toRem(-3);
+}
+
+
+// Dropdawn Menu
+
+
+
+
+.menu {
+
+  /* .menu__body */
+  &__body {}
+
+  /* .menu__list */
+  &__list {}
+
+  /* .menu__item */
+  &__item {}
+
+  /* .menu__link */
+  &__link {}
+
+  /* .menu__content */
+  &__content {}
+}
+
+.content-menu {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+
+
+  ._active & {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+
+  /* .content-menu__item */
+  &__item {}
+
+  /* .content-menu__content */
+  &__content {}
+
+  /* .content-menu__column */
+  &__column {}
+
+  /* .content-menu__title */
+  &__title {}
+
+  /* .content-menu__link */
+  &__link {}
+
+  /* .content-menu__img */
+  &__img {}
 }

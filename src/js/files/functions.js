@@ -294,6 +294,7 @@ export function spollers() {
 // Модуль работы с табами =======================================================================================================================================================================================================================
 export function tabs() {
 	const tabs = document.querySelectorAll('[data-tabs]');
+	const tabsHover = document.querySelectorAll('[data-tabs-hover]');
 	let tabsActiveHash = [];
 
 	if (tabs.length > 0) {
@@ -305,6 +306,7 @@ export function tabs() {
 			tabsBlock.classList.add('_tab-init');
 			tabsBlock.setAttribute('data-tabs-index', index);
 			tabsBlock.addEventListener("click", setTabsAction);
+			tabsBlock.addEventListener("mouseover", setTabsAction);
 			initTabs(tabsBlock);
 		});
 
@@ -320,6 +322,22 @@ export function tabs() {
 			});
 		}
 	}
+
+
+	if (tabsHover.length > 0) {
+		const hash = getHash();
+		if (hash && hash.startsWith('tab-')) {
+			tabsActiveHash = hash.replace('tab-', '').split('-');
+		}
+		tabsHover.forEach((tabsBlock, index) => {
+			tabsBlock.classList.add('_tab-init');
+			tabsBlock.setAttribute('data-tabs-index', index);
+			tabsBlock.addEventListener("mouseover", setTabsAction);
+			initTabs(tabsBlock);
+		});
+	}
+
+
 	// Установка позиций заголовков
 	function setTitlePosition(tabsMediaArray, matchMedia) {
 		tabsMediaArray.forEach(tabsMediaItem => {
