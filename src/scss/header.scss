@@ -285,10 +285,10 @@
   // padding: 0 toRem(10); // отступы безопасности
   position: relative;
   z-index: 300;
-  
+
 
   // .menu__body
-  
+
   &__body {
     padding-top: toRem(200);
     position: absolute;
@@ -392,12 +392,32 @@
   }
 
   &__link {
+    position: relative;
     font-size: toRem(22);
     letter-spacing: 0.03em;
+    display: inline-block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: toRem(-20);
+      width: toRem(7);
+      height: toRem(13);
+      top: 37%;
+      // transform: translate(0, -50%);
+
+      background: url('@img/icons/arrow-r.svg') 0 0 no-repeat;
+    }
+
+
 
     @media (any-hover: hover) {
       &:hover {
-        color: $subColor;
+        color: $secondaryColor;
+
+        &::before {
+          filter: brightness(0) saturate(100%) invert(57%) sepia(52%) saturate(576%) hue-rotate(132deg) brightness(94%) contrast(90%);
+        }
       }
     }
   }
