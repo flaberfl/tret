@@ -96,14 +96,74 @@ function addActiveClass() {
 window.addEventListener('scroll', addActiveClass);
 
 
-let menuParents = document.querySelectorAll('.menu__item');
 
-for (let index = 0; index < menuParents.length; index++) {
-  const menuParent = menuParents[index];
-  menuParent.addEventListener('mouseenter', function (e) {
-    menuParent.classList.add('_active');
-  });
-  menuParent.addEventListener('mouseleave', function (e) {
-    menuParent.classList.remove('_active');
-  });
+
+// let menuParents = document.querySelectorAll('.menu__item');
+
+// for (let index = 0; index < menuParents.length; index++) {
+//   const menuParent = menuParents[index];
+//   menuParent.addEventListener('mouseenter', function (e) {
+//     menuParent.classList.add('_active');
+//   });
+//   menuParent.addEventListener('mouseleave', function (e) {
+//     menuParent.classList.remove('_active');
+//   });
+// }
+
+
+
+
+
+
+
+
+
+// var el = document.getElementsByClassName('menu__item');
+
+// for (var i = 0; i < el.length; i++) {
+//   el[i].addEventListener("mouseenter", showSub, false);
+//   el[i].addEventListener("mouseleave", hideSub, false);
+// }
+
+
+// function showSub(e) {
+//   if (this.children.length > 1) {
+//     this.children[1].style.height = "auto";
+//     this.children[1].style.overflow = "visible";
+//     this.children[1].style.opacity = "1";
+//   } else {
+//     return false;
+//   }
+// }
+
+// function hideSub(e) {
+//   if (this.children.length > 1) {
+//     this.children[1].style.height = "0px";
+//     this.children[1].style.overflow = "hidden";
+//     this.children[1].style.opacity = "0";
+//   } else {
+//     return false;
+//   }
+// }
+
+
+
+
+
+
+//menu all category
+function showAllCategory() {
+  let buttonAllCategoryMenu = document.querySelector(".menu__list")
+
+  buttonAllCategoryMenu.addEventListener("mouseover", function (event) {
+    event.target.parentElement.parentElement.classList.add("active")
+  })
+
+  buttonAllCategoryMenu.addEventListener("mouseout", function (event) {
+    if (event.target.parentElement.classList.contains("menu__link")) {
+      event.target.parentElement.parentElement.classList.remove("active")
+    }
+  })
+
 }
+showAllCategory();

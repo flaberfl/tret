@@ -1,9 +1,10 @@
 //====================================================================================================
 .header {
-  z-index: 600;
+  // z-index: 600;
+  // z-index: 900;
   width: 100%;
-  top: 0;
-  left: 0;
+  // top: 0;
+  // left: 0;
   background: $bodyColor;
 
   &__wrapper {
@@ -14,7 +15,8 @@
     left: 0;
     width: 100%;
     transition: all 0.4s;
-    z-index: 30;
+    // z-index: 30;
+    z-index: 900;
 
     box-shadow: 0 9px 54px 0 rgba(0, 0, 0, 0.09);
     background: #fff;
@@ -25,7 +27,6 @@
       box-shadow: none;
       @include adaptiveValue("height", 120, 72);
     }
-
 
     ._header-scroll & {
       transform: translateY(-100%);
@@ -76,12 +77,9 @@
   }
 
   &__logo {
-
     &-light {
-      // display: block;
       @include adaptiveValue("width", 142, 113);
       @include adaptiveValue("height", 60, 47);
-
 
       ._dark & {
         display: none;
@@ -288,20 +286,22 @@
   // .menu__body
 
   &__body {
-    position: absolute;
+    // position: absolute;
     display: flex;
-    max-width: toRem(1400);
+    // max-width: toRem(1650);
     width: 100%;
-    height: 0;
-    left: 50%;
-    top: toRem(120);
-    transform: translate(-50%, 0);
+    // height: 0;
+    // left: 50%;
+    // top: toRem(120);
+    top: 100%;
+    // transform: translate(-100%, 0);
     opacity: 0;
     visibility: hidden;
 
     text-align: center;
     background-color: #fff;
     color: $mainColor;
+    z-index: -1;
 
     transition: all .7s;
 
@@ -309,7 +309,7 @@
       transition: all .7s;
       opacity: 1;
       visibility: visible;
-      z-index: 900;
+      // z-index: 900;
 
 
       @media (min-width:$mobile) {
@@ -619,7 +619,7 @@
   &::before {
     content: '';
     position: absolute;
-    background-color: $subColor;
+    background-color: $secondaryColor;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -629,7 +629,7 @@
   }
 
   .menu-open & {
-    background: $subColor;
+    background: $secondaryColor;
   }
 
   &:hover {
@@ -729,19 +729,21 @@
 }
 
 .content-menu {
-  opacity: 0;
-  visibility: hidden;
-  display: none;
+  // opacity: 0;
+  // visibility: hidden;
+  // display: none;
 
 
-  ._active & {
-    opacity: 1;
-    visibility: visible;
-    display: block;
-  }
+  // ._active & {
+  //   opacity: 1;
+  //   visibility: visible;
+  //   display: block;
+  // }
 
   /* .content-menu__item */
-  &__item {}
+  &__item {
+    display: flex;
+  }
 
   /* .content-menu__content */
   &__content {}
@@ -757,4 +759,13 @@
 
   /* .content-menu__img */
   &__img {}
+}
+
+
+
+.content-menu {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in;
 }
