@@ -793,4 +793,12 @@
   overflow: hidden;
   opacity: 0;
   transition: all 0.5s ease-in;
+
+  display: flex;
+  margin-left: toRem(300);
+
+  .active & {
+    height: auto;
+    opacity: 1;
+  }
 }
