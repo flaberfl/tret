@@ -322,47 +322,30 @@
 
       // z-index: 900;
       // transform: translate(0px,0px);
-
-
-      @media (min-width:$mobile) {
-        // height: toRem(116);
-        // height: auto;
-        // top: toRem(107);
-      }
     }
 
-    // ._header-scroll & {
-    //   @media (min-width:$mobile) {
-    //     top: toRem(92);
+
+    // @media (max-width:$mobile) {
+    //   flex-direction: column;
+    //   align-items: flex-start;
+    //   position: fixed;
+    //   overflow: auto;
+    //   height: 100%;
+    //   top: 0;
+    //   left: 0;
+    //   transform: scale(.7);
+    //   visibility: hidden;
+    //   opacity: 0;
+    //   padding: toRem(45) toRem(20) toRem(35);
+
+    //   .menu-open & {
+    //     transform: scale(1);
+    //     transition: all .7s;
+    //     opacity: 1;
+    //     visibility: visible;
+    //     z-index: 900;
     //   }
     // }
-
-    // @media (min-width:$mobile) {
-    //   justify-content: center;
-    //   align-items: center;
-    // }
-
-    @media (max-width:$mobile) {
-      flex-direction: column;
-      align-items: flex-start;
-      position: fixed;
-      overflow: auto;
-      height: 100%;
-      top: 0;
-      left: 0;
-      transform: scale(.7);
-      visibility: hidden;
-      opacity: 0;
-      padding: toRem(45) toRem(20) toRem(35);
-
-      .menu-open & {
-        transform: scale(1);
-        transition: all .7s;
-        opacity: 1;
-        visibility: visible;
-        z-index: 900;
-      }
-    }
   }
 
   // .menu__list
@@ -395,6 +378,10 @@
     // grid-template-columns: 17% 1fr;
     // max-height: 100%;
 
+    @media (max-width:$tablet) {
+      display: flex;
+    }
+
     &.active {
       .menu__link {
         color: $secondaryColor;
@@ -413,6 +400,12 @@
     letter-spacing: 0.03em;
     display: inline-block;
     z-index: 200;
+
+    @media (max-width:$tablet) {
+      a {
+        pointer-events: none;
+      }
+    }
 
     &::before {
       content: '';
@@ -796,9 +789,17 @@
     overflow: visible;
     height: auto;
     // height: 653px;
+  }
 
-    @media (max-width:$tablet) {
-      flex-direction: column;
+  @media (max-width:$tablet) {
+    left: 100%;
+    flex-direction: column;
+    padding-left: toRem(0);
+    background-color: #fff;
+
+    .active & {
+      left: 0;
+      z-index: 950;
     }
   }
 
@@ -835,6 +836,8 @@
   &__link {
     font-weight: 400;
     color: $subColor;
+
+    pointer-events: all;
   }
 
   /* .content-menu__img */
