@@ -105,9 +105,9 @@ for (let index = 0; index < menuParents.length; index++) {
   menuParent.addEventListener('mouseenter', function (e) {
     menuParent.classList.add('active');
   });
-  menuParent.addEventListener('mouseleave', function (e) {
-    menuParent.classList.remove('active');
-  });
+  // menuParent.addEventListener('mouseleave', function (e) {
+  //   menuParent.classList.remove('active');
+  // });
 }
 
 
