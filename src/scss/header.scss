@@ -844,6 +844,7 @@
     // position: relative;
     max-width: 100%;
     aspect-ratio: 572 / 509;
+    object-fit: cover;
 
     @media (max-width:$tablet) {
       aspect-ratio: 320 / 191;
