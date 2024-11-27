@@ -169,8 +169,8 @@
   }
 
   &__search {
-    @media (max-width:$mobile){
-       margin-bottom: toRem(38); 
+    @media (max-width:$mobile) {
+      margin-bottom: toRem(38);
     }
   }
 
@@ -315,6 +315,10 @@
 
     transition: all .7s;
 
+    @media (max-width:$mobile) {
+      padding-top: toRem(140);
+    }
+
     .menu-open & {
       pointer-events: auto;
       transition: all .7s;
@@ -363,6 +367,10 @@
     // background: #fdfdfd;
     position: relative;
     // width: 280px;
+
+    @media (max-width:$tablet){
+      justify-content: center;
+    }
 
 
     @media (max-width:$mobile) {
@@ -769,7 +777,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding-left: toRem(340);
   transition: all 0.5s ease-in;
 
   @include adaptiveValue("padding-left", 340, 180);

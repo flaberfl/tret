@@ -108,18 +108,18 @@ let menuParents = document.querySelectorAll('.menu__item');
 
 for (let index = 0; index < menuParents.length; index++) {
   const menuParent = menuParents[index];
-  
+
   // При наведении добавляем класс active
-  menuParent.addEventListener('mouseenter', function (e) { 
+  menuParent.addEventListener('mouseenter', function (e) {
     menuParent.classList.add('active');
   });
 
 
   // При нажатии пальцем на пункт меню - добавляем класс active, если он был присвоен - то удаляем
   menuParent.addEventListener('touchend', function (e) {
-    menuParent.classList.add('active');
     activeMenu.forEach((element, i) => {
       element.classList.remove('active');
+      menuParent.classList.add('active');
     })
   });
 
