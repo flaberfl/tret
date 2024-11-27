@@ -118,35 +118,35 @@ window.addEventListener('scroll', addActiveClass);
 
 
 
-// var el = document.getElementsByClassName('menu__item');
+var el = document.getElementsByClassName('menu__item');
 
-// for (var i = 0; i < el.length; i++) {
-//   el[i].addEventListener("mouseenter", showSub, false);
-//   el[i].addEventListener("mouseleave", hideSub, false);
-// }
+for (var i = 0; i < el.length; i++) {
+  el[i].addEventListener("mouseenter", showSub, false);
+  el[i].addEventListener("mouseleave", hideSub, false);
+}
 
 
-// function showSub(e) {
-//   if (this.children.length > 1) {
-//     this.children[1].style.height = "auto";
-//     this.children[1].style.overflow = "visible";
-//     this.children[1].style.opacity = "1";
-//     this.classList.add('active');
-//   } else {
-//     return false;
-//   }
-// }
+function showSub(e) {
+  if (this.children.length > 1) {
+    this.children[1].style.height = "auto";
+    this.children[1].style.overflow = "visible";
+    // this.children[1].style.opacity = "1";
+    this.classList.add('active');
+  } else {
+    return false;
+  }
+}
 
-// function hideSub(e) {
-//   if (this.children.length > 1) {
-//     this.children[1].style.height = "0px";
-//     this.children[1].style.overflow = "hidden";
-//     this.children[1].style.opacity = "0";
-//     this.classList.remove('active');
-//   } else {
-//     return false;
-//   }
-// }
+function hideSub(e) {
+  if (this.children.length > 1) {
+    this.children[1].style.height = "0px";
+    this.children[1].style.overflow = "hidden";
+    // this.children[1].style.opacity = "0.7";
+    this.classList.remove('active');
+  } else {
+    return false;
+  }
+}
 
 
 

@@ -314,8 +314,8 @@
       transition: all .7s;
       opacity: 1;
       visibility: visible;
-      // height: 653px;
-      height: auto;
+      height: 653px;
+      // height: auto;
 
       // z-index: 900;
       // transform: translate(0px,0px);
@@ -757,7 +757,7 @@
   // grid-template-columns: auto auto;
   display: flex;
   justify-content: space-between;
-  gap: toRem(20);
+  gap: toRem(30);
 
   position: absolute;
   // opacity: 0;
