@@ -108,7 +108,7 @@
     }
 
     @media (max-width:$mobile) {
-      margin-left: -19px;
+      // margin-left: -19px;
       margin-top: 10px;
     }
 
@@ -164,6 +164,7 @@
 
     @media (max-width:$tablet) {
       margin-right: toRem(0);
+      gap: toRem(15);
     }
   }
 
@@ -291,6 +292,7 @@
 
   &__body {
     padding-top: toRem(150);
+    padding-bottom: toRem(55);
     position: fixed;
 
     width: 100%;
@@ -314,7 +316,8 @@
       transition: all .7s;
       opacity: 1;
       visibility: visible;
-      height: 653px;
+      // height: 700px;
+      height: 100vh;
       // height: auto;
 
       // z-index: 900;
@@ -368,6 +371,7 @@
     row-gap: toRem(40);
     column-gap: toRem(15);
     align-content: start;
+
     // box-shadow: 0 9px 8px 0 rgba(0, 0, 0, 0.04);
     // background: #fdfdfd;
     position: relative;
@@ -389,6 +393,7 @@
     // display: flex;
     // display: grid;
     // grid-template-columns: 17% 1fr;
+    // max-height: 100%;
 
     &.active {
       .menu__link {
@@ -757,10 +762,13 @@
   // grid-template-columns: auto auto;
   display: flex;
   justify-content: space-between;
-  gap: toRem(30);
-
+  gap: toRem(20);
   position: absolute;
-  // opacity: 0;
+
+  overflow: hidden;
+  opacity: 0;
+  height: 0;
+
   top: 0;
   left: 0;
   width: 100%;
@@ -769,12 +777,30 @@
 
   @include adaptiveValue("padding-left", 340, 180);
 
-
+  // .touch & {
+  //   display: none;
+  //   height: 0;
+  // }
 
 
   // .active & {
-  //   opacity: 1;
+
+  //   .touch & {
+  //     display: flex;
+  //     height: auto;
+  //   }
   // }
+
+  .active & {
+    opacity: 1;
+    overflow: visible;
+    height: auto;
+    // height: 653px;
+
+    @media (max-width:$tablet) {
+      flex-direction: column;
+    }
+  }
 
 
   /* .content-menu__content */
@@ -815,11 +841,19 @@
   &__img {
     overflow: hidden;
     border-radius: toRem(20);
-
+    // position: relative;
+    max-width: 100%;
     aspect-ratio: 572 / 509;
 
-    img {
-      max-width: 100%;
+    @media (max-width:$tablet) {
+      aspect-ratio: 320 / 191;
     }
+
+    // img {
+    //   inset: 0;
+    //   position: absolute;
+    //   // max-width: 100%;
+    //   object-fit: cover;
+    // }
   }
 }

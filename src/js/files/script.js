@@ -96,57 +96,88 @@ function addActiveClass() {
 window.addEventListener('scroll', addActiveClass);
 
 
+// Назначение активной вкладки МЕНЮ
+const activeMenu = document.querySelectorAll('.menu__item-active');
+activeMenu.forEach((element, i) => {
+  element.classList.add('active');
+})
 
 
-// let menuParents = document.querySelectorAll('.menu__item');
 
-// for (let index = 0; index < menuParents.length; index++) {
-//   const menuParent = menuParents[index];
-//   menuParent.addEventListener('mouseenter', function (e) {
-//     menuParent.classList.add('active');
+let menuParents = document.querySelectorAll('.menu__item');
+
+for (let index = 0; index < menuParents.length; index++) {
+  const menuParent = menuParents[index];
+  
+  // При наведении добавляем класс active
+  menuParent.addEventListener('mouseenter', function (e) { 
+    menuParent.classList.add('active');
+  });
+
+
+  // При нажатии пальцем на пункт меню - добавляем класс active, если он был присвоен - то удаляем
+  menuParent.addEventListener('touchend', function (e) {
+    menuParent.classList.add('active');
+    activeMenu.forEach((element, i) => {
+      element.classList.remove('active');
+    })
+  });
+
+
+  // При убирании курсора с пункта меню - добавляем класс active
+  menuParent.addEventListener('mouseleave', function (e) {
+    menuParent.classList.remove('active');
+  });
+
+}
+
+// if (document.querySelector(".wrap-icon-btn-d")) {
+//   document.addEventListener("click", function (e) {
+//     activeMenu.forEach((element, i) => {
+//       element.classList.add('active');
+//     })
 //   });
-//   menuParent.addEventListener('mouseleave', function (e) {
-//     menuParent.classList.remove('active');
-//   });
+// };
+
+
+
+// const activeTabs = document.querySelectorAll('.menu__item-active');
+// activeTabs.forEach((element, i) => {
+//   element.classList.add('active')
+// })
+
+
+
+
+// var el = document.getElementsByClassName('menu__item');
+
+// for (var i = 0; i < el.length; i++) {
+//   el[i].addEventListener("mouseenter", showSub, false);
+//   el[i].addEventListener("mouseleave", hideSub, false);
 // }
 
 
+// function showSub(e) {
+//   if (this.children.length > 1) {
+//     this.children[1].style.height = "auto";
+//     this.children[1].style.overflow = "visible";
+//     this.children[1].style.opacity = "1";
+//     this.classList.add('active');
+//   } else {
+//     return false;
+//   }
+// }
 
-
-
-
-
-
-
-var el = document.getElementsByClassName('menu__item');
-
-for (var i = 0; i < el.length; i++) {
-  el[i].addEventListener("mouseenter", showSub, false);
-  el[i].addEventListener("mouseleave", hideSub, false);
-}
-
-
-function showSub(e) {
-  if (this.children.length > 1) {
-    this.children[1].style.height = "auto";
-    this.children[1].style.overflow = "visible";
-    // this.children[1].style.opacity = "1";
-    this.classList.add('active');
-  } else {
-    return false;
-  }
-}
-
-function hideSub(e) {
-  if (this.children.length > 1) {
-    this.children[1].style.height = "0px";
-    this.children[1].style.overflow = "hidden";
-    // this.children[1].style.opacity = "0.7";
-    this.classList.remove('active');
-  } else {
-    return false;
-  }
-}
+// function hideSub(e) {
+//   if (this.children.length > 1) {
+//     this.children[1].style.height = "0px";
+//     this.children[1].style.overflow = "hidden";
+//     this.children[1].style.opacity = "0";
+//     this.classList.remove('active');
+//   } else {
+//     return false;
+//   }
+// }
 
 
 
@@ -157,11 +188,11 @@ function hideSub(e) {
 // function showAllCategory() {
 //   let buttonAllCategoryMenu = document.querySelector(".menu__list")
 
-//   buttonAllCategoryMenu.addEventListener("mouseover", function (event) {
+//   buttonAllCategoryMenu.addEventListener("mouseenter", function (event) {
 //     event.target.parentElement.parentElement.classList.add("active")
 //   })
 
-//   buttonAllCategoryMenu.addEventListener("mouseout", function (event) {
+//   buttonAllCategoryMenu.addEventListener("mouseleave", function (event) {
 //     if (event.target.parentElement.classList.contains("menu__link")) {
 //       event.target.parentElement.parentElement.classList.remove("active")
 //     }
@@ -169,3 +200,4 @@ function hideSub(e) {
 
 // }
 // showAllCategory();
+
