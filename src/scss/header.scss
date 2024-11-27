@@ -168,7 +168,11 @@
     }
   }
 
-  &__search {}
+  &__search {
+    @media (max-width:$mobile){
+       margin-bottom: toRem(38); 
+    }
+  }
 
   &__form {
     position: relative;
