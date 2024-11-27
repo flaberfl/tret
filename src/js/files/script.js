@@ -131,6 +131,7 @@ window.addEventListener('scroll', addActiveClass);
 //     this.children[1].style.height = "auto";
 //     this.children[1].style.overflow = "visible";
 //     this.children[1].style.opacity = "1";
+//     this.classList.add('active');
 //   } else {
 //     return false;
 //   }
@@ -141,6 +142,7 @@ window.addEventListener('scroll', addActiveClass);
 //     this.children[1].style.height = "0px";
 //     this.children[1].style.overflow = "hidden";
 //     this.children[1].style.opacity = "0";
+//     this.classList.remove('active');
 //   } else {
 //     return false;
 //   }
@@ -152,18 +154,18 @@ window.addEventListener('scroll', addActiveClass);
 
 
 //menu all category
-function showAllCategory() {
-  let buttonAllCategoryMenu = document.querySelector(".menu__item")
+// function showAllCategory() {
+//   let buttonAllCategoryMenu = document.querySelector(".menu__list")
 
-  buttonAllCategoryMenu.addEventListener("mouseover", function (event) {
-    event.target.parentElement.parentElement.classList.add("active")
-  })
+//   buttonAllCategoryMenu.addEventListener("mouseover", function (event) {
+//     event.target.parentElement.parentElement.classList.add("active")
+//   })
 
-  buttonAllCategoryMenu.addEventListener("mouseout", function (event) {
-    if (event.target.parentElement.classList.contains("menu__link")) {
-      event.target.parentElement.parentElement.classList.remove("active")
-    }
-  })
+//   buttonAllCategoryMenu.addEventListener("mouseout", function (event) {
+//     if (event.target.parentElement.classList.contains("menu__link")) {
+//       event.target.parentElement.parentElement.classList.remove("active")
+//     }
+//   })
 
-}
-showAllCategory();
+// }
+// showAllCategory();
