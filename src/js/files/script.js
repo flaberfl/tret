@@ -103,8 +103,7 @@ window.addEventListener('scroll', addActiveClass);
 // })
 
 const outBlock = document.querySelector('.menu__container');
-
-
+const outForm = document.querySelector('.form-search');
 
 let menuParents = document.querySelectorAll('.menu__item');
 
@@ -135,7 +134,12 @@ for (let index = 0; index < menuParents.length; index++) {
     console.log('Закрылась кнопка Вернуться назад');
   });
 
+  outForm.addEventListener('click', function (e) {
+    btnExit.classList.remove('active');
+    console.log('Закрылась кнопка Вернуться назад');
+  });
 
+// Если кликнули за пределами блока
   document.addEventListener('click', (e) => {
     const withinBoundaries = e.composedPath().includes(outBlock);
 
@@ -158,9 +162,9 @@ for (let index = 0; index < menuParents.length; index++) {
   // });
 }
 
-if (window.innerWidth > 991) {
+if (window.innerWidth > 1200) {
 
-  console.log('992');
+  console.log('1200');
 
   //Назначение активной вкладки МЕНЮ
   const activeMenu = document.querySelectorAll('.menu__item-active');
