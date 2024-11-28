@@ -125,7 +125,7 @@ for (let index = 0; index < menuParents.length; index++) {
 
   // При клике на любом из пунктов меню - появляется кнопка "Вернуться назад"
   menuParent.addEventListener('click', function (e) {
-    btnExit.classList.toggle('active');
+    btnExit.classList.add('active');
     console.log('Открылась кнопка Вернуться назад');
   });
 
