@@ -7,6 +7,10 @@
   transition: all .7s;
   opacity: 0;
 
+  .menu-open & {
+    z-index: -1000;
+  }
+
   @media (min-width:toEm(601)) {
     right: -242px;
     @include adaptiveValue("right", -242, -212);
