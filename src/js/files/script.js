@@ -97,10 +97,10 @@ window.addEventListener('scroll', addActiveClass);
 
 
 // Назначение активной вкладки МЕНЮ
-const activeMenu = document.querySelectorAll('.menu__item-active');
-activeMenu.forEach((element, i) => {
-  element.classList.add('active');
-})
+// const activeMenu = document.querySelectorAll('.menu__item-active');
+// activeMenu.forEach((element, i) => {
+//   element.classList.add('active');
+// })
 
 
 
@@ -114,29 +114,42 @@ for (let index = 0; index < menuParents.length; index++) {
     menuParent.classList.add('active');
   });
 
+
   // При убирании курсора с пункта меню - убираем класс active
   menuParent.addEventListener('mouseleave', function (e) {
     menuParent.classList.remove('active');
   });
 
   // При нажатии пальцем на пункт меню - добавляем класс active, если он был присвоен - то удаляем
-  menuParent.addEventListener('click', function (e) {
-    activeMenu.forEach((element, i) => {
-      element.classList.remove('active');
-      // menuParent.classList.add('active');
-      // element.classList.add('active');
-    })
-  });
-
+  // menuParent.addEventListener('click', function (e) {
+  //   activeMenu.forEach((element, i) => {
+  //     element.classList.remove('active');
+  //     // menuParent.classList.add('active');
+  //     // element.classList.add('active');
+  //   })
+  // });
 }
 
-if (document.querySelector(".wrap-icon-btn-d")) {
-  document.addEventListener("click", function (e) {
-    activeMenu.forEach((element, i) => {
-      element.classList.add('active');
-    })
-  });
-};
+if (window.innerWidth > 991) {
+
+  console.log('992');
+
+  //Назначение активной вкладки МЕНЮ
+  const activeMenu = document.querySelectorAll('.menu__item-active');
+  activeMenu.forEach((element, i) => {
+    element.classList.add('active');
+  })
+
+
+  if (document.querySelector(".wrap-icon-btn-d")) {
+    document.addEventListener("click", function (e) {
+      activeMenu.forEach((element, i) => {
+        element.classList.add('active');
+      })
+    });
+  };
+}
+
 
 
 
