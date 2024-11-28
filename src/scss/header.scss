@@ -86,7 +86,8 @@
         display: none;
       }
 
-      ._header-scroll & {
+      ._header-scroll &,
+      .menu-open & {
         display: block;
       }
     }
@@ -108,11 +109,11 @@
     }
 
     @media (max-width:$mobile) {
-      // margin-left: -19px;
       margin-top: 10px;
     }
 
-    ._header-scroll & {
+    ._header-scroll &,
+    .menu-open & {
       &-dark {
         display: none;
       }
@@ -140,7 +141,8 @@
         color: #fff;
       }
 
-      ._header-scroll & {
+      ._header-scroll &,
+      menu-open & {
         color: #000;
       }
 
@@ -191,7 +193,8 @@
       height: toRem(56);
     }
 
-    ._header-scroll & {
+    ._header-scroll &,
+    .menu-open & {
       height: toRem(48);
     }
 
@@ -205,7 +208,8 @@
       line-height: 88%;
       opacity: .5;
 
-      ._header-scroll & {
+      ._header-scroll &,
+      .menu-open & {
         color: $mainColor;
       }
 
@@ -213,7 +217,8 @@
         color: $whiteColor;
       }
 
-      ._header-scroll & {
+      ._header-scroll &,
+      .menu-open & {
         color: $mainColor;
       }
     }
@@ -238,7 +243,8 @@
     border: 1px solid rgba(255, 255, 255, 0.23);
   }
 
-  ._header-scroll & {
+  ._header-scroll &,
+  .menu-open & {
     border: 1px solid rgba(0, 0, 0, 0.23);
   }
 
@@ -271,7 +277,8 @@
       }
     }
 
-    ._header-scroll & {
+    ._header-scroll &,
+    .menu-open & {
       svg {
         g {
           opacity: 1;
@@ -307,9 +314,9 @@
     color: $mainColor;
     overflow-y: scroll;
 
-
-
     transition: all .7s;
+
+    z-index: 10;
 
     @media (max-width:$mobile) {
       padding-top: toRem(140);
@@ -625,6 +632,7 @@
     background-color: #000;
   }
 
+
   &::before {
     content: '';
     position: absolute;
@@ -674,7 +682,8 @@
     }
   }
 
-  ._header-scroll & {
+  ._header-scroll &,
+  .menu-open & {
     svg {
       path {
         stroke: #000;
