@@ -102,15 +102,13 @@ window.addEventListener('scroll', addActiveClass);
 //   element.classList.add('active');
 // })
 
+const outBlock = document.querySelector('.menu__container');
+
 
 
 let menuParents = document.querySelectorAll('.menu__item');
 
-let flag = document.querySelector('.menu__body');
-// menuParents.onclick = function () {
-//   this.classList.toggle('active');
-// }
-
+let btnExit = document.querySelector('.menu__button-back');
 
 for (let index = 0; index < menuParents.length; index++) {
   const menuParent = menuParents[index];
@@ -120,16 +118,35 @@ for (let index = 0; index < menuParents.length; index++) {
     menuParent.classList.add('active');
   });
 
-  menuParent.addEventListener('click', function (e) {
-    flag.classList.add('active');
-    console.log("Ура!");
-  });
-
-
   // При убирании курсора с пункта меню - убираем класс active
   menuParent.addEventListener('mouseleave', function (e) {
     menuParent.classList.remove('active');
   });
+
+  // При клике на любом из пунктов меню - появляется кнопка "Вернуться назад"
+  menuParent.addEventListener('click', function (e) {
+    btnExit.classList.toggle('active');
+    console.log('Открылась кнопка Вернуться назад');
+  });
+
+  // При клике на кнопку - открывается предыдущее меню
+  btnExit.addEventListener('click', function (e) {
+    btnExit.classList.remove('active');
+    console.log('Закрылась кнопка Вернуться назад');
+  });
+
+
+  document.addEventListener('click', (e) => {
+    const withinBoundaries = e.composedPath().includes(outBlock);
+
+    if (!withinBoundaries) {
+      console.log('Клик за элементом');
+      btnExit.classList.remove('active');
+      // div.style.display = 'none'; // скрываем элемент т к клик был за его пределами
+    }
+  })
+
+
 
   // При нажатии пальцем на пункт меню - добавляем класс active, если он был присвоен - то удаляем
   // menuParent.addEventListener('click', function (e) {
@@ -159,6 +176,13 @@ if (window.innerWidth > 991) {
     });
   };
 }
+
+// if (document.querySelector(".wrap-icon-btn")) {
+//   document.addEventListener("click", function (e) {
+//     btnExit.classList.remove('active');
+//     console.log('Ура!!');
+//   });
+// };
 
 
 

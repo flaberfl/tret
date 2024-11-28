@@ -172,7 +172,7 @@
 
   &__search {
     @media (max-width:$mobile) {
-      margin-bottom: toRem(38);
+      margin-bottom: toRem(10);
     }
   }
 
@@ -327,6 +327,10 @@
       pointer-events: auto;
       transition: all .7s;
       opacity: 1;
+
+      // @media (max-width:$tablet) {
+      //   pointer-events: none;
+      // }
     }
   }
 
@@ -403,7 +407,6 @@
       }
     }
 
-
     @media (any-hover: hover) {
       &:hover {
         color: $secondaryColor;
@@ -416,18 +419,28 @@
   }
 
   &__button-back {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: toRem(12);
-
-    font-size: toRem(18);
-    font-weight: 600;
-
     display: none;
 
-    .active & {
-      display: block;
+    transition: all 0.3s;
+
+    @media (max-width:$tablet) {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: toRem(15);
+
+      font-size: toRem(18);
+      font-weight: 600;
+      z-index: -1000;
+      opacity: 0;
+    }
+
+
+    &.active {
+      opacity: 1;
+      z-index: 200;
+      margin-top: toRem(20);
+      margin-bottom: toRem(20);
     }
   }
 }
@@ -756,14 +769,19 @@
   }
 
   @media (max-width:$tablet) {
-    left: 100%;
+    // left: 100%;
     flex-direction: column;
     padding-left: toRem(0);
     padding-bottom: toRem(40);
     background-color: #fff;
+    opacity: 0;
+    z-index: -1000;
+
+    transition: opacity 0.5s;
 
     .active & {
-      left: 0;
+      // left: 0;
+      opacity: 1;
       z-index: 950;
     }
   }
@@ -819,19 +837,14 @@
 
     @media (max-width:$tablet) {
       aspect-ratio: 320 / 191;
-
       max-width: 60%;
       margin: 0 auto;
       order: -1;
-
       @include adaptiveValue("margin-bottom", 50, 30);
     }
 
-    // img {
-    //   inset: 0;
-    //   position: absolute;
-    //   // max-width: 100%;
-    //   object-fit: cover;
-    // }
+    @media (max-width: toEm(680)) {
+      max-width: 100%;
+    }
   }
 }
