@@ -287,10 +287,8 @@
 
 
 .menu {
-  // padding: 0 toRem(10); // отступы безопасности
   position: relative;
   z-index: 300;
-
 
   // .menu__body
 
@@ -302,10 +300,10 @@
     width: 100%;
     pointer-events: none;
     inset: 0;
-    height: 0;
+    // height: 0;
 
     opacity: 0;
-    visibility: hidden;
+    // visibility: hidden;
 
     // text-align: center;
     background-color: #fff;
@@ -323,9 +321,9 @@
       pointer-events: auto;
       transition: all .7s;
       opacity: 1;
-      visibility: visible;
+      // visibility: visible;
       // height: 700px;
-      height: 100vh;
+      // height: 100vh;
       // height: auto;
 
       // z-index: 900;
@@ -368,7 +366,7 @@
     position: relative;
     // width: 280px;
 
-    @media (max-width:$tablet){
+    @media (max-width:$tablet) {
       justify-content: center;
     }
 
@@ -763,8 +761,6 @@
 // Dropdawn Menu
 
 .content-menu {
-  // display: grid;
-  // grid-template-columns: auto auto;
   display: flex;
   justify-content: space-between;
   gap: toRem(20);
@@ -780,20 +776,6 @@
   transition: all 0.5s ease-in;
 
   @include adaptiveValue("padding-left", 340, 180);
-
-  // .touch & {
-  //   display: none;
-  //   height: 0;
-  // }
-
-
-  // .active & {
-
-  //   .touch & {
-  //     display: flex;
-  //     height: auto;
-  //   }
-  // }
 
   .active & {
     opacity: 1;

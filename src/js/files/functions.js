@@ -458,7 +458,7 @@ export function menuClose() {
 export function menuInitDesk() {
 	if (document.querySelector(".wrap-icon-btn-d")) {
 		document.addEventListener("click", function (e) {
-			bodyLockToggle();
+			// bodyLockToggle();
 			if (e.target.closest('.wrap-icon-btn-d')) {
 				document.documentElement.classList.toggle("menu-open");
 			}
@@ -466,13 +466,13 @@ export function menuInitDesk() {
 	};
 }
 export function menuOpenDesk() {
-	bodyLock();
+	// bodyLock();
 
 	document.documentElement.classList.add("menu-open");
 
 }
 export function menuCloseDesk() {
-	bodyUnlock();
+	// bodyUnlock();
 	document.documentElement.classList.remove("menu-open");
 }
 
