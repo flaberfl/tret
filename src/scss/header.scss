@@ -413,18 +413,17 @@
     }
   }
 
-  &__contacts {
+  &__button-back {
+    position: relative;
     display: flex;
     align-items: center;
-    padding-top: toRem(25);
-    gap: toRem(18);
+    gap: toRem(12);
 
-    @media (min-width:em(550)) {
-      display: none;
-    }
+    font-size: toRem(18);
+    font-weight: 600;
+
+    display: none;
   }
-
-  &__content {}
 }
 
 //====================================================================================================
@@ -773,7 +772,7 @@
     @include adaptiveValue("column-gap", 90, 20);
 
 
-    @media (max-width:$tablet){
+    @media (max-width:$tablet) {
       justify-items: center;
     }
   }
