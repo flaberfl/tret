@@ -300,16 +300,15 @@
     width: 100%;
     pointer-events: none;
     inset: 0;
-    // height: 0;
 
     opacity: 0;
-    // visibility: hidden;
 
-    // text-align: center;
     background-color: #fff;
     color: $mainColor;
-    // z-index: 1;
-    overflow: auto;
+    // overflow: auto;
+
+    scrollbar-color: #e04e39 #f0f1f6;
+    scrollbar-width: thin;
 
     transition: all .7s;
 
@@ -317,41 +316,16 @@
       padding-top: toRem(140);
     }
 
+
     .menu-open & {
       pointer-events: auto;
       transition: all .7s;
       opacity: 1;
-      // visibility: visible;
-      // height: 700px;
-      // height: 100vh;
-      // height: auto;
-
-      // z-index: 900;
-      // transform: translate(0px,0px);
     }
+  }
 
-
-    // @media (max-width:$mobile) {
-    //   flex-direction: column;
-    //   align-items: flex-start;
-    //   position: fixed;
-    //   overflow: auto;
-    //   height: 100%;
-    //   top: 0;
-    //   left: 0;
-    //   transform: scale(.7);
-    //   visibility: hidden;
-    //   opacity: 0;
-    //   padding: toRem(45) toRem(20) toRem(35);
-
-    //   .menu-open & {
-    //     transform: scale(1);
-    //     transition: all .7s;
-    //     opacity: 1;
-    //     visibility: visible;
-    //     z-index: 900;
-    //   }
-    // }
+  &__container {
+    width: 100%;
   }
 
   // .menu__list
@@ -361,32 +335,15 @@
     column-gap: toRem(15);
     align-content: start;
 
-    // box-shadow: 0 9px 8px 0 rgba(0, 0, 0, 0.04);
-    // background: #fdfdfd;
     position: relative;
-    // width: 280px;
 
     @media (max-width:$tablet) {
       justify-content: center;
     }
 
-
-    @media (max-width:$mobile) {
-      // flex-direction: column;
-      // align-items: flex-start;
-      // width: 100%;
-    }
-
-    // @media (max-width: em(550)) {
-    //   border-bottom: 1px solid #D9D9D9;
-    // }
   }
 
   &__item {
-    // display: flex;
-    // display: grid;
-    // grid-template-columns: 17% 1fr;
-    // max-height: 100%;
 
     @media (max-width:$tablet) {
       display: flex;
