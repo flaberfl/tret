@@ -369,10 +369,12 @@
 
   &__link {
     position: relative;
-    font-size: toRem(22);
-    letter-spacing: 0.03em;
     display: inline-block;
+
+    font-size: toRem(24);
+    font-weight: 600;
     z-index: 200;
+
 
     @media (max-width:$tablet) {
       a {
@@ -809,6 +811,12 @@
 
     @media (max-width:$tablet) {
       aspect-ratio: 320 / 191;
+
+      max-width: 60%;
+      margin: 0 auto;
+      order: -1;
+
+      @include adaptiveValue("margin-bottom", 50, 30);
     }
 
     // img {
