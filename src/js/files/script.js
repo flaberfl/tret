@@ -130,13 +130,13 @@ for (let index = 0; index < menuParents.length; index++) {
 
 }
 
-// if (document.querySelector(".wrap-icon-btn-d")) {
-//   document.addEventListener("click", function (e) {
-//     activeMenu.forEach((element, i) => {
-//       element.classList.add('active');
-//     })
-//   });
-// };
+if (document.querySelector(".wrap-icon-btn-d")) {
+  document.addEventListener("click", function (e) {
+    activeMenu.forEach((element, i) => {
+      element.classList.add('active');
+    })
+  });
+};
 
 
 

@@ -305,10 +305,9 @@
 
     background-color: #fff;
     color: $mainColor;
-    // overflow: auto;
+    overflow-y: scroll;
 
-    scrollbar-color: #e04e39 #f0f1f6;
-    scrollbar-width: thin;
+
 
     transition: all .7s;
 
