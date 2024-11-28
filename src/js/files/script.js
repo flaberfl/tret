@@ -106,12 +106,23 @@ window.addEventListener('scroll', addActiveClass);
 
 let menuParents = document.querySelectorAll('.menu__item');
 
+let flag = document.querySelector('.menu__body');
+// menuParents.onclick = function () {
+//   this.classList.toggle('active');
+// }
+
+
 for (let index = 0; index < menuParents.length; index++) {
   const menuParent = menuParents[index];
 
   // При наведении добавляем класс active
   menuParent.addEventListener('mouseenter', function (e) {
     menuParent.classList.add('active');
+  });
+
+  menuParent.addEventListener('click', function (e) {
+    flag.classList.add('active');
+    console.log("Ура!");
   });
 
 
@@ -139,7 +150,6 @@ if (window.innerWidth > 991) {
   activeMenu.forEach((element, i) => {
     element.classList.add('active');
   })
-
 
   if (document.querySelector(".wrap-icon-btn-d")) {
     document.addEventListener("click", function (e) {

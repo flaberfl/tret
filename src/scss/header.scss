@@ -346,25 +346,24 @@
     @media (max-width:$tablet) {
       justify-content: center;
     }
-
   }
 
   &__item {
-
     @media (max-width:$tablet) {
       display: flex;
     }
 
-    &.active {
-      .menu__link {
-        color: $secondaryColor;
+    @media (min-width:$tablet) {
+      &.active {
+        .menu__link {
+          color: $secondaryColor;
 
-        &::before {
-          filter: brightness(0) saturate(100%) invert(57%) sepia(52%) saturate(576%) hue-rotate(132deg) brightness(94%) contrast(90%);
+          &::before {
+            filter: brightness(0) saturate(100%) invert(57%) sepia(52%) saturate(576%) hue-rotate(132deg) brightness(94%) contrast(90%);
+          }
         }
       }
     }
-
   }
 
   &__link {
@@ -394,13 +393,16 @@
       background: url('@img/icons/arrow-r.svg') 0 0 no-repeat;
     }
 
-    &.active {
-      color: $secondaryColor;
+    @media (min-width:$tablet) {
+      &.active {
+        color: $secondaryColor;
 
-      &::before {
-        filter: brightness(0) saturate(100%) invert(57%) sepia(52%) saturate(576%) hue-rotate(132deg) brightness(94%) contrast(90%);
+        &::before {
+          filter: brightness(0) saturate(100%) invert(57%) sepia(52%) saturate(576%) hue-rotate(132deg) brightness(94%) contrast(90%);
+        }
       }
     }
+
 
     @media (any-hover: hover) {
       &:hover {
@@ -423,6 +425,10 @@
     font-weight: 600;
 
     display: none;
+
+    .active & {
+      display: block;
+    }
   }
 }
 
@@ -725,7 +731,6 @@
 
 
 // Dropdawn Menu
-
 .content-menu {
   display: flex;
   justify-content: space-between;
