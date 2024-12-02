@@ -9,6 +9,9 @@
 	</div>
 </div> -->
 
+
+<!-- Корзина -->
+
 <div id="cart" aria-hidden="true" class="popup cart-popup">
 	<div class="popup__wrapper">
 
@@ -207,6 +210,74 @@
 					</div>
 
 				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- Избранное -->
+
+<div id="favorite" aria-hidden="true" class="popup favorite-popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M17.75 10.25L10.25 17.75M10.25 10.25L17.75 17.75M26.5 14C26.5 20.9036 20.9036 26.5 14 26.5C7.09644 26.5 1.5 20.9036 1.5 14C1.5 7.09644 7.09644 1.5 14 1.5C20.9036 1.5 26.5 7.09644 26.5 14Z"
+						stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</button>
+			<div class="popup__text popup__text_cart">
+
+				<h4 class="total-checkout__title favorite-popup__title">Избранные товары
+					<!-- <span class="total-checkout__number df-fbc br50">2</span> -->
+				</h4>
+
+				<ul class="total-checkout__list">
+					<div class="total-checkout__item item-total">
+						<div class="item-total__img">
+							<img src="@img/checkout/01.png" alt="Фото товара" class="">
+						</div>
+						<div class="item-total__content">
+
+							<div class="item-total__name">
+								<span>Подушка пухоперьевая «Семейная»</span>
+								<button class="item-total__delete">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M10.6667 3.99992V3.46659C10.6667 2.71985 10.6667 2.34648 10.5213 2.06126C10.3935 1.81038 10.1895 1.60641 9.93865 1.47858C9.65344 1.33325 9.28007 1.33325 8.53333 1.33325H7.46667C6.71993 1.33325 6.34656 1.33325 6.06135 1.47858C5.81046 1.60641 5.60649 1.81038 5.47866 2.06126C5.33333 2.34648 5.33333 2.71985 5.33333 3.46659V3.99992M6.66667 7.66659V10.9999M9.33333 7.66659V10.9999M2 3.99992H14M12.6667 3.99992V11.4666C12.6667 12.5867 12.6667 13.1467 12.4487 13.5746C12.2569 13.9509 11.951 14.2569 11.5746 14.4486C11.1468 14.6666 10.5868 14.6666 9.46667 14.6666H6.53333C5.41323 14.6666 4.85318 14.6666 4.42535 14.4486C4.04903 14.2569 3.74307 13.9509 3.55132 13.5746C3.33333 13.1467 3.33333 12.5867 3.33333 11.4666V3.99992"
+											stroke="#999999" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</button>
+							</div>
+
+							<div class="item-total__variant">
+
+								<div class="product-item__size-value">70х90</div>
+
+
+							</div>
+
+							<div class="item-total__price">
+								<span>2 900</span> ₽
+							</div>
+
+						</div>
+					</div>
+				</ul>
+
+
+				<a href="" data-popup="#tel-popup" class="all-total__button form__button button">продолжить покупки
+					<svg width="27" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M26.7071 8.70711C27.0976 8.31658 27.0976 7.68342 26.7071 7.29289L20.3431 0.928932C19.9526 0.538408 19.3195 0.538408 18.9289 0.928932C18.5384 1.31946 18.5384 1.95262 18.9289 2.34315L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.70711ZM0 9H26V7H0V9Z"
+							fill="white" />
+					</svg>
+				</a>
+
+
 			</div>
 		</div>
 
@@ -781,6 +852,7 @@
 </div>
 
 
+<!-- Попап благодарность -->
 <div id="send-popup" aria-hidden="true" class="popup help-popup other-popup send-popup">
 	<div class="popup__wrapper">
 		<div class="popup__content back-image-section">
@@ -807,3 +879,4 @@
 <a href="" data-popup="#help-popup"></a>
 <a href="" data-popup="#promocode-popup"></a>
 <a href="" data-popup="#send-popup"></a>
+<a href="" data-popup="#favorite"></a>

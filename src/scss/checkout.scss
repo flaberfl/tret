@@ -382,8 +382,8 @@
   @include adaptiveValue("gap", 20, 5);
   @include adaptiveValue("padding-bottom", 24, 11);
 
+  @include adaptiveValue("padding-top", 22, 9);
   &:not(:first-child) {
-    @include adaptiveValue("padding-top", 22, 9);
   }
 
   /* .item-total__img */
