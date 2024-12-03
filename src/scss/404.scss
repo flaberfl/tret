@@ -42,4 +42,38 @@
   &__title {
     @include adaptiveValue("margin-bottom", 50, 20);
   }
+
+  &__size-value {
+    @media (any-hover: hover) {
+      &:hover {
+        color: inherit;
+        background-color: inherit;
+      }
+    }
+  }
+
+  &__variant {
+    justify-content: space-between;
+    margin-bottom: toRem(0);
+    // @include adaptiveValue("margin-bottom", 30, 10);
+  }
+
+  &__item-total {
+    align-items: flex-start;
+
+    .item-total__delete {
+      margin-top: 0;
+    }
+  }
+
+  .item-total__price {
+    padding-bottom: toRem(5);
+    margin-right: auto;
+    margin-left: 0;
+  }
+}
+
+.item-total__footer {
+  display: flex;
+  align-items: flex-end;
 }
