@@ -60,6 +60,8 @@
 
   &__item-total {
     align-items: flex-start;
+    // @include adaptiveValue("margin-bottom", 30, 20);
+    margin-bottom: toRem(40);
 
     .item-total__delete {
       margin-top: 0;
@@ -70,6 +72,14 @@
     padding-bottom: toRem(5);
     margin-right: auto;
     margin-left: 0;
+  }
+
+  .total-checkout__list {
+    max-height: toRem(400);
+  }
+  
+  .all-total__button {
+    margin-top: toRem(45);
   }
 }
 

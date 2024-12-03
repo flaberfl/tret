@@ -168,7 +168,7 @@
 		font-weight: 600;
 		color: #fff;
 
-		@include adaptiveValue("height", 56, 27);
+		@include adaptiveValue("height", 55, 27);
 
 		.product-card__add-to-cart & {
 			height: toRem(52);
