@@ -44,6 +44,10 @@ body::after {
 	transform: scale(1);
 }
 
+// .popup_show .cart-popup .popup__content {
+// 	transform: translate(0px,0px);
+// }
+
 .popup__wrapper {
 	display: flex;
 	flex-direction: column;
@@ -76,6 +80,11 @@ body::after {
 
 	.cart-popup & {
 		border-radius: 0;
+
+		// opacity: 1;
+		// visibility: visible;
+		// right: 100px;
+		// transform: translate(200%, 0px);
 	}
 
 	.other-popup & {
