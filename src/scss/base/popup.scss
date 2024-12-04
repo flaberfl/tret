@@ -11,6 +11,7 @@ body::after {
 	pointer-events: none;
 	// z-index: 149;
 	z-index: 600;
+	backdrop-filter: blur(2px);
 }
 
 .popup-show body::after {
