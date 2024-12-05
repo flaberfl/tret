@@ -11,7 +11,7 @@ body::after {
 	pointer-events: none;
 	// z-index: 149;
 	z-index: 600;
-	backdrop-filter: blur(2px);
+	backdrop-filter: blur(3px);
 }
 
 .popup-show body::after {
@@ -79,14 +79,14 @@ body::after {
 	@include adaptiveValue("padding-left", 17, 12);
 	@include adaptiveValue("padding-right", 17, 12);
 
-	.cart-popup & {
-		border-radius: 0;
+	// .cart-popup & {
+	// 	border-radius: 0;
 
-		// opacity: 1;
-		// visibility: visible;
-		// right: 100px;
-		// transform: translate(200%, 0px);
-	}
+	// 	// opacity: 1;
+	// 	// visibility: visible;
+	// 	// right: 100px;
+	// 	// transform: translate(200%, 0px);
+	// }
 
 	.other-popup & {
 		min-height: toRem(630);
@@ -171,9 +171,9 @@ body::after {
 	@include adaptiveValue("font-size", 32, 26);
 
 	span {
-		cursor: pointer;
+		// cursor: pointer;
 		color: $secondaryColor;
-		text-decoration: underline;
+		// text-decoration: underline;
 	}
 
 	@media (max-width:$mobile) {
