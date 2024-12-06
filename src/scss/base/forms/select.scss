@@ -309,7 +309,7 @@
 			// background-color: #eee;
 
 			&::before {
-				border: 1px solid #28b3b6;
+				border: 1px solid var(--secondary-color);
 				background: #fff url('@img/catalog/check.svg') center center no-repeat;
 			}
 		}

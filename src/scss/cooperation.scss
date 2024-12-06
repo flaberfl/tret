@@ -142,7 +142,7 @@
     font-weight: 700;
     line-height: 155%;
     text-decoration: underline;
-    color: #28b3b6;
+    color: var(--secondary-color);
     @include adaptiveValue("font-size", 20, 18);
   }
 

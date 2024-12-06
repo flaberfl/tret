@@ -281,12 +281,12 @@
     }
 
     &._tab-active {
-      border: 2px solid #28b3b6;
+      border: 2px solid var(--secondary-color);
     }
 
     @media (any-hover: hover) {
       &:hover {
-        border: 2px solid #28b3b6;
+        border: 2px solid var(--secondary-color);
       }
     }
   }

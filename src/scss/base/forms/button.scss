@@ -68,7 +68,7 @@
 	&__to-main {
 		height: toRem(52);
 
-		border: 1px solid #28b3b6;
+		border: 1px solid var(--secondary-color);
 		background: #fff;
 
 		font-size: toRem(17);
@@ -138,7 +138,7 @@
 
 	.button__email & {
 		background: #fff;
-		color: #28b3b6;
+		color: var(--secondary-color);
 	}
 
 	&__icon {
@@ -157,7 +157,7 @@
 		}
 
 		.button__email & {
-			background: #28b3b6;
+			background: var(--secondary-color);
 		}
 	}
 
