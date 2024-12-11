@@ -398,8 +398,6 @@
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 108 / 108;
-    // @include adaptiveValue("width", 108, 43);
-
 
     @media (max-width:$tablet) {
       max-width: toRem(108);
