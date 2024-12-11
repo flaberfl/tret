@@ -550,21 +550,21 @@
 }
 
 .boxberry_map {
-  position: relative;
-  margin-left: toRem(-299);
+  // position: relative;
+  // margin-left: toRem(-299);
 
   @include adaptiveValue("margin-bottom", 12, 20);
 
-  &::before {
-    content: '';
-    position: absolute;
+  // &::before {
+  //   content: '';
+  //   position: absolute;
 
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    left: toRem(119);
-    top: 0;
-  }
+  //   width: 100px;
+  //   height: 100px;
+  //   background-color: #fff;
+  //   left: toRem(119);
+  //   top: 0;
+  // }
 }
 
 .thankyou {

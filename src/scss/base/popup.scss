@@ -171,7 +171,7 @@ body::after {
 	@include adaptiveValue("font-size", 32, 26);
 
 	span {
-		// cursor: pointer;
+		cursor: pointer;
 		color: $secondaryColor;
 		// text-decoration: underline;
 	}
@@ -218,6 +218,7 @@ body::after {
 		@include adaptiveValue("margin-bottom", 35, 26);
 
 		span {
+			cursor: auto;
 			color: $secondaryColor;
 			@include adaptiveValue("font-size", 47, 31);
 		}
@@ -286,6 +287,11 @@ body::after {
 	border-radius: toRem(50);
 
 	font-size: toRem(14);
+
+	svg {
+		width: toRem(22);
+		height: toRem(22);
+	}
 
 	.signup-popup & {
 		margin-bottom: toRem(22);
