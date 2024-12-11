@@ -31,6 +31,10 @@ body::after {
 	// overscroll-behavior: contain;
 }
 
+.popup.cart-popup {
+	left: auto;
+}
+
 .popup_show {
 	// z-index: 150;
 	z-index: 601;
@@ -45,9 +49,19 @@ body::after {
 	transform: scale(1);
 }
 
-// .popup_show .cart-popup .popup__content {
-// 	transform: translate(0px,0px);
-// }
+.cart-popup .popup__content {
+	// visibility: hidden;
+	// transform: translate(200%, 0px);
+
+	// transition: all 2s;
+}
+
+.popup_show .cart-popup .popup__content {
+	// justify-self: end;
+	// visibility: visible;
+	// transform: translate(0px, 0px);
+	// justify-self: center;
+}
 
 .popup__wrapper {
 	display: flex;
