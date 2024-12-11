@@ -169,9 +169,9 @@
   @include adaptiveValue("padding-right", 38, 22);
   @include adaptiveValue("padding-left", 38, 22);
 
-  @media (max-width: toEm(683)) {
-    margin-top: toRem(-68);
-  }
+  // @media (max-width: toEm(683)) {
+  //   margin-top: toRem(-68);
+  // }
 
   /* .shipping-point__title */
   &__title {
@@ -241,10 +241,12 @@
   @include adaptiveValue("padding-right", 47, 20);
 
   @media (max-width:$mobileSmall) {
-    margin-left: toRem(-20);
-    margin-right: toRem(-20);
-
     border-radius: 0;
+
+    .popup__wrapper & {
+      margin-left: toRem(-20);
+      margin-right: toRem(-20);
+    }
   }
 
   /* .total-checkout__title */
@@ -319,9 +321,11 @@
   &__list {
     margin-bottom: toRem(23);
     overflow-y: auto;
-
-    margin-right: toRem(-15);
     max-height: toRem(300);
+
+    .popup__wrapper & {
+      margin-right: toRem(-15);
+    }
   }
 
   /* .total-checkout__promocode */
@@ -380,10 +384,13 @@
 
   border-bottom: 1px solid #f3f3f3;
 
-  padding-right: toRem(15);
   @include adaptiveValue("gap", 20, 5);
   @include adaptiveValue("padding-bottom", 24, 11);
   @include adaptiveValue("padding-top", 22, 9);
+
+  .popup__wrapper & {
+    padding-right: toRem(15);
+  }
 
   &:not(:first-child) {}
 
@@ -393,7 +400,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
+    // flex-shrink: 0;
     border: 1px solid #f5f5f5;
     border-radius: 10px;
     overflow: hidden;
