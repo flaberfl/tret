@@ -1,7 +1,7 @@
 .side-buttons {
   display: grid;
   position: fixed;
-  z-index: 500;
+  z-index: -1000;
   top: 50%;
 
   transition: all .7s;
@@ -28,6 +28,7 @@
   &.active {
     transform: none;
     opacity: 1;
+    z-index: 500;
   }
 }
 
