@@ -1,4 +1,5 @@
 <footer class="footer">
+  <?php $tretbed_theme_options = tretbed_theme_options(); ?>
   <div class="footer__container">
     <div class="footer__top">
       <a href="#!" class="footer__logo logo">
@@ -57,7 +58,7 @@
       </button>
 
       <div class="footer__social-items">
-        <a href="#!" class="footer__social-link">
+        <a href="https://t.me/<?php echo $tretbed_theme_options['telegram'] ?>" class="footer__social-link">
           <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M9.37303 13.2423L8.99871 18.8502C9.54871 18.8502 9.79172 18.5987 10.0987 18.3002L12.7412 15.7307L18.2387 19.7924C19.2504 20.3506 19.9806 20.0616 20.2326 18.8531L23.8416 1.84652C24.2111 0.365148 23.2769 -0.306733 22.309 0.132681L1.11751 8.30403C-0.329011 8.88423 -0.320577 9.69124 0.853838 10.0508L6.29205 11.7482L18.8821 3.80527C19.4765 3.44485 20.0219 3.63862 19.5742 4.03598L9.37271 13.2421L9.37303 13.2423Z"
@@ -65,7 +66,7 @@
           </svg>
 
         </a>
-        <a href="#!" class="footer__social-link">
+        <a href="https://wa.me/<?php echo $tretbed_theme_options['whatsapp'] ?>" class="footer__social-link">
           <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M10.3125 0C4.60625 0 0 4.60625 0 10.3125C0 12.65 0.75625 14.85 2.2 16.6375L0.75625 21.0375C0.6875 21.3125 0.75625 21.5875 0.9625 21.7938C1.03125 21.9312 1.2375 22 1.375 22C1.44375 22 1.58125 22 1.65 21.9312L6.39375 19.8C7.63125 20.35 8.9375 20.625 10.3125 20.625C16.0187 20.625 20.625 16.0187 20.625 10.3125C20.625 4.60625 16.0187 0 10.3125 0ZM16.2938 14.0938C16.0188 14.9187 14.9875 15.6062 14.0938 15.7437C13.8875 15.8125 13.6812 15.8125 13.4062 15.8125C12.8562 15.8125 12.0312 15.675 10.5875 15.0562C8.9375 14.3687 7.2875 12.925 5.98125 11.0688V11C5.56875 10.3813 4.8125 9.2125 4.8125 7.975C4.8125 6.4625 5.56875 5.70625 5.84375 5.3625C6.1875 5.01875 6.66875 4.8125 7.21875 4.8125C7.35625 4.8125 7.425 4.8125 7.5625 4.8125C8.04375 4.8125 8.3875 4.95 8.73125 5.6375L9.00625 6.1875C9.2125 6.7375 9.4875 7.35625 9.55625 7.425C9.7625 7.8375 9.7625 8.18125 9.55625 8.525C9.4875 8.73125 9.35 8.86875 9.2125 9.00625C9.14375 9.14375 9.075 9.2125 9.00625 9.2125C8.9375 9.28125 8.9375 9.28125 8.86875 9.35C9.075 9.69375 9.4875 10.3125 10.0375 10.7937C10.8625 11.55 11.4813 11.7562 11.825 11.8937C11.9625 11.7562 12.1 11.4812 12.3062 11.275L12.375 11.1375C12.7188 10.6563 13.2688 10.5188 13.8188 10.725C14.0938 10.8625 15.6063 11.55 15.6063 11.55L15.7437 11.6187C15.95 11.7562 16.225 11.825 16.3625 12.1C16.6375 12.7188 16.4312 13.6125 16.2938 14.0938Z"
@@ -73,7 +74,9 @@
           </svg>
         </a>
       </div>
-      <a href="mailto:manager@tretbed.ru" class="footer__mail">manager@tretbed.ru</a>
+      <a href="mailto:<?php echo $tretbed_theme_options['email'] ?>" class="footer__mail">
+        <?php echo $tretbed_theme_options['email'] ?>
+      </a>
     </div>
   </div>
   <div class="footer__bottom">
@@ -97,10 +100,10 @@
 <!-- <div id="popup" aria-hidden="true" class="popup">
 <div class="popup__wrapper">
 <div class="popup__content">
-  <button data-close type="button" class="popup__close">Закрыть</button>
-  <div class="popup__text">
-    Popup content
-  </div>
+<button data-close type="button" class="popup__close">Закрыть</button>
+<div class="popup__text">
+ Popup content
+</div>
 </div>
 </div>
 </div> -->
@@ -119,8 +122,9 @@
             stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
-      <div class="popup__text popup__text_cart">
 
+      <div class="popup__text popup__text_cart">
+        <?php woocommerce_mini_cart() ?>
         <h4 class="total-checkout__title">Корзина
           <span class="total-checkout__number df-fbc br50">2</span>
         </h4>
@@ -133,11 +137,12 @@
           до бесплатной доставки осталось
           <span> 5 090 руб.</span>
         </div>
-        
+
         <ul class="total-checkout__list">
           <li class="total-checkout__item item-total">
             <div class="item-total__img">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара" class="">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара"
+                class="">
             </div>
             <div class="item-total__content">
 
@@ -181,7 +186,8 @@
 
           <li class="total-checkout__item item-total">
             <div class="item-total__img">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/02.png" alt="Фото товара" class="">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/02.png" alt="Фото товара"
+                class="">
             </div>
             <div class="item-total__content">
 
@@ -226,7 +232,8 @@
           </li>
           <li class="total-checkout__item item-total">
             <div class="item-total__img">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/02.png" alt="Фото товара" class="">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/02.png" alt="Фото товара"
+                class="">
             </div>
             <div class="item-total__content">
 
@@ -335,7 +342,8 @@
         <ul class="total-checkout__list">
           <li class="total-checkout__item item-total favorite-popup__item-total">
             <div class="item-total__img">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара" class="">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара"
+                class="">
             </div>
             <div class="item-total__content">
 
@@ -386,7 +394,8 @@
 
           <li class="total-checkout__item item-total favorite-popup__item-total">
             <div class="item-total__img">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара" class="">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара"
+                class="">
             </div>
             <div class="item-total__content">
 
@@ -437,7 +446,8 @@
 
           <li class="total-checkout__item item-total favorite-popup__item-total">
             <div class="item-total__img">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара" class="">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/img/checkout/01.png" alt="Фото товара"
+                class="">
             </div>
             <div class="item-total__content">
 
@@ -541,7 +551,7 @@
               </style>
               <circle class="st0" cx="540" cy="540" r="538.9" />
               <path id="Glyph" class="st1" d="M735,878.3H616.7V293.2H564c-96.6,0-147.2,48.3-147.2,120.4c0,81.8,34.9,119.7,107.1,168l59.5,40.1
-       l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
+    l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
             </svg> аккаунта
           </a>
 
@@ -595,7 +605,7 @@
               </style>
               <circle class="st0" cx="540" cy="540" r="538.9" />
               <path id="Glyph" class="st1" d="M735,878.3H616.7V293.2H564c-96.6,0-147.2,48.3-147.2,120.4c0,81.8,34.9,119.7,107.1,168l59.5,40.1
-       l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
+    l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
             </svg> аккаунта
           </a>
 
@@ -642,7 +652,7 @@
               </style>
               <circle class="st0" cx="540" cy="540" r="538.9" />
               <path id="Glyph" class="st1" d="M735,878.3H616.7V293.2H564c-96.6,0-147.2,48.3-147.2,120.4c0,81.8,34.9,119.7,107.1,168l59.5,40.1
-       l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
+    l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
             </svg> аккаунта
           </a>
 
@@ -750,7 +760,7 @@
               </style>
               <circle class="st0" cx="540" cy="540" r="538.9" />
               <path id="Glyph" class="st1" d="M735,878.3H616.7V293.2H564c-96.6,0-147.2,48.3-147.2,120.4c0,81.8,34.9,119.7,107.1,168l59.5,40.1
-         l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
+      l-171,256.5H285.2l153.9-229c-88.5-63.2-138.3-124.9-138.3-229c0-130.1,90.7-218.6,262.4-218.6h171v676.5H735z" />
             </svg>
             аккаунта
           </a>
