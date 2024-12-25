@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+    body {
+      opacity: 0;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="//points.boxberry.ru/js/boxberry.js?_v=20241211230345"></script> -->
+
+  <?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+
+  <?php wp_body_open(); ?>
+  
+  
+
+  <div class="wrapper _dark">
+    <header class="header" data-scroll-show>
+
+      <div class="header__wrapper">
+        <div class="header__container">
+          <div class="header__left">
+            <div class="header__menu-burger">
+
+              <div class="wrap-icon-btn-d">
+                <button type="button" aria-label="Open menu" aria-checked="false" class="icon-menu_pc">
+
+                  <span></span>
+
+
+                </button>
+
+              </div>
+              <span>Каталог</span>
+            </div>
+
+
+
+            <div class="header__search" data-da=".menu__container,767.98, 0">
+              <form action="" class="header__form form-search">
+                <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Найти товар"
+                  class="header__input">
+                <button type="submit" class="form-search__button">
+
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.5">
+                      <path
+                        d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <a href="<?php echo home_url('/') ?>" class="header__logo logo">
+            <svg class="header__logo-dark" width="162" height="68" viewBox="0 0 162 68" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M156.054 0.537846C155.939 0.838484 154.962 3.34907 153.876 6.1181C152.796 8.88713 151.84 11.3397 151.762 11.5665C151.511 12.2627 151.162 12.1889 154.545 12.173L157.479 12.1572L157.902 10.9705C158.137 10.3165 158.366 9.69938 158.413 9.59917C158.46 9.49895 158.664 8.98734 158.862 8.46518C159.875 5.80164 161.541 1.46086 161.64 1.23406C161.817 0.827934 162 0.258306 162 0.121173V-0.000137329H159.134H156.268L156.054 0.537846Z"
+                fill="var(--secondary-color)" />
+              <path
+                d="M121.591 9.25659V12.2893H129C134.873 12.2893 136.423 12.3052 136.455 12.3526C136.476 12.3895 136.507 21.6302 136.523 32.8856L136.549 53.3501L139.807 53.3659L143.064 53.3765L143.028 38.5714C143.012 30.4225 142.981 21.1555 142.965 17.9698L142.929 12.1838H144.74C146.385 12.1838 146.547 12.1786 146.547 12.0942C146.547 12.0467 146.719 11.5667 146.933 11.0288C148.118 8.02766 148.791 6.29241 148.791 6.26076C148.791 6.23966 142.673 6.22384 135.191 6.22384H121.591V9.25659Z"
+                fill="white" />
+              <path
+                d="M0.0835321 6.4981C0.0104415 6.60359 0 6.96752 0 9.39372V12.1733L0.120077 12.2049C0.605608 12.3368 6.62514 12.3632 14.4615 12.2682L14.8008 12.263L14.8269 32.8065L14.853 53.3501L17.8915 53.3659L20.93 53.3765L20.9822 53.1813C21.024 53.0442 21.0396 46.6042 21.0396 32.6325V12.2893H28.3383C33.9453 12.2893 35.6525 12.2735 35.6995 12.226C35.7883 12.1364 35.7883 6.53503 35.6995 6.44536C35.6525 6.39789 31.6273 6.38207 17.902 6.38207H0.161843L0.0835321 6.4981Z"
+                fill="white" />
+              <path
+                d="M43.9275 6.49283C43.8283 6.60359 43.8283 7.07829 43.8127 29.9373L43.8022 53.271L43.938 53.3237C44.0267 53.3606 45.1179 53.3712 46.9399 53.3659C49.425 53.3501 49.8113 53.3395 49.8844 53.271C49.9523 53.1971 49.9627 52.0843 49.9836 43.3921C49.9993 35.8867 50.0202 33.5713 50.0672 33.5133C50.1246 33.45 50.8711 33.4394 55.3871 33.4394C59.5167 33.4394 60.6653 33.4553 60.7279 33.5027C60.8323 33.5871 61.4588 34.7106 67.1651 45.0536L71.7542 53.3765H75.4244C77.6119 53.3765 79.0945 53.3554 79.0945 53.329C79.0945 53.2815 72.8244 42.3689 71.0441 39.3203C70.5743 38.5081 69.8434 37.2475 69.4257 36.5249C69.008 35.7971 68.4494 34.8424 68.1832 34.3941C67.9221 33.9458 67.6924 33.5027 67.6768 33.4078C67.6507 33.2443 67.6559 33.2337 67.849 33.2021C68.8358 33.0439 69.7337 32.738 70.8823 32.1736C73.879 30.7073 76.2075 28.1546 77.2151 25.2378C77.6066 24.0986 77.8833 22.8802 77.9721 21.915C77.9877 21.7093 78.0504 21.2346 78.1078 20.8601C78.1652 20.4804 78.2279 19.8316 78.2436 19.4097L78.2697 18.6449L77.8938 16.6407C77.4552 14.3094 77.3299 13.8875 76.7191 12.7588C76.2127 11.8146 75.9516 11.4032 75.5914 10.9918C74.824 10.1058 73.1899 8.90321 71.7385 8.15425C71.018 7.77977 70.8144 7.70066 69.5876 7.2998C68.4546 6.9306 67.5045 6.71436 66.1366 6.51393L65.2334 6.38207H54.6301H44.0267L43.9275 6.49283ZM63.6933 12.1311C65.5258 12.2102 65.5362 12.2155 67.4001 12.8484C68.3032 13.1596 69.1438 13.4655 69.2586 13.5341C69.598 13.7292 70.2767 14.4043 70.5795 14.8474C71.0285 15.5067 71.2791 16.108 71.5088 17.089L71.7072 17.9593V19.6998C71.7072 21.1028 71.6863 21.5353 71.6184 21.915C71.2634 23.8349 69.9948 25.6703 68.5016 26.4193C68.2458 26.5512 67.5149 26.7938 66.4342 27.1102L64.7636 27.5955L63.5628 27.6377C62.905 27.664 59.595 27.6851 56.2172 27.6904C50.1716 27.6904 50.0724 27.6904 50.0149 27.5849C49.9523 27.4636 49.968 12.2155 50.0306 12.1469C50.1402 12.0414 61.2448 12.0256 63.6933 12.1311Z"
+                fill="white" />
+              <path
+                d="M90.7995 25.0899L90.8152 43.8032H93.5822H96.3492L96.3753 39.2198L96.4014 34.6364L96.5476 34.5257L96.6937 34.4149L104.875 34.4307C112.633 34.4465 114.956 34.4149 115.076 34.2936C115.097 34.2725 115.118 33.1385 115.128 31.7777C115.133 30.4117 115.154 29.2355 115.175 29.1616C115.201 29.0562 115.175 28.9507 115.06 28.7555L114.914 28.4918L108.869 28.4549C105.543 28.4338 101.419 28.4285 99.7061 28.4496C97.4612 28.4813 96.5632 28.4707 96.4849 28.4285L96.3753 28.3705V20.4643V12.558L96.5319 12.4736C96.6781 12.3998 97.6387 12.3892 106.154 12.3945C113.035 12.3998 115.917 12.3787 116.726 12.3365L117.833 12.2679L117.822 9.36704L117.806 6.46615L117.676 6.42923C117.603 6.40813 111.526 6.39231 104.165 6.38704L90.7891 6.38176L90.7995 25.0899Z"
+                fill="white" />
+              <path
+                d="M90.7995 50.8237L90.8152 53.3501H104.259H117.702L117.718 51.214C117.733 48.946 117.723 48.6981 117.582 48.5241L117.493 48.4186L105.955 48.3975C99.6121 48.3817 93.603 48.3553 92.6007 48.3395L90.7891 48.3026L90.7995 50.8237Z"
+                fill="var(--secondary-color)" />
+            </svg>
+            <svg class="header__logo-light" width="142" height="60" viewBox="0 0 142 60" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M136.788 0.474771C136.687 0.740039 135.831 2.95526 134.879 5.39852C133.932 7.84179 133.095 10.0058 133.026 10.2059C132.806 10.8202 132.5 10.7551 135.465 10.7411L138.037 10.7272L138.408 9.68005C138.614 9.10297 138.815 8.55848 138.856 8.47005C138.897 8.38163 139.076 7.93021 139.25 7.46948C140.137 5.11929 141.597 1.28919 141.684 1.08908C141.84 0.730732 142 0.228118 142 0.107118V8.01086e-05H139.488H136.975L136.788 0.474771Z"
+                fill="var(--secondary-color)" />
+              <path
+                d="M106.58 8.16737V10.8433H113.074C118.222 10.8433 119.581 10.8573 119.609 10.8992C119.627 10.9318 119.654 19.0853 119.668 29.0165L119.691 47.0734L122.546 47.0874L125.402 47.0967L125.37 34.0334C125.356 26.8432 125.329 18.6664 125.315 15.8555L125.283 10.7503H126.871C128.313 10.7503 128.454 10.7456 128.454 10.6711C128.454 10.6293 128.605 10.2058 128.793 9.73106C129.832 7.08303 130.422 5.55192 130.422 5.524C130.422 5.50538 125.059 5.49142 118.501 5.49142H106.58V8.16737Z"
+                fill="black" />
+              <path
+                d="M0.0732195 5.73342C0.00915243 5.82649 0 6.14761 0 8.28837V10.7409L0.105253 10.7689C0.530841 10.8852 5.80722 10.9085 12.6761 10.8247L12.9736 10.8201L12.9965 28.9467L13.0193 47.0734L15.6827 47.0874L18.3461 47.0967L18.3918 46.9245C18.4284 46.8035 18.4422 41.1212 18.4422 28.7932V10.8433H24.8397C29.7546 10.8433 31.251 10.8294 31.2922 10.7875C31.37 10.7084 31.37 5.766 31.2922 5.68688C31.251 5.64499 27.7227 5.63103 15.6918 5.63103H0.141863L0.0732195 5.73342Z"
+                fill="black" />
+              <path
+                d="M38.5044 5.72876C38.4174 5.82649 38.4174 6.24534 38.4037 26.415L38.3945 47.0036L38.5135 47.0501C38.5913 47.0827 39.5477 47.092 41.1448 47.0874C43.3231 47.0734 43.6618 47.0641 43.7258 47.0036C43.7853 46.9384 43.7945 45.9565 43.8128 38.287C43.8265 31.6646 43.8448 29.6215 43.886 29.5703C43.9363 29.5145 44.5907 29.5052 48.5492 29.5052C52.1689 29.5052 53.1757 29.5192 53.2306 29.561C53.3222 29.6355 53.8713 30.6268 58.8731 39.7529L62.8956 47.0967H66.1127C68.0301 47.0967 69.3298 47.0781 69.3298 47.0548C69.3298 47.0129 63.8337 37.3841 62.2732 34.6942C61.8614 33.9775 61.2207 32.8653 60.8546 32.2277C60.4885 31.5855 59.9989 30.7431 59.7655 30.3475C59.5367 29.952 59.3353 29.561 59.3216 29.4773C59.2987 29.333 59.3033 29.3237 59.4726 29.2958C60.3375 29.1562 61.1246 28.8862 62.1314 28.3883C64.7581 27.0945 66.7991 24.8421 67.6823 22.2685C68.0255 21.2633 68.2681 20.1882 68.3459 19.3366C68.3596 19.1551 68.4145 18.7362 68.4649 18.4058C68.5152 18.0707 68.5701 17.4983 68.5838 17.126L68.6067 16.4512L68.2772 14.6827C67.8928 12.6257 67.783 12.2534 67.2476 11.2575C66.8037 10.4245 66.5749 10.0615 66.2591 9.69848C65.5864 8.91664 64.1541 7.85556 62.8819 7.19472C62.2504 6.8643 62.0719 6.79449 60.9965 6.4408C60.0034 6.11503 59.1706 5.92422 57.9716 5.74738L57.1799 5.63103H47.8856H38.5913L38.5044 5.72876ZM55.8299 10.7037C57.4362 10.7735 57.4453 10.7782 59.079 11.3366C59.8707 11.6112 60.6075 11.8811 60.7082 11.9416C61.0056 12.1138 61.6005 12.7095 61.8659 13.1004C62.2595 13.6822 62.4792 14.2127 62.6805 15.0783L62.8544 15.8462V17.382C62.8544 18.6199 62.8361 19.0015 62.7766 19.3366C62.4654 21.0306 61.3534 22.6501 60.0446 23.3109C59.8204 23.4273 59.1797 23.6414 58.2324 23.9206L56.768 24.3487L55.7155 24.386C55.1389 24.4092 52.2376 24.4279 49.2768 24.4325C43.9775 24.4325 43.8906 24.4325 43.8402 24.3394C43.7853 24.2324 43.799 10.7782 43.854 10.7177C43.9501 10.6246 53.6837 10.6106 55.8299 10.7037Z"
+                fill="black" />
+              <path
+                d="M79.5895 22.1381L79.6032 38.6499H82.0286H84.454L84.4769 34.6057L84.4998 30.5615L84.6279 30.4638L84.756 30.3661L91.927 30.38C98.7272 30.394 100.764 30.3661 100.869 30.259C100.887 30.2404 100.905 29.2399 100.915 28.0392C100.919 26.8338 100.938 25.796 100.956 25.7309C100.979 25.6378 100.956 25.5447 100.855 25.3725L100.727 25.1398L95.4278 25.1072C92.5127 25.0886 88.8975 25.084 87.3965 25.1026C85.4287 25.1305 84.6416 25.1212 84.573 25.084L84.4769 25.0328V18.0567V11.0806L84.6142 11.0061C84.7423 10.941 85.5843 10.9317 93.0481 10.9363C99.0796 10.941 101.606 10.9224 102.315 10.8851L103.285 10.8246L103.276 8.26503L103.262 5.70542L103.148 5.67284C103.084 5.65423 97.7571 5.64027 91.3046 5.63561L79.5803 5.63096L79.5895 22.1381Z"
+                fill="black" />
+              <path
+                d="M79.5895 44.8445L79.6032 47.0737H91.387H103.171L103.184 45.1889C103.198 43.1878 103.189 42.969 103.065 42.8155L102.988 42.7224L92.8742 42.7038C87.3141 42.6898 82.0469 42.6666 81.1683 42.6526L79.5803 42.62L79.5895 44.8445Z"
+                fill="var(--secondary-color)" />
+            </svg>
+          </a>
+
+          <ul class="header__account account-header">
+            <li class="account-header__item">
+              <a href="" data-popup="#favorite" class="account-header__link account-header__link_favorite">
+                <svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M23.5091 1C29.0859 1 32.8332 6.30813 32.8332 11.26C32.8332 21.2884 17.2813 29.5 16.9998 29.5C16.7184 29.5 1.1665 21.2884 1.1665 11.26C1.1665 6.30813 4.91373 1 10.4906 1C13.6924 1 15.7859 2.62094 16.9998 4.04594C18.2137 2.62094 20.3072 1 23.5091 1Z"
+                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <div class="favorite-num">12</div>
+              </a>
+            </li>
+            <li class="account-header__item">
+
+              <a href="" data-popup="#cart" class="account-header__link account-header__link_basket">
+                <svg width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M21.8406 12.0833V7.33333C21.8406 3.83553 19.0051 1 15.5073 1C12.0095 1 9.17392 3.83553 9.17392 7.33333V12.0833M2.1946 14.2239L1.2446 24.3573C0.974484 27.2385 0.839428 28.6791 1.3175 29.7918C1.73748 30.7692 2.47345 31.5774 3.40745 32.0868C4.47067 32.6667 5.91759 32.6667 8.81142 32.6667H22.2031C25.0969 32.6667 26.5438 32.6667 27.6071 32.0868C28.5411 31.5774 29.277 30.7692 29.697 29.7918C30.1751 28.6791 30.04 27.2385 29.7699 24.3573L28.8199 14.2239C28.5918 11.791 28.4778 10.5745 27.9306 9.65476C27.4487 8.84476 26.7368 8.19643 25.8853 7.79225C24.9186 7.33334 23.6967 7.33334 21.2531 7.33334L9.76142 7.33333C7.31777 7.33333 6.09594 7.33333 5.12917 7.79225C4.27773 8.19642 3.56577 8.84476 3.08389 9.65476C2.53673 10.5745 2.42269 11.791 2.1946 14.2239Z"
+                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="basket-num">2</div>
+              </a>
+            </li>
+            <li class="account-header__item">
+              <a href="profile.html" class="account-header__link account-header__link_user">
+                <svg width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M14.9999 20.75C9.98064 20.75 5.51702 23.1735 2.67525 26.9344C2.06363 27.7439 1.75781 28.1486 1.76782 28.6956C1.77554 29.1182 2.04091 29.6513 2.37342 29.9123C2.80381 30.25 3.40022 30.25 4.59304 30.25H25.4068C26.5996 30.25 27.1961 30.25 27.6264 29.9123C27.9589 29.6513 28.2243 29.1182 28.232 28.6956C28.242 28.1486 27.9362 27.7439 27.3246 26.9344C24.4828 23.1735 20.0192 20.75 14.9999 20.75Z"
+                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M14.9999 16C18.935 16 22.1249 12.81 22.1249 8.875C22.1249 4.93997 18.935 1.75 14.9999 1.75C11.0649 1.75 7.87493 4.93997 7.87493 8.875C7.87493 12.81 11.0649 16 14.9999 16Z"
+                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+
+              </a>
+            </li>
+          </ul>
+
+          <div class="wrap-icon-btn">
+            <button type="button" aria-label="Open menu" aria-checked="false" class="icon-menu">
+              <span></span>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="header__menu menu">
+        <nav class="menu__body">
+          <div class="menu__container">
+
+            <button class="menu__button-back">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.75 12.5L1.25 7L6.75 1.5" stroke="var(--secondary-color)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Вернуться назад
+            </button>
+
+            <ul class="menu__list">
+
+              <li class="menu__item menu__item-active">
+
+
+                <div class="menu__link">
+                  <a href="./catalog.html">Подушки</a>
+                </div>
+
+                <div class="menu__content content-menu">
+
+
+                  <div class="content-menu__content">
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Наполнитель</div>
+                      <a href="./catalog.html" class="content-menu__link">Эквалипт</a>
+                      <a href="./catalog.html" class="content-menu__link">Гусиный пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Лебящий пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Перо</a>
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Размер</div>
+                      <a href="./catalog.html" class="content-menu__link">70х20</a>
+                      <a href="./catalog.html" class="content-menu__link">80х30</a>
+                      <a href="./catalog.html" class="content-menu__link">100х100</a>
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Цвет</div>
+                      <a href="./catalog.html" class="content-menu__link">Белый</a>
+                      <a href="./catalog.html" class="content-menu__link">Красный</a>
+                      <a href="./catalog.html" class="content-menu__link">Синий</a>
+                      <a href="./catalog.html" class="content-menu__link">Салатовый</a>
+                    </div>
+                  </div>
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg" class="content-menu__img"  alt="Image">
+                </div>
+              </li>
+
+              <li class="menu__item">
+                <div class="menu__link">
+                  <a href="./catalog.html">Одеяла</a>
+                </div>
+
+                <div class="menu__content content-menu">
+
+                  <div class="content-menu__content">
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Наполнитель</div>
+                      <a href="./catalog.html" class="content-menu__link">Эквалипт</a>
+                      <a href="./catalog.html" class="content-menu__link">Гусиный пух</a>
+
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Размер</div>
+                      <a href="./catalog.html" class="content-menu__link">70х20</a>
+                      <a href="./catalog.html" class="content-menu__link">80х30</a>
+
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Цвет</div>
+                      <a href="./catalog.html" class="content-menu__link">Белый</a>
+                      <a href="./catalog.html" class="content-menu__link">Красный</a>
+                    </div>
+                  </div>
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg" class="content-menu__img" alt="Image">
+                </div>
+              </li>
+
+              <li class="menu__item">
+                <div class="menu__link">
+                  <a href="catalog.html">Постельное белье</a>
+                </div>
+
+                <div class="menu__content content-menu">
+
+                  <div class="content-menu__content">
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Наполнитель</div>
+                      <a href="./catalog.html" class="content-menu__link">Эквалипт</a>
+                      <a href="./catalog.html" class="content-menu__link">Гусиный пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Лебящий пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Перо</a>
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Размер</div>
+                      <a href="./catalog.html" class="content-menu__link">70х20</a>
+                      <a href="./catalog.html" class="content-menu__link">80х30</a>
+                      <a href="./catalog.html" class="content-menu__link">100х100</a>
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Цвет</div>
+                      <a href="./catalog.html" class="content-menu__link">Белый</a>
+                      <a href="./catalog.html" class="content-menu__link">Красный</a>
+                      <a href="./catalog.html" class="content-menu__link">Синий</a>
+                      <a href="./catalog.html" class="content-menu__link">Салатовый</a>
+                    </div>
+                  </div>
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg" class="content-menu__img"  alt="Image">
+
+                </div>
+              </li>
+
+              <li class="menu__item">
+
+                <div class="menu__link">
+                  <a href="catalog.html">Прочее</a>
+                </div>
+
+                <div class="menu__content content-menu">
+
+                  <div class="content-menu__content">
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Наполнитель</div>
+                      <a href="./catalog.html" class="content-menu__link">Эквалипт</a>
+                      <a href="./catalog.html" class="content-menu__link">Гусиный пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Лебящий пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Пух</a>
+                      <a href="./catalog.html" class="content-menu__link">Перо</a>
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Размер</div>
+                      <a href="./catalog.html" class="content-menu__link">70х20</a>
+                      <a href="./catalog.html" class="content-menu__link">80х30</a>
+                      <a href="./catalog.html" class="content-menu__link">100х100</a>
+                    </div>
+
+                    <div class="content-menu__column">
+                      <div class="content-menu__title">Цвет</div>
+                      <a href="./catalog.html" class="content-menu__link">Белый</a>
+                      <a href="./catalog.html" class="content-menu__link">Красный</a>
+                      <a href="./catalog.html" class="content-menu__link">Синий</a>
+                      <a href="./catalog.html" class="content-menu__link">Салатовый</a>
+                    </div>
+                  </div>
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg"  class="content-menu__img" alt="Image">
+
+                </div>
+
+              </li>
+            </ul>
+          </div>
+
+        </nav>
+
+      </div>
+
+    </header>
