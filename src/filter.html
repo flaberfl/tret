@@ -1,0 +1,81 @@
+<form action="" id="price_filler" method="GET">
+  <?php $product_filler = get_terms( array( 'taxonomy' => 'pa_filler', 'hide_empty' => false ) ); ?>
+
+  <?php if( $product_filler ) :
+
+  $shop_page_url = get_permalink( wc_get_page_id( 'shop' ) );
+
+?>
+
+  <select multiple data-tags=".tags-1" data-pseudo-label="Наполнитель" name="1">
+    <?php foreach( $product_filler as $product_filler ) : ?>
+    <!-- 									<option value="<?php echo add_query_arg( 'filter_filler', $product_filler->slug, $shop_page_url ) ?>"><?php if( isset( $_GET[ 'filter_filler' ] ) && $product_filler->slug == $_GET[ 'filter_filler' ] ) : ?><?php endif; ?><?php echo $product_filler->name ?></option> -->
+
+
+    <option value="<?php echo add_query_arg( 'filter_filler', $product_filler->slug, $shop_page_url ) ?>">
+      <?php if( isset( $_GET[ 'filter_filler' ] ) && $product_filler->slug == $_GET[ 'filter_filler' ] ) : ?>
+      <?php endif; ?>
+      <?php echo $product_filler->name ?>
+    </option>
+
+    <?php endforeach; ?>
+
+  </select>
+
+  <?php endif; ?>
+
+  <button type="submit">
+    Отправить данные
+  </button>
+
+</form>
+
+
+
+
+
+
+
+<div class="profile-order__box">
+
+  <div class="spollers order">
+    <details class="spollers__item order__spoller">
+      <summary class="spollers__title">
+        <ul class="order__header">
+          <li class="order__header-item">
+            <?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
+            <div
+              class="order__header-name woocommerce-orders-table__header woocommerce-orders-table__header-<?php echo esc_attr( $column_id ); ?>">
+              <span class="nobr">
+                <?php echo esc_html( $column_name ); ?>
+              </span>
+            </div>
+            <?php endforeach; ?>
+
+            <!-- 													<div class="order__header-name">Заказ №</div>
+            <div class="order__header-value">#24422</div> -->
+          </li>
+          <li class="order__header-item">
+            <div class="order__header-name">Дата</div>
+            <div class="order__header-value">01.10.2024</div>
+          </li>
+          <li class="order__header-item">
+            <div class="order__header-name">Статус</div>
+            <div class="order__header-value">Выполнен</div>
+          </li>
+          <li class="order__header-item">
+            <div class="order__header-name"> Кол-во ед.</div>
+            <div class="order__header-value">7</div>
+          </li>
+          <li class="order__header-item">
+            <div class="order__header-name">Сумма</div>
+            <div class="order__header-value">18 600 <span>₽</span></div>
+          </li>
+        </ul>
+
+      </summary>
+
+    </details>
+  </div>
+
+</div>
