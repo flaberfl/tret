@@ -203,7 +203,8 @@
                       <a href="./catalog.html" class="content-menu__link">Салатовый</a>
                     </div>
                   </div>
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg" class="content-menu__img"  alt="Image">
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg"
+                    class="content-menu__img" alt="Image">
                 </div>
               </li>
 
@@ -235,7 +236,8 @@
                       <a href="./catalog.html" class="content-menu__link">Красный</a>
                     </div>
                   </div>
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg" class="content-menu__img" alt="Image">
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg"
+                    class="content-menu__img" alt="Image">
                 </div>
               </li>
 
@@ -271,7 +273,8 @@
                       <a href="./catalog.html" class="content-menu__link">Салатовый</a>
                     </div>
                   </div>
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg" class="content-menu__img"  alt="Image">
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg"
+                    class="content-menu__img" alt="Image">
 
                 </div>
               </li>
@@ -309,7 +312,8 @@
                       <a href="./catalog.html" class="content-menu__link">Салатовый</a>
                     </div>
                   </div>
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg"  class="content-menu__img" alt="Image">
+                  <img src="<?php echo get_template_directory_uri() ?>/assets/img/menu-img.jpg"
+                    class="content-menu__img" alt="Image">
 
                 </div>
 
@@ -322,3 +326,125 @@
       </div>
 
     </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Визуально как работает фильтр я снял в видео.
+
+    Структура select-ов у меня такая, она обрабатывается JS-ом для тэгов и другого функционала
+
+
+      <select multiple data-pseudo-label="Чехол"> // В data атрибуте - название Атрибута (не слаг)
+        <option value="tik" selected="selected">Тик</option> // selected="selected" это когда выбрано значение атрибута, в данном случае Тик (слаг tik)
+        <option value="cotton">Хлопок</option> // И так во всех option выводятся значения атрибута (в данном случае значение-Хлопок (слаг cotton), атрибут-Чехол)
+      </select>
+
+      // Остальная разметка генерится js-ом, для фильтра никакого значения не имеет.
+
+      <div class="select__body">
+        <button type="button" class="select__title">
+          <span data-pseudo-label="Чехол" class="select__value">
+            <span class="select__content">
+              <span role="button" data-value="tik" class="_select-tag">Тик</span>
+            </span>
+          </span>
+        </button>
+        <div class="select__options">
+          <div class="select__scroll">
+            <button class="select__option _select-selected" data-value="tik" type="button">Тик</button>
+            <button class="select__option" data-value="cotton" type="button">Хлопок</button>
+          </div>
+        </div>
+      </div>
+  
+    
+      
+    Получается сколько атрибутов-столько и select, внутри которого сколько значений атрибутов-столько и option в выпадающем
+    списке select
+
+    Динамически оно без проблем выводится кодом примерно таким
+
+    ////////////////////////////
+    $attributes = wc_get_attribute_taxonomies(); // Получаем все атрибуты WooCommerce
+    $output = '';
+
+    foreach ($attributes as $attribute) {
+    $taxonomy = 'pa_' . $attribute->attribute_name;
+    $terms = get_terms(array(
+    'taxonomy' => $taxonomy,
+    'hide_empty' => true,
+    ));
+
+    if (!is_wp_error($terms) && !empty($terms)) {
+    $output .= '<select multiple data-pseudo-label="' . esc_attr($attribute->attribute_label)>';
+            foreach ($terms as $term) {
+                $output .= '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+            }
+            $output .= '</select>';
+
+        }
+    }
+	
+    return $output;
+
+    /////////////////////
+
+    Ну а остальная разметка генерится js-ом, для фильтра никакого значения не имеет.
+    Нужная для фильра основа - это 
+    <select multiple data-pseudo-label="Атрибут">
+      <option value="Слаг значения атрибута" selected="selected">Название значения атрибута</option>
+      <option value="Слаг значения атрибута">Название значения атрибута</option>
+    </select>
+
+Еще сложность одна заключалась в том, что для названия Атрибута в этой разметке используется data-pseudo-label = с Названием Атрибута, но не со слагом, а слаг для фильтра я выводил и подставлял с помошью кода,
+который предолжил GPT.
+А значение атрибута для фильтра (вернее его слаг) я брал из <option value="Слаг значения атрибута"></option> только естественно тот option, по которому нажали,
+у него после клика выводится selected="selected", по этому параметру я определял только нажатый option, и в строку URL с помощью Ajax посылалась такая конструкция:
+
+xxxxx.ru/shop/?filter_case=tik
+
+С выводом отфильтрованных товаров я так понял-у меня проблем нет, т.к. если я вручную введу в строку барузера вышенаписанную строку-товар сортируется.
+
+Вывод товаров в arhive-product.php у меня выводится в станадртном лупе
+
+<?php
+			
+if ( woocommerce_product_loop() ) {
+
+woocommerce_product_loop_start();
+
+if ( wc_get_loop_prop( 'total' ) ) {
+  while ( have_posts() ) {
+    the_post();
+
+    wc_get_template_part( 'content', 'product' );
+  }
+}
+
+woocommerce_product_loop_end();
+
+do_action( 'woocommerce_after_shop_loop' );
+} else {
+
+do_action( 'woocommerce_no_products_found' );
+}
+
+ ?>
+
+ Разве что, только loop-start.php и loop-end.php еще выводят оболочку с классом "catalog__list" вокруг цикла (хотя это не имеет значения)
+
+ Вроде все.
